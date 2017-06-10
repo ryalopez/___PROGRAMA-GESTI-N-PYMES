@@ -29,31 +29,118 @@ Partial Class frmAsientos
         Dim OperaciónLabel As System.Windows.Forms.Label
         Dim DebeLabel As System.Windows.Forms.Label
         Dim HaberLabel As System.Windows.Forms.Label
+        Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
-        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
-        Me.AsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AsientosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter()
-        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
         Me.NúmeroTextBox = New System.Windows.Forms.TextBox()
         Me.FechaDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.AsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
         Me.JustificanteTextBox = New System.Windows.Forms.TextBox()
         Me.OperaciónTextBox = New System.Windows.Forms.TextBox()
         Me.DebeTextBox = New System.Windows.Forms.TextBox()
         Me.HaberTextBox = New System.Windows.Forms.TextBox()
+        Me.AsientosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter()
+        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
+        Me.CuentasGastoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CuentasGastoTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasGastoTableAdapter()
+        Me.CuentasGastoComboBox = New System.Windows.Forms.ComboBox()
+        Me.CuentasProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CuentasProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasProveedoresTableAdapter()
+        Me.CuentasProveedoresComboBox = New System.Windows.Forms.ComboBox()
         Me.FrmAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter()
         NúmeroLabel = New System.Windows.Forms.Label()
         FechaLabel = New System.Windows.Forms.Label()
         JustificanteLabel = New System.Windows.Forms.Label()
         OperaciónLabel = New System.Windows.Forms.Label()
         DebeLabel = New System.Windows.Forms.Label()
         HaberLabel = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'NúmeroLabel
+        '
+        NúmeroLabel.AutoSize = True
+        NúmeroLabel.Location = New System.Drawing.Point(26, 68)
+        NúmeroLabel.Name = "NúmeroLabel"
+        NúmeroLabel.Size = New System.Drawing.Size(62, 17)
+        NúmeroLabel.TabIndex = 2
+        NúmeroLabel.Text = "Número:"
+        '
+        'FechaLabel
+        '
+        FechaLabel.AutoSize = True
+        FechaLabel.Location = New System.Drawing.Point(264, 68)
+        FechaLabel.Name = "FechaLabel"
+        FechaLabel.Size = New System.Drawing.Size(51, 17)
+        FechaLabel.TabIndex = 4
+        FechaLabel.Text = "Fecha:"
+        '
+        'JustificanteLabel
+        '
+        JustificanteLabel.AutoSize = True
+        JustificanteLabel.Location = New System.Drawing.Point(26, 288)
+        JustificanteLabel.Name = "JustificanteLabel"
+        JustificanteLabel.Size = New System.Drawing.Size(83, 17)
+        JustificanteLabel.TabIndex = 6
+        JustificanteLabel.Text = "Justificante:"
+        '
+        'OperaciónLabel
+        '
+        OperaciónLabel.AutoSize = True
+        OperaciónLabel.Location = New System.Drawing.Point(26, 234)
+        OperaciónLabel.Name = "OperaciónLabel"
+        OperaciónLabel.Size = New System.Drawing.Size(78, 17)
+        OperaciónLabel.TabIndex = 8
+        OperaciónLabel.Text = "Operación:"
+        '
+        'DebeLabel
+        '
+        DebeLabel.AutoSize = True
+        DebeLabel.Location = New System.Drawing.Point(26, 342)
+        DebeLabel.Name = "DebeLabel"
+        DebeLabel.Size = New System.Drawing.Size(46, 17)
+        DebeLabel.TabIndex = 10
+        DebeLabel.Text = "Debe:"
+        '
+        'HaberLabel
+        '
+        HaberLabel.AutoSize = True
+        HaberLabel.Location = New System.Drawing.Point(331, 342)
+        HaberLabel.Name = "HaberLabel"
+        HaberLabel.Size = New System.Drawing.Size(51, 17)
+        HaberLabel.TabIndex = 12
+        HaberLabel.Text = "Haber:"
+        '
+        'Label1
+        '
+        Label1.AutoSize = True
+        Label1.Location = New System.Drawing.Point(26, 124)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(78, 17)
+        Label1.TabIndex = 15
+        Label1.Text = "Proveedor:"
+        '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.Location = New System.Drawing.Point(27, 180)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(50, 17)
+        Label2.TabIndex = 16
+        Label2.Text = "Gasto:"
         '
         'TableLayoutPanel1
         '
@@ -63,7 +150,7 @@ Partial Class frmAsientos
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(373, 423)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(645, 433)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -92,15 +179,66 @@ Partial Class frmAsientos
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancelar"
         '
-        'BDContabilidadGMELO
+        'NúmeroTextBox
         '
-        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
-        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.NúmeroTextBox.Enabled = False
+        Me.NúmeroTextBox.Location = New System.Drawing.Point(115, 63)
+        Me.NúmeroTextBox.Name = "NúmeroTextBox"
+        Me.NúmeroTextBox.Size = New System.Drawing.Size(118, 22)
+        Me.NúmeroTextBox.TabIndex = 3
+        '
+        'FechaDateTimePicker
+        '
+        Me.FechaDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AsientosBindingSource, "Fecha", True))
+        Me.FechaDateTimePicker.Location = New System.Drawing.Point(326, 63)
+        Me.FechaDateTimePicker.Name = "FechaDateTimePicker"
+        Me.FechaDateTimePicker.Size = New System.Drawing.Size(200, 22)
+        Me.FechaDateTimePicker.TabIndex = 5
         '
         'AsientosBindingSource
         '
         Me.AsientosBindingSource.DataMember = "Asientos"
         Me.AsientosBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'BDContabilidadGMELO
+        '
+        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
+        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'JustificanteTextBox
+        '
+        Me.JustificanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Justificante", True))
+        Me.JustificanteTextBox.Location = New System.Drawing.Point(115, 283)
+        Me.JustificanteTextBox.Name = "JustificanteTextBox"
+        Me.JustificanteTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.JustificanteTextBox.TabIndex = 7
+        '
+        'OperaciónTextBox
+        '
+        Me.OperaciónTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Operación", True))
+        Me.OperaciónTextBox.Enabled = False
+        Me.OperaciónTextBox.Location = New System.Drawing.Point(115, 229)
+        Me.OperaciónTextBox.Name = "OperaciónTextBox"
+        Me.OperaciónTextBox.Size = New System.Drawing.Size(660, 22)
+        Me.OperaciónTextBox.TabIndex = 9
+        '
+        'DebeTextBox
+        '
+        Me.DebeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Debe", True))
+        Me.DebeTextBox.Enabled = False
+        Me.DebeTextBox.Location = New System.Drawing.Point(115, 337)
+        Me.DebeTextBox.Name = "DebeTextBox"
+        Me.DebeTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.DebeTextBox.TabIndex = 11
+        '
+        'HaberTextBox
+        '
+        Me.HaberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Haber", True))
+        Me.HaberTextBox.Enabled = False
+        Me.HaberTextBox.Location = New System.Drawing.Point(420, 337)
+        Me.HaberTextBox.Name = "HaberTextBox"
+        Me.HaberTextBox.Size = New System.Drawing.Size(200, 22)
+        Me.HaberTextBox.TabIndex = 13
         '
         'AsientosTableAdapter
         '
@@ -156,114 +294,58 @@ Partial Class frmAsientos
         Me.TableAdapterManager.UnidadesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'NúmeroLabel
+        'CuentasGastoBindingSource
         '
-        NúmeroLabel.AutoSize = True
-        NúmeroLabel.Location = New System.Drawing.Point(150, 58)
-        NúmeroLabel.Name = "NúmeroLabel"
-        NúmeroLabel.Size = New System.Drawing.Size(62, 17)
-        NúmeroLabel.TabIndex = 2
-        NúmeroLabel.Text = "Número:"
+        Me.CuentasGastoBindingSource.DataMember = "CuentasGasto"
+        Me.CuentasGastoBindingSource.DataSource = Me.BDContabilidadGMELO
         '
-        'NúmeroTextBox
+        'CuentasGastoTableAdapter
         '
-        Me.NúmeroTextBox.Enabled = False
-        Me.NúmeroTextBox.Location = New System.Drawing.Point(239, 55)
-        Me.NúmeroTextBox.Name = "NúmeroTextBox"
-        Me.NúmeroTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.NúmeroTextBox.TabIndex = 3
+        Me.CuentasGastoTableAdapter.ClearBeforeFill = True
         '
-        'FechaLabel
+        'CuentasGastoComboBox
         '
-        FechaLabel.AutoSize = True
-        FechaLabel.Location = New System.Drawing.Point(150, 87)
-        FechaLabel.Name = "FechaLabel"
-        FechaLabel.Size = New System.Drawing.Size(51, 17)
-        FechaLabel.TabIndex = 4
-        FechaLabel.Text = "Fecha:"
+        Me.CuentasGastoComboBox.DataSource = Me.CuentasGastoBindingSource
+        Me.CuentasGastoComboBox.DisplayMember = "Nombre"
+        Me.CuentasGastoComboBox.FormattingEnabled = True
+        Me.CuentasGastoComboBox.Location = New System.Drawing.Point(115, 173)
+        Me.CuentasGastoComboBox.Name = "CuentasGastoComboBox"
+        Me.CuentasGastoComboBox.Size = New System.Drawing.Size(411, 24)
+        Me.CuentasGastoComboBox.TabIndex = 13
+        Me.CuentasGastoComboBox.ValueMember = "Código"
         '
-        'FechaDateTimePicker
+        'CuentasProveedoresBindingSource
         '
-        Me.FechaDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AsientosBindingSource, "Fecha", True))
-        Me.FechaDateTimePicker.Location = New System.Drawing.Point(239, 83)
-        Me.FechaDateTimePicker.Name = "FechaDateTimePicker"
-        Me.FechaDateTimePicker.Size = New System.Drawing.Size(200, 22)
-        Me.FechaDateTimePicker.TabIndex = 5
+        Me.CuentasProveedoresBindingSource.DataMember = "CuentasProveedores"
+        Me.CuentasProveedoresBindingSource.DataSource = Me.BDContabilidadGMELO
         '
-        'JustificanteLabel
+        'CuentasProveedoresTableAdapter
         '
-        JustificanteLabel.AutoSize = True
-        JustificanteLabel.Location = New System.Drawing.Point(150, 114)
-        JustificanteLabel.Name = "JustificanteLabel"
-        JustificanteLabel.Size = New System.Drawing.Size(83, 17)
-        JustificanteLabel.TabIndex = 6
-        JustificanteLabel.Text = "Justificante:"
+        Me.CuentasProveedoresTableAdapter.ClearBeforeFill = True
         '
-        'JustificanteTextBox
+        'CuentasProveedoresComboBox
         '
-        Me.JustificanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Justificante", True))
-        Me.JustificanteTextBox.Location = New System.Drawing.Point(239, 111)
-        Me.JustificanteTextBox.Name = "JustificanteTextBox"
-        Me.JustificanteTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.JustificanteTextBox.TabIndex = 7
-        '
-        'OperaciónLabel
-        '
-        OperaciónLabel.AutoSize = True
-        OperaciónLabel.Location = New System.Drawing.Point(150, 142)
-        OperaciónLabel.Name = "OperaciónLabel"
-        OperaciónLabel.Size = New System.Drawing.Size(78, 17)
-        OperaciónLabel.TabIndex = 8
-        OperaciónLabel.Text = "Operación:"
-        '
-        'OperaciónTextBox
-        '
-        Me.OperaciónTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Operación", True))
-        Me.OperaciónTextBox.Enabled = False
-        Me.OperaciónTextBox.Location = New System.Drawing.Point(239, 139)
-        Me.OperaciónTextBox.Name = "OperaciónTextBox"
-        Me.OperaciónTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.OperaciónTextBox.TabIndex = 9
-        '
-        'DebeLabel
-        '
-        DebeLabel.AutoSize = True
-        DebeLabel.Location = New System.Drawing.Point(150, 170)
-        DebeLabel.Name = "DebeLabel"
-        DebeLabel.Size = New System.Drawing.Size(46, 17)
-        DebeLabel.TabIndex = 10
-        DebeLabel.Text = "Debe:"
-        '
-        'DebeTextBox
-        '
-        Me.DebeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Debe", True))
-        Me.DebeTextBox.Enabled = False
-        Me.DebeTextBox.Location = New System.Drawing.Point(239, 167)
-        Me.DebeTextBox.Name = "DebeTextBox"
-        Me.DebeTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.DebeTextBox.TabIndex = 11
-        '
-        'HaberLabel
-        '
-        HaberLabel.AutoSize = True
-        HaberLabel.Location = New System.Drawing.Point(150, 198)
-        HaberLabel.Name = "HaberLabel"
-        HaberLabel.Size = New System.Drawing.Size(51, 17)
-        HaberLabel.TabIndex = 12
-        HaberLabel.Text = "Haber:"
-        '
-        'HaberTextBox
-        '
-        Me.HaberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Haber", True))
-        Me.HaberTextBox.Enabled = False
-        Me.HaberTextBox.Location = New System.Drawing.Point(239, 195)
-        Me.HaberTextBox.Name = "HaberTextBox"
-        Me.HaberTextBox.Size = New System.Drawing.Size(200, 22)
-        Me.HaberTextBox.TabIndex = 13
+        Me.CuentasProveedoresComboBox.DataSource = Me.CuentasProveedoresBindingSource
+        Me.CuentasProveedoresComboBox.DisplayMember = "Nombre"
+        Me.CuentasProveedoresComboBox.FormattingEnabled = True
+        Me.CuentasProveedoresComboBox.Location = New System.Drawing.Point(115, 117)
+        Me.CuentasProveedoresComboBox.Name = "CuentasProveedoresComboBox"
+        Me.CuentasProveedoresComboBox.Size = New System.Drawing.Size(411, 24)
+        Me.CuentasProveedoresComboBox.TabIndex = 14
+        Me.CuentasProveedoresComboBox.ValueMember = "Código"
         '
         'FrmAsientosBindingSource
         '
         Me.FrmAsientosBindingSource.DataSource = GetType(Contabilidad.frmAsientos)
+        '
+        'ProveedoresBindingSource
+        '
+        Me.ProveedoresBindingSource.DataMember = "Proveedores"
+        Me.ProveedoresBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'ProveedoresTableAdapter
+        '
+        Me.ProveedoresTableAdapter.ClearBeforeFill = True
         '
         'frmAsientos
         '
@@ -271,8 +353,12 @@ Partial Class frmAsientos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(584, 474)
+        Me.ClientSize = New System.Drawing.Size(860, 489)
         Me.ControlBox = False
+        Me.Controls.Add(Label2)
+        Me.Controls.Add(Label1)
+        Me.Controls.Add(Me.CuentasProveedoresComboBox)
+        Me.Controls.Add(Me.CuentasGastoComboBox)
         Me.Controls.Add(NúmeroLabel)
         Me.Controls.Add(Me.NúmeroTextBox)
         Me.Controls.Add(FechaLabel)
@@ -295,9 +381,12 @@ Partial Class frmAsientos
         Me.Text = "frmAsientos"
         Me.TopMost = True
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -316,4 +405,12 @@ Partial Class frmAsientos
     Friend WithEvents DebeTextBox As TextBox
     Friend WithEvents HaberTextBox As TextBox
     Friend WithEvents FrmAsientosBindingSource As BindingSource
+    Friend WithEvents CuentasGastoBindingSource As BindingSource
+    Friend WithEvents CuentasGastoTableAdapter As BDContabilidadGMELOTableAdapters.CuentasGastoTableAdapter
+    Friend WithEvents CuentasGastoComboBox As ComboBox
+    Friend WithEvents CuentasProveedoresBindingSource As BindingSource
+    Friend WithEvents CuentasProveedoresTableAdapter As BDContabilidadGMELOTableAdapters.CuentasProveedoresTableAdapter
+    Friend WithEvents CuentasProveedoresComboBox As ComboBox
+    Friend WithEvents ProveedoresBindingSource As BindingSource
+    Friend WithEvents ProveedoresTableAdapter As BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter
 End Class

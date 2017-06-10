@@ -67,8 +67,34 @@ Public Class frmAsientos
     End Sub
 
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Proveedores' Puede moverla o quitarla según sea necesario.
+        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasProveedores' Puede moverla o quitarla según sea necesario.
+        Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasGasto' Puede moverla o quitarla según sea necesario.
+        Me.CuentasGastoTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasGasto)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Asientos' Puede moverla o quitarla según sea necesario.
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
+
+    End Sub
+
+    Private Sub CuentasProveedoresComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CuentasProveedoresComboBox.SelectedIndexChanged
+
+        If CuentasProveedoresComboBox.SelectedIndex > 0 Then
+
+            Dim p As Integer = Me.CuentasGastoBindingSource.Find("Código", CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Cuenta6"))
+            MsgBox("pos = " + p.ToString)
+            If p > -1 Then
+
+                Me.CuentasGastoBindingSource.Position = p
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub CuentasGastoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CuentasGastoComboBox.SelectedIndexChanged
 
     End Sub
 End Class

@@ -505,12 +505,12 @@ Public Class frmPrincipal
         file.WriteLine()
         For Each p As BDContabilidadGMELO.ProveedoresRow In Me.BDContabilidadGMELO.Proveedores
 
-            Dim c As BDContabilidadGMELO.CuentasRow = Me.BDContabilidadGMELO.Cuentas.FindByCódigo(p.Cuenta)
+            Dim c As BDContabilidadGMELO.CuentasRow = Me.BDContabilidadGMELO.Cuentas.FindByCódigo(p.Cuenta4)
 
             If Not IsNothing(c) AndAlso Trim(c.Nombre) <> Trim(p.Nombre) Then
 
                 file.Write(p.DocumentoIdentidad + vbTab)
-                file.Write(p.Cuenta.ToString + vbTab)
+                file.Write(p.Cuenta4.ToString + vbTab)
                 file.Write(p.Nombre.ToString + vbTab)
                 file.Write(c.Código.ToString + vbTab)
                 file.WriteLine(c.Nombre)
@@ -518,7 +518,7 @@ Public Class frmPrincipal
             ElseIf IsNothing(c) Then
 
                 file.Write(p.DocumentoIdentidad + vbTab)
-                file.Write(p.Cuenta.ToString + vbTab)
+                file.Write(p.Cuenta4.ToString + vbTab)
                 file.Write(p.Nombre + vbTab)
                 file.WriteLine("--------> SIN CUENTA")
 
@@ -544,7 +544,7 @@ Public Class frmPrincipal
 
                     file.Write(c.Código.ToString + vbTab)
                     file.Write(c.Nombre + vbTab)
-                    file.Write(p.Cuenta.ToString + vbTab)
+                    file.Write(p.Cuenta4.ToString + vbTab)
                     file.WriteLine(p.Nombre)
 
                 ElseIf IsNothing(p) Then

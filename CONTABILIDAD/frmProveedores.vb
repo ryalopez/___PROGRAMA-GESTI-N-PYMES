@@ -1,6 +1,12 @@
 ﻿Public Class frmProveedores
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasGasto' Puede moverla o quitarla según sea necesario.
+        Me.CuentasGastoTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasGasto)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasProveedores' Puede moverla o quitarla según sea necesario.
+        Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cuentas' Puede moverla o quitarla según sea necesario.
+        Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
         Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Clientes' Puede moverla o quitarla según sea necesario.
         Me.TiposDocumentoIdentidadTableAdapter.Fill(Me.BDContabilidadGMELO.TiposDocumentoIdentidad)
@@ -116,7 +122,13 @@
 
     End Sub
 
-    Private Sub ProveedoresComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ProveedoresComboBox.SelectedIndexChanged
-        'Me.ProveedoresBindingSource.Position = CType(sender, ComboBox).SelectedText.in
+    Private Sub FillBy1ToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy1ToolStripButton.Click
+        Try
+            Me.CuentasTableAdapter.FillBy1(Me.BDContabilidadGMELO.Cuentas)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
     End Sub
+
 End Class

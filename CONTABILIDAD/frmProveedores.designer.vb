@@ -24,7 +24,6 @@ Partial Class frmProveedores
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DocumentoIdentidadLabel As System.Windows.Forms.Label
-        Dim CuentaLabel As System.Windows.Forms.Label
         Dim NombreLabel As System.Windows.Forms.Label
         Dim TipoDocumentoIdentidadLabel As System.Windows.Forms.Label
         Dim DomicilioLabel As System.Windows.Forms.Label
@@ -36,6 +35,8 @@ Partial Class frmProveedores
         Dim DebeLabel As System.Windows.Forms.Label
         Dim HaberLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedores))
+        Dim Label1 As System.Windows.Forms.Label
+        Dim CuentaLabel As System.Windows.Forms.Label
         Me.ProveedoresBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -57,7 +58,6 @@ Partial Class frmProveedores
         Me.TiposDocumentoIdentidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TiposDocumentoIdentidadTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.TiposDocumentoIdentidadTableAdapter()
         Me.DocumentoIdentidadTextBox = New System.Windows.Forms.TextBox()
-        Me.CuentaTextBox = New System.Windows.Forms.TextBox()
         Me.NombreTextBox = New System.Windows.Forms.TextBox()
         Me.DomicilioTextBox = New System.Windows.Forms.TextBox()
         Me.LocalidadTextBox = New System.Windows.Forms.TextBox()
@@ -69,12 +69,22 @@ Partial Class frmProveedores
         Me.HaberTextBox = New System.Windows.Forms.TextBox()
         Me.TiposDocumentoIdentidadComboBox = New System.Windows.Forms.ComboBox()
         Me.BajaCheckBox = New System.Windows.Forms.CheckBox()
-        Me.ProveedoresBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProveedoresBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProveedoresComboBox = New System.Windows.Forms.ComboBox()
         Me.ProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter()
+        Me.CuentasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter()
+        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
+        Me.CuentasProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FillBy1ToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.FillBy1ToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.CuentasProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasProveedoresTableAdapter()
+        Me.CuentasGastoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CuentasGastoTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasGastoTableAdapter()
+        Me.ContabilidadGroupBox = New System.Windows.Forms.GroupBox()
+        Me.Código6ComboBox = New System.Windows.Forms.ComboBox()
+        Me.Cuenta6TextBox = New System.Windows.Forms.TextBox()
+        Me.Código4ComboBox = New System.Windows.Forms.ComboBox()
+        Me.Cuenta4TextBox = New System.Windows.Forms.TextBox()
         DocumentoIdentidadLabel = New System.Windows.Forms.Label()
-        CuentaLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TipoDocumentoIdentidadLabel = New System.Windows.Forms.Label()
         DomicilioLabel = New System.Windows.Forms.Label()
@@ -85,13 +95,17 @@ Partial Class frmProveedores
         DatosBancariosLabel = New System.Windows.Forms.Label()
         DebeLabel = New System.Windows.Forms.Label()
         HaberLabel = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
+        CuentaLabel = New System.Windows.Forms.Label()
         CType(Me.ProveedoresBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProveedoresBindingNavigator.SuspendLayout()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TiposDocumentoIdentidadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProveedoresBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProveedoresBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillBy1ToolStrip.SuspendLayout()
+        CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContabilidadGroupBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'DocumentoIdentidadLabel
@@ -102,15 +116,6 @@ Partial Class frmProveedores
         DocumentoIdentidadLabel.Size = New System.Drawing.Size(146, 17)
         DocumentoIdentidadLabel.TabIndex = 6
         DocumentoIdentidadLabel.Text = "Documento Identidad:"
-        '
-        'CuentaLabel
-        '
-        CuentaLabel.AutoSize = True
-        CuentaLabel.Location = New System.Drawing.Point(859, 117)
-        CuentaLabel.Name = "CuentaLabel"
-        CuentaLabel.Size = New System.Drawing.Size(57, 17)
-        CuentaLabel.TabIndex = 8
-        CuentaLabel.Text = "Cuenta:"
         '
         'NombreLabel
         '
@@ -187,7 +192,7 @@ Partial Class frmProveedores
         'DebeLabel
         '
         DebeLabel.AutoSize = True
-        DebeLabel.Location = New System.Drawing.Point(667, 320)
+        DebeLabel.Location = New System.Drawing.Point(71, 106)
         DebeLabel.Name = "DebeLabel"
         DebeLabel.Size = New System.Drawing.Size(46, 17)
         DebeLabel.TabIndex = 30
@@ -196,7 +201,7 @@ Partial Class frmProveedores
         'HaberLabel
         '
         HaberLabel.AutoSize = True
-        HaberLabel.Location = New System.Drawing.Point(667, 348)
+        HaberLabel.Location = New System.Drawing.Point(66, 134)
         HaberLabel.Name = "HaberLabel"
         HaberLabel.Size = New System.Drawing.Size(51, 17)
         HaberLabel.TabIndex = 32
@@ -217,7 +222,7 @@ Partial Class frmProveedores
         Me.ProveedoresBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ProveedoresBindingNavigator.Name = "ProveedoresBindingNavigator"
         Me.ProveedoresBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ProveedoresBindingNavigator.Size = New System.Drawing.Size(1456, 27)
+        Me.ProveedoresBindingNavigator.Size = New System.Drawing.Size(1686, 27)
         Me.ProveedoresBindingNavigator.TabIndex = 6
         Me.ProveedoresBindingNavigator.Text = "Proveedores"
         '
@@ -366,15 +371,6 @@ Partial Class frmProveedores
         Me.DocumentoIdentidadTextBox.Size = New System.Drawing.Size(123, 22)
         Me.DocumentoIdentidadTextBox.TabIndex = 7
         '
-        'CuentaTextBox
-        '
-        Me.CuentaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Cuenta", True))
-        Me.CuentaTextBox.Location = New System.Drawing.Point(939, 114)
-        Me.CuentaTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.CuentaTextBox.Name = "CuentaTextBox"
-        Me.CuentaTextBox.Size = New System.Drawing.Size(104, 22)
-        Me.CuentaTextBox.TabIndex = 9
-        '
         'NombreTextBox
         '
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Nombre", True))
@@ -390,7 +386,7 @@ Partial Class frmProveedores
         Me.DomicilioTextBox.Location = New System.Drawing.Point(163, 192)
         Me.DomicilioTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DomicilioTextBox.Name = "DomicilioTextBox"
-        Me.DomicilioTextBox.Size = New System.Drawing.Size(880, 22)
+        Me.DomicilioTextBox.Size = New System.Drawing.Size(820, 22)
         Me.DomicilioTextBox.TabIndex = 15
         '
         'LocalidadTextBox
@@ -441,7 +437,7 @@ Partial Class frmProveedores
         'DebeTextBox
         '
         Me.DebeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Debe", True))
-        Me.DebeTextBox.Location = New System.Drawing.Point(851, 318)
+        Me.DebeTextBox.Location = New System.Drawing.Point(123, 104)
         Me.DebeTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DebeTextBox.Name = "DebeTextBox"
         Me.DebeTextBox.Size = New System.Drawing.Size(104, 22)
@@ -450,7 +446,7 @@ Partial Class frmProveedores
         'HaberTextBox
         '
         Me.HaberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Haber", True))
-        Me.HaberTextBox.Location = New System.Drawing.Point(851, 345)
+        Me.HaberTextBox.Location = New System.Drawing.Point(123, 131)
         Me.HaberTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.HaberTextBox.Name = "HaberTextBox"
         Me.HaberTextBox.Size = New System.Drawing.Size(104, 22)
@@ -473,23 +469,13 @@ Partial Class frmProveedores
         '
         Me.BajaCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ProveedoresBindingSource, "Baja", True))
         Me.BajaCheckBox.Location = New System.Drawing.Point(759, 112)
-        Me.BajaCheckBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BajaCheckBox.Margin = New System.Windows.Forms.Padding(4)
         Me.BajaCheckBox.Name = "BajaCheckBox"
         Me.BajaCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.BajaCheckBox.Size = New System.Drawing.Size(75, 30)
         Me.BajaCheckBox.TabIndex = 34
         Me.BajaCheckBox.Text = ":Baja"
         Me.BajaCheckBox.UseVisualStyleBackColor = True
-        '
-        'ProveedoresBindingSource1
-        '
-        Me.ProveedoresBindingSource1.DataMember = "Proveedores"
-        Me.ProveedoresBindingSource1.DataSource = Me.BDContabilidadGMELO
-        '
-        'ProveedoresBindingSource2
-        '
-        Me.ProveedoresBindingSource2.DataMember = "Proveedores"
-        Me.ProveedoresBindingSource2.DataSource = Me.BDContabilidadGMELO
         '
         'ProveedoresComboBox
         '
@@ -507,19 +493,187 @@ Partial Class frmProveedores
         '
         Me.ProveedoresTableAdapter.ClearBeforeFill = True
         '
+        'CuentasTableAdapter
+        '
+        Me.CuentasTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AbonosTableAdapter = Nothing
+        Me.TableAdapterManager.AsientosTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
+        Me.TableAdapterManager.CargosTableAdapter = Nothing
+        Me.TableAdapterManager.CentrosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.ClientesTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.CNO11TableAdapter = Nothing
+        Me.TableAdapterManager.CNO94TableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioGruposTableAdapter = Nothing
+        Me.TableAdapterManager.Convenios_ColectivosJulio2014TableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosEmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosTableAdapter = Nothing
+        Me.TableAdapterManager.Cta1TableAdapter = Nothing
+        Me.TableAdapterManager.Cta2TableAdapter = Nothing
+        Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasTableAdapter = Me.CuentasTableAdapter
+        Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Nothing
+        Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
+        Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
+        Me.TableAdapterManager.NominasDeEmpresaTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasTableAdapter = Nothing
+        Me.TableAdapterManager.PaisesTableAdapter = Nothing
+        Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
+        Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
+        Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Me.ProveedoresTableAdapter
+        Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
+        Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.SexosTableAdapter = Nothing
+        Me.TableAdapterManager.TiposComplementoSalarialTableAdapter = Nothing
+        Me.TableAdapterManager.TiposDocumentoIdentidadTableAdapter = Me.TiposDocumentoIdentidadTableAdapter
+        Me.TableAdapterManager.TiposNóminaTableAdapter = Nothing
+        Me.TableAdapterManager.TiposVíaTableAdapter = Nothing
+        Me.TableAdapterManager.UnidadesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'CuentasProveedoresBindingSource
+        '
+        Me.CuentasProveedoresBindingSource.DataMember = "CuentasProveedores"
+        Me.CuentasProveedoresBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'FillBy1ToolStrip
+        '
+        Me.FillBy1ToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.FillBy1ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillBy1ToolStripButton})
+        Me.FillBy1ToolStrip.Location = New System.Drawing.Point(0, 27)
+        Me.FillBy1ToolStrip.Name = "FillBy1ToolStrip"
+        Me.FillBy1ToolStrip.Size = New System.Drawing.Size(1686, 27)
+        Me.FillBy1ToolStrip.TabIndex = 36
+        Me.FillBy1ToolStrip.Text = "FillBy1ToolStrip"
+        '
+        'FillBy1ToolStripButton
+        '
+        Me.FillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillBy1ToolStripButton.Name = "FillBy1ToolStripButton"
+        Me.FillBy1ToolStripButton.Size = New System.Drawing.Size(56, 24)
+        Me.FillBy1ToolStripButton.Text = "FillBy1"
+        '
+        'CuentasProveedoresTableAdapter
+        '
+        Me.CuentasProveedoresTableAdapter.ClearBeforeFill = True
+        '
+        'CuentasGastoBindingSource
+        '
+        Me.CuentasGastoBindingSource.DataMember = "CuentasGasto"
+        Me.CuentasGastoBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'CuentasGastoTableAdapter
+        '
+        Me.CuentasGastoTableAdapter.ClearBeforeFill = True
+        '
+        'ContabilidadGroupBox
+        '
+        Me.ContabilidadGroupBox.Controls.Add(Me.Código6ComboBox)
+        Me.ContabilidadGroupBox.Controls.Add(Label1)
+        Me.ContabilidadGroupBox.Controls.Add(Me.Cuenta6TextBox)
+        Me.ContabilidadGroupBox.Controls.Add(Me.Código4ComboBox)
+        Me.ContabilidadGroupBox.Controls.Add(CuentaLabel)
+        Me.ContabilidadGroupBox.Controls.Add(Me.Cuenta4TextBox)
+        Me.ContabilidadGroupBox.Controls.Add(DebeLabel)
+        Me.ContabilidadGroupBox.Controls.Add(Me.HaberTextBox)
+        Me.ContabilidadGroupBox.Controls.Add(HaberLabel)
+        Me.ContabilidadGroupBox.Controls.Add(Me.DebeTextBox)
+        Me.ContabilidadGroupBox.Location = New System.Drawing.Point(1007, 156)
+        Me.ContabilidadGroupBox.Name = "ContabilidadGroupBox"
+        Me.ContabilidadGroupBox.Size = New System.Drawing.Size(679, 163)
+        Me.ContabilidadGroupBox.TabIndex = 40
+        Me.ContabilidadGroupBox.TabStop = False
+        Me.ContabilidadGroupBox.Text = "Datos Contabilidad"
+        '
+        'Código6ComboBox
+        '
+        Me.Código6ComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProveedoresBindingSource, "Cuenta6", True))
+        Me.Código6ComboBox.DataSource = Me.CuentasGastoBindingSource
+        Me.Código6ComboBox.DisplayMember = "Nombre"
+        Me.Código6ComboBox.FormattingEnabled = True
+        Me.Código6ComboBox.Location = New System.Drawing.Point(233, 67)
+        Me.Código6ComboBox.Name = "Código6ComboBox"
+        Me.Código6ComboBox.Size = New System.Drawing.Size(436, 24)
+        Me.Código6ComboBox.TabIndex = 45
+        Me.Código6ComboBox.ValueMember = "Código"
+        '
+        'Label1
+        '
+        Label1.AutoSize = True
+        Label1.Location = New System.Drawing.Point(14, 69)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(103, 17)
+        Label1.TabIndex = 43
+        Label1.Text = "Cuenta Gasto.:"
+        '
+        'Cuenta6TextBox
+        '
+        Me.Cuenta6TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Cuenta6", True))
+        Me.Cuenta6TextBox.Location = New System.Drawing.Point(123, 66)
+        Me.Cuenta6TextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Cuenta6TextBox.Name = "Cuenta6TextBox"
+        Me.Cuenta6TextBox.Size = New System.Drawing.Size(104, 22)
+        Me.Cuenta6TextBox.TabIndex = 44
+        '
+        'Código4ComboBox
+        '
+        Me.Código4ComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProveedoresBindingSource, "Cuenta4", True))
+        Me.Código4ComboBox.DataSource = Me.CuentasProveedoresBindingSource
+        Me.Código4ComboBox.DisplayMember = "Nombre"
+        Me.Código4ComboBox.FormattingEnabled = True
+        Me.Código4ComboBox.Location = New System.Drawing.Point(233, 37)
+        Me.Código4ComboBox.Name = "Código4ComboBox"
+        Me.Código4ComboBox.Size = New System.Drawing.Size(436, 24)
+        Me.Código4ComboBox.TabIndex = 42
+        Me.Código4ComboBox.ValueMember = "Código"
+        '
+        'CuentaLabel
+        '
+        CuentaLabel.AutoSize = True
+        CuentaLabel.Location = New System.Drawing.Point(9, 39)
+        CuentaLabel.Name = "CuentaLabel"
+        CuentaLabel.Size = New System.Drawing.Size(108, 17)
+        CuentaLabel.TabIndex = 40
+        CuentaLabel.Text = "Cuenta Admva.:"
+        '
+        'Cuenta4TextBox
+        '
+        Me.Cuenta4TextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Cuenta4", True))
+        Me.Cuenta4TextBox.Location = New System.Drawing.Point(123, 36)
+        Me.Cuenta4TextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Cuenta4TextBox.Name = "Cuenta4TextBox"
+        Me.Cuenta4TextBox.Size = New System.Drawing.Size(104, 22)
+        Me.Cuenta4TextBox.TabIndex = 41
+        '
         'frmProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1456, 747)
+        Me.ClientSize = New System.Drawing.Size(1656, 747)
+        Me.Controls.Add(Me.ContabilidadGroupBox)
+        Me.Controls.Add(Me.FillBy1ToolStrip)
         Me.Controls.Add(Me.ProveedoresComboBox)
         Me.Controls.Add(Me.BajaCheckBox)
         Me.Controls.Add(Me.TiposDocumentoIdentidadComboBox)
         Me.Controls.Add(DocumentoIdentidadLabel)
         Me.Controls.Add(Me.DocumentoIdentidadTextBox)
-        Me.Controls.Add(CuentaLabel)
-        Me.Controls.Add(Me.CuentaTextBox)
         Me.Controls.Add(NombreLabel)
         Me.Controls.Add(Me.NombreTextBox)
         Me.Controls.Add(TipoDocumentoIdentidadLabel)
@@ -535,12 +689,8 @@ Partial Class frmProveedores
         Me.Controls.Add(Me.IdCtaBancariaTextBox)
         Me.Controls.Add(DatosBancariosLabel)
         Me.Controls.Add(Me.DatosBancariosTextBox)
-        Me.Controls.Add(DebeLabel)
-        Me.Controls.Add(Me.DebeTextBox)
-        Me.Controls.Add(HaberLabel)
-        Me.Controls.Add(Me.HaberTextBox)
         Me.Controls.Add(Me.ProveedoresBindingNavigator)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmProveedores"
         Me.Text = "frmProveedores"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -550,8 +700,12 @@ Partial Class frmProveedores
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TiposDocumentoIdentidadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProveedoresBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProveedoresBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillBy1ToolStrip.ResumeLayout(False)
+        Me.FillBy1ToolStrip.PerformLayout()
+        CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContabilidadGroupBox.ResumeLayout(False)
+        Me.ContabilidadGroupBox.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -580,7 +734,6 @@ Partial Class frmProveedores
     Friend WithEvents NombreRazónSocialDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProveedoresBindingSource As BindingSource
     Friend WithEvents DocumentoIdentidadTextBox As TextBox
-    Friend WithEvents CuentaTextBox As TextBox
     Friend WithEvents NombreTextBox As TextBox
     Friend WithEvents DomicilioTextBox As TextBox
     Friend WithEvents LocalidadTextBox As TextBox
@@ -592,8 +745,19 @@ Partial Class frmProveedores
     Friend WithEvents HaberTextBox As TextBox
     Friend WithEvents TiposDocumentoIdentidadComboBox As ComboBox
     Friend WithEvents BajaCheckBox As CheckBox
-    Friend WithEvents ProveedoresBindingSource1 As BindingSource
-    Friend WithEvents ProveedoresBindingSource2 As BindingSource
     Friend WithEvents ProveedoresComboBox As ComboBox
     Friend WithEvents ProveedoresTableAdapter As BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter
+    Friend WithEvents CuentasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasTableAdapter
+    Friend WithEvents TableAdapterManager As BDContabilidadGMELOTableAdapters.TableAdapterManager
+    Friend WithEvents FillBy1ToolStrip As ToolStrip
+    Friend WithEvents FillBy1ToolStripButton As ToolStripButton
+    Friend WithEvents CuentasProveedoresBindingSource As BindingSource
+    Friend WithEvents CuentasProveedoresTableAdapter As BDContabilidadGMELOTableAdapters.CuentasProveedoresTableAdapter
+    Friend WithEvents CuentasGastoBindingSource As BindingSource
+    Friend WithEvents CuentasGastoTableAdapter As BDContabilidadGMELOTableAdapters.CuentasGastoTableAdapter
+    Friend WithEvents ContabilidadGroupBox As GroupBox
+    Friend WithEvents Código6ComboBox As ComboBox
+    Friend WithEvents Cuenta6TextBox As TextBox
+    Friend WithEvents Código4ComboBox As ComboBox
+    Friend WithEvents Cuenta4TextBox As TextBox
 End Class
