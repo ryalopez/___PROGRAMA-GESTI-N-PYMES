@@ -1,0 +1,204 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ProgramaContabilidad
+</name>
+</assembly>
+<members>
+<member name="T:Programa_Contabilidad.dsGrupos.GruposDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.SubGruposDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CuentasMaestrasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CuentasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CargosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.AbonosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.AsientosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.LíneasDiarioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.GruposRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.SubGruposRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CuentasMaestrasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CuentasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CargosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.AbonosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.AsientosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.LíneasDiarioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.GruposRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.SubGruposRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CuentasMaestrasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CuentasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.CargosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.AbonosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.AsientosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos.LíneasDiarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGrupos">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.GruposTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.SubGruposTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.CuentasMaestrasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.CuentasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.CargosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.AbonosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.AsientosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.LíneasDiarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.UpdateUpdatedRows(Programa_Contabilidad.dsGrupos,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.UpdateInsertedRows(Programa_Contabilidad.dsGrupos,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.UpdateDeletedRows(Programa_Contabilidad.dsGrupos,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.UpdateAll(Programa_Contabilidad.dsGrupos)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Programa_Contabilidad.dsGruposTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:Programa_Contabilidad.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Programa_Contabilidad.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member><member name="P:Programa_Contabilidad.My.Resources.Resources.GoToParentFolderHS">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Programa_Contabilidad.My.Resources.Resources.HomeHS">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Programa_Contabilidad.My.Resources.Resources.Listar">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Programa_Contabilidad.My.Resources.Resources.Título">
+	<summary>
+  Busca una cadena traducida similar a Contabilidad "Inversiones Madrileñas en Bienes Inmuebles Urbanos".
+</summary>
+</member><member name="T:Programa_Contabilidad.My.Resources.Resources">
+	<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+</members>
+</doc>

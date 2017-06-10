@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a0af9011-f272-4982-91ac-c4f6de3cad6a" name="VistaGeneral" linkedPackageId="0e40a045-31ef-4afc-951a-1be86e273480" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="af95af21-d2c5-4cb8-9c89-50d0e592c1a7">
+      <profileInstance Id="675ef847-366e-42ac-8204-cbe8659d9d5c" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="47d19e85-3c04-4e13-98e8-6e948819dba4">
+      <profileInstance Id="529060c3-17a7-4dca-bb73-328aa154cd66" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="9b28f65a-8018-455d-96c2-abb99dc74537" name="Contabilidad" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a3bc8e9c-9014-44c0-b06c-52586cb72827" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="1ea8c4c9-2e6e-4bbf-aaae-39c58411e89e" name="UseCase1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c1f9fb57-4a7d-4f91-a451-85395ff7d936" />
+        <subjects>
+          <subsystemMoniker Id="9b28f65a-8018-455d-96c2-abb99dc74537" LastKnownName="Contabilidad" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="0e40a045-31ef-4afc-951a-1be86e273480" name="Modelo">
+    <elementDefinition Id="bca15323-9a8a-4075-8011-e81d986bce62" />
+  </package>
+</useCaseModelRoot>

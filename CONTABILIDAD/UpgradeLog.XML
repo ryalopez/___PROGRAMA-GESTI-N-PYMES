@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Programa Contabilidad">
+</Property><Property Name="Archivo de la solución" Value="C:\INFIMABINUR\Programa Contabilidad VS 2008\Programa Contabilidad.sln">
+</Property><Property Name="Date" Value="jueves, 23 de septiembre de 2010">
+</Property><Property Name="Time" Value="10:29">
+</Property></Properties><Event ErrorLevel="4" Project="Programa Contabilidad" Source="http://go.microsoft.com/fwlink/?LinkId=159919" Description="Advertencia: este proyecto requiere Crystal Reports, que ya no se incluye con Visual Studio. Haga clic aquí para obtener más información.">
+</Event><Event ErrorLevel="0" Project="Programa Contabilidad" Source="Programa Contabilidad.vbproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="Programa Contabilidad" Source="Programa Contabilidad.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ProgramaAmortizaciones" Source="..\ProgramaAmortizaciones vs 2008\ProgramaAmortizaciones.vbproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="ProgramaAmortizaciones" Source="..\ProgramaAmortizaciones vs 2008\ProgramaAmortizaciones.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Programa Contabilidad.sln" Description="La solución se convirtió correctamente">
+</Event><Event ErrorLevel="3" Project="" Source="Programa Contabilidad.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Programa Contabilidad" Source="Programa Contabilidad.vbproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event><Event ErrorLevel="0" Project="ProgramaAmortizaciones" Source="..\ProgramaAmortizaciones vs 2008\App.config" Description="Archivo convertido correctamente. Se quitaron todas las etiquetas &lt;supportedRuntime&gt; y &lt;requiredRuntime&gt; para permitir que el proyecto se pueda generar y ejecutar con Visual Studio 2005.">
+</Event><Event ErrorLevel="3" Project="ProgramaAmortizaciones" Source="..\ProgramaAmortizaciones vs 2008\App.config" Description="Converted">
+</Event></UpgradeLog>

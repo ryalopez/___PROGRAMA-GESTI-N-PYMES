@@ -1,0 +1,10 @@
+H:\Grupo MELO\NÓMINA\ModeloUMLLib\bin\Debug\ModeloUMLLib.dll
+H:\Grupo MELO\NÓMINA\ModeloUMLLib\bin\Debug\ModeloUMLLib.pdb
+H:\Grupo MELO\NÓMINA\ModeloUMLLib\obj\Debug\ModeloUMLLib.dll
+H:\Grupo MELO\NÓMINA\ModeloUMLLib\obj\Debug\ModeloUMLLib.pdb
+K:\Grupo MELO\Nómina\ModeloUMLLib\bin\Debug\ModeloUMLLib.dll
+K:\Grupo MELO\Nómina\ModeloUMLLib\bin\Debug\ModeloUMLLib.pdb
+K:\Grupo MELO\Nómina\ModeloUMLLib\obj\Debug\ModeloUMLLib.csprojResolveAssemblyReference.cache
+K:\Grupo MELO\Nómina\ModeloUMLLib\obj\Debug\ModeloUMLLib.dll
+K:\Grupo MELO\Nómina\ModeloUMLLib\obj\Debug\ModeloUMLLib.pdb
+H:\Grupo MELO\NÓMINA\ModeloUMLLib\obj\Debug\ModeloUMLLib.csprojResolveAssemblyReference.cache

@@ -1,0 +1,222 @@
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\ResolveAssemblyReference.cache
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+D:\Mis Documentos\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\ResolveAssemblyReference.cache
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+C:\Visual Studio 2008\Projects\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+D:\INFIMABINUR\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+D:\INFIMABINUR\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+D:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+D:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+D:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\ResolveAssemblyReference.cache
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+D:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+C:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+C:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+C:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+C:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\ResolveAssemblyReference.cache
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+C:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+D:\INFIMABINUR\Programa Contabilidad VS 2008\bin\Debug\Programa Contabilidad.exe.config
+D:\INFIMABINUR\Programa Contabilidad VS 2008\bin\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\Programa Contabilidad VS 2008\bin\Debug\Programa Contabilidad.pdb
+D:\INFIMABINUR\Programa Contabilidad VS 2008\bin\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\ResolveAssemblyReference.cache
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.frmDiario.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa_Contabilidad.Resources.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\Programa Contabilidad VS 2008\obj\Debug\Programa Contabilidad.pdb
+C:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.exe.config
+C:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.exe
+C:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.pdb
+C:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.xml
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\ResolveAssemblyReference.cache
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmDiario.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.Resources.resources
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\ResGen.read.1.tlog
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\ResGen.write.1.tlog
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa Contabilidad.exe
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa Contabilidad.xml
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa Contabilidad.pdb
+C:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.exe.config
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa Contabilidad.pdb
+D:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.exe
+D:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.pdb
+D:\INFIMABINUR\Programa Contabilidad VS 2010\bin\Debug\Programa Contabilidad.xml
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\ResolveAssemblyReference.cache
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmDiario.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\Programa_Contabilidad.Resources.resources
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\ResGen.read.1.tlog
+D:\INFIMABINUR\Programa Contabilidad VS 2010\obj\Debug\ResGen.write.1.tlog
+F:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+F:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+F:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+F:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+E:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+E:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+E:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+E:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+E:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbprojResolveAssemblyReference.cache
+G:\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+G:\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+G:\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+G:\Infimabinur\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbprojResolveAssemblyReference.cache
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+G:\Infimabinur\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbprojResolveAssemblyReference.cache
+F:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+H:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+H:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+H:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+H:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbprojResolveAssemblyReference.cache
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+H:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+I:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+I:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+I:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+I:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbprojResolveAssemblyReference.cache
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+I:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+K:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe.config
+K:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.exe
+K:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.pdb
+K:\INFIMABINUR\Programa Contabilidad\bin\Debug\Programa Contabilidad.xml
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmActivoPasivo.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmSelecFechas.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmCuentas.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmDiario.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPlanGeneralContable.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmPrincipal.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.frmVisorInformes.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa_Contabilidad.Resources.resources
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbproj.GenerateResource.Cache
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.exe
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.xml
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.pdb
+K:\INFIMABINUR\Programa Contabilidad\obj\Debug\Programa Contabilidad.vbprojResolveAssemblyReference.cache

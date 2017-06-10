@@ -1,0 +1,396 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Contabilidad
+</name>
+</assembly>
+<members>
+<member name="M:Contabilidad.frmFacturasEmitidas.ContabilizarStripButton_Click(System.Object,System.EventArgs)">
+	<summary>
+ Contabilizar Facturas emitidas que aún no lo están
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks>
+ Se genera un asiento
+ 470CCC Cuenta Cliente -&gt;  Prestación Servicios     705
+                           Hacienda IVA Repercutido 477
+ Posteriormente se genera asiento
+ 572BBB Cuenta Banco   -&gt;  Cuenta Cliente   470CCC</remarks>
+</member><member name="M:Contabilidad.frmFacturasEmitidas.PagarStripButton_Click(System.Object,System.EventArgs)">
+	<summary>
+ Contabilizar Facturas emitidas que aún no lo están
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks>
+ Se genera un asiento
+ 572BBB Cuenta Banco   -&gt;  Cuenta Cliente   470CCC</remarks>
+</member><member name="P:Contabilidad.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Contabilidad.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member><member name="P:Contabilidad.My.Resources.Resources.GoToParentFolderHS">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Contabilidad.My.Resources.Resources.HomeHS">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Contabilidad.My.Resources.Resources.Listar">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Contabilidad.My.Resources.Resources.NombreEmpresa">
+	<summary>
+  Busca una cadena traducida similar a Grupo Melo S.L..
+</summary>
+</member><member name="P:Contabilidad.My.Resources.Resources.Título">
+	<summary>
+  Busca una cadena traducida similar a Gestión Financiera "Grupo Melo".
+</summary>
+</member><member name="T:Contabilidad.My.Resources.Resources">
+	<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.AbonosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.AsientosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CargosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.ClientesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.Cta1DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.Cta2DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasBancariasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasMaestrasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.EmpleadosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.FacturasEmitidasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.FormasPagoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.LíneasDiarioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.LíneasMayorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.NóminasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.PérdidasyGananciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.TiposDocumentoIdentidadDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.AbonosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.AsientosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CargosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.ClientesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.Cta1Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.Cta2Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasBancariasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasMaestrasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.EmpleadosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.FacturasEmitidasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.FormasPagoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.LíneasDiarioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.LíneasMayorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.NóminasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.PérdidasyGananciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.TiposDocumentoIdentidadRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.AbonosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.AsientosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CargosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.ClientesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.Cta1RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.Cta2RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasBancariasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.CuentasMaestrasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.EmpleadosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.FacturasEmitidasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.FormasPagoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.LíneasDiarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.LíneasMayorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.NóminasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.PérdidasyGananciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO.TiposDocumentoIdentidadRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELO">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.AbonosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.CargosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.ClientesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.Cta1TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.Cta2TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.CuentasMaestrasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.EmpleadosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.FacturasEmitidasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.FormasPagoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.LíneasDiarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.LíneasMayorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.NóminasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.PérdidasyGananciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.TiposDocumentoIdentidadTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateUpdatedRows(Contabilidad.BDContabilidadGMELO,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateInsertedRows(Contabilidad.BDContabilidadGMELO,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateDeletedRows(Contabilidad.BDContabilidadGMELO,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateAll(Contabilidad.BDContabilidadGMELO)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="M:Contabilidad.frmNóminas.ContabilizarStripButton_Click(System.Object,System.EventArgs)">
+	<summary>
+ Contabilizar Los recibos salariales emitidos que aún no lo están
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks>
+ Se genera un asiento
+ 640 Sueldos    
+ 642 Seguridad Social Cargo Empresa  -&gt;  Seg. Social Acreedora               476 (Cuota Patronal)
+                                         Seg. Social Acreedora               476 (Cuota Obrera)
+                                         Hacienda Retenciones practicadas    4751
+                                         Remuneraciones ptes. pago Empleado  465CCC
+ </remarks>
+</member><member name="M:Contabilidad.frmNóminas.PagarStripButton_Click(System.Object,System.EventArgs)">
+	<summary>
+ Contabilizar Pago de las nóminas que aún no están contabilizadas
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks>
+ Se genera un asiento
+ Cuenta Cliente   465CCC   -&gt; Cuenta Banco  572BBB</remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDiario" targetNamespace="http://tempuri.org/dsDiario.xsd" xmlns:mstns="http://tempuri.org/dsDiario.xsd" xmlns="http://tempuri.org/dsDiario.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="BDInfimabinurConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDInfimabinurConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Programa_Contabilidad.My.MySettings.GlobalReference.Default.BDInfimabinurConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LíneasDiarioTableAdapter" GeneratorDataComponentClassName="LíneasDiarioTableAdapter" Name="LíneasDiario" UserDataComponentName="LíneasDiarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDInfimabinurConnectionString (MySettings)" DbObjectName="BDInfimabinur2010.dbo.LíneasDiario" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Número, Fecha, Justificante, Operación, ApunteAbono, ImporteAbono, CuentaAbono, NombreCuentaAbono, NombreCuentaCargo, CuentaCargo, ImporteCargo, ApunteCargo FROM dbo.LíneasDiario</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Número" DataSetColumn="Número" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="Justificante" DataSetColumn="Justificante" />
+              <Mapping SourceColumn="Operación" DataSetColumn="Operación" />
+              <Mapping SourceColumn="ApunteAbono" DataSetColumn="ApunteAbono" />
+              <Mapping SourceColumn="ImporteAbono" DataSetColumn="ImporteAbono" />
+              <Mapping SourceColumn="CuentaAbono" DataSetColumn="CuentaAbono" />
+              <Mapping SourceColumn="NombreCuentaAbono" DataSetColumn="NombreCuentaAbono" />
+              <Mapping SourceColumn="NombreCuentaCargo" DataSetColumn="NombreCuentaCargo" />
+              <Mapping SourceColumn="CuentaCargo" DataSetColumn="CuentaCargo" />
+              <Mapping SourceColumn="ImporteCargo" DataSetColumn="ImporteCargo" />
+              <Mapping SourceColumn="ApunteCargo" DataSetColumn="ApunteCargo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDiario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dsDiario" msprop:Generator_UserDSName="dsDiario">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LíneasDiario" msprop:Generator_TableClassName="LíneasDiarioDataTable" msprop:Generator_TableVarName="tableLíneasDiario" msprop:Generator_TablePropName="LíneasDiario" msprop:Generator_RowDeletingName="LíneasDiarioRowDeleting" msprop:Generator_UserTableName="LíneasDiario" msprop:Generator_RowChangingName="LíneasDiarioRowChanging" msprop:Generator_RowEvHandlerName="LíneasDiarioRowChangeEventHandler" msprop:Generator_RowDeletedName="LíneasDiarioRowDeleted" msprop:Generator_RowEvArgName="LíneasDiarioRowChangeEvent" msprop:Generator_RowChangedName="LíneasDiarioRowChanged" msprop:Generator_RowClassName="LíneasDiarioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Número" msprop:Generator_ColumnVarNameInTable="columnNúmero" msprop:Generator_ColumnPropNameInRow="Número" msprop:Generator_ColumnPropNameInTable="NúmeroColumn" msprop:Generator_UserColumnName="Número" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Justificante" msprop:Generator_ColumnVarNameInTable="columnJustificante" msprop:Generator_ColumnPropNameInRow="Justificante" msprop:Generator_ColumnPropNameInTable="JustificanteColumn" msprop:Generator_UserColumnName="Justificante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Operación" msprop:Generator_ColumnVarNameInTable="columnOperación" msprop:Generator_ColumnPropNameInRow="Operación" msprop:Generator_ColumnPropNameInTable="OperaciónColumn" msprop:Generator_UserColumnName="Operación" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApunteAbono" msprop:Generator_ColumnVarNameInTable="columnApunteAbono" msprop:Generator_ColumnPropNameInRow="ApunteAbono" msprop:Generator_ColumnPropNameInTable="ApunteAbonoColumn" msprop:Generator_UserColumnName="ApunteAbono" type="xs:int" minOccurs="0" />
+              <xs:element name="ImporteAbono" msprop:Generator_ColumnVarNameInTable="columnImporteAbono" msprop:Generator_ColumnPropNameInRow="ImporteAbono" msprop:Generator_ColumnPropNameInTable="ImporteAbonoColumn" msprop:Generator_UserColumnName="ImporteAbono" type="xs:double" minOccurs="0" />
+              <xs:element name="CuentaAbono" msprop:Generator_ColumnVarNameInTable="columnCuentaAbono" msprop:Generator_ColumnPropNameInRow="CuentaAbono" msprop:Generator_ColumnPropNameInTable="CuentaAbonoColumn" msprop:Generator_UserColumnName="CuentaAbono" type="xs:int" minOccurs="0" />
+              <xs:element name="NombreCuentaAbono" msprop:Generator_ColumnVarNameInTable="columnNombreCuentaAbono" msprop:Generator_ColumnPropNameInRow="NombreCuentaAbono" msprop:Generator_ColumnPropNameInTable="NombreCuentaAbonoColumn" msprop:Generator_UserColumnName="NombreCuentaAbono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreCuentaCargo" msprop:Generator_ColumnVarNameInTable="columnNombreCuentaCargo" msprop:Generator_ColumnPropNameInRow="NombreCuentaCargo" msprop:Generator_ColumnPropNameInTable="NombreCuentaCargoColumn" msprop:Generator_UserColumnName="NombreCuentaCargo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CuentaCargo" msprop:Generator_ColumnVarNameInTable="columnCuentaCargo" msprop:Generator_ColumnPropNameInRow="CuentaCargo" msprop:Generator_ColumnPropNameInTable="CuentaCargoColumn" msprop:Generator_UserColumnName="CuentaCargo" type="xs:int" minOccurs="0" />
+              <xs:element name="ImporteCargo" msprop:Generator_ColumnVarNameInTable="columnImporteCargo" msprop:Generator_ColumnPropNameInRow="ImporteCargo" msprop:Generator_ColumnPropNameInTable="ImporteCargoColumn" msprop:Generator_UserColumnName="ImporteCargo" type="xs:double" minOccurs="0" />
+              <xs:element name="ApunteCargo" msprop:Generator_ColumnVarNameInTable="columnApunteCargo" msprop:Generator_ColumnPropNameInRow="ApunteCargo" msprop:Generator_ColumnPropNameInTable="ApunteCargoColumn" msprop:Generator_UserColumnName="ApunteCargo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

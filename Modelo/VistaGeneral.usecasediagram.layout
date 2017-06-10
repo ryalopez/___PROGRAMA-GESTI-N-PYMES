@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="VistaGeneral">
+  <useCaseModelRootMoniker Id="a0af9011-f272-4982-91ac-c4f6de3cad6a" />
+  <nestedChildShapes>
+    <SubsystemShape Id="b70fbb4d-85da-4f2c-b662-3c4e1bd9408c" absoluteBounds="3.5, 0.5, 3, 2.5" customColor="White">
+      <subsystemMoniker Id="9b28f65a-8018-455d-96c2-abb99dc74537" LastKnownName="Contabilidad" />
+      <nestedChildShapes>
+        <useCaseShape Id="87068926-2c18-490a-a345-c660776b4d76" absoluteBounds="3.875, 1, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+          <useCaseMoniker Id="1ea8c4c9-2e6e-4bbf-aaae-39c58411e89e" LastKnownName="UseCase1" />
+          <relativeChildShapes />
+        </useCaseShape>
+      </nestedChildShapes>
+    </SubsystemShape>
+  </nestedChildShapes>
+</useCaseDiagram>

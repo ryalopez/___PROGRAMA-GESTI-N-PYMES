@@ -1,0 +1,258 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Controles
+</name>
+</assembly>
+<members>
+<member name="P:Controles.ctlDomicilio.TipoPropietario">
+	<summary>
+ Tipo de Propietario
+ </summary>
+	<value>Enum Tipo de Propietario</value>
+	<returns>Integer</returns>
+	<remarks>No puede ser nulo</remarks>
+</member><member name="P:Controles.ctlDomicilio.IdPropietario">
+	<summary>
+ id de la entidad propietaria del domicilio: Cliente, Sucursal, Empleado, etc...
+ </summary>
+	<value>Integer</value>
+	<returns>Integer</returns>
+	<remarks>No puede ser nulo</remarks>
+</member><member name="P:Controles.ctlDomicilio.EstadoDomicilio">
+	<summary>
+ "Estado del domicilio. Indica si tiene datos o no
+ </summary>
+	<value>Enumeración dEstadosDomicilio</value>
+	<returns>Enumeración dEstadosDomicilio</returns>
+	<remarks>La enumeración dEstadosDomicilio contiene dos valores vacío o con datos</remarks>
+</member><member name="P:Controles.ctlDomicilio.OperaciónActual">
+	<summary>
+ Operación actual. Indica que se está haciendo con el domicilio en este momento
+ </summary>
+	<value>Enumeración eOperacionesDomicilio</value>
+	<returns>Enumeración eOperacionesDomicilio</returns>
+	<remarks>La enumeración eOperacionesDomicilio contiene los valores alta, baja, modificación, y consulta</remarks>
+</member><member name="T:Controles.ctlDomicilio">
+	<summary>
+ Control para la gestión de un domicilio
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Controles.DomicilioTipoPropietario">
+	<summary>
+ Enumeración de los tipos de propietario para el Control Domicilio
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Controles.CDatosDomicilio.TipoPropietario">
+	<summary>
+ Tipo de Propietario
+ </summary>
+	<value>Enum Tipo de Propietario</value>
+	<returns>Integer</returns>
+	<remarks>No puede ser nulo</remarks>
+</member><member name="P:Controles.CDatosDomicilio.IdPropietario">
+	<summary>
+ id de la entidad propietaria del domicilio: Cliente, Sucursal, Empleado, etc...
+ </summary>
+	<value>Integer</value>
+	<returns>Integer</returns>
+	<remarks>No puede ser nulo</remarks>
+</member><member name="P:Controles.CDatosDomicilio.Calle">
+	<summary>
+ Calle del control domicilio
+ </summary>
+	<value>String</value>
+	<returns>String</returns>
+	<remarks>No puede ser nula</remarks>
+</member><member name="T:Controles.DomicilioNúmerorError">
+	<summary>
+ Enumeración de los errores en el Control Domicilio
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Controles.CDomicilioErrorEventArgs">
+	<summary>
+ Argumentos para el evento que se produce al validar el Control Domicilio
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Controles.BancosNumErrores">
+	<summary>
+ Enumeración de los errores en el Control de Datos Bancarios
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Controles.BDBancos.BancosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Controles.BDBancos.SucursalesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Controles.BDBancos.DomicilioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Controles.BDBancos.BancosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Controles.BDBancos.SucursalesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Controles.BDBancos.DomicilioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Controles.BDBancos.BancosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Controles.BDBancos.SucursalesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Controles.BDBancos.DomicilioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Controles.BDBancos">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Controles.BDBancosTableAdapters.BancosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Controles.BDBancosTableAdapters.SucursalesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Controles.BDBancosTableAdapters.DomicilioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Controles.BDBancosTableAdapters.TableAdapterManager.UpdateUpdatedRows(Controles.BDBancos,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Controles.BDBancosTableAdapters.TableAdapterManager.UpdateInsertedRows(Controles.BDBancos,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Controles.BDBancosTableAdapters.TableAdapterManager.UpdateDeletedRows(Controles.BDBancos,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Controles.BDBancosTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Controles.BDBancosTableAdapters.TableAdapterManager.UpdateAll(Controles.BDBancos)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Controles.BDBancosTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Controles.BDBancosTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Controles.BDBancosTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:Controles.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Controles.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member><member name="P:Controles.My.Resources.Resources.EMPRESA">
+	<summary>
+  Busca una cadena traducida similar a ARCE Tecnologías de la Información.
+</summary>
+</member><member name="P:Controles.My.Resources.Resources.msgCódigosNuméricos">
+	<summary>
+  Busca una cadena traducida similar a Los códigos deben ser numéricos. ¿Quiere ver una lista).
+</summary>
+</member><member name="T:Controles.My.Resources.Resources">
+	<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="T:Controles.BDGeografía.PaisesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Controles.BDGeografía.ProvinciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Controles.BDGeografía.PaisesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Controles.BDGeografía.ProvinciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Controles.BDGeografía.PaisesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Controles.BDGeografía.ProvinciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Controles.BDGeografía">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Controles.BDGeografíaTableAdapters.PaisesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Controles.BDGeografíaTableAdapters.ProvinciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Controles.BDGeografíaTableAdapters.TableAdapterManager.UpdateUpdatedRows(Controles.BDGeografía,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Controles.BDGeografíaTableAdapters.TableAdapterManager.UpdateInsertedRows(Controles.BDGeografía,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Controles.BDGeografíaTableAdapters.TableAdapterManager.UpdateDeletedRows(Controles.BDGeografía,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Controles.BDGeografíaTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Controles.BDGeografíaTableAdapters.TableAdapterManager.UpdateAll(Controles.BDGeografía)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Controles.BDGeografíaTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Controles.BDGeografíaTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Controles.BDGeografíaTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

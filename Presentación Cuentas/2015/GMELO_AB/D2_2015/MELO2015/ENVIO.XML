@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<InfEnvio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enviado>true</Enviado>
+  <FechaEnvio>2016-09-29T14:00:11.8767311+02:00</FechaEnvio>
+  <MensajeAPICorpme>Depósito de cuentas correctamente enviado.
+Id_Tramite: WEB10067356</MensajeAPICorpme>
+  <Referencia>28065B8200738620150_SUBSANACION</Referencia>
+  <Subsanacion>true</Subsanacion>
+  <NumEntradaSubsanacion>766484</NumEntradaSubsanacion>
+  <EjerEntradaSubsanacion>2016</EjerEntradaSubsanacion>
+  <PathPdfAcuse>K:\Grupo MELO\Presentación Cuentas\2015\GMELO_AB\D2_2015\MELO2015\Envio\28065B8200738620150_Acuse_Entrada.Pdf</PathPdfAcuse>
+  <PathPdfHuella>K:\Grupo MELO\Presentación Cuentas\2015\GMELO_AB\D2_2015\MELO2015\Envio\28065B8200738620150.CAC.pdf</PathPdfHuella>
+  <PathZip>K:\Grupo MELO\Presentación Cuentas\2015\GMELO_AB\D2_2015\MELO2015\Envio\28065B8200738620150.zip</PathZip>
+  <Telematicacompleta>true</Telematicacompleta>
+</InfEnvio>

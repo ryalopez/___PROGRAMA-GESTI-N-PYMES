@@ -1,0 +1,9 @@
+K:\Grupo MELO\BibliotecaControles\bin\Debug\BibliotecaControles.dll
+K:\Grupo MELO\BibliotecaControles\bin\Debug\BibliotecaControles.pdb
+K:\Grupo MELO\BibliotecaControles\bin\Debug\BibliotecaControles.xml
+K:\Grupo MELO\BibliotecaControles\obj\Debug\BibliotecaControles.vbprojResolveAssemblyReference.cache
+K:\Grupo MELO\BibliotecaControles\obj\Debug\BibliotecaControles.Resources.resources
+K:\Grupo MELO\BibliotecaControles\obj\Debug\BibliotecaControles.vbproj.GenerateResource.Cache
+K:\Grupo MELO\BibliotecaControles\obj\Debug\BibliotecaControles.dll
+K:\Grupo MELO\BibliotecaControles\obj\Debug\BibliotecaControles.xml
+K:\Grupo MELO\BibliotecaControles\obj\Debug\BibliotecaControles.pdb

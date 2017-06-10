@@ -1,0 +1,4 @@
+    Public Overrides Sub GetObjectData(ByVal info As System.Runtime.Serialization.SerializationInfo, _
+                                              ByVal context As System.Runtime.Serialization.StreamingContext)
+	 MyBase.GetObjectData(info, context)
+    End Sub

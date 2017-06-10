@@ -1,0 +1,3 @@
+K:\Grupo MELO\CONTABILIDAD\Utilidades\obj\Debug\Utilidades.vbprojResolveAssemblyReference.cache
+K:\Grupo MELO\CONTABILIDAD\Utilidades\obj\Debug\Utilidades.Resources.resources
+K:\Grupo MELO\CONTABILIDAD\Utilidades\obj\Debug\Utilidades.vbproj.GenerateResource.Cache

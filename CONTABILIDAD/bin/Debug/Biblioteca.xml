@@ -1,0 +1,644 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Biblioteca
+</name>
+</assembly>
+<members>
+<member name="T:Biblioteca.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:Biblioteca.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:Biblioteca.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:Biblioteca.My.Resources.Resources.msgCódigosNuméricos">
+<summary>
+  Busca una cadena traducida similar a Excepción.
+</summary>
+</member>
+<member name="P:Biblioteca.My.Resources.Resources.NombreEmpresa">
+<summary>
+  Busca una cadena traducida similar a Grupo MELO, S.L..
+</summary>
+</member>
+<member name="P:Biblioteca.My.Resources.Resources.Título">
+<summary>
+  Busca una cadena traducida similar a Gestión Financiera &quot;Grupo Melo&quot;.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet.AutoridadDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet.UsuariosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet.AutoridadRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet.UsuariosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet.AutoridadRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSet.UsuariosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSetTableAdapters.AutoridadTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSetTableAdapters.UsuariosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Biblioteca.BDAdminDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Biblioteca.BDAdminDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Biblioteca.BDAdminDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.UpdateAll(Biblioteca.BDAdminDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Biblioteca.BDAdminDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.AplicacionesClienteDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.AplicacionesMaestroDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CargosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CentrosTrabajoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.ClientesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.ConveniosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.Convenios_ColectivosJulio2014DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CuentasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.DomicilioDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.EmpleadosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.EmpresasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.LíneasDiarioDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.OtrosDatosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.PuestosTrabajoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.RestoEmpleadosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.SexosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.AplicacionesClienteRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.AplicacionesMaestroRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CargosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CentrosTrabajoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.ClientesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.ConveniosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.Convenios_ColectivosJulio2014Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CuentasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.DomicilioRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.EmpleadosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.EmpresasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.LíneasDiarioRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.OtrosDatosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.PuestosTrabajoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.RestoEmpleadosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.SexosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.AplicacionesClienteRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.AplicacionesMaestroRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CargosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CentrosTrabajoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.ClientesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.ConveniosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.Convenios_ColectivosJulio2014RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.CuentasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.DomicilioRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.EmpleadosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.EmpresasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.LíneasDiarioRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.OtrosDatosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.PuestosTrabajoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.RestoEmpleadosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSet.SexosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.AplicacionesClienteTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.AplicacionesMaestroTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.CargosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.CentrosTrabajoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.ClientesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.ConveniosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.Convenios_ColectivosJulio2014TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.CuentasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.DomicilioTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.EmpleadosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.EmpresasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.LíneasDiarioTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.OtrosDatosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.PuestosTrabajoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.RestoEmpleadosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.SexosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Biblioteca.BDEmpresaDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Biblioteca.BDEmpresaDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Biblioteca.BDEmpresaDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.UpdateAll(Biblioteca.BDEmpresaDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Biblioteca.BDEmpresaDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNAEDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNO11DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNO94DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNAERow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNO11Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNO94Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNAERowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNO11RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSet.CNO94RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSetTableAdapters.CNAETableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSetTableAdapters.CNO11TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSetTableAdapters.CNO94TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Biblioteca.BDINEDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Biblioteca.BDINEDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Biblioteca.BDINEDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.UpdateAll(Biblioteca.BDINEDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Biblioteca.BDINEDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Biblioteca.BancosNumErrores">
+ <summary>
+ Enumeración de los errores en el Control de Datos Bancarios
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Biblioteca.DomicilioTipoPropietario">
+ <summary>
+ Enumeración de los tipos de propietario para el Control Domicilio
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Biblioteca.CDatosDomicilio.TipoPropietario">
+ <summary>
+ Tipo de Propietario
+ </summary>
+ <value>Enum Tipo de Propietario</value>
+ <returns>Integer</returns>
+ <remarks>No puede ser nulo</remarks>
+</member>
+<member name="P:Biblioteca.CDatosDomicilio.IdPropietario">
+ <summary>
+ id de la entidad propietaria del domicilio: Cliente, Sucursal, Empleado, etc...
+ </summary>
+ <value>Integer</value>
+ <returns>Integer</returns>
+ <remarks>No puede ser nulo</remarks>
+</member>
+<member name="P:Biblioteca.CDatosDomicilio.Calle">
+ <summary>
+ Calle del control domicilio
+ </summary>
+ <value>String</value>
+ <returns>String</returns>
+ <remarks>No puede ser nula</remarks>
+</member>
+<member name="T:Biblioteca.DomicilioNúmerorError">
+ <summary>
+ Enumeración de los errores en el Control Domicilio
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Biblioteca.CDomicilioErrorEventArgs">
+ <summary>
+ Argumentos para el evento que se produce al validar el Control Domicilio
+ </summary>
+ <remarks></remarks>
+</member>
+</members>
+</doc>
