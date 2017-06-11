@@ -50,9 +50,23 @@ Partial Class frmAsientos
         Me.CuentasProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CuentasProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasProveedoresTableAdapter()
         Me.CuentasProveedoresComboBox = New System.Windows.Forms.ComboBox()
-        Me.FrmAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter()
+        Me.IVAGroupBox = New System.Windows.Forms.GroupBox()
+        Me.rbIVASuperReducido = New System.Windows.Forms.RadioButton()
+        Me.rbIVAReducido = New System.Windows.Forms.RadioButton()
+        Me.rbIVANormal = New System.Windows.Forms.RadioButton()
+        Me.rbIVANo = New System.Windows.Forms.RadioButton()
+        Me.BancosGroupBox = New System.Windows.Forms.GroupBox()
+        Me.BancosComboBox = New System.Windows.Forms.ComboBox()
+        Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.rbPagoBanco = New System.Windows.Forms.RadioButton()
+        Me.rbPagoCaja = New System.Windows.Forms.RadioButton()
+        Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
+        Me.TipoAsientoGroupBox = New System.Windows.Forms.GroupBox()
+        Me.rbVentasRadioButton = New System.Windows.Forms.RadioButton()
+        Me.rbComprasRadioButton = New System.Windows.Forms.RadioButton()
+        Me.FrmAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         NúmeroLabel = New System.Windows.Forms.Label()
         FechaLabel = New System.Windows.Forms.Label()
         JustificanteLabel = New System.Windows.Forms.Label()
@@ -66,14 +80,18 @@ Partial Class frmAsientos
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.IVAGroupBox.SuspendLayout()
+        Me.BancosGroupBox.SuspendLayout()
+        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TipoAsientoGroupBox.SuspendLayout()
+        CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NúmeroLabel
         '
         NúmeroLabel.AutoSize = True
-        NúmeroLabel.Location = New System.Drawing.Point(26, 68)
+        NúmeroLabel.Location = New System.Drawing.Point(589, 68)
         NúmeroLabel.Name = "NúmeroLabel"
         NúmeroLabel.Size = New System.Drawing.Size(62, 17)
         NúmeroLabel.TabIndex = 2
@@ -82,7 +100,7 @@ Partial Class frmAsientos
         'FechaLabel
         '
         FechaLabel.AutoSize = True
-        FechaLabel.Location = New System.Drawing.Point(264, 68)
+        FechaLabel.Location = New System.Drawing.Point(827, 68)
         FechaLabel.Name = "FechaLabel"
         FechaLabel.Size = New System.Drawing.Size(51, 17)
         FechaLabel.TabIndex = 4
@@ -91,7 +109,7 @@ Partial Class frmAsientos
         'JustificanteLabel
         '
         JustificanteLabel.AutoSize = True
-        JustificanteLabel.Location = New System.Drawing.Point(26, 288)
+        JustificanteLabel.Location = New System.Drawing.Point(804, 169)
         JustificanteLabel.Name = "JustificanteLabel"
         JustificanteLabel.Size = New System.Drawing.Size(83, 17)
         JustificanteLabel.TabIndex = 6
@@ -100,7 +118,7 @@ Partial Class frmAsientos
         'OperaciónLabel
         '
         OperaciónLabel.AutoSize = True
-        OperaciónLabel.Location = New System.Drawing.Point(26, 234)
+        OperaciónLabel.Location = New System.Drawing.Point(26, 169)
         OperaciónLabel.Name = "OperaciónLabel"
         OperaciónLabel.Size = New System.Drawing.Size(78, 17)
         OperaciónLabel.TabIndex = 8
@@ -109,7 +127,7 @@ Partial Class frmAsientos
         'DebeLabel
         '
         DebeLabel.AutoSize = True
-        DebeLabel.Location = New System.Drawing.Point(26, 342)
+        DebeLabel.Location = New System.Drawing.Point(24, 429)
         DebeLabel.Name = "DebeLabel"
         DebeLabel.Size = New System.Drawing.Size(46, 17)
         DebeLabel.TabIndex = 10
@@ -118,7 +136,7 @@ Partial Class frmAsientos
         'HaberLabel
         '
         HaberLabel.AutoSize = True
-        HaberLabel.Location = New System.Drawing.Point(331, 342)
+        HaberLabel.Location = New System.Drawing.Point(329, 429)
         HaberLabel.Name = "HaberLabel"
         HaberLabel.Size = New System.Drawing.Size(51, 17)
         HaberLabel.TabIndex = 12
@@ -136,7 +154,7 @@ Partial Class frmAsientos
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(27, 180)
+        Label2.Location = New System.Drawing.Point(594, 124)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(50, 17)
         Label2.TabIndex = 16
@@ -150,7 +168,7 @@ Partial Class frmAsientos
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(645, 433)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(903, 433)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -182,7 +200,7 @@ Partial Class frmAsientos
         'NúmeroTextBox
         '
         Me.NúmeroTextBox.Enabled = False
-        Me.NúmeroTextBox.Location = New System.Drawing.Point(115, 63)
+        Me.NúmeroTextBox.Location = New System.Drawing.Point(678, 63)
         Me.NúmeroTextBox.Name = "NúmeroTextBox"
         Me.NúmeroTextBox.Size = New System.Drawing.Size(118, 22)
         Me.NúmeroTextBox.TabIndex = 3
@@ -190,7 +208,7 @@ Partial Class frmAsientos
         'FechaDateTimePicker
         '
         Me.FechaDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.AsientosBindingSource, "Fecha", True))
-        Me.FechaDateTimePicker.Location = New System.Drawing.Point(326, 63)
+        Me.FechaDateTimePicker.Location = New System.Drawing.Point(889, 63)
         Me.FechaDateTimePicker.Name = "FechaDateTimePicker"
         Me.FechaDateTimePicker.Size = New System.Drawing.Size(200, 22)
         Me.FechaDateTimePicker.TabIndex = 5
@@ -208,7 +226,7 @@ Partial Class frmAsientos
         'JustificanteTextBox
         '
         Me.JustificanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Justificante", True))
-        Me.JustificanteTextBox.Location = New System.Drawing.Point(115, 283)
+        Me.JustificanteTextBox.Location = New System.Drawing.Point(893, 164)
         Me.JustificanteTextBox.Name = "JustificanteTextBox"
         Me.JustificanteTextBox.Size = New System.Drawing.Size(200, 22)
         Me.JustificanteTextBox.TabIndex = 7
@@ -216,8 +234,7 @@ Partial Class frmAsientos
         'OperaciónTextBox
         '
         Me.OperaciónTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Operación", True))
-        Me.OperaciónTextBox.Enabled = False
-        Me.OperaciónTextBox.Location = New System.Drawing.Point(115, 229)
+        Me.OperaciónTextBox.Location = New System.Drawing.Point(115, 164)
         Me.OperaciónTextBox.Name = "OperaciónTextBox"
         Me.OperaciónTextBox.Size = New System.Drawing.Size(660, 22)
         Me.OperaciónTextBox.TabIndex = 9
@@ -226,7 +243,7 @@ Partial Class frmAsientos
         '
         Me.DebeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Debe", True))
         Me.DebeTextBox.Enabled = False
-        Me.DebeTextBox.Location = New System.Drawing.Point(115, 337)
+        Me.DebeTextBox.Location = New System.Drawing.Point(113, 424)
         Me.DebeTextBox.Name = "DebeTextBox"
         Me.DebeTextBox.Size = New System.Drawing.Size(200, 22)
         Me.DebeTextBox.TabIndex = 11
@@ -235,7 +252,7 @@ Partial Class frmAsientos
         '
         Me.HaberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Haber", True))
         Me.HaberTextBox.Enabled = False
-        Me.HaberTextBox.Location = New System.Drawing.Point(420, 337)
+        Me.HaberTextBox.Location = New System.Drawing.Point(418, 424)
         Me.HaberTextBox.Name = "HaberTextBox"
         Me.HaberTextBox.Size = New System.Drawing.Size(200, 22)
         Me.HaberTextBox.TabIndex = 13
@@ -298,6 +315,7 @@ Partial Class frmAsientos
         '
         Me.CuentasGastoBindingSource.DataMember = "CuentasGasto"
         Me.CuentasGastoBindingSource.DataSource = Me.BDContabilidadGMELO
+        Me.CuentasGastoBindingSource.Sort = "Nombre"
         '
         'CuentasGastoTableAdapter
         '
@@ -308,7 +326,7 @@ Partial Class frmAsientos
         Me.CuentasGastoComboBox.DataSource = Me.CuentasGastoBindingSource
         Me.CuentasGastoComboBox.DisplayMember = "Nombre"
         Me.CuentasGastoComboBox.FormattingEnabled = True
-        Me.CuentasGastoComboBox.Location = New System.Drawing.Point(115, 173)
+        Me.CuentasGastoComboBox.Location = New System.Drawing.Point(682, 117)
         Me.CuentasGastoComboBox.Name = "CuentasGastoComboBox"
         Me.CuentasGastoComboBox.Size = New System.Drawing.Size(411, 24)
         Me.CuentasGastoComboBox.TabIndex = 13
@@ -325,7 +343,7 @@ Partial Class frmAsientos
         '
         'CuentasProveedoresComboBox
         '
-        Me.CuentasProveedoresComboBox.DataSource = Me.CuentasProveedoresBindingSource
+        Me.CuentasProveedoresComboBox.DataSource = Me.ProveedoresBindingSource
         Me.CuentasProveedoresComboBox.DisplayMember = "Nombre"
         Me.CuentasProveedoresComboBox.FormattingEnabled = True
         Me.CuentasProveedoresComboBox.Location = New System.Drawing.Point(115, 117)
@@ -334,18 +352,163 @@ Partial Class frmAsientos
         Me.CuentasProveedoresComboBox.TabIndex = 14
         Me.CuentasProveedoresComboBox.ValueMember = "Código"
         '
-        'FrmAsientosBindingSource
-        '
-        Me.FrmAsientosBindingSource.DataSource = GetType(Contabilidad.frmAsientos)
-        '
         'ProveedoresBindingSource
         '
         Me.ProveedoresBindingSource.DataMember = "Proveedores"
         Me.ProveedoresBindingSource.DataSource = Me.BDContabilidadGMELO
+        Me.ProveedoresBindingSource.Sort = "Nombre"
         '
         'ProveedoresTableAdapter
         '
         Me.ProveedoresTableAdapter.ClearBeforeFill = True
+        '
+        'IVAGroupBox
+        '
+        Me.IVAGroupBox.Controls.Add(Me.rbIVASuperReducido)
+        Me.IVAGroupBox.Controls.Add(Me.rbIVAReducido)
+        Me.IVAGroupBox.Controls.Add(Me.rbIVANormal)
+        Me.IVAGroupBox.Controls.Add(Me.rbIVANo)
+        Me.IVAGroupBox.Location = New System.Drawing.Point(26, 211)
+        Me.IVAGroupBox.Name = "IVAGroupBox"
+        Me.IVAGroupBox.Size = New System.Drawing.Size(468, 61)
+        Me.IVAGroupBox.TabIndex = 17
+        Me.IVAGroupBox.TabStop = False
+        Me.IVAGroupBox.Text = "IVA"
+        '
+        'rbIVASuperReducido
+        '
+        Me.rbIVASuperReducido.AutoSize = True
+        Me.rbIVASuperReducido.Location = New System.Drawing.Point(373, 22)
+        Me.rbIVASuperReducido.Name = "rbIVASuperReducido"
+        Me.rbIVASuperReducido.Size = New System.Drawing.Size(49, 21)
+        Me.rbIVASuperReducido.TabIndex = 3
+        Me.rbIVASuperReducido.Text = "4%"
+        Me.rbIVASuperReducido.UseVisualStyleBackColor = True
+        '
+        'rbIVAReducido
+        '
+        Me.rbIVAReducido.AutoSize = True
+        Me.rbIVAReducido.Location = New System.Drawing.Point(260, 22)
+        Me.rbIVAReducido.Name = "rbIVAReducido"
+        Me.rbIVAReducido.Size = New System.Drawing.Size(57, 21)
+        Me.rbIVAReducido.TabIndex = 2
+        Me.rbIVAReducido.Text = "10%"
+        Me.rbIVAReducido.UseVisualStyleBackColor = True
+        '
+        'rbIVANormal
+        '
+        Me.rbIVANormal.AutoSize = True
+        Me.rbIVANormal.Checked = True
+        Me.rbIVANormal.Location = New System.Drawing.Point(147, 22)
+        Me.rbIVANormal.Name = "rbIVANormal"
+        Me.rbIVANormal.Size = New System.Drawing.Size(57, 21)
+        Me.rbIVANormal.TabIndex = 1
+        Me.rbIVANormal.TabStop = True
+        Me.rbIVANormal.Text = "21%"
+        Me.rbIVANormal.UseVisualStyleBackColor = True
+        '
+        'rbIVANo
+        '
+        Me.rbIVANo.AutoSize = True
+        Me.rbIVANo.Location = New System.Drawing.Point(41, 22)
+        Me.rbIVANo.Name = "rbIVANo"
+        Me.rbIVANo.Size = New System.Drawing.Size(50, 21)
+        Me.rbIVANo.TabIndex = 0
+        Me.rbIVANo.Text = "NO"
+        Me.rbIVANo.UseVisualStyleBackColor = True
+        '
+        'BancosGroupBox
+        '
+        Me.BancosGroupBox.Controls.Add(Me.BancosComboBox)
+        Me.BancosGroupBox.Controls.Add(Me.rbPagoBanco)
+        Me.BancosGroupBox.Controls.Add(Me.rbPagoCaja)
+        Me.BancosGroupBox.Location = New System.Drawing.Point(504, 211)
+        Me.BancosGroupBox.Name = "BancosGroupBox"
+        Me.BancosGroupBox.Size = New System.Drawing.Size(468, 73)
+        Me.BancosGroupBox.TabIndex = 18
+        Me.BancosGroupBox.TabStop = False
+        Me.BancosGroupBox.Text = "Datos Pago"
+        '
+        'BancosComboBox
+        '
+        Me.BancosComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CuentasBancariasBindingSource, "id", True))
+        Me.BancosComboBox.DataSource = Me.CuentasBancariasBindingSource
+        Me.BancosComboBox.DisplayMember = "Banco"
+        Me.BancosComboBox.FormattingEnabled = True
+        Me.BancosComboBox.Location = New System.Drawing.Point(214, 19)
+        Me.BancosComboBox.Name = "BancosComboBox"
+        Me.BancosComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.BancosComboBox.TabIndex = 3
+        Me.BancosComboBox.ValueMember = "id"
+        '
+        'CuentasBancariasBindingSource
+        '
+        Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
+        Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
+        Me.CuentasBancariasBindingSource.Filter = "id<3"
+        '
+        'rbPagoBanco
+        '
+        Me.rbPagoBanco.AutoSize = True
+        Me.rbPagoBanco.Checked = True
+        Me.rbPagoBanco.Location = New System.Drawing.Point(139, 22)
+        Me.rbPagoBanco.Name = "rbPagoBanco"
+        Me.rbPagoBanco.Size = New System.Drawing.Size(69, 21)
+        Me.rbPagoBanco.TabIndex = 1
+        Me.rbPagoBanco.TabStop = True
+        Me.rbPagoBanco.Text = "Banco"
+        Me.rbPagoBanco.UseVisualStyleBackColor = True
+        '
+        'rbPagoCaja
+        '
+        Me.rbPagoCaja.AutoSize = True
+        Me.rbPagoCaja.Location = New System.Drawing.Point(35, 22)
+        Me.rbPagoCaja.Name = "rbPagoCaja"
+        Me.rbPagoCaja.Size = New System.Drawing.Size(57, 21)
+        Me.rbPagoCaja.TabIndex = 0
+        Me.rbPagoCaja.Text = "Caja"
+        Me.rbPagoCaja.UseVisualStyleBackColor = True
+        '
+        'CuentasBancariasTableAdapter
+        '
+        Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
+        '
+        'TipoAsientoGroupBox
+        '
+        Me.TipoAsientoGroupBox.Controls.Add(Me.rbVentasRadioButton)
+        Me.TipoAsientoGroupBox.Controls.Add(Me.rbComprasRadioButton)
+        Me.TipoAsientoGroupBox.Location = New System.Drawing.Point(26, 45)
+        Me.TipoAsientoGroupBox.Name = "TipoAsientoGroupBox"
+        Me.TipoAsientoGroupBox.Size = New System.Drawing.Size(531, 53)
+        Me.TipoAsientoGroupBox.TabIndex = 19
+        Me.TipoAsientoGroupBox.TabStop = False
+        Me.TipoAsientoGroupBox.Text = "Tipo de Asiento"
+        '
+        'rbVentasRadioButton
+        '
+        Me.rbVentasRadioButton.AutoSize = True
+        Me.rbVentasRadioButton.Location = New System.Drawing.Point(179, 26)
+        Me.rbVentasRadioButton.Name = "rbVentasRadioButton"
+        Me.rbVentasRadioButton.Size = New System.Drawing.Size(73, 21)
+        Me.rbVentasRadioButton.TabIndex = 1
+        Me.rbVentasRadioButton.Text = "Ventas"
+        Me.rbVentasRadioButton.UseVisualStyleBackColor = True
+        '
+        'rbComprasRadioButton
+        '
+        Me.rbComprasRadioButton.AutoSize = True
+        Me.rbComprasRadioButton.Checked = True
+        Me.rbComprasRadioButton.Location = New System.Drawing.Point(41, 26)
+        Me.rbComprasRadioButton.Name = "rbComprasRadioButton"
+        Me.rbComprasRadioButton.Size = New System.Drawing.Size(85, 21)
+        Me.rbComprasRadioButton.TabIndex = 0
+        Me.rbComprasRadioButton.TabStop = True
+        Me.rbComprasRadioButton.Text = "Compras"
+        Me.rbComprasRadioButton.UseVisualStyleBackColor = True
+        '
+        'FrmAsientosBindingSource
+        '
+        Me.FrmAsientosBindingSource.DataSource = GetType(Contabilidad.frmAsientos)
         '
         'frmAsientos
         '
@@ -353,8 +516,11 @@ Partial Class frmAsientos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(860, 489)
+        Me.ClientSize = New System.Drawing.Size(1118, 489)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TipoAsientoGroupBox)
+        Me.Controls.Add(Me.BancosGroupBox)
+        Me.Controls.Add(Me.IVAGroupBox)
         Me.Controls.Add(Label2)
         Me.Controls.Add(Label1)
         Me.Controls.Add(Me.CuentasProveedoresComboBox)
@@ -385,8 +551,15 @@ Partial Class frmAsientos
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.IVAGroupBox.ResumeLayout(False)
+        Me.IVAGroupBox.PerformLayout()
+        Me.BancosGroupBox.ResumeLayout(False)
+        Me.BancosGroupBox.PerformLayout()
+        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TipoAsientoGroupBox.ResumeLayout(False)
+        Me.TipoAsientoGroupBox.PerformLayout()
+        CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -413,4 +586,18 @@ Partial Class frmAsientos
     Friend WithEvents CuentasProveedoresComboBox As ComboBox
     Friend WithEvents ProveedoresBindingSource As BindingSource
     Friend WithEvents ProveedoresTableAdapter As BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter
+    Friend WithEvents IVAGroupBox As GroupBox
+    Friend WithEvents rbIVASuperReducido As RadioButton
+    Friend WithEvents rbIVAReducido As RadioButton
+    Friend WithEvents rbIVANormal As RadioButton
+    Friend WithEvents rbIVANo As RadioButton
+    Friend WithEvents BancosGroupBox As GroupBox
+    Friend WithEvents rbPagoBanco As RadioButton
+    Friend WithEvents rbPagoCaja As RadioButton
+    Friend WithEvents CuentasBancariasBindingSource As BindingSource
+    Friend WithEvents CuentasBancariasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter
+    Friend WithEvents BancosComboBox As ComboBox
+    Friend WithEvents TipoAsientoGroupBox As GroupBox
+    Friend WithEvents rbVentasRadioButton As RadioButton
+    Friend WithEvents rbComprasRadioButton As RadioButton
 End Class

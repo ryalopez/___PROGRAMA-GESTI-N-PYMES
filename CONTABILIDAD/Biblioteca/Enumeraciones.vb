@@ -9,10 +9,8 @@ Public Enum eForms
 End Enum
 Public Enum eTiposAsiento
 
-    Ninguno = 0
-    FACTURA_PROVEEDOR = 1
-    PAGO_FACTURA_CAJA = 2
-    PAGO_FACTURA_BANCO = 3
+    COMPRA = 1
+    VENTA = 2
 
 End Enum
 

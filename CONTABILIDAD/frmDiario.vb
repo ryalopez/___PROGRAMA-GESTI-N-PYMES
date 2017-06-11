@@ -901,20 +901,14 @@ Public Class frmDiario
         '
         ' Elegir tipo de asiento
         '
+        Dim a As New frmAsientos()
 
-        frmElegirTipoAsiento.ShowDialog(Me)
-        If frmElegirTipoAsiento.DialogResult = DialogResult.OK Then
+        a.ShowDialog(Me)
+        If a.DialogResult = DialogResult.OK Then
 
-            Dim a As New frmAsientos(frmElegirTipoAsiento.TipoSeleccionado)
-            a.ShowDialog(Me)
-            If a.DialogResult = DialogResult.OK Then
-
-                Exit Sub
-
-            End If
+            Exit Sub
 
         End If
-
 
         '
         ' Se trabaja en la Base de Datos con métodos directos. Se "desenganchan los binding"
