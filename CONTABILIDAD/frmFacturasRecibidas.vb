@@ -36,18 +36,12 @@ Public Class frmFacturasRecibidas
     End Sub
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
-        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
-
-
-        'Me.pROVEEDORESTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
 
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
 
-        Me.Text = My.Resources.Título + " - Gestión de FACTURAS de PROVEEDORES"
+        Me.Text = My.Resources.Título + " - Gestión de FACTURAS RECIBIDAS"
 
 
-        Me.ReportViewer1.RefreshReport
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -90,10 +84,6 @@ Public Class frmFacturasRecibidas
 
     Private Sub btnListarFacturasRecibidas_Click(sender As Object, e As EventArgs) Handles btnListarFacturasRecibidas.Click
 
-        Me.ReportViewer1.Visible = True
-
-
-        Exit Sub
         Dim Listado As New frmVisorInformes
 
         Listado.NombreEmpresa = My.Resources.NombreEmpresa

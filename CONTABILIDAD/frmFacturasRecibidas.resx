@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="BDContabilidadGMELO.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>261, 17</value>
+  </metadata>
   <metadata name="FacturasRecibidasBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -198,14 +201,14 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHhSURBVDhPY8AHegwMrB74+s77EBh4735w8O83wcE/PgQE
-        XDnr7p4BVYIdhIqK8jz28Vl+Pijo3/ugoP/o+JyHxwyoUkzgoaLC/srf/8jbgID/IPwaiG/5+Fza5+Ky
+        XDnr7p4BVYIdhIqK8jz28Vl+Lijo3/ugoP/o+JyHxwyoUkzgoaLC/srf/8jbgID/IPwaiG/5+Fza5+Ky
         8IKX19Ybfn5f+4yMwqDKMcEZF5fm135+/0H4ma/v16kmJkFQKTBwk5ER0mJgYINyUYGruDj3Y1/fj698
-        ff+D8BIrq1SoFGFQrqJieMrRcfYLb+//IHxFW/vPYXv7hnXm5tXIeKWZWTJUCyq45ea27pmn5//nUAxi
+        ff+D8BIrq1SoFGFQrqJieMrRcfYLb+//IHxFS+vPYXv7hnXm5tXIeKWZWTJUCyq45ea27pmn5//nUAxi
         Y8NHHB2xB2CEvLzhITu7FU89PP6D8GkHh02RCgr26NiGn18QqgUVAKNO4qSd3fLHbm7/QfiKk9OWSjU1
-        Z3Rsz8DAAtWCCi7a2i565OLyHx++bW//FqcBLdracUtNTHoeODv/B+ED9vZ/l5ua1rZpaZXDcL26uh9U
+        Z3Rsz8DAAtWCCi7a2i565OLyHx++bW//FqcBLdracUtNTHoeODv/B+H99vZ/l5ua1rZpaZXDcL26uh9U
         OU7AdN3B4dF9R8f/ILzGyCgBKk48mKGvn33X3v4/GNvYvOlSU9ODSoFBgZyc0jVb2xYoFytgOmRhsfO2
         nd1/MDYz+3HR0nLldmPj7ms2NtuAYr9u2thchqrFDvSAKXK3ufm6GzY2/29hwTesrS9BleIHVcrK/vuB
-        rjlqafnlnLz871OWlvd2mZmtalJTC4CoYGAAAJjXBNZw3/tlAAAAAElFTkSuQmCC
+        rjlqafnlnLz871OWlvd2mZmtalJTC4CoYGAAAI5XBNKWjoS4AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="GenerarToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -228,50 +231,17 @@
         5kx4Y+SAAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="BDContabilidadGMELO.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>261, 17</value>
-  </metadata>
   <metadata name="CuentasBancariasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>687, 95</value>
+    <value>871, 17</value>
   </metadata>
   <metadata name="OperacionesFacturaContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>186, 56</value>
-  </metadata>
-  <metadata name="CargosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="AsientosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>886, 56</value>
-  </metadata>
-  <metadata name="AbonosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>348, 95</value>
-  </metadata>
-  <metadata name="CuentasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>953, 17</value>
+    <value>612, 17</value>
   </metadata>
   <metadata name="TableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>439, 17</value>
   </metadata>
-  <metadata name="CuentasTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="CuentasMaestrasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>445, 56</value>
-  </metadata>
-  <metadata name="CuentasMaestrasTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>668, 56</value>
-  </metadata>
-  <metadata name="AsientosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1063, 56</value>
-  </metadata>
-  <metadata name="CargosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>185, 95</value>
-  </metadata>
-  <metadata name="AbonosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>520, 95</value>
-  </metadata>
   <metadata name="CuentasBancariasTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>912, 95</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="idFactura.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -286,10 +256,10 @@
     <value>True</value>
   </metadata>
   <metadata name="FacturasRecibidasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 134</value>
+    <value>237, 56</value>
   </metadata>
   <metadata name="FacturasRecibidasTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>244, 134</value>
+    <value>464, 56</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>194</value>

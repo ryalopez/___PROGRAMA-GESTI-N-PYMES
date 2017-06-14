@@ -3,18 +3,41 @@ Imports Biblioteca
 
 Public Class frmAsientos
 
+    Public Event CambioNúmeros()
+
     Private m_tipoAsiento As eTiposAsiento
+
+    Private m_ClaveHash As String
+
     Private m_númeroAsiento As Integer
     Private m_fechaAsiento As Date
     Private m_Operación As String
     Private m_Justificante As String
     Private m_CuentaProveedor As Integer
+    Private m_NombreProveedor As String
     Private m_CuentaGasto As Integer
+    Private m_NombreGasto As String
+    Private m_CIF As String
+
     Private m_IVA As Double
+    Private m_CuotaIVA As Double
+    Private m_BaseIVA As Double
     Private m_CuentaIVA As Integer
+
     Private m_CuentaBanco As Integer
 
+    Private m_ImporteTotal As Double
+
+
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
+        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
+        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cargos' Puede moverla o quitarla según sea necesario.
+        Me.CargosTableAdapter.Fill(Me.BDContabilidadGMELO.Cargos)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Abonos' Puede moverla o quitarla según sea necesario.
+        Me.AbonosTableAdapter.Fill(Me.BDContabilidadGMELO.Abonos)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasBancarias' Puede moverla o quitarla según sea necesario.
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Proveedores' Puede moverla o quitarla según sea necesario.
@@ -28,7 +51,7 @@ Public Class frmAsientos
         '
         ' Agregar asiento
         '
-        AsientosBindingSource.SuspendBinding()
+        'AsientosBindingSource.SuspendBinding()
         m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.NúmeroTextBox.Text = Me.NúmeroAsiento.ToString
         Me.FechaDateTimePicker.Value = Today
@@ -73,6 +96,18 @@ Public Class frmAsientos
         End Get
     End Property
 
+    Public ReadOnly Property CuotaIVA As Double
+        Get
+            Return Me.m_CuotaIVA
+        End Get
+    End Property
+
+    Public ReadOnly Property BaseIVA As Double
+        Get
+            Return Me.m_BaseIVA
+        End Get
+    End Property
+
     Public ReadOnly Property CuentaIVASoportado As Integer
         Get
             Return Me.m_CuentaIVA
@@ -97,24 +132,80 @@ Public Class frmAsientos
         End Get
     End Property
 
-    Private Sub CuentasProveedoresComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CuentasProveedoresComboBox.SelectedIndexChanged
+    Public ReadOnly Property NombreProveedor As String
+        Get
+            Return Me.m_NombreProveedor
+        End Get
+    End Property
+    Public ReadOnly Property NombreGasto As String
+        Get
+            Return Me.m_NombreGasto
+        End Get
+    End Property
+    Public ReadOnly Property CIF As String
+        Get
+            Return Me.m_CIF
+        End Get
+    End Property
+    Public ReadOnly Property ImporteTotal As Double
+        Get
+            Return Me.m_ImporteTotal
+        End Get
+    End Property
+    Public ReadOnly Property ClaveHash As String
+        Get
+            Return Me.m_ClaveHash
+        End Get
+    End Property
 
-        Me.m_CuentaProveedor = CInt(CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Cuenta4"))
-        If CuentasProveedoresComboBox.SelectedIndex > 0 Then
 
-            Dim p As Integer = Me.CuentasGastoBindingSource.Find("Código", CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Cuenta6"))
+    Private Sub ProveedoresComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ProveedoresComboBox.SelectedIndexChanged
+
+        If ProveedoresComboBox.SelectedIndex > -1 Then
+
+            Dim p As Integer = Me.ProveedoresBindingSource.Find("DocumentoIdentidad", ProveedoresComboBox.SelectedValue)
             If p > -1 Then
 
-                Me.CuentasGastoBindingSource.Position = p
+                Me.ProveedoresBindingSource.Position = p
+                Me.m_NombreProveedor = CStr(CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Nombre"))
+                Me.m_CuentaProveedor = CInt(CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Cuenta4"))
+                Me.m_CuentaGasto = CInt(CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Cuenta6"))
+                Me.m_CIF = CStr(CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("DocumentoIdentidad"))
+                Dim q As Integer = Me.CuentasGastoBindingSource.Find("Código", Me.CuentaGasto)
+
+                If q > -1 Then
+
+                    Me.CuentasGastoBindingSource.Position = q
+
+                    Me.m_CuentaGasto = CInt(CType(Me.CuentasGastoBindingSource.Current, DataRowView).Item("Código"))
+                    Me.m_NombreGasto = CStr(CType(Me.CuentasGastoBindingSource.Current, DataRowView).Item("Nombre"))
+                    Me.CuentasGastoComboBox.SelectedValue = Me.CuentaGasto
+
+                Else
+
+                    Me.m_CuentaGasto = 0
+                    Me.m_NombreGasto = ""
+
+                End If
+
+            Else
+
+                Me.m_NombreProveedor = ""
+                Me.m_CuentaProveedor = 0
+                Me.m_NombreGasto = ""
+                Me.m_CuentaGasto = 0
 
             End If
 
             If Me.TipoAsiento = eTiposAsiento.COMPRA Then
-                Dim NombreProveedor As String = CType(Me.ProveedoresBindingSource.Current, DataRowView).Item("Nombre").ToString
-                Me.m_Operación = NombreProveedor + " S/F " + Me.Justificante + "."
-                Me.OperaciónTextBox.Text = Me.Operación
-                Me.m_Justificante = Me.JustificanteTextBox.Text
+
+                Me.m_Operación = Me.NombreGasto + " / " + Me.NombreProveedor
+
             End If
+
+            Me.OperaciónTextBox.Text = Me.Operación
+
+
         End If
 
     End Sub
@@ -143,6 +234,9 @@ Public Class frmAsientos
 
             Me.m_IVA = 0
             Me.m_CuentaIVA = 0
+            Me.TipoIVATextBox.Text = 0.ToString
+            'forzar recálculo
+            RaiseEvent CambioNúmeros()
 
         End If
     End Sub
@@ -153,6 +247,9 @@ Public Class frmAsientos
 
             Me.m_IVA = 21
             Me.m_CuentaIVA = 472021
+            Me.TipoIVATextBox.Text = 21.ToString
+            'forzar recálculo
+            RaiseEvent CambioNúmeros()
 
         End If
     End Sub
@@ -163,6 +260,9 @@ Public Class frmAsientos
 
             Me.m_IVA = 10
             Me.m_CuentaIVA = 472010
+            Me.TipoIVATextBox.Text = 10.ToString
+            'forzar recálculo
+            RaiseEvent CambioNúmeros()
 
         End If
     End Sub
@@ -173,6 +273,9 @@ Public Class frmAsientos
 
             Me.m_IVA = 4
             Me.m_CuentaIVA = 472004
+            Me.TipoIVATextBox.Text = 4.ToString
+            'forzar recálculo
+            RaiseEvent CambioNúmeros()
 
         End If
     End Sub
@@ -230,22 +333,13 @@ Public Class frmAsientos
 
         Else
 
-            GenerarAsiento()
+            Me.m_ClaveHash = CMódulo.Clave(Me.FechaAsiento.ToString + Me.Operación + Me.Justificante)
 
+            GenerarAsiento()
+            GenerarFactura()
 
         End If
 
-
-        '
-        ' Agregar cargo
-        '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, "C")
-        ''Me.CargosTableAdapter.Insert(NúmeroAsiento, CInt(CódigoCuenta), NúmeroApunte, 0)
-        '
-        ' Agregar abono
-        '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, "A")
-        ''Me.AbonosTableAdapter.Insert(NúmeroAsiento, CInt(CódigoCuenta), NúmeroApunte, 0)
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
@@ -268,6 +362,16 @@ Public Class frmAsientos
             msg += "La cuenta de gasto no puede ser 0. "
 
         End If
+        If Len(Trim(asto.Operación)) = 0 Then
+
+            msg += "El campo Operación no puede quedar en blanco. "
+
+        End If
+        If Len(Trim(asto.Justificante)) = 0 Then
+
+            msg += "El campo Justificante no puede quedar en blanco. "
+
+        End If
         If asto.IVA <> 0 AndAlso asto.CuentaIVASoportado = 0 Then
 
             msg += "La cuenta de IVA soportado no puede ser 0. "
@@ -278,21 +382,20 @@ Public Class frmAsientos
             msg += "La cuenta bancaria no puede ser 0. "
 
         End If
-        If Len(Trim(asto.Operación)) <> 0 Then
+        If asto.ImporteTotal = 0 Then
 
-            msg += "El campo Operación no puede quedar en blanco. "
-
-        End If
-        If Len(Trim(asto.Justificante)) <> 0 Then
-
-            msg += "El campo Justificante no puede quedar en blanco. "
+            msg += "El importe total no puede ser 0. "
 
         End If
         If Len(Trim(msg)) <> 0 Then
 
             CMódulo.MsgErrorCrítico(msg)
+            Válido = False
+            Exit Function
 
         End If
+
+        Válido = True
 
     End Function
 
@@ -307,13 +410,68 @@ Public Class frmAsientos
 
     Private Sub GenerarAsiento()
 
-        ' Me.AsientosTableAdapter.Insert(Me.NúmeroAsiento, Me.FechaAsiento, Me.FechaDateTimePicker, Me.OperaciónTextBox.Text)
+        Me.AsientosTableAdapter.Insert(Me.NúmeroAsiento, Me.FechaAsiento, Me.Justificante, Me.Operación, Me.ClaveHash)
+        If Me.TipoAsiento = eTiposAsiento.COMPRA Then
+            '
+            ' Agregar cargos
+            '
+            Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "C")
+            Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaGasto, NúmeroApunte, Me.BaseIVA)
+            NúmeroApunte += 1
+            Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaIVASoportado, NúmeroApunte, Me.CuotaIVA)
+            NúmeroApunte += 1
+            Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
 
+            '
+            ' Agregar abonos
+            '
+            NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "A")
+            Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
+            NúmeroApunte += 1
+            Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaBanco, NúmeroApunte, Me.ImporteTotal)
+        Else
+        End If
     End Sub
 
     Private Sub FechaDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles FechaDateTimePicker.ValueChanged
 
         Me.m_fechaAsiento = Me.FechaDateTimePicker.Value
 
+    End Sub
+
+    Private Sub JustificanteTextBox_TextChanged(sender As Object, e As EventArgs) Handles JustificanteTextBox.TextChanged
+
+        Me.m_Justificante = Me.JustificanteTextBox.Text
+
+    End Sub
+
+    Private Sub TotalTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalTextBox.TextChanged
+
+        RaiseEvent CambioNúmeros()
+
+    End Sub
+
+    Private Sub Realiza_Los_Cálculos() Handles Me.CambioNúmeros
+
+        If Len(Trim(Me.TotalTextBox.Text)) <> 0 Then
+
+            Me.m_ImporteTotal = CDbl(Me.TotalTextBox.Text)
+            Dim R As Double = 1 + Me.IVA / 100
+            Me.m_BaseIVA = Math.Round((Me.ImporteTotal / R), 2)
+            Me.m_CuotaIVA = Me.ImporteTotal - Me.m_BaseIVA
+
+            Me.BaseIVATextBox.Text = Me.BaseIVA.ToString
+            Me.CuotaIVATextBox.Text = Me.CuotaIVA.ToString
+
+        End If
+    End Sub
+
+    Private Sub GenerarFactura()
+
+
+        If Me.TipoAsiento = eTiposAsiento.COMPRA Then
+            Me.FacturasRecibidasTableAdapter.Insert(Me.Justificante, Me.FechaAsiento, Nothing, Me.CIF, Me.NombreProveedor, Me.ClaveHash, Me.BaseIVA, Me.IVA, Me.CuotaIVA, Me.ImporteTotal)
+        Else
+        End If
     End Sub
 End Class
