@@ -3,7 +3,11 @@ Imports Biblioteca
 
 Public Class frmAsientos
 
+    Private Esquina As New Point(21, 103)
+
     Public Event CambioNúmeros()
+    Public Event CambioTipoAsiento(tipoAsiento As eTiposAsiento)
+    Public Event PreparaAsientoDisposición(ByRef sender As frmAsientos)
 
     Private m_tipoAsiento As eTiposAsiento
 
@@ -32,8 +36,6 @@ Public Class frmAsientos
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
-        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cargos' Puede moverla o quitarla según sea necesario.
         Me.CargosTableAdapter.Fill(Me.BDContabilidadGMELO.Cargos)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Abonos' Puede moverla o quitarla según sea necesario.
@@ -51,7 +53,6 @@ Public Class frmAsientos
         '
         ' Agregar asiento
         '
-        'AsientosBindingSource.SuspendBinding()
         m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.NúmeroTextBox.Text = Me.NúmeroAsiento.ToString
         Me.FechaDateTimePicker.Value = Today
@@ -60,10 +61,14 @@ Public Class frmAsientos
     End Sub
 
 
-    Public ReadOnly Property TipoAsiento As eTiposAsiento
+    Public Property TipoAsiento As eTiposAsiento
         Get
             Return Me.m_tipoAsiento
         End Get
+        Set(value As eTiposAsiento)
+            Me.m_tipoAsiento = value
+            RaiseEvent CambioTipoAsiento(m_tipoAsiento)
+        End Set
     End Property
 
     Public ReadOnly Property NúmeroAsiento As Integer
@@ -214,6 +219,21 @@ Public Class frmAsientos
         If rbComprasRadioButton.Checked Then
 
             Me.m_tipoAsiento = eTiposAsiento.COMPRA
+            Me.DatosCompraGroupBox.Location = Esquina
+            Me.DatosCompraGroupBox.Visible = True
+            Me.TipoDisposiciónGroupBox.Visible = False
+
+        End If
+
+    End Sub
+    Private Sub rbReintegro_CheckedChanged(sender As Object, e As EventArgs) Handles rbReintegroRadioButton.CheckedChanged
+
+        If rbReintegroRadioButton.Checked Then
+
+            Me.m_tipoAsiento = eTiposAsiento.REINTEGRO_EFECTIVO
+            Me.DatosCompraGroupBox.Visible = False
+            Me.TipoDisposiciónGroupBox.Location = Esquina
+            Me.TipoDisposiciónGroupBox.Visible = True
 
         End If
 
@@ -223,7 +243,10 @@ Public Class frmAsientos
         If rbVentasRadioButton.Checked Then
 
             Me.m_tipoAsiento = eTiposAsiento.VENTA
-
+            Me.DatosCompraGroupBox.Visible = False
+            Me.TipoDisposiciónGroupBox.Visible = False
+            CMódulo.MsgInformativo("No está disponible ésta entrada de asientos.")
+            Me.rbVentanillaRadioButton.Checked = False
         End If
 
     End Sub
@@ -284,7 +307,7 @@ Public Class frmAsientos
 
         If rbPagoCaja.Checked Then
 
-            Me.m_CuentaBanco = 5700001
+            Me.m_CuentaBanco = 570
             Me.BancosComboBox.Visible = False
         End If
     End Sub
@@ -324,7 +347,7 @@ Public Class frmAsientos
     End Sub
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
-        '
+
         ' Validar asiento
         '
         If Not frmAsientos.Válido(Me) Then
@@ -333,10 +356,14 @@ Public Class frmAsientos
 
         Else
 
-            Me.m_ClaveHash = CMódulo.Clave(Me.FechaAsiento.ToString + Me.Operación + Me.Justificante)
-
             GenerarAsiento()
-            GenerarFactura()
+
+            If Me.TipoAsiento = eTiposAsiento.COMPRA Then
+
+                GenerarFactura()
+
+            End If
+
 
         End If
 
@@ -352,48 +379,65 @@ Public Class frmAsientos
     Shared Function Válido(asto As frmAsientos) As Boolean
 
         Dim msg As String = ""
-        If asto.CuentaProveedor = 0 Then
+        Select Case asto.TipoAsiento
+            Case eTiposAsiento.REINTEGRO_EFECTIVO
 
-            msg += "La cuenta del cliente/proveedor no puede ser 0. "
+                If Len(Trim(asto.Operación)) = 0 Then
 
-        End If
-        If asto.CuentaGasto = 0 Then
+                    msg += "El campo Operación no puede quedar en blanco. "
 
-            msg += "La cuenta de gasto no puede ser 0. "
+                End If
+                If asto.CuentaBanco = 0 Then
 
-        End If
-        If Len(Trim(asto.Operación)) = 0 Then
+                    msg += "La cuenta bancaria no puede ser 0. "
 
-            msg += "El campo Operación no puede quedar en blanco. "
+                End If
+                If asto.ImporteTotal = 0 Then
 
-        End If
-        If Len(Trim(asto.Justificante)) = 0 Then
+                    msg += "El importe total no puede ser 0. "
 
-            msg += "El campo Justificante no puede quedar en blanco. "
+                End If
+                If Len(Trim(msg)) <> 0 Then
 
-        End If
-        If asto.IVA <> 0 AndAlso asto.CuentaIVASoportado = 0 Then
+                    CMódulo.MsgErrorCrítico(msg)
+                    Válido = False
+                    Exit Function
 
-            msg += "La cuenta de IVA soportado no puede ser 0. "
+                End If
 
-        End If
-        If asto.CuentaBanco = 0 Then
+            Case eTiposAsiento.COMPRA
+                If Len(Trim(asto.Operación)) = 0 Then
 
-            msg += "La cuenta bancaria no puede ser 0. "
+                    msg += "El campo Operación no puede quedar en blanco. "
 
-        End If
-        If asto.ImporteTotal = 0 Then
+                End If
+                If asto.CuentaBanco = 0 Then
 
-            msg += "El importe total no puede ser 0. "
+                    msg += "La cuenta bancaria no puede ser 0. "
 
-        End If
-        If Len(Trim(msg)) <> 0 Then
+                End If
+                If asto.IVA <> 0 And asto.CuentaIVASoportado = 0 Then
 
-            CMódulo.MsgErrorCrítico(msg)
-            Válido = False
-            Exit Function
+                    msg += "El IVA soportado no puede ser 0. "
 
-        End If
+                End If
+                If asto.ImporteTotal = 0 Then
+
+                    msg += "El importe total no puede ser 0. "
+
+                End If
+                If Len(Trim(msg)) <> 0 Then
+
+                    CMódulo.MsgErrorCrítico(msg)
+                    Válido = False
+                    Exit Function
+
+                End If
+            Case Else
+
+                Válido = False
+
+        End Select
 
         Válido = True
 
@@ -410,27 +454,49 @@ Public Class frmAsientos
 
     Private Sub GenerarAsiento()
 
+        Me.m_ClaveHash = CMódulo.Clave(Me.FechaAsiento.ToString + Me.Operación + Me.Justificante)
         Me.AsientosTableAdapter.Insert(Me.NúmeroAsiento, Me.FechaAsiento, Me.Justificante, Me.Operación, Me.ClaveHash)
-        If Me.TipoAsiento = eTiposAsiento.COMPRA Then
-            '
-            ' Agregar cargos
-            '
-            Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "C")
-            Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaGasto, NúmeroApunte, Me.BaseIVA)
-            NúmeroApunte += 1
-            Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaIVASoportado, NúmeroApunte, Me.CuotaIVA)
-            NúmeroApunte += 1
-            Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
 
-            '
-            ' Agregar abonos
-            '
-            NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "A")
-            Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
-            NúmeroApunte += 1
-            Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaBanco, NúmeroApunte, Me.ImporteTotal)
-        Else
-        End If
+        Select Case Me.TipoAsiento
+
+            Case eTiposAsiento.REINTEGRO_EFECTIVO
+                '
+                ' Agregar cargos
+                '
+                Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "C")
+                Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaGasto, NúmeroApunte, Me.BaseIVA)
+
+                '
+                ' Agregar abonos
+                '
+                NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "A")
+                Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaBanco, NúmeroApunte, Me.ImporteTotal)
+
+            Case eTiposAsiento.COMPRA
+                '
+                ' Agregar cargos
+                '
+                Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "C")
+                Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaGasto, NúmeroApunte, Me.BaseIVA)
+                If Me.IVA <> 0 Then
+                    NúmeroApunte += 1
+                    Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaIVASoportado, NúmeroApunte, Me.CuotaIVA)
+                End If
+                NúmeroApunte += 1
+                Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
+
+                '
+                ' Agregar abonos
+                '
+                NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "A")
+                Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
+                NúmeroApunte += 1
+                Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaBanco, NúmeroApunte, Me.ImporteTotal)
+            Case Else
+
+                Exit Sub
+
+        End Select
     End Sub
 
     Private Sub FechaDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles FechaDateTimePicker.ValueChanged
@@ -447,23 +513,46 @@ Public Class frmAsientos
 
     Private Sub TotalTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalTextBox.TextChanged
 
+    RaiseEvent CambioNúmeros()
+
+    End Sub
+
+    Private Sub TotalDispuestoTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalDispuestoTextBox.TextChanged
+
         RaiseEvent CambioNúmeros()
+        RaiseEvent PreparaAsientoDisposición(Me)
 
     End Sub
 
     Private Sub Realiza_Los_Cálculos() Handles Me.CambioNúmeros
 
-        If Len(Trim(Me.TotalTextBox.Text)) <> 0 Then
+        Select Case Me.TipoAsiento
+            Case eTiposAsiento.REINTEGRO_EFECTIVO
 
-            Me.m_ImporteTotal = CDbl(Me.TotalTextBox.Text)
-            Dim R As Double = 1 + Me.IVA / 100
-            Me.m_BaseIVA = Math.Round((Me.ImporteTotal / R), 2)
-            Me.m_CuotaIVA = Me.ImporteTotal - Me.m_BaseIVA
+                If Len(Trim(Me.TotalDispuestoTextBox.Text)) <> 0 Then
 
-            Me.BaseIVATextBox.Text = Me.BaseIVA.ToString
-            Me.CuotaIVATextBox.Text = Me.CuotaIVA.ToString
+                    Me.m_ImporteTotal = CDbl(Me.TotalDispuestoTextBox.Text)
+                    Me.m_IVA = 0
+                    Me.m_BaseIVA = Me.ImporteTotal
+                    Me.m_CuotaIVA = 0
 
-        End If
+                End If
+
+            Case eTiposAsiento.COMPRA
+
+                If Len(Trim(Me.TotalTextBox.Text)) <> 0 Then
+
+                    Me.m_ImporteTotal = CDbl(Me.TotalTextBox.Text)
+                    Dim R As Double = 1 + Me.IVA / 100
+                    Me.m_BaseIVA = Math.Round((Me.ImporteTotal / R), 2)
+                    Me.m_CuotaIVA = Me.ImporteTotal - Me.m_BaseIVA
+
+                    Me.BaseIVATextBox.Text = Me.BaseIVA.ToString
+                    Me.CuotaIVATextBox.Text = Me.CuotaIVA.ToString
+
+                End If
+        End Select
+
     End Sub
 
     Private Sub GenerarFactura()
@@ -473,5 +562,53 @@ Public Class frmAsientos
             Me.FacturasRecibidasTableAdapter.Insert(Me.Justificante, Me.FechaAsiento, Nothing, Me.CIF, Me.NombreProveedor, Me.ClaveHash, Me.BaseIVA, Me.IVA, Me.CuotaIVA, Me.ImporteTotal)
         Else
         End If
+    End Sub
+
+    Private Sub BancosDispComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BancosDispComboBox.SelectedIndexChanged
+
+        With Me.BancosDispComboBox
+
+
+            If .SelectedIndex > -1 Then
+
+                Select Case .SelectedIndex
+                    Case 0
+
+                        Me.m_CuentaBanco = 572001
+
+                    Case 1
+
+                        Me.m_CuentaBanco = 572002
+
+                    Case Else
+
+                        Throw New Exception("La cuenta Bancaria de Pago no existe.")
+
+                End Select
+
+            End If
+        End With
+    End Sub
+
+    Private Sub Prepara_Asiento_Disposición(ByRef sender As frmAsientos) Handles Me.PreparaAsientoDisposición
+
+        sender.m_CuentaGasto = 551001
+        ' sender.m_CuentaBanco = 5720001
+        If sender.rbVentanillaRadioButton.Checked = True Then
+            sender.m_Operación = "DISPOSICION EFECTIVO EN OFICINA " + Trim(sender.NúmeroOficinaTextBox.Text)
+            sender.m_Justificante = Trim(sender.NúmeroOficinaTextBox.Text)
+        ElseIf sender.rbCajeroRadioButton.Checked = True Then
+            sender.m_Operación = "DISPOSICION EFECTIVO EN CAJERO " + Trim(sender.NúmeroOficinaTextBox.Text)
+            sender.m_Justificante = Trim(sender.NúmeroOficinaTextBox.Text)
+        ElseIf sender.rbChequeRadioButton.Checked = True Then
+            sender.m_Operación = "ABONO DE CHEQUE " + Trim(sender.NúmeroOficinaTextBox.Text)
+            sender.m_Justificante = Trim(sender.NúmeroOficinaTextBox.Text)
+        Else
+            CMódulo.MsgErrorCrítico("ERROR AL GENERAR ASIENTO DE REINTEGRO. ASIENTO NO GENERADO")
+
+            Exit Sub
+
+        End If
+
     End Sub
 End Class

@@ -5,6 +5,7 @@ Imports Biblioteca
 Public Class frmPrincipal
 
     Private Sub frmPrincipal_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         '
         Me.Text = My.Resources.Título
         '
@@ -493,5 +494,10 @@ Public Class frmPrincipal
 
     End Sub
 
+    Private Sub AsientosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+        Me.Validate()
+        Me.AsientosBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.BDContabilidadGMELO)
 
+    End Sub
 End Class

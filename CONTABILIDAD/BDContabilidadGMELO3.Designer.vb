@@ -18580,6 +18580,8 @@ Partial Public Class BDContabilidadGMELO
         
         Private columnTotal As Global.System.Data.DataColumn
         
+        Private columnOPERACIÓN As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -18704,6 +18706,14 @@ Partial Public Class BDContabilidadGMELO
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property OPERACIÓNColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOPERACIÓN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -18740,9 +18750,9 @@ Partial Public Class BDContabilidadGMELO
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddFacturasRecibidasRow(ByVal Número As String, ByVal FechaEmisión As Date, ByVal FechaOperación As Date, ByVal CIF As String, ByVal NombreProveedor As String, ByVal Clave As String, ByVal BaseImponible As Double, ByVal TipoIVA As Double, ByVal Cuota As Double, ByVal Total As Double) As FacturasRecibidasRow
+        Public Overloads Function AddFacturasRecibidasRow(ByVal Número As String, ByVal FechaEmisión As Date, ByVal FechaOperación As Date, ByVal CIF As String, ByVal NombreProveedor As String, ByVal Clave As String, ByVal BaseImponible As Double, ByVal TipoIVA As Double, ByVal Cuota As Double, ByVal Total As Double, ByVal OPERACIÓN As String) As FacturasRecibidasRow
             Dim rowFacturasRecibidasRow As FacturasRecibidasRow = CType(Me.NewRow,FacturasRecibidasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN}
             rowFacturasRecibidasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFacturasRecibidasRow)
             Return rowFacturasRecibidasRow
@@ -18782,6 +18792,7 @@ Partial Public Class BDContabilidadGMELO
             Me.columnTipoIVA = MyBase.Columns("TipoIVA")
             Me.columnCuota = MyBase.Columns("Cuota")
             Me.columnTotal = MyBase.Columns("Total")
+            Me.columnOPERACIÓN = MyBase.Columns("OPERACIÓN")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18809,6 +18820,8 @@ Partial Public Class BDContabilidadGMELO
             MyBase.Columns.Add(Me.columnCuota)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotal)
+            Me.columnOPERACIÓN = New Global.System.Data.DataColumn("OPERACIÓN", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOPERACIÓN)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -18829,6 +18842,8 @@ Partial Public Class BDContabilidadGMELO
             Me.columnTipoIVA.AllowDBNull = false
             Me.columnCuota.AllowDBNull = false
             Me.columnTotal.AllowDBNull = false
+            Me.columnOPERACIÓN.ReadOnly = true
+            Me.columnOPERACIÓN.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -27120,6 +27135,21 @@ Partial Public Class BDContabilidadGMELO
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property OPERACIÓN() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableFacturasRecibidas.OPERACIÓNColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'OPERACIÓN' de la tabla 'FacturasRecibidas' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableFacturasRecibidas.OPERACIÓNColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsFechaOperaciónNull() As Boolean
             Return Me.IsNull(Me.tableFacturasRecibidas.FechaOperaciónColumn)
         End Function
@@ -27128,6 +27158,18 @@ Partial Public Class BDContabilidadGMELO
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetFechaOperaciónNull()
             Me(Me.tableFacturasRecibidas.FechaOperaciónColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsOPERACIÓNNull() As Boolean
+            Return Me.IsNull(Me.tableFacturasRecibidas.OPERACIÓNColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetOPERACIÓNNull()
+            Me(Me.tableFacturasRecibidas.OPERACIÓNColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -46951,9 +46993,9 @@ Namespace BDContabilidadGMELOTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DocumentoIdentidad, Nombre, TipoDocumentoIdentidad, Domicilio, Localidad, "& _ 
-                "CódigoPostal, idFormaPago, idCtaBancaria, DatosBancarios, Baja, Debe, Haber, Cue"& _ 
-                "nta4, Cuenta6"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     Proveedores"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Nombre"
+            Me._commandCollection(0).CommandText = "SELECT        DocumentoIdentidad, Nombre, TipoDocumentoIdentidad, Domicilio, Loca"& _ 
+                "lidad, CódigoPostal, idFormaPago, idCtaBancaria, DatosBancarios, Baja, Debe, Hab"& _ 
+                "er, Cuenta4, Cuenta6"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Proveedores"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Nombre"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -47047,6 +47089,80 @@ Namespace BDContabilidadGMELOTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal DocumentoIdentidad As String, ByVal Nombre As String, ByVal TipoDocumentoIdentidad As Integer, ByVal Domicilio As String, ByVal Localidad As String, ByVal CódigoPostal As String, ByVal idFormaPago As Integer, ByVal idCtaBancaria As Global.System.Nullable(Of Integer), ByVal DatosBancarios As String, ByVal Baja As Global.System.Nullable(Of Boolean), ByVal Debe As Global.System.Nullable(Of Double), ByVal Haber As Global.System.Nullable(Of Double), ByVal Cuenta4 As Integer, ByVal Cuenta6 As Integer) As Integer
+            If (DocumentoIdentidad Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DocumentoIdentidad")
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(DocumentoIdentidad,String)
+            End If
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Nombre,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(TipoDocumentoIdentidad,Integer)
+            If (Domicilio Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Domicilio,String)
+            End If
+            If (Localidad Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Localidad,String)
+            End If
+            If (CódigoPostal Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(CódigoPostal,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(idFormaPago,Integer)
+            If (idCtaBancaria.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(idCtaBancaria.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (DatosBancarios Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(DatosBancarios,String)
+            End If
+            If (Baja.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Baja.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Debe.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Debe.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Haber.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Haber.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(12).Value = CType(Cuenta4,Integer)
+            Me.Adapter.InsertCommand.Parameters(13).Value = CType(Cuenta6,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
         End Function
     End Class
     
@@ -47558,6 +47674,7 @@ Namespace BDContabilidadGMELOTableAdapters
             tableMapping.ColumnMappings.Add("TipoIVA", "TipoIVA")
             tableMapping.ColumnMappings.Add("Cuota", "Cuota")
             tableMapping.ColumnMappings.Add("Total", "Total")
+            tableMapping.ColumnMappings.Add("OPERACIÓN", "OPERACIÓN")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -47584,8 +47701,9 @@ Namespace BDContabilidadGMELOTableAdapters
                 "], [NombreProveedor], [Clave], [BaseImponible], [TipoIVA], [Cuota], [Total]) VAL"& _ 
                 "UES (@Número, @FechaEmisión, @FechaOperación, @CIF, @NombreProveedor, @Clave, @B"& _ 
                 "aseImponible, @TipoIVA, @Cuota, @Total);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Número, FechaEmisión, Fecha"& _ 
-                "Operación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total FRO"& _ 
-                "M FacturasRecibidas WHERE (id = SCOPE_IDENTITY()) ORDER BY FechaEmisión"
+                "Operación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OP"& _ 
+                "ERACIÓN FROM FacturasRecibidas WHERE (id = SCOPE_IDENTITY()) ORDER BY FechaEmisi"& _ 
+                "ón"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Número", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Número", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaEmisión", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaEmisión", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -47608,8 +47726,8 @@ Namespace BDContabilidadGMELOTableAdapters
                 "nal_FechaOperación)) AND ([CIF] = @Original_CIF) AND ([BaseImponible] = @Origina"& _ 
                 "l_BaseImponible) AND ([TipoIVA] = @Original_TipoIVA) AND ([Cuota] = @Original_Cu"& _ 
                 "ota) AND ([Total] = @Original_Total));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Número, FechaEmisión, FechaOp"& _ 
-                "eración, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total FROM "& _ 
-                "FacturasRecibidas WHERE (id = @id) ORDER BY FechaEmisión"
+                "eración, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPER"& _ 
+                "ACIÓN FROM FacturasRecibidas WHERE (id = @id) ORDER BY FechaEmisión"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Número", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Número", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaEmisión", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaEmisión", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -47648,8 +47766,8 @@ Namespace BDContabilidadGMELOTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        id, Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Cla"& _ 
-                "ve, BaseImponible, TipoIVA, Cuota, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FacturasRecibidas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORD"& _ 
-                "ER BY FechaEmisión"
+                "ve, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FacturasRec"& _ 
+                "ibidas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaEmisión"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

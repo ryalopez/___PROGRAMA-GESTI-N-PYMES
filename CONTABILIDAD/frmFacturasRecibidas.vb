@@ -90,7 +90,7 @@ Public Class frmFacturasRecibidas
 
         With Listado
 
-            .NombreInforme = "rptFacturasRecibidas.rpt"
+            .NombreInforme = "rptLibroFacturasRecibidas.rpt"
             .TipoOrigenDatos = eTipoOrigenDatos.ADO
             .ADODataSet = Me.BDContabilidadGMELO
             .Filtro = ""

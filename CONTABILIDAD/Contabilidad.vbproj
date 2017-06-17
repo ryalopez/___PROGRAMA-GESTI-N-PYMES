@@ -369,6 +369,11 @@
       <DependentUpon>rptLibroFacturasClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptLibroFacturasRecibidas.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLibroFacturasRecibidas.rpt</DependentUpon>
+    </Compile>
     <Compile Include="rptLibroMayor.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -506,6 +511,10 @@
     <EmbeddedResource Include="rptLibroFacturasClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLibroFacturasClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptLibroFacturasRecibidas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLibroFacturasRecibidas.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptLibroMayor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

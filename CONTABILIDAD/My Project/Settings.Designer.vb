@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PCRLM\sqlexpress;Initial Catalog=""BDContabilidadGMELO 2017"";Integrate"& _ 
-            "d Security=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PORTATIL\sqlexpress;Initial Catalog=""BDContabilidadGMELO 2017"";Integr"& _ 
+            "ated Security=True")>  _
         Public ReadOnly Property BDContabilidadConnectionString() As String
             Get
                 Return CType(Me("BDContabilidadConnectionString"),String)

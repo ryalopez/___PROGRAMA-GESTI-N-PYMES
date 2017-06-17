@@ -543,6 +543,7 @@ Partial Class frmFacturasEmitidas
         Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
         Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
         Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
         Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
         Me.TableAdapterManager.SexosTableAdapter = Nothing

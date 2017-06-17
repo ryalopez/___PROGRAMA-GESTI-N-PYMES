@@ -10,7 +10,8 @@ End Enum
 Public Enum eTiposAsiento
 
     COMPRA = 1
-    VENTA = 2
+    REINTEGRO_EFECTIVO = 2
+    VENTA = 3
 
 End Enum
 

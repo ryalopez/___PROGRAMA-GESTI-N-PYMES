@@ -34,4 +34,3 @@ K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.pdb
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.xml
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.dll
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.pdb
-K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbprojResolveAssemblyReference.cache
