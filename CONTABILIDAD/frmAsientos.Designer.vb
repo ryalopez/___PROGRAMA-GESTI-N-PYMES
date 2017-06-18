@@ -35,8 +35,8 @@ Partial Class frmAsientos
         Dim OperaciónLabel As System.Windows.Forms.Label
         Dim TotalLabel As System.Windows.Forms.Label
         Dim Label4 As System.Windows.Forms.Label
+        Dim Label5 As System.Windows.Forms.Label
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.NúmeroTextBox = New System.Windows.Forms.TextBox()
         Me.FechaDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -53,6 +53,7 @@ Partial Class frmAsientos
         Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
         Me.TipoAsientoGroupBox = New System.Windows.Forms.GroupBox()
+        Me.rbAdeudoTelePeajeRadioButton = New System.Windows.Forms.RadioButton()
         Me.rbReintegroRadioButton = New System.Windows.Forms.RadioButton()
         Me.rbVentasRadioButton = New System.Windows.Forms.RadioButton()
         Me.rbComprasRadioButton = New System.Windows.Forms.RadioButton()
@@ -67,6 +68,11 @@ Partial Class frmAsientos
         Me.rbCajeroRadioButton = New System.Windows.Forms.RadioButton()
         Me.rbChequeRadioButton = New System.Windows.Forms.RadioButton()
         Me.rbVentanillaRadioButton = New System.Windows.Forms.RadioButton()
+        Me.AdeudoTelepeajeGroupBox = New System.Windows.Forms.GroupBox()
+        Me.Bancos2ComboBox = New System.Windows.Forms.ComboBox()
+        Me.rbBanco2RadioButton = New System.Windows.Forms.RadioButton()
+        Me.rbCaja2RadioButton = New System.Windows.Forms.RadioButton()
+        Me.TotalTelepeajeTextBox = New System.Windows.Forms.TextBox()
         Me.DatosCompraGroupBox = New System.Windows.Forms.GroupBox()
         Me.BaseIVATextBox = New System.Windows.Forms.TextBox()
         Me.CuotaIVATextBox = New System.Windows.Forms.TextBox()
@@ -85,6 +91,7 @@ Partial Class frmAsientos
         Me.JustificanteTextBox = New System.Windows.Forms.TextBox()
         Me.TotalTextBox = New System.Windows.Forms.TextBox()
         Me.OperaciónTextBox = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         NúmeroLabel = New System.Windows.Forms.Label()
         FechaLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
@@ -97,6 +104,7 @@ Partial Class frmAsientos
         OperaciónLabel = New System.Windows.Forms.Label()
         TotalLabel = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
+        Label5 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,6 +115,7 @@ Partial Class frmAsientos
         Me.TipoAsientoGroupBox.SuspendLayout()
         CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TipoDisposiciónGroupBox.SuspendLayout()
+        Me.AdeudoTelepeajeGroupBox.SuspendLayout()
         Me.DatosCompraGroupBox.SuspendLayout()
         Me.BancosGroupBox.SuspendLayout()
         Me.IVAGroupBox.SuspendLayout()
@@ -115,7 +124,7 @@ Partial Class frmAsientos
         'NúmeroLabel
         '
         NúmeroLabel.AutoSize = True
-        NúmeroLabel.Location = New System.Drawing.Point(589, 68)
+        NúmeroLabel.Location = New System.Drawing.Point(31, 84)
         NúmeroLabel.Name = "NúmeroLabel"
         NúmeroLabel.Size = New System.Drawing.Size(62, 17)
         NúmeroLabel.TabIndex = 1
@@ -124,7 +133,7 @@ Partial Class frmAsientos
         'FechaLabel
         '
         FechaLabel.AutoSize = True
-        FechaLabel.Location = New System.Drawing.Point(827, 68)
+        FechaLabel.Location = New System.Drawing.Point(269, 84)
         FechaLabel.Name = "FechaLabel"
         FechaLabel.Size = New System.Drawing.Size(51, 17)
         FechaLabel.TabIndex = 3
@@ -221,31 +230,31 @@ Partial Class frmAsientos
         Label4.TabIndex = 53
         Label4.Text = "Total:"
         '
+        'Label5
+        '
+        Label5.AutoSize = True
+        Label5.Location = New System.Drawing.Point(27, 24)
+        Label5.Name = "Label5"
+        Label5.Size = New System.Drawing.Size(44, 17)
+        Label5.TabIndex = 53
+        Label5.Text = "Total:"
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(889, 526)
+        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(889, 734)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(195, 36)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'OK_Button
-        '
-        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(4, 4)
-        Me.OK_Button.Margin = New System.Windows.Forms.Padding(4)
-        Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(89, 28)
-        Me.OK_Button.TabIndex = 0
-        Me.OK_Button.Text = "Aceptar"
         '
         'Cancel_Button
         '
@@ -261,7 +270,7 @@ Partial Class frmAsientos
         'NúmeroTextBox
         '
         Me.NúmeroTextBox.Enabled = False
-        Me.NúmeroTextBox.Location = New System.Drawing.Point(677, 63)
+        Me.NúmeroTextBox.Location = New System.Drawing.Point(119, 79)
         Me.NúmeroTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NúmeroTextBox.Name = "NúmeroTextBox"
         Me.NúmeroTextBox.Size = New System.Drawing.Size(119, 22)
@@ -269,7 +278,7 @@ Partial Class frmAsientos
         '
         'FechaDateTimePicker
         '
-        Me.FechaDateTimePicker.Location = New System.Drawing.Point(889, 63)
+        Me.FechaDateTimePicker.Location = New System.Drawing.Point(331, 79)
         Me.FechaDateTimePicker.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FechaDateTimePicker.Name = "FechaDateTimePicker"
         Me.FechaDateTimePicker.Size = New System.Drawing.Size(200, 22)
@@ -380,17 +389,29 @@ Partial Class frmAsientos
         '
         'TipoAsientoGroupBox
         '
+        Me.TipoAsientoGroupBox.Controls.Add(Me.rbAdeudoTelePeajeRadioButton)
         Me.TipoAsientoGroupBox.Controls.Add(Me.rbReintegroRadioButton)
         Me.TipoAsientoGroupBox.Controls.Add(Me.rbVentasRadioButton)
         Me.TipoAsientoGroupBox.Controls.Add(Me.rbComprasRadioButton)
-        Me.TipoAsientoGroupBox.Location = New System.Drawing.Point(27, 46)
+        Me.TipoAsientoGroupBox.Location = New System.Drawing.Point(27, 11)
         Me.TipoAsientoGroupBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TipoAsientoGroupBox.Name = "TipoAsientoGroupBox"
         Me.TipoAsientoGroupBox.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TipoAsientoGroupBox.Size = New System.Drawing.Size(531, 53)
+        Me.TipoAsientoGroupBox.Size = New System.Drawing.Size(1076, 53)
         Me.TipoAsientoGroupBox.TabIndex = 0
         Me.TipoAsientoGroupBox.TabStop = False
         Me.TipoAsientoGroupBox.Text = "Tipo de Asiento"
+        '
+        'rbAdeudoTelePeajeRadioButton
+        '
+        Me.rbAdeudoTelePeajeRadioButton.AutoSize = True
+        Me.rbAdeudoTelePeajeRadioButton.Location = New System.Drawing.Point(329, 26)
+        Me.rbAdeudoTelePeajeRadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.rbAdeudoTelePeajeRadioButton.Name = "rbAdeudoTelePeajeRadioButton"
+        Me.rbAdeudoTelePeajeRadioButton.Size = New System.Drawing.Size(145, 21)
+        Me.rbAdeudoTelePeajeRadioButton.TabIndex = 3
+        Me.rbAdeudoTelePeajeRadioButton.Text = "Adeudo Telepeaje"
+        Me.rbAdeudoTelePeajeRadioButton.UseVisualStyleBackColor = True
         '
         'rbReintegroRadioButton
         '
@@ -406,7 +427,7 @@ Partial Class frmAsientos
         'rbVentasRadioButton
         '
         Me.rbVentasRadioButton.AutoSize = True
-        Me.rbVentasRadioButton.Location = New System.Drawing.Point(347, 26)
+        Me.rbVentasRadioButton.Location = New System.Drawing.Point(487, 26)
         Me.rbVentasRadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rbVentasRadioButton.Name = "rbVentasRadioButton"
         Me.rbVentasRadioButton.Size = New System.Drawing.Size(73, 21)
@@ -447,7 +468,7 @@ Partial Class frmAsientos
         Me.TipoDisposiciónGroupBox.Controls.Add(Me.rbCajeroRadioButton)
         Me.TipoDisposiciónGroupBox.Controls.Add(Me.rbChequeRadioButton)
         Me.TipoDisposiciónGroupBox.Controls.Add(Me.rbVentanillaRadioButton)
-        Me.TipoDisposiciónGroupBox.Location = New System.Drawing.Point(27, 103)
+        Me.TipoDisposiciónGroupBox.Location = New System.Drawing.Point(27, 449)
         Me.TipoDisposiciónGroupBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TipoDisposiciónGroupBox.Name = "TipoDisposiciónGroupBox"
         Me.TipoDisposiciónGroupBox.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -473,7 +494,6 @@ Partial Class frmAsientos
         '
         'TotalDispuestoTextBox
         '
-        Me.TotalDispuestoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Debe", True))
         Me.TotalDispuestoTextBox.Location = New System.Drawing.Point(755, 21)
         Me.TotalDispuestoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TotalDispuestoTextBox.Name = "TotalDispuestoTextBox"
@@ -523,6 +543,69 @@ Partial Class frmAsientos
         Me.rbVentanillaRadioButton.Text = "Ventanilla"
         Me.rbVentanillaRadioButton.UseVisualStyleBackColor = True
         '
+        'AdeudoTelepeajeGroupBox
+        '
+        Me.AdeudoTelepeajeGroupBox.Controls.Add(Me.Bancos2ComboBox)
+        Me.AdeudoTelepeajeGroupBox.Controls.Add(Me.rbBanco2RadioButton)
+        Me.AdeudoTelepeajeGroupBox.Controls.Add(Me.rbCaja2RadioButton)
+        Me.AdeudoTelepeajeGroupBox.Controls.Add(Me.TotalTelepeajeTextBox)
+        Me.AdeudoTelepeajeGroupBox.Controls.Add(Label5)
+        Me.AdeudoTelepeajeGroupBox.Location = New System.Drawing.Point(27, 523)
+        Me.AdeudoTelepeajeGroupBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AdeudoTelepeajeGroupBox.Name = "AdeudoTelepeajeGroupBox"
+        Me.AdeudoTelepeajeGroupBox.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AdeudoTelepeajeGroupBox.Size = New System.Drawing.Size(1064, 55)
+        Me.AdeudoTelepeajeGroupBox.TabIndex = 25
+        Me.AdeudoTelepeajeGroupBox.TabStop = False
+        Me.AdeudoTelepeajeGroupBox.Text = "Adeudo Telepeaje"
+        Me.AdeudoTelepeajeGroupBox.Visible = False
+        '
+        'Bancos2ComboBox
+        '
+        Me.Bancos2ComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CuentasBancariasBindingSource, "id", True))
+        Me.Bancos2ComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CuentasBancariasBindingSource, "Banco", True))
+        Me.Bancos2ComboBox.DataSource = Me.CuentasBancariasBindingSource
+        Me.Bancos2ComboBox.DisplayMember = "Banco"
+        Me.Bancos2ComboBox.FormattingEnabled = True
+        Me.Bancos2ComboBox.Location = New System.Drawing.Point(427, 21)
+        Me.Bancos2ComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Bancos2ComboBox.Name = "Bancos2ComboBox"
+        Me.Bancos2ComboBox.Size = New System.Drawing.Size(200, 24)
+        Me.Bancos2ComboBox.TabIndex = 58
+        Me.Bancos2ComboBox.ValueMember = "id"
+        '
+        'rbBanco2RadioButton
+        '
+        Me.rbBanco2RadioButton.AutoSize = True
+        Me.rbBanco2RadioButton.Checked = True
+        Me.rbBanco2RadioButton.Location = New System.Drawing.Point(344, 21)
+        Me.rbBanco2RadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.rbBanco2RadioButton.Name = "rbBanco2RadioButton"
+        Me.rbBanco2RadioButton.Size = New System.Drawing.Size(69, 21)
+        Me.rbBanco2RadioButton.TabIndex = 57
+        Me.rbBanco2RadioButton.TabStop = True
+        Me.rbBanco2RadioButton.Text = "Banco"
+        Me.rbBanco2RadioButton.UseVisualStyleBackColor = True
+        '
+        'rbCaja2RadioButton
+        '
+        Me.rbCaja2RadioButton.AutoSize = True
+        Me.rbCaja2RadioButton.Location = New System.Drawing.Point(264, 23)
+        Me.rbCaja2RadioButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.rbCaja2RadioButton.Name = "rbCaja2RadioButton"
+        Me.rbCaja2RadioButton.Size = New System.Drawing.Size(57, 21)
+        Me.rbCaja2RadioButton.TabIndex = 56
+        Me.rbCaja2RadioButton.Text = "Caja"
+        Me.rbCaja2RadioButton.UseVisualStyleBackColor = True
+        '
+        'TotalTelepeajeTextBox
+        '
+        Me.TotalTelepeajeTextBox.Location = New System.Drawing.Point(109, 20)
+        Me.TotalTelepeajeTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TotalTelepeajeTextBox.Name = "TotalTelepeajeTextBox"
+        Me.TotalTelepeajeTextBox.Size = New System.Drawing.Size(115, 22)
+        Me.TotalTelepeajeTextBox.TabIndex = 54
+        '
         'DatosCompraGroupBox
         '
         Me.DatosCompraGroupBox.Controls.Add(BaseIVALabel)
@@ -543,11 +626,11 @@ Partial Class frmAsientos
         Me.DatosCompraGroupBox.Controls.Add(OperaciónLabel)
         Me.DatosCompraGroupBox.Controls.Add(TotalLabel)
         Me.DatosCompraGroupBox.Controls.Add(Me.OperaciónTextBox)
-        Me.DatosCompraGroupBox.Location = New System.Drawing.Point(27, 175)
+        Me.DatosCompraGroupBox.Location = New System.Drawing.Point(27, 121)
         Me.DatosCompraGroupBox.Margin = New System.Windows.Forms.Padding(4)
         Me.DatosCompraGroupBox.Name = "DatosCompraGroupBox"
         Me.DatosCompraGroupBox.Padding = New System.Windows.Forms.Padding(4)
-        Me.DatosCompraGroupBox.Size = New System.Drawing.Size(1123, 322)
+        Me.DatosCompraGroupBox.Size = New System.Drawing.Size(1096, 322)
         Me.DatosCompraGroupBox.TabIndex = 24
         Me.DatosCompraGroupBox.TabStop = False
         Me.DatosCompraGroupBox.Text = "Datos Compra"
@@ -589,7 +672,8 @@ Partial Class frmAsientos
         '
         'BancosComboBox
         '
-        Me.BancosComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CuentasBancariasBindingSource, "id", True))
+        Me.BancosComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CuentasBancariasBindingSource, "Banco", True))
+        Me.BancosComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CuentasBancariasBindingSource, "id", True))
         Me.BancosComboBox.DataSource = Me.CuentasBancariasBindingSource
         Me.BancosComboBox.DisplayMember = "Banco"
         Me.BancosComboBox.FormattingEnabled = True
@@ -721,7 +805,6 @@ Partial Class frmAsientos
         '
         'JustificanteTextBox
         '
-        Me.JustificanteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Justificante", True))
         Me.JustificanteTextBox.Location = New System.Drawing.Point(876, 69)
         Me.JustificanteTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.JustificanteTextBox.Name = "JustificanteTextBox"
@@ -730,7 +813,6 @@ Partial Class frmAsientos
         '
         'TotalTextBox
         '
-        Me.TotalTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AsientosBindingSource, "Debe", True))
         Me.TotalTextBox.Location = New System.Drawing.Point(233, 278)
         Me.TotalTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TotalTextBox.Name = "TotalTextBox"
@@ -745,22 +827,31 @@ Partial Class frmAsientos
         Me.OperaciónTextBox.Size = New System.Drawing.Size(660, 22)
         Me.OperaciónTextBox.TabIndex = 46
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(3, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(89, 28)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Aceptar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmAsientos
         '
-        Me.AcceptButton = Me.OK_Button
+        Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(1136, 576)
-        Me.ControlBox = False
+        Me.ClientSize = New System.Drawing.Size(1136, 784)
+        Me.Controls.Add(Me.AdeudoTelepeajeGroupBox)
         Me.Controls.Add(Me.DatosCompraGroupBox)
-        Me.Controls.Add(Me.TipoDisposiciónGroupBox)
         Me.Controls.Add(Me.TipoAsientoGroupBox)
         Me.Controls.Add(NúmeroLabel)
         Me.Controls.Add(Me.NúmeroTextBox)
         Me.Controls.Add(FechaLabel)
         Me.Controls.Add(Me.FechaDateTimePicker)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Controls.Add(Me.TipoDisposiciónGroupBox)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -780,6 +871,8 @@ Partial Class frmAsientos
         CType(Me.FrmAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TipoDisposiciónGroupBox.ResumeLayout(False)
         Me.TipoDisposiciónGroupBox.PerformLayout()
+        Me.AdeudoTelepeajeGroupBox.ResumeLayout(False)
+        Me.AdeudoTelepeajeGroupBox.PerformLayout()
         Me.DatosCompraGroupBox.ResumeLayout(False)
         Me.DatosCompraGroupBox.PerformLayout()
         Me.BancosGroupBox.ResumeLayout(False)
@@ -840,4 +933,11 @@ Partial Class frmAsientos
     Friend WithEvents OperaciónTextBox As TextBox
     Friend WithEvents TotalDispuestoTextBox As TextBox
     Friend WithEvents BancosDispComboBox As ComboBox
+    Friend WithEvents rbAdeudoTelePeajeRadioButton As RadioButton
+    Friend WithEvents AdeudoTelepeajeGroupBox As GroupBox
+    Friend WithEvents Bancos2ComboBox As ComboBox
+    Friend WithEvents rbBanco2RadioButton As RadioButton
+    Friend WithEvents rbCaja2RadioButton As RadioButton
+    Friend WithEvents TotalTelepeajeTextBox As TextBox
+    Friend WithEvents Button1 As Button
 End Class

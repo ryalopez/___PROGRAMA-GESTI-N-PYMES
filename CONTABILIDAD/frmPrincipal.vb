@@ -47,6 +47,13 @@ Public Class frmPrincipal
     '
     ' Contabilidad
     '
+
+    Private Sub mnuEntradaAsientos_Click(sender As Object, e As EventArgs) Handles mnuEntradaAsientos.Click
+
+        Dim a As New frmAsientos()
+        a.ShowDialog(Me)
+
+    End Sub
     Private Sub mnuAsientos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuAsientos.Click
 
         frmDiario.Show(Me)
@@ -500,4 +507,5 @@ Public Class frmPrincipal
         Me.TableAdapterManager.UpdateAll(Me.BDContabilidadGMELO)
 
     End Sub
+
 End Class

@@ -5,9 +5,10 @@ Public Class frmAsientos
 
     Private Esquina As New Point(21, 103)
 
-    Public Event CambioNúmeros()
+    Public Event CálculosCompra()
+    Public Event CálculosReintegro()
+    Public Event CálculosTelepeaje()
     Public Event CambioTipoAsiento(tipoAsiento As eTiposAsiento)
-    Public Event PreparaAsientoDisposición(ByRef sender As frmAsientos)
 
     Private m_tipoAsiento As eTiposAsiento
 
@@ -31,7 +32,36 @@ Public Class frmAsientos
     Private m_CuentaBanco As Integer
 
     Private m_ImporteTotal As Double
+    Public Sub New()
 
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.m_ClaveHash = ""
+
+        Me.m_númeroAsiento = 0
+        Me.FechaDateTimePicker.Value = Today
+        Me.m_fechaAsiento = Me.FechaDateTimePicker.Value
+        Me.m_Operación = ""
+        Me.m_Justificante = ""
+        Me.m_CuentaProveedor = 0
+        Me.m_NombreProveedor = ""
+        Me.m_CuentaGasto = 0
+        Me.m_NombreGasto = ""
+        Me.m_CIF = ""
+
+        Me.m_IVA = 0
+        Me.m_CuotaIVA = 0
+        Me.m_BaseIVA = 0
+        Me.m_CuentaIVA = 0
+
+        Me.m_CuentaBanco = 0
+
+        Me.m_ImporteTotal = 0
+
+
+    End Sub
 
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
@@ -50,14 +80,11 @@ Public Class frmAsientos
         Me.CuentasGastoTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasGasto)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Asientos' Puede moverla o quitarla según sea necesario.
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
-        '
-        ' Agregar asiento
-        '
+
         m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.NúmeroTextBox.Text = Me.NúmeroAsiento.ToString
-        Me.FechaDateTimePicker.Value = Today
-        Me.m_fechaAsiento = Me.FechaDateTimePicker.Value
 
+        Me.Text = My.Resources.Título + " - Entrada de asientos"
     End Sub
 
 
@@ -222,6 +249,7 @@ Public Class frmAsientos
             Me.DatosCompraGroupBox.Location = Esquina
             Me.DatosCompraGroupBox.Visible = True
             Me.TipoDisposiciónGroupBox.Visible = False
+            Me.AdeudoTelepeajeGroupBox.Visible = False
 
         End If
 
@@ -234,9 +262,20 @@ Public Class frmAsientos
             Me.DatosCompraGroupBox.Visible = False
             Me.TipoDisposiciónGroupBox.Location = Esquina
             Me.TipoDisposiciónGroupBox.Visible = True
+            Me.AdeudoTelepeajeGroupBox.Visible = False
 
         End If
+    End Sub
+    Private Sub rbAdeudoTelePeajeRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbAdeudoTelePeajeRadioButton.CheckedChanged
+        If rbAdeudoTelePeajeRadioButton.Checked Then
 
+            Me.m_tipoAsiento = eTiposAsiento.ADEUDO_TELEPEAJE
+            Me.DatosCompraGroupBox.Visible = False
+            Me.TipoDisposiciónGroupBox.Visible = False
+            Me.AdeudoTelepeajeGroupBox.Location = Esquina
+            Me.AdeudoTelepeajeGroupBox.Visible = True
+
+        End If
     End Sub
 
     Private Sub rbVentasRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbVentasRadioButton.CheckedChanged
@@ -247,6 +286,7 @@ Public Class frmAsientos
             Me.TipoDisposiciónGroupBox.Visible = False
             CMódulo.MsgInformativo("No está disponible ésta entrada de asientos.")
             Me.rbVentanillaRadioButton.Checked = False
+            Me.AdeudoTelepeajeGroupBox.Visible = False
         End If
 
     End Sub
@@ -259,7 +299,7 @@ Public Class frmAsientos
             Me.m_CuentaIVA = 0
             Me.TipoIVATextBox.Text = 0.ToString
             'forzar recálculo
-            RaiseEvent CambioNúmeros()
+            RaiseEvent CálculosCompra()
 
         End If
     End Sub
@@ -272,7 +312,7 @@ Public Class frmAsientos
             Me.m_CuentaIVA = 472021
             Me.TipoIVATextBox.Text = 21.ToString
             'forzar recálculo
-            RaiseEvent CambioNúmeros()
+            RaiseEvent CálculosCompra()
 
         End If
     End Sub
@@ -285,7 +325,7 @@ Public Class frmAsientos
             Me.m_CuentaIVA = 472010
             Me.TipoIVATextBox.Text = 10.ToString
             'forzar recálculo
-            RaiseEvent CambioNúmeros()
+            RaiseEvent CálculosCompra()
 
         End If
     End Sub
@@ -298,7 +338,7 @@ Public Class frmAsientos
             Me.m_CuentaIVA = 472004
             Me.TipoIVATextBox.Text = 4.ToString
             'forzar recálculo
-            RaiseEvent CambioNúmeros()
+            RaiseEvent CálculosCompra()
 
         End If
     End Sub
@@ -318,6 +358,326 @@ Public Class frmAsientos
             Me.BancosComboBox.Visible = True
 
         End If
+    End Sub
+    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
+        Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Close()
+
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        ' Validar asiento
+        '
+        Select Case Me.TipoAsiento
+            Case eTiposAsiento.COMPRA
+                If Not frmAsientos.GenerarAsientoCompra(Me) Then
+                    Exit Sub
+                End If
+            Case eTiposAsiento.REINTEGRO_EFECTIVO
+                If Not frmAsientos.GenerarAsientoReintegro(Me) Then
+                    Exit Sub
+                End If
+            Case eTiposAsiento.ADEUDO_TELEPEAJE
+                If Not frmAsientos.GenerarAsientoTelePeaje(Me) Then
+                    Exit Sub
+                End If
+            Case Else
+                Exit Sub
+
+        End Select
+        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.Close()
+    End Sub
+    Private Shared Function GenerarAsientoCompra(ByRef asto As frmAsientos) As Boolean
+        '
+        ' Validar
+        '
+        Dim msg As String = ""
+        If Len(Trim(asto.Operación)) = 0 Then
+
+            msg += "El campo Operación no puede quedar en blanco. "
+
+        End If
+        If asto.CuentaBanco = 0 Then
+
+            msg += "La cuenta bancaria no puede ser 0. "
+
+        End If
+        If asto.IVA <> 0 And asto.CuentaIVASoportado = 0 Then
+
+            msg += "El IVA soportado no puede ser 0. "
+
+        End If
+        If asto.ImporteTotal = 0 Then
+
+            msg += "El importe total no puede ser 0. "
+
+        End If
+        If Len(Trim(msg)) <> 0 Then
+
+            CMódulo.MsgErrorCrítico(msg)
+            Return False
+
+        End If
+
+        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
+
+        '
+        ' Agregar cargos
+        '
+        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.BaseIVA)
+        If asto.IVA <> 0 Then
+            NúmeroApunte += 1
+            asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaIVASoportado, NúmeroApunte, asto.CuotaIVA)
+        End If
+        NúmeroApunte += 1
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaProveedor, NúmeroApunte, asto.ImporteTotal)
+
+        '
+        ' Agregar abonos
+        '
+        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaProveedor, NúmeroApunte, asto.ImporteTotal)
+        NúmeroApunte += 1
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.ImporteTotal)
+        '
+        'Generar Factura
+        '
+
+        asto.FacturasRecibidasTableAdapter.Insert(asto.Justificante, asto.FechaAsiento, Nothing, asto.CIF,
+                                                  asto.NombreProveedor, asto.ClaveHash, asto.BaseIVA, asto.IVA, asto.CuotaIVA, asto.ImporteTotal)
+
+        Return True
+
+    End Function
+    Private Shared Function GenerarAsientoReintegro(ByRef asto As frmAsientos) As Boolean
+
+        asto.m_CuentaGasto = 551001
+        ' asto.m_CuentaBanco = 5720001
+        If asto.rbVentanillaRadioButton.Checked = True Then
+            asto.m_Operación = "DISPOSICION EFECTIVO EN OFICINA " + Trim(asto.NúmeroOficinaTextBox.Text)
+            asto.m_Justificante = Trim(asto.NúmeroOficinaTextBox.Text)
+        ElseIf asto.rbCajeroRadioButton.Checked = True Then
+            asto.m_Operación = "DISPOSICION EFECTIVO EN CAJERO " + Trim(asto.NúmeroOficinaTextBox.Text)
+            asto.m_Justificante = Trim(asto.NúmeroOficinaTextBox.Text)
+        ElseIf asto.rbChequeRadioButton.Checked = True Then
+            asto.m_Operación = "ABONO DE CHEQUE " + Trim(asto.NúmeroOficinaTextBox.Text)
+            asto.m_Justificante = Trim(asto.NúmeroOficinaTextBox.Text)
+        Else
+            CMódulo.MsgErrorCrítico("ERROR AL GENERAR ASIENTO DE REINTEGRO. ASIENTO NO GENERADO")
+            Return False
+
+        End If
+
+        '
+        ' Validar
+        '
+
+        Dim msg As String = ""
+        If Len(Trim(asto.Operación)) = 0 Then
+
+            msg += "El campo Operación no puede quedar en blanco. "
+
+        End If
+        If asto.CuentaBanco = 0 Then
+
+            msg += "La cuenta bancaria no puede ser 0. "
+
+        End If
+        If asto.ImporteTotal = 0 Then
+
+            msg += "El importe total no puede ser 0. "
+
+        End If
+        If Len(Trim(msg)) <> 0 Then
+
+            CMódulo.MsgErrorCrítico(msg)
+            Return False
+
+        End If
+
+        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
+
+        '
+        ' Agregar cargos
+        '
+        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.BaseIVA)
+
+        '
+        ' Agregar abonos
+        '
+        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.ImporteTotal)
+
+        Return True
+
+    End Function
+
+    Private Shared Function GenerarAsientoTelePeaje(ByRef asto As frmAsientos) As Boolean
+
+        asto.m_CuentaProveedor = 410102
+        asto.m_NombreProveedor = "AUTOPISTAS DE PEAJE"
+
+        asto.m_CuentaGasto = 629008
+        asto.m_Justificante = "S/J"
+
+
+        asto.m_Operación = "ABONO TELEPEAJE " + Trim(asto.Justificante)
+        '
+        ' Validar
+        '
+        Dim msg As String = ""
+        If Len(Trim(asto.Operación)) = 0 Then
+
+            msg += "El campo Operación no puede quedar en blanco. "
+
+        End If
+        If asto.CuentaBanco = 0 Then
+
+            msg += "La cuenta bancaria no puede ser 0. "
+
+        End If
+        If asto.IVA <> 0 And asto.CuentaIVASoportado = 0 Then
+
+            msg += "El IVA soportado no puede ser 0. "
+
+        End If
+        If asto.ImporteTotal = 0 Then
+
+            msg += "El importe total no puede ser 0. "
+
+        End If
+        If Len(Trim(msg)) <> 0 Then
+
+            CMódulo.MsgErrorCrítico(msg)
+            Return False
+
+        End If
+
+        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
+
+        '
+        ' Agregar cargos
+        '
+        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.BaseIVA)
+        NúmeroApunte += 1
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaIVASoportado, NúmeroApunte, asto.CuotaIVA)
+        NúmeroApunte += 1
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaProveedor, NúmeroApunte, asto.ImporteTotal)
+
+        '
+        ' Agregar abonos
+        '
+        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaProveedor, NúmeroApunte, asto.ImporteTotal)
+        NúmeroApunte += 1
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.ImporteTotal)
+        '
+        'Generar Factura
+        '
+
+        asto.FacturasRecibidasTableAdapter.Insert(asto.Justificante, asto.FechaAsiento, Nothing, asto.CIF,
+                                                  asto.NombreProveedor, asto.ClaveHash, asto.BaseIVA, asto.IVA, asto.CuotaIVA, asto.ImporteTotal)
+
+        Return True
+
+    End Function
+
+
+    Private Sub FechaDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles FechaDateTimePicker.ValueChanged
+
+        Me.m_fechaAsiento = Me.FechaDateTimePicker.Value
+
+    End Sub
+
+    Private Sub JustificanteTextBox_TextChanged(sender As Object, e As EventArgs) Handles JustificanteTextBox.TextChanged
+
+        Me.m_Justificante = Me.JustificanteTextBox.Text
+
+    End Sub
+
+    Private Sub TotalTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalTextBox.TextChanged
+
+        RaiseEvent CálculosCompra()
+
+    End Sub
+
+    Private Sub TotalDispuestoTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalDispuestoTextBox.TextChanged
+
+        RaiseEvent CálculosReintegro()
+
+    End Sub
+    Private Sub TotalTelepeajeTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalTelepeajeTextBox.TextChanged
+
+        RaiseEvent CálculosTelepeaje()
+
+    End Sub
+    Private Sub CuentasGastoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CuentasGastoComboBox.SelectedIndexChanged
+
+        If CuentasGastoComboBox.SelectedIndex > -1 Then
+
+            Me.m_CuentaGasto = CInt(CuentasGastoComboBox.SelectedValue)
+
+        End If
+    End Sub
+    Private Sub BancosDispComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BancosDispComboBox.SelectedIndexChanged
+
+        With Me.BancosDispComboBox
+
+
+            If .SelectedIndex > -1 Then
+
+                Select Case .SelectedIndex
+                    Case 0
+
+                        Me.m_CuentaBanco = 572001
+
+                    Case 1
+
+                        Me.m_CuentaBanco = 572002
+
+                    Case Else
+
+                        Throw New Exception("La cuenta Bancaria de Pago no existe.")
+
+                End Select
+
+            End If
+        End With
+    End Sub
+
+    Private Sub Bancos2ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Bancos2ComboBox.SelectedIndexChanged
+
+        With Me.Bancos2ComboBox
+
+            If .SelectedIndex > -1 Then
+
+                Select Case .SelectedIndex
+                    Case 0
+
+                        Me.m_CuentaBanco = 572001
+
+                    Case 1
+
+                        Me.m_CuentaBanco = 572002
+
+                    Case Else
+
+                        Throw New Exception("La cuenta Bancaria de Pago no existe.")
+
+                End Select
+
+            End If
+        End With
+
     End Sub
 
     Private Sub BancosComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BancosComboBox.SelectedIndexChanged
@@ -346,269 +706,54 @@ Public Class frmAsientos
         End With
     End Sub
 
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
 
-        ' Validar asiento
-        '
-        If Not frmAsientos.Válido(Me) Then
+    Sub Realiza_Los_Cálculos_Compra() Handles Me.CálculosCompra
 
-            Exit Sub
+        If Len(Trim(Me.TotalTextBox.Text)) <> 0 Then
 
-        Else
+            Me.m_ImporteTotal = CDbl(Me.TotalTextBox.Text)
+            Dim R As Double = 1 + Me.IVA / 100
+            Me.m_BaseIVA = Math.Round((Me.ImporteTotal / R), 2)
+            Me.m_CuotaIVA = Me.ImporteTotal - Me.m_BaseIVA
 
-            GenerarAsiento()
-
-            If Me.TipoAsiento = eTiposAsiento.COMPRA Then
-
-                GenerarFactura()
-
-            End If
-
+            Me.BaseIVATextBox.Text = Me.BaseIVA.ToString
+            Me.CuotaIVATextBox.Text = Me.CuotaIVA.ToString
 
         End If
 
-        Me.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.Close()
-    End Sub
-
-    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
-        Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Close()
-    End Sub
-
-    Shared Function Válido(asto As frmAsientos) As Boolean
-
-        Dim msg As String = ""
-        Select Case asto.TipoAsiento
-            Case eTiposAsiento.REINTEGRO_EFECTIVO
-
-                If Len(Trim(asto.Operación)) = 0 Then
-
-                    msg += "El campo Operación no puede quedar en blanco. "
-
-                End If
-                If asto.CuentaBanco = 0 Then
-
-                    msg += "La cuenta bancaria no puede ser 0. "
-
-                End If
-                If asto.ImporteTotal = 0 Then
-
-                    msg += "El importe total no puede ser 0. "
-
-                End If
-                If Len(Trim(msg)) <> 0 Then
-
-                    CMódulo.MsgErrorCrítico(msg)
-                    Válido = False
-                    Exit Function
-
-                End If
-
-            Case eTiposAsiento.COMPRA
-                If Len(Trim(asto.Operación)) = 0 Then
-
-                    msg += "El campo Operación no puede quedar en blanco. "
-
-                End If
-                If asto.CuentaBanco = 0 Then
-
-                    msg += "La cuenta bancaria no puede ser 0. "
-
-                End If
-                If asto.IVA <> 0 And asto.CuentaIVASoportado = 0 Then
-
-                    msg += "El IVA soportado no puede ser 0. "
-
-                End If
-                If asto.ImporteTotal = 0 Then
-
-                    msg += "El importe total no puede ser 0. "
-
-                End If
-                If Len(Trim(msg)) <> 0 Then
-
-                    CMódulo.MsgErrorCrítico(msg)
-                    Válido = False
-                    Exit Function
-
-                End If
-            Case Else
-
-                Válido = False
-
-        End Select
-
-        Válido = True
-
-    End Function
-
-    Private Sub CuentasGastoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CuentasGastoComboBox.SelectedIndexChanged
-
-        If CuentasGastoComboBox.SelectedIndex > -1 Then
-
-            Me.m_CuentaGasto = CInt(CuentasGastoComboBox.SelectedValue)
-
-        End If
-    End Sub
-
-    Private Sub GenerarAsiento()
-
-        Me.m_ClaveHash = CMódulo.Clave(Me.FechaAsiento.ToString + Me.Operación + Me.Justificante)
-        Me.AsientosTableAdapter.Insert(Me.NúmeroAsiento, Me.FechaAsiento, Me.Justificante, Me.Operación, Me.ClaveHash)
-
-        Select Case Me.TipoAsiento
-
-            Case eTiposAsiento.REINTEGRO_EFECTIVO
-                '
-                ' Agregar cargos
-                '
-                Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "C")
-                Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaGasto, NúmeroApunte, Me.BaseIVA)
-
-                '
-                ' Agregar abonos
-                '
-                NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "A")
-                Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaBanco, NúmeroApunte, Me.ImporteTotal)
-
-            Case eTiposAsiento.COMPRA
-                '
-                ' Agregar cargos
-                '
-                Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "C")
-                Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaGasto, NúmeroApunte, Me.BaseIVA)
-                If Me.IVA <> 0 Then
-                    NúmeroApunte += 1
-                    Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaIVASoportado, NúmeroApunte, Me.CuotaIVA)
-                End If
-                NúmeroApunte += 1
-                Me.CargosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
-
-                '
-                ' Agregar abonos
-                '
-                NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, Me.NúmeroAsiento, "A")
-                Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaProveedor, NúmeroApunte, Me.ImporteTotal)
-                NúmeroApunte += 1
-                Me.AbonosTableAdapter.Insert(NúmeroAsiento, Me.CuentaBanco, NúmeroApunte, Me.ImporteTotal)
-            Case Else
-
-                Exit Sub
-
-        End Select
-    End Sub
-
-    Private Sub FechaDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles FechaDateTimePicker.ValueChanged
-
-        Me.m_fechaAsiento = Me.FechaDateTimePicker.Value
 
     End Sub
 
-    Private Sub JustificanteTextBox_TextChanged(sender As Object, e As EventArgs) Handles JustificanteTextBox.TextChanged
+    Sub Realiza_Los_Cálculos_Reintegro() Handles Me.CálculosReintegro
 
-        Me.m_Justificante = Me.JustificanteTextBox.Text
+        If Len(Trim(Me.TotalDispuestoTextBox.Text)) <> 0 Then
 
-    End Sub
-
-    Private Sub TotalTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalTextBox.TextChanged
-
-    RaiseEvent CambioNúmeros()
-
-    End Sub
-
-    Private Sub TotalDispuestoTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalDispuestoTextBox.TextChanged
-
-        RaiseEvent CambioNúmeros()
-        RaiseEvent PreparaAsientoDisposición(Me)
-
-    End Sub
-
-    Private Sub Realiza_Los_Cálculos() Handles Me.CambioNúmeros
-
-        Select Case Me.TipoAsiento
-            Case eTiposAsiento.REINTEGRO_EFECTIVO
-
-                If Len(Trim(Me.TotalDispuestoTextBox.Text)) <> 0 Then
-
-                    Me.m_ImporteTotal = CDbl(Me.TotalDispuestoTextBox.Text)
-                    Me.m_IVA = 0
-                    Me.m_BaseIVA = Me.ImporteTotal
-                    Me.m_CuotaIVA = 0
-
-                End If
-
-            Case eTiposAsiento.COMPRA
-
-                If Len(Trim(Me.TotalTextBox.Text)) <> 0 Then
-
-                    Me.m_ImporteTotal = CDbl(Me.TotalTextBox.Text)
-                    Dim R As Double = 1 + Me.IVA / 100
-                    Me.m_BaseIVA = Math.Round((Me.ImporteTotal / R), 2)
-                    Me.m_CuotaIVA = Me.ImporteTotal - Me.m_BaseIVA
-
-                    Me.BaseIVATextBox.Text = Me.BaseIVA.ToString
-                    Me.CuotaIVATextBox.Text = Me.CuotaIVA.ToString
-
-                End If
-        End Select
-
-    End Sub
-
-    Private Sub GenerarFactura()
-
-
-        If Me.TipoAsiento = eTiposAsiento.COMPRA Then
-            Me.FacturasRecibidasTableAdapter.Insert(Me.Justificante, Me.FechaAsiento, Nothing, Me.CIF, Me.NombreProveedor, Me.ClaveHash, Me.BaseIVA, Me.IVA, Me.CuotaIVA, Me.ImporteTotal)
-        Else
-        End If
-    End Sub
-
-    Private Sub BancosDispComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BancosDispComboBox.SelectedIndexChanged
-
-        With Me.BancosDispComboBox
-
-
-            If .SelectedIndex > -1 Then
-
-                Select Case .SelectedIndex
-                    Case 0
-
-                        Me.m_CuentaBanco = 572001
-
-                    Case 1
-
-                        Me.m_CuentaBanco = 572002
-
-                    Case Else
-
-                        Throw New Exception("La cuenta Bancaria de Pago no existe.")
-
-                End Select
-
-            End If
-        End With
-    End Sub
-
-    Private Sub Prepara_Asiento_Disposición(ByRef sender As frmAsientos) Handles Me.PreparaAsientoDisposición
-
-        sender.m_CuentaGasto = 551001
-        ' sender.m_CuentaBanco = 5720001
-        If sender.rbVentanillaRadioButton.Checked = True Then
-            sender.m_Operación = "DISPOSICION EFECTIVO EN OFICINA " + Trim(sender.NúmeroOficinaTextBox.Text)
-            sender.m_Justificante = Trim(sender.NúmeroOficinaTextBox.Text)
-        ElseIf sender.rbCajeroRadioButton.Checked = True Then
-            sender.m_Operación = "DISPOSICION EFECTIVO EN CAJERO " + Trim(sender.NúmeroOficinaTextBox.Text)
-            sender.m_Justificante = Trim(sender.NúmeroOficinaTextBox.Text)
-        ElseIf sender.rbChequeRadioButton.Checked = True Then
-            sender.m_Operación = "ABONO DE CHEQUE " + Trim(sender.NúmeroOficinaTextBox.Text)
-            sender.m_Justificante = Trim(sender.NúmeroOficinaTextBox.Text)
-        Else
-            CMódulo.MsgErrorCrítico("ERROR AL GENERAR ASIENTO DE REINTEGRO. ASIENTO NO GENERADO")
-
-            Exit Sub
+            Me.m_ImporteTotal = CDbl(Me.TotalDispuestoTextBox.Text)
+            Me.m_IVA = 0
+            Me.m_BaseIVA = Me.ImporteTotal
+            Me.m_CuotaIVA = 0
 
         End If
 
     End Sub
+
+    Sub Realiza_Los_Cálculos_TelePeaje() Handles Me.CálculosTelepeaje
+
+
+        If Len(Trim(Me.TotalTelepeajeTextBox.Text)) <> 0 Then
+
+            Me.m_ImporteTotal = CDbl(Me.TotalTelepeajeTextBox.Text)
+            Me.m_IVA = 21
+            Me.m_CuentaIVA = 472021
+            Dim R As Double = 1 + Me.IVA / 100
+            Me.m_BaseIVA = Math.Round((Me.ImporteTotal / R), 2)
+            Me.m_CuotaIVA = Me.ImporteTotal - Me.m_BaseIVA
+            ' EN EL TELEPEAJE SOLO SE SOPORTA LA MITAD DEL IVA
+            Me.m_CuotaIVA = Me.m_CuotaIVA / 2
+            Me.m_BaseIVA += Me.m_CuotaIVA
+
+        End If
+
+    End Sub
+
 End Class

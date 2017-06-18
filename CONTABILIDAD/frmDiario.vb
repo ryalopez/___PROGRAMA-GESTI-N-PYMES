@@ -905,18 +905,18 @@ Public Class frmDiario
         AbonosBindingSource.SuspendBinding()
         AsientosBindingSource.SuspendBinding()
 
-        Dim a As New frmAsientos()
+        'Dim a As New frmAsientos()
 
-        a.ShowDialog(Me)
-        If a.DialogResult = DialogResult.OK Then
+        'a.ShowDialog(Me)
+        'If a.DialogResult = DialogResult.OK Then
 
-            CargosBindingSource.ResumeBinding()
-            AbonosBindingSource.ResumeBinding()
-            AsientosBindingSource.ResumeBinding()
+        '    CargosBindingSource.ResumeBinding()
+        '    AbonosBindingSource.ResumeBinding()
+        '    AsientosBindingSource.ResumeBinding()
 
-            Exit Sub
+        '    Exit Sub
 
-        End If
+        'End If
 
 
         '

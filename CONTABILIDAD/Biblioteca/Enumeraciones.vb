@@ -11,7 +11,8 @@ Public Enum eTiposAsiento
 
     COMPRA = 1
     REINTEGRO_EFECTIVO = 2
-    VENTA = 3
+    ADEUDO_TELEPEAJE = 3
+    VENTA = 4
 
 End Enum
 

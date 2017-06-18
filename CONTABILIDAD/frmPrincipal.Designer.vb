@@ -53,8 +53,9 @@ Partial Class frmPrincipal
         Me.AsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AsientosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter()
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
-        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
+        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.mnuEntradaAsientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrincipal.SuspendLayout()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,7 +122,7 @@ Partial Class frmPrincipal
         '
         'CONTABILIDADToolStripMenuItem
         '
-        Me.CONTABILIDADToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAsientos, Me.mnuCuentas, Me.mnuAnalítica})
+        Me.CONTABILIDADToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEntradaAsientos, Me.mnuAsientos, Me.mnuCuentas, Me.mnuAnalítica})
         Me.CONTABILIDADToolStripMenuItem.Name = "CONTABILIDADToolStripMenuItem"
         Me.CONTABILIDADToolStripMenuItem.Size = New System.Drawing.Size(125, 24)
         Me.CONTABILIDADToolStripMenuItem.Text = "CONTABILIDAD"
@@ -130,7 +131,7 @@ Partial Class frmPrincipal
         '
         Me.mnuAsientos.Name = "mnuAsientos"
         Me.mnuAsientos.Size = New System.Drawing.Size(195, 26)
-        Me.mnuAsientos.Text = "Entrada Asientos"
+        Me.mnuAsientos.Text = "Diario"
         '
         'mnuCuentas
         '
@@ -292,14 +293,20 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.UnidadesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'FacturasRecibidasTableAdapter
+        '
+        Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
+        '
         'FacturasRecibidasBindingSource
         '
         Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
         Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
         '
-        'FacturasRecibidasTableAdapter
+        'mnuEntradaAsientos
         '
-        Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
+        Me.mnuEntradaAsientos.Name = "mnuEntradaAsientos"
+        Me.mnuEntradaAsientos.Size = New System.Drawing.Size(195, 26)
+        Me.mnuEntradaAsientos.Text = "Entrada Asientos"
         '
         'frmPrincipal
         '
@@ -353,4 +360,5 @@ Partial Class frmPrincipal
     Friend WithEvents TableAdapterManager As BDContabilidadGMELOTableAdapters.TableAdapterManager
     Friend WithEvents FacturasRecibidasTableAdapter As BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter
     Friend WithEvents FacturasRecibidasBindingSource As BindingSource
+    Friend WithEvents mnuEntradaAsientos As ToolStripMenuItem
 End Class
