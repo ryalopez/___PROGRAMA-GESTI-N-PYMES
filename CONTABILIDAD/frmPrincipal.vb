@@ -5,10 +5,8 @@ Imports Biblioteca
 Public Class frmPrincipal
 
     Private Sub frmPrincipal_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cuentas' Puede moverla o quitarla según sea necesario.
-        Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Proveedores' Puede moverla o quitarla según sea necesario.
-        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+
+        '
         Me.Text = My.Resources.Título
         '
         ' Solicitar servidor
@@ -49,6 +47,13 @@ Public Class frmPrincipal
     '
     ' Contabilidad
     '
+
+    Private Sub mnuEntradaAsientos_Click(sender As Object, e As EventArgs) Handles mnuEntradaAsientos.Click
+
+        Dim a As New frmAsientos()
+        a.ShowDialog(Me)
+
+    End Sub
     Private Sub mnuAsientos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuAsientos.Click
 
         frmDiario.Show(Me)
@@ -135,7 +140,7 @@ Public Class frmPrincipal
                 DateTime.Now.Hour.ToString + "_" +
                 DateTime.Now.Minute.ToString + ".bak"
 
-        Dim Descripción As String = "Copia de la Base de Contabilidad de fecha " + _
+        Dim Descripción As String = "Copia de la Base de Contabilidad de fecha " +
             DateTime.Now.ToShortDateString + " a las " + DateTime.Now.ToShortTimeString
         Dim Nombre As String = My.Settings.NombreBaseDatos
 
@@ -171,8 +176,8 @@ Public Class frmPrincipal
 
     Private Sub SepararExcelDelBBVAToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SepararExcelDelBBVAToolStripMenuItem.Click
 
-        Dim msg As String = "Se va a partir una hoja de Excel con todos los movimientos del BBVA, " & _
-    "para obtener por separado en dos hojas los cargos y los abonos. " & vbCrLf & _
+        Dim msg As String = "Se va a partir una hoja de Excel con todos los movimientos del BBVA, " &
+    "para obtener por separado en dos hojas los cargos y los abonos. " & vbCrLf &
     "¿Quiere continuar?"
 
         If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
@@ -183,7 +188,7 @@ Public Class frmPrincipal
         '
         ' Generar una Hoja de Cálculo copiando la que se ha descargado de INTERNET
         '
-        Dim NomFicheroExcel As String = Application.StartupPath & "\BBVA\BBVA_CARGOS_Y_ABONOS" + _
+        Dim NomFicheroExcel As String = Application.StartupPath & "\BBVA\BBVA_CARGOS_Y_ABONOS" +
           ".xlsx"
         NomFicheroExcel = NomFicheroExcel.Replace("/", " ")
 
@@ -249,7 +254,7 @@ Public Class frmPrincipal
         oHojaAbonos.Range("A1").Value = "FECHA"
         oHojaAbonos.Range("B1").Value = "CONCEPTO"
         oHojaAbonos.Range("C1").Value = "EUROS"
-       
+
         Dim iCargos, iAbonos As Integer
         iCargos = 2
         iAbonos = 2
@@ -257,9 +262,9 @@ Public Class frmPrincipal
 
             If oHoja.Cells(i, 1) IsNot Nothing Then
 
-                Dim título As String = CType(oHoja.Cells(i, 2), Excel.Range).Value.ToString.TrimEnd + " " + _
+                Dim título As String = CType(oHoja.Cells(i, 2), Excel.Range).Value.ToString.TrimEnd + " " +
                     CType(oHoja.Cells(i, 3), Excel.Range).Value.ToString
-                
+
                 If CDbl(CType(oHoja.Cells(i, 4), Excel.Range).Value) > 0 Then
 
                     iAbonos += 1
@@ -297,8 +302,8 @@ Public Class frmPrincipal
 
     Private Sub CuadranteHorasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CuadranteHorasToolStripMenuItem.Click
 
-        Dim msg As String = "Se va a generar una hoja de Excel con un cudrante de horas, " & _
-    "empleados vs. clientes. " & vbCrLf & _
+        Dim msg As String = "Se va a generar una hoja de Excel con un cudrante de horas, " &
+    "empleados vs. clientes. " & vbCrLf &
     "¿Quiere continuar?"
 
         If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
@@ -309,7 +314,7 @@ Public Class frmPrincipal
         '
         ' Generar una Hoja de Cálculo copiando la que se ha descargado de INTERNET
         '
-        Dim NomFicheroExcel As String = Application.StartupPath & "\CUADRANTE_HORAS\CUADRANTE" + _
+        Dim NomFicheroExcel As String = Application.StartupPath & "\CUADRANTE_HORAS\CUADRANTE" +
           ".xlsm"
         NomFicheroExcel = NomFicheroExcel.Replace("/", " ")
 
@@ -371,8 +376,8 @@ Public Class frmPrincipal
 
     Private Sub EvaluarAmortizacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EvaluarAmortizacionesToolStripMenuItem.Click
 
-        Dim msg As String = "Se va a partir una hoja de Excel con todos los movimientos del BBVA, " & _
-    "para obtener por separado en dos hojas los cargos y los abonos. " & vbCrLf & _
+        Dim msg As String = "Se va a partir una hoja de Excel con todos los movimientos del BBVA, " &
+    "para obtener por separado en dos hojas los cargos y los abonos. " & vbCrLf &
     "¿Quiere continuar?"
 
         If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
@@ -383,7 +388,7 @@ Public Class frmPrincipal
         '
         ' Generar una Hoja de Cálculo copiando la que se ha descargado de INTERNET
         '
-        Dim NomFicheroExcel As String = Application.StartupPath & "\BBVA\BBVA_CARGOS_Y_ABONOS" + _
+        Dim NomFicheroExcel As String = Application.StartupPath & "\BBVA\BBVA_CARGOS_Y_ABONOS" +
           ".xlsm"
         NomFicheroExcel = NomFicheroExcel.Replace("/", " ")
 
@@ -496,67 +501,11 @@ Public Class frmPrincipal
 
     End Sub
 
-    Private Sub KkkkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KkkkToolStripMenuItem.Click
-
-        Dim file As System.IO.StreamWriter
-        file = My.Computer.FileSystem.OpenTextFileWriter(Application.StartupPath + "\test.txt", True)
-        file.WriteLine("PROVEEDORES CUENTAS. " + My.Settings.NombreBaseDatos)
-        file.WriteLine()
-        file.WriteLine()
-        For Each p As BDContabilidadGMELO.ProveedoresRow In Me.BDContabilidadGMELO.Proveedores
-
-            Dim c As BDContabilidadGMELO.CuentasRow = Me.BDContabilidadGMELO.Cuentas.FindByCódigo(p.Cuenta4)
-
-            If Not IsNothing(c) AndAlso Trim(c.Nombre) <> Trim(p.Nombre) Then
-
-                file.Write(p.DocumentoIdentidad + vbTab)
-                file.Write(p.Cuenta4.ToString + vbTab)
-                file.Write(p.Nombre.ToString + vbTab)
-                file.Write(c.Código.ToString + vbTab)
-                file.WriteLine(c.Nombre)
-
-            ElseIf IsNothing(c) Then
-
-                file.Write(p.DocumentoIdentidad + vbTab)
-                file.Write(p.Cuenta4.ToString + vbTab)
-                file.Write(p.Nombre + vbTab)
-                file.WriteLine("--------> SIN CUENTA")
-
-            End If
-
-        Next
-        file.WriteLine()
-        file.WriteLine()
-        file.WriteLine("CUENTAS PROVEEDORES. " + My.Settings.NombreBaseDatos)
-        file.WriteLine()
-        file.WriteLine()
-        For Each c As BDContabilidadGMELO.CuentasRow In Me.BDContabilidadGMELO.Cuentas
-
-
-            Dim ps As BDContabilidadGMELO.ProveedoresDataTable = CType(Me.ProveedoresTableAdapter.GetDataBy(c.Código),
-                BDContabilidadGMELO.ProveedoresDataTable)
-
-            If Not IsNothing(ps) AndAlso ps.Rows.Count > 0 Then
-
-                Dim p As BDContabilidadGMELO.ProveedoresRow = CType(ps.Rows(0), BDContabilidadGMELO.ProveedoresRow)
-
-                If Not IsNothing(p) AndAlso Trim(c.Nombre) <> Trim(p.Nombre) Then
-
-                    file.Write(c.Código.ToString + vbTab)
-                    file.Write(c.Nombre + vbTab)
-                    file.Write(p.Cuenta4.ToString + vbTab)
-                    file.WriteLine(p.Nombre)
-
-                ElseIf IsNothing(p) Then
-
-                    file.Write(c.Código.ToString + vbTab)
-                    file.Write(c.Nombre + vbTab)
-                    file.WriteLine("--------> SIN PROVEEDOR")
-
-                End If
-            End If
-        Next
-        file.Close()
+    Private Sub AsientosBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+        Me.Validate()
+        Me.AsientosBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.BDContabilidadGMELO)
 
     End Sub
+
 End Class

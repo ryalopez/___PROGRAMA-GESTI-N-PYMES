@@ -27,7 +27,7 @@ Partial Class frmFacturasRecibidas
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FacturasRecibidasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -51,58 +51,40 @@ Partial Class frmFacturasRecibidas
         Me.PagarStripButton = New System.Windows.Forms.ToolStripButton()
         Me.GenerarToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.btnResumenExcel = New System.Windows.Forms.ToolStripButton()
-        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
-        Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OperacionesFacturaContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DuplicarFactura = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CargosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AbonosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
-        Me.CuentasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter()
-        Me.CuentasMaestrasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CuentasMaestrasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasMaestrasTableAdapter()
-        Me.AsientosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter()
-        Me.CargosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CargosTableAdapter()
-        Me.AbonosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AbonosTableAdapter()
-        Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idFactura = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nLínea = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         Me.FacturasRecibidasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
+        Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
+        Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
+        Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OPERACIÓN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.FacturasRecibidasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FacturasRecibidasBindingNavigator.SuspendLayout()
+        Me.OperacionesFacturaContextMenuStrip.SuspendLayout()
+        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.OperacionesFacturaContextMenuStrip.SuspendLayout()
-        CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FacturasRecibidasBindingNavigator
@@ -119,7 +101,7 @@ Partial Class frmFacturasRecibidas
         Me.FacturasRecibidasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.FacturasRecibidasBindingNavigator.Name = "FacturasRecibidasBindingNavigator"
         Me.FacturasRecibidasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.FacturasRecibidasBindingNavigator.Size = New System.Drawing.Size(1041, 27)
+        Me.FacturasRecibidasBindingNavigator.Size = New System.Drawing.Size(1388, 27)
         Me.FacturasRecibidasBindingNavigator.TabIndex = 6
         Me.FacturasRecibidasBindingNavigator.Text = "FacturasRecibidasBindingNavigator"
         '
@@ -135,8 +117,8 @@ Partial Class frmFacturasRecibidas
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 24)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
         'BindingNavigatorDeleteItem
@@ -190,7 +172,7 @@ Partial Class frmFacturasRecibidas
         Me.BindingNavigatorPositionItem.AccessibleName = "Posición"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 27)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
@@ -236,26 +218,26 @@ Partial Class frmFacturasRecibidas
         Me.ToolStripDropDownButton1.Image = Global.Contabilidad.My.Resources.Resources.Listar
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(33, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(34, 24)
         Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
         '
         'btnListarFacturasRecibidas
         '
         Me.btnListarFacturasRecibidas.Name = "btnListarFacturasRecibidas"
-        Me.btnListarFacturasRecibidas.Size = New System.Drawing.Size(175, 22)
+        Me.btnListarFacturasRecibidas.Size = New System.Drawing.Size(210, 26)
         Me.btnListarFacturasRecibidas.Text = "Listado de Facturas"
         '
         'btnEmitirFacturasToolStrip
         '
         Me.btnEmitirFacturasToolStrip.Name = "btnEmitirFacturasToolStrip"
-        Me.btnEmitirFacturasToolStrip.Size = New System.Drawing.Size(175, 22)
+        Me.btnEmitirFacturasToolStrip.Size = New System.Drawing.Size(210, 26)
         Me.btnEmitirFacturasToolStrip.Text = "Emitir Facturas"
         Me.btnEmitirFacturasToolStrip.ToolTipText = "Emitir las facturas de un mes"
         '
         'MorososToolStripMenuItem
         '
         Me.MorososToolStripMenuItem.Name = "MorososToolStripMenuItem"
-        Me.MorososToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.MorososToolStripMenuItem.Size = New System.Drawing.Size(210, 26)
         Me.MorososToolStripMenuItem.Text = "Morosos"
         '
         'ContabilizarStripButton
@@ -298,6 +280,82 @@ Partial Class frmFacturasRecibidas
         Me.btnResumenExcel.Text = "ResumenExcel"
         Me.btnResumenExcel.ToolTipText = "Resumen de facturas entre dos fechas elegidas, en formato Excel"
         '
+        'OperacionesFacturaContextMenuStrip
+        '
+        Me.OperacionesFacturaContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.OperacionesFacturaContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DuplicarFactura, Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem})
+        Me.OperacionesFacturaContextMenuStrip.Name = "OperacionesFacturaContextMenuStrip"
+        Me.OperacionesFacturaContextMenuStrip.Size = New System.Drawing.Size(519, 52)
+        '
+        'DuplicarFactura
+        '
+        Me.DuplicarFactura.Name = "DuplicarFactura"
+        Me.DuplicarFactura.Size = New System.Drawing.Size(518, 24)
+        Me.DuplicarFactura.Text = "Duplicar con fecha de hoy y nuevo número la Factura seleccionada"
+        '
+        'GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem
+        '
+        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Name = "GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem"
+        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Size = New System.Drawing.Size(518, 24)
+        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Text = "Generar la Factura seleccionada en documento Word"
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'idFactura
+        '
+        Me.idFactura.DataPropertyName = "idFactura"
+        Me.idFactura.HeaderText = "idFactura"
+        Me.idFactura.Name = "idFactura"
+        Me.idFactura.ReadOnly = True
+        Me.idFactura.Visible = False
+        '
+        'nLínea
+        '
+        Me.nLínea.DataPropertyName = "nLínea"
+        Me.nLínea.HeaderText = "Línea"
+        Me.nLínea.Name = "nLínea"
+        Me.nLínea.ReadOnly = True
+        '
+        'Descripción
+        '
+        Me.Descripción.DataPropertyName = "Descripción"
+        Me.Descripción.HeaderText = "Descripción"
+        Me.Descripción.Name = "Descripción"
+        Me.Descripción.Width = 500
+        '
+        'Importe
+        '
+        Me.Importe.DataPropertyName = "Importe"
+        Me.Importe.HeaderText = "Importe"
+        Me.Importe.Name = "Importe"
+        '
+        'FacturasRecibidasDataGridView
+        '
+        Me.FacturasRecibidasDataGridView.AllowUserToAddRows = False
+        Me.FacturasRecibidasDataGridView.AllowUserToDeleteRows = False
+        Me.FacturasRecibidasDataGridView.AutoGenerateColumns = False
+        Me.FacturasRecibidasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.FacturasRecibidasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.OPERACIÓN, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn20})
+        Me.FacturasRecibidasDataGridView.DataSource = Me.FacturasRecibidasBindingSource
+        Me.FacturasRecibidasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FacturasRecibidasDataGridView.Location = New System.Drawing.Point(0, 27)
+        Me.FacturasRecibidasDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FacturasRecibidasDataGridView.Name = "FacturasRecibidasDataGridView"
+        Me.FacturasRecibidasDataGridView.ReadOnly = True
+        Me.FacturasRecibidasDataGridView.Size = New System.Drawing.Size(1388, 855)
+        Me.FacturasRecibidasDataGridView.TabIndex = 6
+        '
+        'FacturasRecibidasBindingSource
+        '
+        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
+        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
         'BDContabilidadGMELO
         '
         Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
@@ -307,45 +365,6 @@ Partial Class frmFacturasRecibidas
         '
         Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
         Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'OperacionesFacturaContextMenuStrip
-        '
-        Me.OperacionesFacturaContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.OperacionesFacturaContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DuplicarFactura, Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem})
-        Me.OperacionesFacturaContextMenuStrip.Name = "OperacionesFacturaContextMenuStrip"
-        Me.OperacionesFacturaContextMenuStrip.Size = New System.Drawing.Size(428, 48)
-        '
-        'DuplicarFactura
-        '
-        Me.DuplicarFactura.Name = "DuplicarFactura"
-        Me.DuplicarFactura.Size = New System.Drawing.Size(427, 22)
-        Me.DuplicarFactura.Text = "Duplicar con fecha de hoy y nuevo número la Factura seleccionada"
-        '
-        'GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem
-        '
-        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Name = "GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem"
-        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Size = New System.Drawing.Size(427, 22)
-        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Text = "Generar la Factura seleccionada en documento Word"
-        '
-        'CargosBindingSource
-        '
-        Me.CargosBindingSource.DataMember = "FK_Cargos_Asientos"
-        Me.CargosBindingSource.DataSource = Me.AsientosBindingSource
-        '
-        'AsientosBindingSource
-        '
-        Me.AsientosBindingSource.DataMember = "Asientos"
-        Me.AsientosBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'AbonosBindingSource
-        '
-        Me.AbonosBindingSource.DataMember = "FK_Abonos_Asientos"
-        Me.AbonosBindingSource.DataSource = Me.AsientosBindingSource
-        '
-        'CuentasBindingSource
-        '
-        Me.CuentasBindingSource.DataMember = "Cuentas"
-        Me.CuentasBindingSource.DataSource = Me.BDContabilidadGMELO
         '
         'TableAdapterManager
         '
@@ -387,6 +406,7 @@ Partial Class frmFacturasRecibidas
         Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
         Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
         Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
         Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
         Me.TableAdapterManager.SexosTableAdapter = Nothing
@@ -397,244 +417,144 @@ Partial Class frmFacturasRecibidas
         Me.TableAdapterManager.UnidadesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'CuentasTableAdapter
-        '
-        Me.CuentasTableAdapter.ClearBeforeFill = True
-        '
-        'CuentasMaestrasBindingSource
-        '
-        Me.CuentasMaestrasBindingSource.DataMember = "CuentasMaestras"
-        Me.CuentasMaestrasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'CuentasMaestrasTableAdapter
-        '
-        Me.CuentasMaestrasTableAdapter.ClearBeforeFill = True
-        '
-        'AsientosTableAdapter
-        '
-        Me.AsientosTableAdapter.ClearBeforeFill = True
-        '
-        'CargosTableAdapter
-        '
-        Me.CargosTableAdapter.ClearBeforeFill = True
-        '
-        'AbonosTableAdapter
-        '
-        Me.AbonosTableAdapter.ClearBeforeFill = True
-        '
         'CuentasBancariasTableAdapter
         '
         Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'idFactura
-        '
-        Me.idFactura.DataPropertyName = "idFactura"
-        Me.idFactura.HeaderText = "idFactura"
-        Me.idFactura.Name = "idFactura"
-        Me.idFactura.ReadOnly = True
-        Me.idFactura.Visible = False
-        '
-        'nLínea
-        '
-        Me.nLínea.DataPropertyName = "nLínea"
-        Me.nLínea.HeaderText = "Línea"
-        Me.nLínea.Name = "nLínea"
-        Me.nLínea.ReadOnly = True
-        '
-        'Descripción
-        '
-        Me.Descripción.DataPropertyName = "Descripción"
-        Me.Descripción.HeaderText = "Descripción"
-        Me.Descripción.Name = "Descripción"
-        Me.Descripción.Width = 500
-        '
-        'Importe
-        '
-        Me.Importe.DataPropertyName = "Importe"
-        Me.Importe.HeaderText = "Importe"
-        Me.Importe.Name = "Importe"
-        '
-        'FacturasRecibidasBindingSource
-        '
-        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
-        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
         '
         'FacturasRecibidasTableAdapter
         '
         Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
         '
-        'FacturasRecibidasDataGridView
-        '
-        Me.FacturasRecibidasDataGridView.AllowUserToAddRows = False
-        Me.FacturasRecibidasDataGridView.AllowUserToDeleteRows = False
-        Me.FacturasRecibidasDataGridView.AutoGenerateColumns = False
-        Me.FacturasRecibidasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.FacturasRecibidasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
-        Me.FacturasRecibidasDataGridView.DataSource = Me.FacturasRecibidasBindingSource
-        Me.FacturasRecibidasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FacturasRecibidasDataGridView.Location = New System.Drawing.Point(0, 27)
-        Me.FacturasRecibidasDataGridView.Name = "FacturasRecibidasDataGridView"
-        Me.FacturasRecibidasDataGridView.ReadOnly = True
-        Me.FacturasRecibidasDataGridView.Size = New System.Drawing.Size(1041, 690)
-        Me.FacturasRecibidasDataGridView.TabIndex = 6
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Fecha"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Fecha"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "MiReferencia"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "MiReferencia"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Justificante"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Justificante"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 250
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "idProveedor"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "idProveedor"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Asiento"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Asiento"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 33
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Apunte"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Apunte"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 33
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CuentaIVA"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "CuentaIVA"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 77
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Base"
-        DataGridViewCellStyle1.Format = "N2"
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Base"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        '
         'DataGridViewTextBoxColumn10
         '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Cuota"
-        DataGridViewCellStyle2.Format = "N2"
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Cuota"
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "id"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "id"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Visible = False
+        Me.DataGridViewTextBoxColumn10.Width = 33
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "FechaEmisión"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "FechaEmisión"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Width = 77
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "FechaOperación"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "FechaOperación"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        Me.DataGridViewTextBoxColumn17.Width = 77
+        '
+        'OPERACIÓN
+        '
+        Me.OPERACIÓN.DataPropertyName = "OPERACIÓN"
+        Me.OPERACIÓN.HeaderText = "OPERACIÓN"
+        Me.OPERACIÓN.Name = "OPERACIÓN"
+        Me.OPERACIÓN.ReadOnly = True
+        Me.OPERACIÓN.Width = 333
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "CIF"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "CIF"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.Width = 77
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "NombreProveedor"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "NombreProveedor"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.ReadOnly = True
+        Me.DataGridViewTextBoxColumn19.Width = 300
         '
         'DataGridViewTextBoxColumn11
         '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "Total"
-        DataGridViewCellStyle3.Format = "N2"
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "Número"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "S/Refer"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn12
+        'DataGridViewTextBoxColumn21
         '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "Operación"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Operación"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Width = 300
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "BaseImponible"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "N2"
+        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridViewTextBoxColumn21.HeaderText = "Base Imponible"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.ReadOnly = True
+        Me.DataGridViewTextBoxColumn21.ToolTipText = " "
+        Me.DataGridViewTextBoxColumn21.Width = 77
         '
-        'DataGridViewTextBoxColumn13
+        'DataGridViewTextBoxColumn22
         '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "ProveedorCuenta"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "ProveedorCuenta"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "TipoIVA"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn22.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn22.HeaderText = "Tipo IVA"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
+        Me.DataGridViewTextBoxColumn22.Width = 33
         '
-        'DataGridViewTextBoxColumn14
+        'DataGridViewTextBoxColumn23
         '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "ProveedorNombre"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "ProveedorNombre"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Width = 300
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "Cuota"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridViewTextBoxColumn23.HeaderText = "Cuota"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.ReadOnly = True
+        Me.DataGridViewTextBoxColumn23.Width = 77
         '
-        'DataGridViewTextBoxColumn15
+        'DataGridViewTextBoxColumn24
         '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "ProveedorNIF"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "ProveedorNIF"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "Total"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridViewTextBoxColumn24.HeaderText = "Total"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.ReadOnly = True
+        Me.DataGridViewTextBoxColumn24.Width = 77
         '
-        'ReportViewer1
+        'DataGridViewTextBoxColumn20
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.FacturasRecibidasBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Contabilidad.Report2.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 27)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1041, 690)
-        Me.ReportViewer1.TabIndex = 7
-        Me.ReportViewer1.Visible = False
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "Clave"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "Clave"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.ReadOnly = True
+        Me.DataGridViewTextBoxColumn20.Visible = False
+        Me.DataGridViewTextBoxColumn20.Width = 233
         '
         'frmFacturasRecibidas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1041, 717)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.ClientSize = New System.Drawing.Size(1388, 882)
         Me.Controls.Add(Me.FacturasRecibidasDataGridView)
         Me.Controls.Add(Me.FacturasRecibidasBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmFacturasRecibidas"
         Me.Text = "frmFacturasRecibidas"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.FacturasRecibidasBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FacturasRecibidasBindingNavigator.ResumeLayout(False)
         Me.FacturasRecibidasBindingNavigator.PerformLayout()
+        Me.OperacionesFacturaContextMenuStrip.ResumeLayout(False)
+        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.OperacionesFacturaContextMenuStrip.ResumeLayout(False)
-        CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -658,16 +578,6 @@ Partial Class frmFacturasRecibidas
     Friend WithEvents BDContabilidadGMELO As BDContabilidadGMELO
     Friend WithEvents FacturasRecibidasBindingNavigatorSaveItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents ContabilizarStripButton As System.Windows.Forms.ToolStripButton
-    Friend WithEvents CuentasBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents CuentasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasTableAdapter
-    Friend WithEvents CuentasMaestrasBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents CuentasMaestrasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasMaestrasTableAdapter
-    Friend WithEvents AsientosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents AsientosTableAdapter As BDContabilidadGMELOTableAdapters.AsientosTableAdapter
-    Friend WithEvents CargosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents CargosTableAdapter As BDContabilidadGMELOTableAdapters.CargosTableAdapter
-    Friend WithEvents AbonosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents AbonosTableAdapter As BDContabilidadGMELOTableAdapters.AbonosTableAdapter
 
     Friend WithEvents GenerarToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripDropDownButton1 As System.Windows.Forms.ToolStripDropDownButton
@@ -702,9 +612,6 @@ Partial Class frmFacturasRecibidas
     Friend WithEvents nLínea As DataGridViewTextBoxColumn
     Friend WithEvents Descripción As DataGridViewTextBoxColumn
     Friend WithEvents Importe As DataGridViewTextBoxColumn
-    Friend WithEvents FacturasRecibidasBindingSource As BindingSource
-    Friend WithEvents FacturasRecibidasTableAdapter As BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter
-    Friend WithEvents FacturasRecibidasDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
@@ -713,11 +620,23 @@ Partial Class frmFacturasRecibidas
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents FacturasRecibidasBindingSource As BindingSource
+    Friend WithEvents FacturasRecibidasTableAdapter As BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter
+    Friend WithEvents FacturasRecibidasDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents OPERACIÓN As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
 End Class

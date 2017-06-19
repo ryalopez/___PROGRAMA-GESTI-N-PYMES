@@ -7,9 +7,9 @@
         Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cuentas' Puede moverla o quitarla según sea necesario.
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
-        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Clientes' Puede moverla o quitarla según sea necesario.
         Me.TiposDocumentoIdentidadTableAdapter.Fill(Me.BDContabilidadGMELO.TiposDocumentoIdentidad)
+        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
 
         Me.Text = My.Resources.Título + " - Gestión de PROVEEDORES"
 
@@ -87,7 +87,9 @@
 
             Me.ProveedoresBindingSource.EndEdit()
 
-            Me.ProveedoresTableAdapter.Adapter.Update(Me.BDContabilidadGMELO)
+            Me.ProveedoresTableAdapter.Insert(Me.DocumentoIdentidadTextBox.Text, Me.NombreTextBox.Text, CInt(Me.TiposDocumentoIdentidadComboBox.SelectedValue),
+                                              Me.DomicilioTextBox.Text, Me.LocalidadTextBox.Text, Me.CódigoPostalTextBox.Text, 1, 1, "", False, 0, 0,
+                                              CInt(Me.Cuenta4TextBox.Text), CInt(Me.Cuenta6TextBox.Text))
 
             If Me.BDContabilidadGMELO.HasChanges = False Then
 

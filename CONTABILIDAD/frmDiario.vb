@@ -164,7 +164,7 @@ Public Class frmDiario
 
             With Asiento
 
-                Me.AsientosTableAdapter.Insert(CInt(Asiento("Número")), CDate(Asiento("Fecha")), CStr(Asiento("Justificante")), CStr(Asiento("Operación")))
+                Me.AsientosTableAdapter.Insert(CInt(Asiento("Número")), CDate(Asiento("Fecha")), CStr(Asiento("Justificante")), CStr(Asiento("Operación")), "clave")
 
                 For Each apunte As DataRow In Asiento.GetChildRows("AbonosDeUnAsiento")
 
@@ -899,34 +899,31 @@ Public Class frmDiario
 
     Private Sub AgregarAsiento_Click(sender As Object, e As EventArgs) Handles AgregarAsiento.Click
         '
-        ' Elegir tipo de asiento
-        '
-
-        frmElegirTipoAsiento.ShowDialog(Me)
-        If frmElegirTipoAsiento.DialogResult = DialogResult.OK Then
-
-            Dim a As New frmAsientos(frmElegirTipoAsiento.TipoSeleccionado)
-            a.ShowDialog(Me)
-            If a.DialogResult = DialogResult.OK Then
-
-                Exit Sub
-
-            End If
-
-        End If
-
-
-        '
         ' Se trabaja en la Base de Datos con métodos directos. Se "desenganchan los binding"
         '
         CargosBindingSource.SuspendBinding()
         AbonosBindingSource.SuspendBinding()
         AsientosBindingSource.SuspendBinding()
+
+        'Dim a As New frmAsientos()
+
+        'a.ShowDialog(Me)
+        'If a.DialogResult = DialogResult.OK Then
+
+        '    CargosBindingSource.ResumeBinding()
+        '    AbonosBindingSource.ResumeBinding()
+        '    AsientosBindingSource.ResumeBinding()
+
+        '    Exit Sub
+
+        'End If
+
+
         '
         ' Agregar asiento
         '
         Dim NúmeroAsiento As Integer = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
-        Me.AsientosTableAdapter.Insert(NúmeroAsiento, Today, "*", "*")
+        Me.AsientosTableAdapter.Insert(NúmeroAsiento, Today, "*", "*", "clave")
 
         Dim CódigoCuenta As String = "570"
         '
@@ -1092,7 +1089,7 @@ Public Class frmDiario
 
             Dim NúmeroAsiento As Integer = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
 
-            Me.AsientosTableAdapter.Insert(NúmeroAsiento, CDate(CDate(Today).ToShortDateString), Asiento.Justificante, Asiento.Operación)
+            Me.AsientosTableAdapter.Insert(NúmeroAsiento, CDate(CDate(Today).ToShortDateString), Asiento.Justificante, Asiento.Operación, "clave")
 
             ' Recupera el asiento que se va a duplicar
             Asiento = Me.BDContabilidadMelo.Asientos.FindByNúmero(p)

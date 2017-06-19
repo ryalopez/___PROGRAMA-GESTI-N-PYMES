@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmPrincipal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmPrincipal
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.mnuPrincipal = New System.Windows.Forms.MenuStrip()
@@ -30,6 +30,7 @@ Partial Class frmPrincipal
         Me.SepararExcelDelBBVAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CuadranteHorasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EvaluarAmortizacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KkkkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CONTABILIDADToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAsientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuCuentas = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,23 +49,17 @@ Partial Class frmPrincipal
         Me.mnuConvenios = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAcercaDe = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.LíneasFacturaEmitidaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.KkkkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FacturasEmitidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
-        Me.FacturasEmitidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasEmitidasTableAdapter()
-        Me.LíneasFacturaEmitidaTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.LíneasFacturaEmitidaTableAdapter()
-        Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProveedoresTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter()
+        Me.AsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AsientosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter()
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
-        Me.CuentasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter()
-        Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
+        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.mnuEntradaAsientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrincipal.SuspendLayout()
-        CType(Me.LíneasFacturaEmitidaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacturasEmitidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mnuPrincipal
@@ -119,9 +114,15 @@ Partial Class frmPrincipal
         Me.EvaluarAmortizacionesToolStripMenuItem.Text = "Evaluar amortizaciones"
         Me.EvaluarAmortizacionesToolStripMenuItem.ToolTipText = "Realiza el cálculo de los gastos anuales de amortización"
         '
+        'KkkkToolStripMenuItem
+        '
+        Me.KkkkToolStripMenuItem.Name = "KkkkToolStripMenuItem"
+        Me.KkkkToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
+        Me.KkkkToolStripMenuItem.Text = "kkkk"
+        '
         'CONTABILIDADToolStripMenuItem
         '
-        Me.CONTABILIDADToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAsientos, Me.mnuCuentas, Me.mnuAnalítica})
+        Me.CONTABILIDADToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEntradaAsientos, Me.mnuAsientos, Me.mnuCuentas, Me.mnuAnalítica})
         Me.CONTABILIDADToolStripMenuItem.Name = "CONTABILIDADToolStripMenuItem"
         Me.CONTABILIDADToolStripMenuItem.Size = New System.Drawing.Size(125, 24)
         Me.CONTABILIDADToolStripMenuItem.Text = "CONTABILIDAD"
@@ -130,7 +131,7 @@ Partial Class frmPrincipal
         '
         Me.mnuAsientos.Name = "mnuAsientos"
         Me.mnuAsientos.Size = New System.Drawing.Size(195, 26)
-        Me.mnuAsientos.Text = "Entrada Asientos"
+        Me.mnuAsientos.Text = "Diario"
         '
         'mnuCuentas
         '
@@ -228,48 +229,24 @@ Partial Class frmPrincipal
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'LíneasFacturaEmitidaBindingSource
-        '
-        Me.LíneasFacturaEmitidaBindingSource.DataMember = "FK_LíneasFacturaEmitida_FacturasEmitidas"
-        Me.LíneasFacturaEmitidaBindingSource.DataSource = Me.FacturasEmitidasBindingSource
-        '
-        'KkkkToolStripMenuItem
-        '
-        Me.KkkkToolStripMenuItem.Name = "KkkkToolStripMenuItem"
-        Me.KkkkToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
-        Me.KkkkToolStripMenuItem.Text = "kkkk"
-        '
-        'FacturasEmitidasBindingSource
-        '
-        Me.FacturasEmitidasBindingSource.DataMember = "FacturasEmitidas"
-        Me.FacturasEmitidasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
         'BDContabilidadGMELO
         '
         Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
         Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'FacturasEmitidasTableAdapter
+        'AsientosBindingSource
         '
-        Me.FacturasEmitidasTableAdapter.ClearBeforeFill = True
+        Me.AsientosBindingSource.DataMember = "Asientos"
+        Me.AsientosBindingSource.DataSource = Me.BDContabilidadGMELO
         '
-        'LíneasFacturaEmitidaTableAdapter
+        'AsientosTableAdapter
         '
-        Me.LíneasFacturaEmitidaTableAdapter.ClearBeforeFill = True
-        '
-        'ProveedoresBindingSource
-        '
-        Me.ProveedoresBindingSource.DataMember = "Proveedores"
-        Me.ProveedoresBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'ProveedoresTableAdapter
-        '
-        Me.ProveedoresTableAdapter.ClearBeforeFill = True
+        Me.AsientosTableAdapter.ClearBeforeFill = True
         '
         'TableAdapterManager
         '
         Me.TableAdapterManager.AbonosTableAdapter = Nothing
-        Me.TableAdapterManager.AsientosTableAdapter = Nothing
+        Me.TableAdapterManager.AsientosTableAdapter = Me.AsientosTableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
         Me.TableAdapterManager.CargosTableAdapter = Nothing
@@ -288,14 +265,14 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.Cta2TableAdapter = Nothing
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
-        Me.TableAdapterManager.CuentasTableAdapter = Me.CuentasTableAdapter
+        Me.TableAdapterManager.CuentasTableAdapter = Nothing
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Me.FacturasEmitidasTableAdapter
-        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Me.FacturasRecibidasTableAdapter
         Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
         Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
-        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Me.LíneasFacturaEmitidaTableAdapter
+        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Nothing
         Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
         Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
         Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
@@ -305,6 +282,7 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
         Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
         Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
         Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
         Me.TableAdapterManager.SexosTableAdapter = Nothing
@@ -315,14 +293,20 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.UnidadesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'CuentasTableAdapter
+        'FacturasRecibidasTableAdapter
         '
-        Me.CuentasTableAdapter.ClearBeforeFill = True
+        Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
         '
-        'CuentasBindingSource
+        'FacturasRecibidasBindingSource
         '
-        Me.CuentasBindingSource.DataMember = "Cuentas"
-        Me.CuentasBindingSource.DataSource = Me.BDContabilidadGMELO
+        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
+        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'mnuEntradaAsientos
+        '
+        Me.mnuEntradaAsientos.Name = "mnuEntradaAsientos"
+        Me.mnuEntradaAsientos.Size = New System.Drawing.Size(195, 26)
+        Me.mnuEntradaAsientos.Text = "Entrada Asientos"
         '
         'frmPrincipal
         '
@@ -337,11 +321,9 @@ Partial Class frmPrincipal
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.mnuPrincipal.ResumeLayout(False)
         Me.mnuPrincipal.PerformLayout()
-        CType(Me.LíneasFacturaEmitidaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacturasEmitidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProveedoresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -369,17 +351,14 @@ Partial Class frmPrincipal
     Friend WithEvents mnuEmpresasYCentros As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents mnuConvenios As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FacturasEmitidasBindingSource As BindingSource
     Friend WithEvents BDContabilidadGMELO As BDContabilidadGMELO
-    Friend WithEvents FacturasEmitidasTableAdapter As BDContabilidadGMELOTableAdapters.FacturasEmitidasTableAdapter
-    Friend WithEvents LíneasFacturaEmitidaBindingSource As BindingSource
-    Friend WithEvents LíneasFacturaEmitidaTableAdapter As BDContabilidadGMELOTableAdapters.LíneasFacturaEmitidaTableAdapter
     Friend WithEvents mnuFacturasProveedores As ToolStripMenuItem
     Friend WithEvents mnuProveedores As ToolStripMenuItem
     Friend WithEvents KkkkToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProveedoresBindingSource As BindingSource
-    Friend WithEvents ProveedoresTableAdapter As BDContabilidadGMELOTableAdapters.ProveedoresTableAdapter
+    Friend WithEvents AsientosBindingSource As BindingSource
+    Friend WithEvents AsientosTableAdapter As BDContabilidadGMELOTableAdapters.AsientosTableAdapter
     Friend WithEvents TableAdapterManager As BDContabilidadGMELOTableAdapters.TableAdapterManager
-    Friend WithEvents CuentasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasTableAdapter
-    Friend WithEvents CuentasBindingSource As BindingSource
+    Friend WithEvents FacturasRecibidasTableAdapter As BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter
+    Friend WithEvents FacturasRecibidasBindingSource As BindingSource
+    Friend WithEvents mnuEntradaAsientos As ToolStripMenuItem
 End Class

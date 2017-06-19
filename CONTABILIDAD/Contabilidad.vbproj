@@ -205,12 +205,6 @@
     <Compile Include="frmDiario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmElegirTipoAsiento.Designer.vb">
-      <DependentUpon>frmElegirTipoAsiento.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmElegirTipoAsiento.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmEmpresas.Designer.vb">
       <DependentUpon>frmEmpresas.vb</DependentUpon>
     </Compile>
@@ -375,6 +369,11 @@
       <DependentUpon>rptLibroFacturasClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptLibroFacturasRecibidas.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLibroFacturasRecibidas.rpt</DependentUpon>
+    </Compile>
     <Compile Include="rptLibroMayor.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -425,9 +424,6 @@
     <EmbeddedResource Include="frmDiario.resx">
       <DependentUpon>frmDiario.vb</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmElegirTipoAsiento.resx">
-      <DependentUpon>frmElegirTipoAsiento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpresas.resx">
       <DependentUpon>frmEmpresas.vb</DependentUpon>
@@ -515,6 +511,10 @@
     <EmbeddedResource Include="rptLibroFacturasClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLibroFacturasClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptLibroFacturasRecibidas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLibroFacturasRecibidas.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptLibroMayor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
