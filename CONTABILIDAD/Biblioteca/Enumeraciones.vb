@@ -12,7 +12,9 @@ Public Enum eTiposAsiento
     COMPRA = 1
     REINTEGRO_EFECTIVO = 2
     ADEUDO_TELEPEAJE = 3
-    VENTA = 4
+    CUOTA_TARJETA = 4
+    AMORTIZACIÓN_PRÉSTAMO = 5
+    VENTA = 6
 
 End Enum
 

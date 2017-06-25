@@ -8,6 +8,10 @@ Public Class frmAsientos
     Public Event CálculosCompra()
     Public Event CálculosReintegro()
     Public Event CálculosTelepeaje()
+    Public Event CálculosCapitalDevuelto()
+    Public Event CálculosInterés()
+    Public Event CálculosInterésMora()
+    Public Event CuentasPréstamo(PréstamoLargo As Integer, NombrePréstamo As String)
     Public Event CambioTipoAsiento(tipoAsiento As eTiposAsiento)
 
     Private m_tipoAsiento As eTiposAsiento
@@ -29,7 +33,16 @@ Public Class frmAsientos
     Private m_BaseIVA As Double
     Private m_CuentaIVA As Integer
 
+    Private m_NúmeroTarjeta As String
+    Private m_CuotaTarjeta As Double
     Private m_CuentaBanco As Integer
+
+    Private m_CapitalDevuelto As Double
+    Private m_Interés As Double
+    Private m_InteresMora As Double
+    Private m_CtaPréstamoLargo As Integer
+    Private m_CtaPréstamo As Integer
+    Private m_CtaIntereses As Integer
 
     Private m_ImporteTotal As Double
     Public Sub New()
@@ -57,13 +70,17 @@ Public Class frmAsientos
         Me.m_CuentaIVA = 0
 
         Me.m_CuentaBanco = 0
-
+        Me.m_NúmeroTarjeta = ""
+        Me.m_CuotaTarjeta = 0
         Me.m_ImporteTotal = 0
+
 
 
     End Sub
 
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Préstamos' Puede moverla o quitarla según sea necesario.
+        Me.PréstamosTableAdapter.Fill(Me.BDContabilidadGMELO.Préstamos)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cargos' Puede moverla o quitarla según sea necesario.
@@ -80,6 +97,8 @@ Public Class frmAsientos
         Me.CuentasGastoTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasGasto)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Asientos' Puede moverla o quitarla según sea necesario.
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.PréstamosLargoPlazo' Puede moverla o quitarla según sea necesario.
+        Me.PréstamosLargoPlazoTableAdapter.Fill(Me.BDContabilidadGMELO.PréstamosLargoPlazo)
 
         m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.NúmeroTextBox.Text = Me.NúmeroAsiento.ToString
@@ -179,9 +198,50 @@ Public Class frmAsientos
             Return Me.m_CIF
         End Get
     End Property
+    Public ReadOnly Property NúmeroTarjeta As String
+        Get
+            Return Me.m_NúmeroTarjeta
+        End Get
+    End Property
+    Public ReadOnly Property CuotaTarjeta As Double
+        Get
+            Return Me.m_CuotaTarjeta
+        End Get
+    End Property
+
     Public ReadOnly Property ImporteTotal As Double
         Get
             Return Me.m_ImporteTotal
+        End Get
+    End Property
+    Public ReadOnly Property CapitalDevuelo As Double
+        Get
+            Return Me.m_CapitalDevuelto
+        End Get
+    End Property
+    Public ReadOnly Property Interés As Double
+        Get
+            Return Me.m_Interés
+        End Get
+    End Property
+    Public ReadOnly Property InterésMora As Double
+        Get
+            Return Me.m_InteresMora
+        End Get
+    End Property
+    Public ReadOnly Property CtaPréstamo As Integer
+        Get
+            Return Me.m_CtaPréstamo
+        End Get
+    End Property
+    Public ReadOnly Property CtaPréstamoLargo As Integer
+        Get
+            Return Me.m_CtaPréstamoLargo
+        End Get
+    End Property
+    Public ReadOnly Property CuentaIntereses As Integer
+        Get
+            Return Me.m_CtaIntereses
         End Get
     End Property
     Public ReadOnly Property ClaveHash As String
@@ -250,7 +310,8 @@ Public Class frmAsientos
             Me.DatosCompraGroupBox.Visible = True
             Me.TipoDisposiciónGroupBox.Visible = False
             Me.AdeudoTelepeajeGroupBox.Visible = False
-
+            Me.CuotaTarjetaGroupBox.Visible = False
+            Me.DevolPrestamoGroupBox.Visible = False
         End If
 
     End Sub
@@ -263,7 +324,8 @@ Public Class frmAsientos
             Me.TipoDisposiciónGroupBox.Location = Esquina
             Me.TipoDisposiciónGroupBox.Visible = True
             Me.AdeudoTelepeajeGroupBox.Visible = False
-
+            Me.CuotaTarjetaGroupBox.Visible = False
+            Me.DevolPrestamoGroupBox.Visible = False
         End If
     End Sub
     Private Sub rbAdeudoTelePeajeRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbAdeudoTelePeajeRadioButton.CheckedChanged
@@ -274,19 +336,41 @@ Public Class frmAsientos
             Me.TipoDisposiciónGroupBox.Visible = False
             Me.AdeudoTelepeajeGroupBox.Location = Esquina
             Me.AdeudoTelepeajeGroupBox.Visible = True
-
+            Me.CuotaTarjetaGroupBox.Visible = False
+            Me.DevolPrestamoGroupBox.Visible = False
         End If
     End Sub
 
+    Private Sub CuotaTarjetaRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles CuotaTarjetaRadioButton.CheckedChanged
+        Me.m_tipoAsiento = eTiposAsiento.CUOTA_TARJETA
+        Me.DatosCompraGroupBox.Visible = False
+        Me.TipoDisposiciónGroupBox.Visible = False
+        Me.AdeudoTelepeajeGroupBox.Visible = False
+        Me.CuotaTarjetaGroupBox.Location = Esquina
+        Me.CuotaTarjetaGroupBox.Visible = True
+        Me.DevolPrestamoGroupBox.Visible = False
+    End Sub
+
+    Private Sub DevolPrestamoRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DevolPrestamoRadioButton.CheckedChanged
+        Me.m_tipoAsiento = eTiposAsiento.AMORTIZACIÓN_PRÉSTAMO
+        Me.DatosCompraGroupBox.Visible = False
+        Me.TipoDisposiciónGroupBox.Visible = False
+        Me.AdeudoTelepeajeGroupBox.Visible = False
+        Me.CuotaTarjetaGroupBox.Visible = False
+        Me.DevolPrestamoGroupBox.Location = Esquina
+        Me.DevolPrestamoGroupBox.Visible = True
+    End Sub
     Private Sub rbVentasRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbVentasRadioButton.CheckedChanged
         If rbVentasRadioButton.Checked Then
 
             Me.m_tipoAsiento = eTiposAsiento.VENTA
             Me.DatosCompraGroupBox.Visible = False
             Me.TipoDisposiciónGroupBox.Visible = False
+            Me.AdeudoTelepeajeGroupBox.Visible = False
+            Me.CuotaTarjetaGroupBox.Visible = False
+            Me.DevolPrestamoGroupBox.Visible = False
             CMódulo.MsgInformativo("No está disponible ésta entrada de asientos.")
             Me.rbVentanillaRadioButton.Checked = False
-            Me.AdeudoTelepeajeGroupBox.Visible = False
         End If
 
     End Sub
@@ -381,6 +465,14 @@ Public Class frmAsientos
                 End If
             Case eTiposAsiento.ADEUDO_TELEPEAJE
                 If Not frmAsientos.GenerarAsientoTelePeaje(Me) Then
+                    Exit Sub
+                End If
+            Case eTiposAsiento.CUOTA_TARJETA
+                If Not frmAsientos.GenerarAsientoCuotaTarjeta(Me) Then
+                    Exit Sub
+                End If
+            Case eTiposAsiento.AMORTIZACIÓN_PRÉSTAMO
+                If Not frmAsientos.GenerarAsientoDevoluciónPréstamo(Me) Then
                     Exit Sub
                 End If
             Case Else
@@ -591,7 +683,112 @@ Public Class frmAsientos
 
     End Function
 
+    Private Shared Function GenerarAsientoCuotaTarjeta(ByRef asto As frmAsientos) As Boolean
 
+        asto.m_CuentaGasto = 669001
+        asto.m_Justificante = asto.Justificante
+
+
+        asto.m_Operación = "CUOTA TARJETA " + Trim(asto.NúmeroTarjeta)
+
+        '
+        ' Validar
+        '
+        Dim msg As String = ""
+        If Len(Trim(asto.Operación)) = 0 Then
+
+            msg += "El campo Operación no puede quedar en blanco. "
+
+        End If
+        If asto.CuentaBanco = 0 Then
+
+            msg += "La cuenta bancaria no puede ser 0. "
+
+        End If
+        If asto.CuotaTarjeta = 0 Then
+
+            msg += "El importe de la cuota no puede ser 0. "
+
+        End If
+        If Len(Trim(msg)) <> 0 Then
+
+            CMódulo.MsgErrorCrítico(msg)
+            Return False
+
+        End If
+
+        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
+
+        '
+        ' Agregar cargos
+        '
+        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.CuotaTarjeta)
+
+        '
+        ' Agregar abonos
+        '
+        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.CuotaTarjeta)
+
+        Return True
+
+    End Function
+    Private Shared Function GenerarAsientoDevoluciónPréstamo(ByRef asto As frmAsientos) As Boolean
+
+        '
+        ' Validar
+        '
+        Dim msg As String = ""
+        If Len(Trim(asto.Operación)) = 0 Then
+
+            msg += "El campo Operación no puede quedar en blanco. "
+
+        End If
+        If asto.CuentaBanco = 0 Then
+
+            msg += "La cuenta bancaria no puede ser 0. "
+
+        End If
+        If asto.CapitalDevuelo = 0 AndAlso asto.Interés = 0 AndAlso asto.InterésMora = 0 Then
+
+            msg += "El capital devuelto, el interés y el interés de mora no pueden ser simultaneamente 0. "
+
+        End If
+        If Len(Trim(msg)) <> 0 Then
+
+            CMódulo.MsgErrorCrítico(msg)
+            Return False
+
+        End If
+        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
+
+        '
+        ' Agregar cargos
+        '
+        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CtaPréstamo, NúmeroApunte, asto.CapitalDevuelo)
+        If asto.Interés <> 0 Then
+            NúmeroApunte += 1
+            asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaIntereses, NúmeroApunte, asto.Interés)
+        End If
+        If asto.InterésMora <> 0 Then
+            NúmeroApunte += 1
+            asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaIntereses, NúmeroApunte, asto.InterésMora)
+        End If
+        '
+        ' Agregar abonos
+        '
+        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.CapitalDevuelo + asto.Interés + asto.InterésMora)
+
+
+
+        Return True
+
+    End Function
     Private Sub FechaDateTimePicker_ValueChanged(sender As Object, e As EventArgs) Handles FechaDateTimePicker.ValueChanged
 
         Me.m_fechaAsiento = Me.FechaDateTimePicker.Value
@@ -628,6 +825,12 @@ Public Class frmAsientos
 
         End If
     End Sub
+    Private Sub TarjetaTextBox_TextChanged(sender As Object, e As EventArgs) Handles TarjetaTextBox.TextChanged
+
+        Me.m_NúmeroTarjeta = Me.TarjetaTextBox.Text
+
+    End Sub
+
     Private Sub BancosDispComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BancosDispComboBox.SelectedIndexChanged
 
         With Me.BancosDispComboBox
@@ -707,6 +910,31 @@ Public Class frmAsientos
     End Sub
 
 
+    Private Sub BancoCuentaTjtaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BancoCuentaTjtaComboBox.SelectedIndexChanged
+
+        With Me.BancoCuentaTjtaComboBox
+
+
+            If .SelectedIndex > -1 Then
+
+                Select Case .SelectedIndex
+                    Case 0
+
+                        Me.m_CuentaBanco = 572001
+
+                    Case 1
+
+                        Me.m_CuentaBanco = 572002
+
+                    Case Else
+
+                        Throw New Exception("La cuenta Bancaria de Pago no existe.")
+
+                End Select
+
+            End If
+        End With
+    End Sub
     Sub Realiza_Los_Cálculos_Compra() Handles Me.CálculosCompra
 
         If Len(Trim(Me.TotalTextBox.Text)) <> 0 Then
@@ -755,5 +983,108 @@ Public Class frmAsientos
         End If
 
     End Sub
+    Sub CálculoCapitalDevuelto() Handles Me.CálculosCapitalDevuelto
 
+
+        If Len(Trim(Me.CapitalDevueltoTextBox.Text)) <> 0 Then
+
+            Me.m_CapitalDevuelto = CDbl(Me.CapitalDevueltoTextBox.Text)
+
+        Else
+
+            Me.m_CapitalDevuelto = 0
+
+        End If
+
+    End Sub
+    Sub CálculoInterés() Handles Me.CálculosInterés
+
+
+        If Len(Trim(Me.InteresesTextBox.Text)) <> 0 Then
+
+            Me.m_Interés = CDbl(Me.InteresesTextBox.Text)
+
+        Else
+
+            Me.m_Interés = 0
+
+        End If
+
+    End Sub
+    Sub CálculoInterésMora() Handles Me.CálculosInterésMora
+
+
+        If Len(Trim(Me.InteresesMoraTextBox.Text)) <> 0 Then
+
+            Me.m_InteresMora = CDbl(Me.InteresesMoraTextBox.Text)
+
+        Else
+
+            Me.m_InteresMora = 0
+
+        End If
+
+    End Sub
+    Private Sub TotalCuotaTarjeaTextBox_TextChanged(sender As Object, e As EventArgs) Handles TotalCuotaTarjeaTextBox.TextChanged
+        Me.m_CuotaTarjeta = CDbl(Me.TotalCuotaTarjeaTextBox.Text)
+    End Sub
+
+    Private Sub PréstamosLargoPlazoComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles PréstamosLargoPlazoComboBox.SelectedIndexChanged
+
+        If Me.PréstamosLargoPlazoComboBox.SelectedIndex > -1 Then
+
+            Dim filtro As String = "PRÉSTAMO = " + PréstamosLargoPlazoComboBox.SelectedValue.ToString + " and Año = " +
+                Me.FechaAsiento.Year.ToString + " and Mes = " + Me.FechaAsiento.Month.ToString
+
+            Me.PréstamosBindingSource.Filter = filtro
+
+            Me.m_CtaPréstamoLargo = CInt(PréstamosLargoPlazoComboBox.SelectedValue)
+            RaiseEvent CuentasPréstamo(Me.CtaPréstamoLargo, "DEVOLUCIÓN PRÉSTAMO " + Me.PréstamosLargoPlazoComboBox.Text)
+
+
+        End If
+        If Me.PréstamosLargoPlazoComboBox.SelectedIndex < 0 OrElse Me.PréstamosBindingSource.Count = 0 Then
+
+            Throw New Exception("Not existe el préstamo")
+            Exit Sub
+
+        End If
+
+    End Sub
+
+    Private Sub CapitalDevueltoTextBox_TextChanged(sender As Object, e As EventArgs) Handles CapitalDevueltoTextBox.TextChanged
+
+        RaiseEvent CálculosCapitalDevuelto()
+
+    End Sub
+
+    Private Sub InteresesTextBox_TextChanged(sender As Object, e As EventArgs) Handles InteresesTextBox.TextChanged
+
+        RaiseEvent CálculosInterés()
+
+    End Sub
+
+    Private Sub InteresesMoraTextBox_TextChanged(sender As Object, e As EventArgs) Handles InteresesMoraTextBox.TextChanged
+
+        RaiseEvent CálculosInterésMora()
+
+    End Sub
+    Private Sub Cuenta_Préstamo(CuentaLargo As Integer, Operación As String) Handles Me.CuentasPréstamo
+        Dim capital As Double = CDbl(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("Capital"))
+        Dim intereses As Double = CDbl(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("interes"))
+
+        Me.CapitalDevueltoTextBox.Text = capital.ToString("N2")
+        Me.InteresesTextBox.Text = intereses.ToString("N2")
+
+        Me.m_Operación = Operación
+        Me.m_Justificante = "RECIBO BANCO"
+        If CuentaLargo = 170005 Then
+            Me.m_CuentaBanco = 572001 'bsch
+        ElseIf CuentaLargo = 170003 Then
+            Me.m_CuentaBanco = 572002 'bbva
+        End If
+        Me.m_CtaPréstamo = CInt(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("CAPITAL_PTE"))
+        Me.m_CtaIntereses = CInt(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("Intereses"))
+
+    End Sub
 End Class

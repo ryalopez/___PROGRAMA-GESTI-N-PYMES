@@ -3,6 +3,7 @@ K:\Grupo MELO\CONTABILIDAD\NÓMINA\bin\Debug\Nómina.exe.config
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\bin\Debug\Nómina.exe
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\bin\Debug\Nómina.pdb
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\bin\Debug\Nómina.xml
+K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.vbprojResolveAssemblyReference.cache
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.frmAcercaDe.resources
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.frmConvenios.resources
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.frmEmpleados.resources
@@ -13,4 +14,3 @@ K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.vbproj.GenerateResource.Cac
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.exe
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.xml
 K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.pdb
-K:\Grupo MELO\CONTABILIDAD\NÓMINA\obj\Debug\Nómina.vbprojResolveAssemblyReference.cache

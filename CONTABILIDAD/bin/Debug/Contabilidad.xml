@@ -407,6 +407,16 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Contabilidad.BDContabilidadGMELO.PréstamosLargoPlazoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Contabilidad.BDContabilidadGMELO.PréstamosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Contabilidad.BDContabilidadGMELO.LíneaDeudaClientesDataTable">
 <summary>
 Represents the strongly named DataTable class.
@@ -648,6 +658,16 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Contabilidad.BDContabilidadGMELO.FacturasRecibidasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Contabilidad.BDContabilidadGMELO.PréstamosLargoPlazoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Contabilidad.BDContabilidadGMELO.PréstamosRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -897,6 +917,16 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:Contabilidad.BDContabilidadGMELO.PréstamosLargoPlazoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Contabilidad.BDContabilidadGMELO.PréstamosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:Contabilidad.BDContabilidadGMELO.LíneaDeudaClientesRowChangeEvent">
 <summary>
 Row event argument class
@@ -1138,6 +1168,16 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.PréstamosLargoPlazoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Contabilidad.BDContabilidadGMELOTableAdapters.PréstamosTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

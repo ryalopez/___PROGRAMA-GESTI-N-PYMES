@@ -71,6 +71,11 @@ Public Class frmPrincipal
         'frmAnalítica.Show(Me)
 
     End Sub
+    Private Sub PréstamosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PréstamosToolStripMenuItem.Click
+
+        frmPréstamos.Show(Me)
+
+    End Sub
     '
     ' Facturación
     '
@@ -507,5 +512,6 @@ Public Class frmPrincipal
         Me.TableAdapterManager.UpdateAll(Me.BDContabilidadGMELO)
 
     End Sub
+
 
 End Class
