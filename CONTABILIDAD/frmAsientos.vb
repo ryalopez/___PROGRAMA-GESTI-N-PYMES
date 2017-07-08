@@ -79,8 +79,7 @@ Public Class frmAsientos
     End Sub
 
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Préstamos' Puede moverla o quitarla según sea necesario.
-        Me.PréstamosTableAdapter.Fill(Me.BDContabilidadGMELO.Préstamos)
+
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cargos' Puede moverla o quitarla según sea necesario.
@@ -99,6 +98,8 @@ Public Class frmAsientos
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.PréstamosLargoPlazo' Puede moverla o quitarla según sea necesario.
         Me.PréstamosLargoPlazoTableAdapter.Fill(Me.BDContabilidadGMELO.PréstamosLargoPlazo)
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Préstamos' Puede moverla o quitarla según sea necesario.
+        Me.PréstamosTableAdapter.Fill(Me.BDContabilidadGMELO.Préstamos)
 
         m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.NúmeroTextBox.Text = Me.NúmeroAsiento.ToString
@@ -685,7 +686,7 @@ Public Class frmAsientos
 
     Private Shared Function GenerarAsientoCuotaTarjeta(ByRef asto As frmAsientos) As Boolean
 
-        asto.m_CuentaGasto = 669001
+        asto.m_CuentaGasto = 669
         asto.m_Justificante = asto.Justificante
 
 
@@ -1033,17 +1034,31 @@ Public Class frmAsientos
 
         If Me.PréstamosLargoPlazoComboBox.SelectedIndex > -1 Then
 
+            Me.m_Operación = "DEVOLUCIÓN PRÉSTAMO"
             Dim filtro As String = "PRÉSTAMO = " + PréstamosLargoPlazoComboBox.SelectedValue.ToString + " and Año = " +
                 Me.FechaAsiento.Year.ToString + " and Mes = " + Me.FechaAsiento.Month.ToString
+            Dim filas As BDContabilidadGMELO.PréstamosRow() = CType(Me.BDContabilidadGMELO.Préstamos.Select(filtro), BDContabilidadGMELO.PréstamosRow())
 
-            Me.PréstamosBindingSource.Filter = filtro
+            Me.m_Operación = "DEVOLUCIÓN PRÉSTAMO"
+            Me.m_Justificante = filas(0).MES.ToString("N2") + " / " + filas(0).AÑO.ToString("N2")
+            Me.CapitalDevueltoTextBox.Text = filas(0).CAPITAL.ToString("N2")
+            Me.InteresesTextBox.Text = filas(0).INTERES.ToString("N2")
+
 
             Me.m_CtaPréstamoLargo = CInt(PréstamosLargoPlazoComboBox.SelectedValue)
-            RaiseEvent CuentasPréstamo(Me.CtaPréstamoLargo, "DEVOLUCIÓN PRÉSTAMO " + Me.PréstamosLargoPlazoComboBox.Text)
 
+            Me.m_Operación = Operación
 
-        End If
-        If Me.PréstamosLargoPlazoComboBox.SelectedIndex < 0 OrElse Me.PréstamosBindingSource.Count = 0 Then
+            Me.m_Justificante = "RECIBO BANCO"
+            If filas(0).PRÉSTAMO = 170005 Then
+                Me.m_CuentaBanco = 572001 'bsch
+            ElseIf filas(0).PRÉSTAMO = 170003 Then
+                Me.m_CuentaBanco = 572002 'bbva
+            End If
+            Me.m_CtaPréstamo = filas(0).CAPITAL_PTE
+            Me.m_CtaIntereses = filas(0).INTERESES
+
+        Else
 
             Throw New Exception("Not existe el préstamo")
             Exit Sub
@@ -1069,22 +1084,5 @@ Public Class frmAsientos
         RaiseEvent CálculosInterésMora()
 
     End Sub
-    Private Sub Cuenta_Préstamo(CuentaLargo As Integer, Operación As String) Handles Me.CuentasPréstamo
-        Dim capital As Double = CDbl(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("Capital"))
-        Dim intereses As Double = CDbl(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("interes"))
 
-        Me.CapitalDevueltoTextBox.Text = capital.ToString("N2")
-        Me.InteresesTextBox.Text = intereses.ToString("N2")
-
-        Me.m_Operación = Operación
-        Me.m_Justificante = "RECIBO BANCO"
-        If CuentaLargo = 170005 Then
-            Me.m_CuentaBanco = 572001 'bsch
-        ElseIf CuentaLargo = 170003 Then
-            Me.m_CuentaBanco = 572002 'bbva
-        End If
-        Me.m_CtaPréstamo = CInt(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("CAPITAL_PTE"))
-        Me.m_CtaIntereses = CInt(CType(Me.PréstamosBindingSource.Current, DataRowView).Item("Intereses"))
-
-    End Sub
 End Class

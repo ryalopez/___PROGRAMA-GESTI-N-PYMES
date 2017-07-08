@@ -1,4 +1,5 @@
-﻿Public Class frmProveedores
+﻿Imports Biblioteca
+Public Class frmProveedores
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasGasto' Puede moverla o quitarla según sea necesario.
@@ -9,6 +10,7 @@
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
         'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Clientes' Puede moverla o quitarla según sea necesario.
         Me.TiposDocumentoIdentidadTableAdapter.Fill(Me.BDContabilidadGMELO.TiposDocumentoIdentidad)
+
         Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
 
         Me.Text = My.Resources.Título + " - Gestión de PROVEEDORES"
@@ -107,29 +109,22 @@
 
     Private Sub btnListarClientes_Click(sender As Object, e As EventArgs) Handles btnListarClientes.Click
 
+        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+
         Dim Listado As New frmVisorInformes
 
         Listado.NombreEmpresa = My.Resources.NombreEmpresa
 
         With Listado
 
-            .NombreInforme = "rptClientes.rpt"
-            'kike .TipoOrigenDatos = eTipoOrigenDatos.ADO
+            .NombreInforme = "rptProveedores.rpt"
+            .TipoOrigenDatos = eTipoOrigenDatos.ADO
             .ADODataSet = Me.BDContabilidadGMELO
             .Filtro = ""
 
             Listado.ShowDialog()
 
         End With
-
-    End Sub
-
-    Private Sub FillBy1ToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy1ToolStripButton.Click
-        Try
-            Me.CuentasTableAdapter.FillBy1(Me.BDContabilidadGMELO.Cuentas)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
 
     End Sub
 

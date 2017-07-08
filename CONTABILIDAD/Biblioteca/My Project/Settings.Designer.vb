@@ -84,6 +84,17 @@ Namespace My
                 Return CType(Me("BDAdmin"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PORTATIL\SQLEXPRESS;Initial Catalog=""BDContabilidadGMELO 2017"";Integr"& _ 
+            "ated Security=True")>  _
+        Public ReadOnly Property BDContabilidadGMELO_2017ConnectionString() As String
+            Get
+                Return CType(Me("BDContabilidadGMELO_2017ConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

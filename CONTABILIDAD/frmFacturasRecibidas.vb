@@ -90,7 +90,9 @@ Public Class frmFacturasRecibidas
 
         With Listado
 
-            .NombreInforme = "rptLibroFacturasRecibidas.rpt"
+            Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
+
+            .NombreInforme = "rptFacturasRecibidas.rpt"
             .TipoOrigenDatos = eTipoOrigenDatos.ADO
             .ADODataSet = Me.BDContabilidadGMELO
             .Filtro = ""
@@ -100,5 +102,7 @@ Public Class frmFacturasRecibidas
         End With
 
     End Sub
+
+
 
 End Class

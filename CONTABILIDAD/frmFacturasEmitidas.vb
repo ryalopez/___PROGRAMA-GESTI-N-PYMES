@@ -38,6 +38,8 @@ Public Class frmFacturasEmitidas
     End Sub
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasEmitidas1' Puede moverla o quitarla según sea necesario.
+        Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
 
 
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
@@ -838,6 +840,8 @@ Public Class frmFacturasEmitidas
         Listado.NombreEmpresa = My.Resources.NombreEmpresa
 
         With Listado
+
+            Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
 
             .NombreInforme = "rptFacturasEmitidas.rpt"
             .TipoOrigenDatos = eTipoOrigenDatos.ADO

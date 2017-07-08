@@ -36,6 +36,8 @@ Partial Class frmPrincipal
         Me.mnuAsientos = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuCuentas = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuAnalítica = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FinanciaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PréstamosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuClientes1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuClientes = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuFacturasClientes = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,8 +58,6 @@ Partial Class frmPrincipal
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
         Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FinanciaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PréstamosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuPrincipal.SuspendLayout()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +121,7 @@ Partial Class frmPrincipal
         Me.KkkkToolStripMenuItem.Name = "KkkkToolStripMenuItem"
         Me.KkkkToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.KkkkToolStripMenuItem.Text = "kkkk"
+        Me.KkkkToolStripMenuItem.Visible = False
         '
         'CONTABILIDADToolStripMenuItem
         '
@@ -152,6 +153,19 @@ Partial Class frmPrincipal
         Me.mnuAnalítica.Name = "mnuAnalítica"
         Me.mnuAnalítica.Size = New System.Drawing.Size(162, 22)
         Me.mnuAnalítica.Text = "Analítica"
+        '
+        'FinanciaciónToolStripMenuItem
+        '
+        Me.FinanciaciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PréstamosToolStripMenuItem})
+        Me.FinanciaciónToolStripMenuItem.Name = "FinanciaciónToolStripMenuItem"
+        Me.FinanciaciónToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
+        Me.FinanciaciónToolStripMenuItem.Text = "FINANCIACIÓN"
+        '
+        'PréstamosToolStripMenuItem
+        '
+        Me.PréstamosToolStripMenuItem.Name = "PréstamosToolStripMenuItem"
+        Me.PréstamosToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.PréstamosToolStripMenuItem.Text = "Préstamos"
         '
         'mnuClientes1
         '
@@ -276,6 +290,7 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.CuentasTableAdapter = Nothing
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidas1TableAdapter = Nothing
         Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
         Me.TableAdapterManager.FacturasRecibidasTableAdapter = Me.FacturasRecibidasTableAdapter
         Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
@@ -290,6 +305,8 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
         Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
         Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosLargoPlazoTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosTableAdapter = Nothing
         Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
         Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
@@ -310,19 +327,6 @@ Partial Class frmPrincipal
         Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
         Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
         '
-        'FinanciaciónToolStripMenuItem
-        '
-        Me.FinanciaciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PréstamosToolStripMenuItem})
-        Me.FinanciaciónToolStripMenuItem.Name = "FinanciaciónToolStripMenuItem"
-        Me.FinanciaciónToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
-        Me.FinanciaciónToolStripMenuItem.Text = "FINANCIACIÓN"
-        '
-        'PréstamosToolStripMenuItem
-        '
-        Me.PréstamosToolStripMenuItem.Name = "PréstamosToolStripMenuItem"
-        Me.PréstamosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.PréstamosToolStripMenuItem.Text = "Préstamos"
-        '
         'frmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -330,7 +334,7 @@ Partial Class frmPrincipal
         Me.ClientSize = New System.Drawing.Size(1077, 709)
         Me.Controls.Add(Me.mnuPrincipal)
         Me.MainMenuStrip = Me.mnuPrincipal
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmPrincipal"
         Me.Text = "Inversiones Madrileñas en Bienes Inmuebles Urbanos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

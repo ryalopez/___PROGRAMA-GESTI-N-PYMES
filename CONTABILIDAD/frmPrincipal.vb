@@ -513,5 +513,22 @@ Public Class frmPrincipal
 
     End Sub
 
+    Private Sub KkkkToolStripMenuItem_Click(sender As Object, e As EventArgs) ' Handles KkkkToolStripMenuItem.Click
 
+        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
+        Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
+
+        For Each asto As BDContabilidadGMELO.AsientosRow In Me.BDContabilidadGMELO.Asientos
+
+            Dim Clave As String = CMódulo.Clave(asto.Fecha.ToString + asto.Operación + asto.Justificante)
+            Dim p As Integer = Me.FacturasRecibidasBindingSource.Find("clave", Clave)
+            If p > -1 Then
+                Me.AsientosTableAdapter.Update(asto.Fecha, asto.Justificante, asto.Operación, Clave, asto.Número, asto.Fecha, asto.Debe, asto.Haber)
+                'Else
+                '    MsgBox("pasar por alto")
+            End If
+
+        Next
+        MsgBox("fin")
+    End Sub
 End Class

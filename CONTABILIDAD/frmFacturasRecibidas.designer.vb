@@ -24,10 +24,10 @@ Partial Class frmFacturasRecibidas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFacturasRecibidas))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FacturasRecibidasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -60,12 +60,6 @@ Partial Class frmFacturasRecibidas
         Me.Descripción = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Importe = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FacturasRecibidasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
-        Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
-        Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
-        Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -78,6 +72,12 @@ Partial Class frmFacturasRecibidas
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
+        Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
+        Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
+        Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         CType(Me.FacturasRecibidasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FacturasRecibidasBindingNavigator.SuspendLayout()
         Me.OperacionesFacturaContextMenuStrip.SuspendLayout()
@@ -101,7 +101,7 @@ Partial Class frmFacturasRecibidas
         Me.FacturasRecibidasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.FacturasRecibidasBindingNavigator.Name = "FacturasRecibidasBindingNavigator"
         Me.FacturasRecibidasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.FacturasRecibidasBindingNavigator.Size = New System.Drawing.Size(1388, 27)
+        Me.FacturasRecibidasBindingNavigator.Size = New System.Drawing.Size(1324, 27)
         Me.FacturasRecibidasBindingNavigator.TabIndex = 6
         Me.FacturasRecibidasBindingNavigator.Text = "FacturasRecibidasBindingNavigator"
         '
@@ -117,7 +117,7 @@ Partial Class frmFacturasRecibidas
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 24)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
@@ -172,7 +172,7 @@ Partial Class frmFacturasRecibidas
         Me.BindingNavigatorPositionItem.AccessibleName = "Posición"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 27)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
@@ -218,26 +218,26 @@ Partial Class frmFacturasRecibidas
         Me.ToolStripDropDownButton1.Image = Global.Contabilidad.My.Resources.Resources.Listar
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(34, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(33, 24)
         Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
         '
         'btnListarFacturasRecibidas
         '
         Me.btnListarFacturasRecibidas.Name = "btnListarFacturasRecibidas"
-        Me.btnListarFacturasRecibidas.Size = New System.Drawing.Size(210, 26)
+        Me.btnListarFacturasRecibidas.Size = New System.Drawing.Size(175, 22)
         Me.btnListarFacturasRecibidas.Text = "Listado de Facturas"
         '
         'btnEmitirFacturasToolStrip
         '
         Me.btnEmitirFacturasToolStrip.Name = "btnEmitirFacturasToolStrip"
-        Me.btnEmitirFacturasToolStrip.Size = New System.Drawing.Size(210, 26)
+        Me.btnEmitirFacturasToolStrip.Size = New System.Drawing.Size(175, 22)
         Me.btnEmitirFacturasToolStrip.Text = "Emitir Facturas"
         Me.btnEmitirFacturasToolStrip.ToolTipText = "Emitir las facturas de un mes"
         '
         'MorososToolStripMenuItem
         '
         Me.MorososToolStripMenuItem.Name = "MorososToolStripMenuItem"
-        Me.MorososToolStripMenuItem.Size = New System.Drawing.Size(210, 26)
+        Me.MorososToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.MorososToolStripMenuItem.Text = "Morosos"
         '
         'ContabilizarStripButton
@@ -285,18 +285,18 @@ Partial Class frmFacturasRecibidas
         Me.OperacionesFacturaContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.OperacionesFacturaContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DuplicarFactura, Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem})
         Me.OperacionesFacturaContextMenuStrip.Name = "OperacionesFacturaContextMenuStrip"
-        Me.OperacionesFacturaContextMenuStrip.Size = New System.Drawing.Size(519, 52)
+        Me.OperacionesFacturaContextMenuStrip.Size = New System.Drawing.Size(428, 48)
         '
         'DuplicarFactura
         '
         Me.DuplicarFactura.Name = "DuplicarFactura"
-        Me.DuplicarFactura.Size = New System.Drawing.Size(518, 24)
+        Me.DuplicarFactura.Size = New System.Drawing.Size(427, 22)
         Me.DuplicarFactura.Text = "Duplicar con fecha de hoy y nuevo número la Factura seleccionada"
         '
         'GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem
         '
         Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Name = "GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem"
-        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Size = New System.Drawing.Size(518, 24)
+        Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Size = New System.Drawing.Size(427, 22)
         Me.GenerarLaFacturaSeleccionadaEnDocumentoWordToolStripMenuItem.Text = "Generar la Factura seleccionada en documento Word"
         '
         'DataGridViewTextBoxColumn1
@@ -343,87 +343,11 @@ Partial Class frmFacturasRecibidas
         Me.FacturasRecibidasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.FacturasRecibidasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.OPERACIÓN, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn20})
         Me.FacturasRecibidasDataGridView.DataSource = Me.FacturasRecibidasBindingSource
-        Me.FacturasRecibidasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FacturasRecibidasDataGridView.Location = New System.Drawing.Point(0, 27)
-        Me.FacturasRecibidasDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FacturasRecibidasDataGridView.Location = New System.Drawing.Point(0, 30)
         Me.FacturasRecibidasDataGridView.Name = "FacturasRecibidasDataGridView"
         Me.FacturasRecibidasDataGridView.ReadOnly = True
-        Me.FacturasRecibidasDataGridView.Size = New System.Drawing.Size(1388, 855)
+        Me.FacturasRecibidasDataGridView.Size = New System.Drawing.Size(1300, 675)
         Me.FacturasRecibidasDataGridView.TabIndex = 6
-        '
-        'FacturasRecibidasBindingSource
-        '
-        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
-        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'BDContabilidadGMELO
-        '
-        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
-        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CuentasBancariasBindingSource
-        '
-        Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
-        Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AbonosTableAdapter = Nothing
-        Me.TableAdapterManager.AsientosTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
-        Me.TableAdapterManager.CargosTableAdapter = Nothing
-        Me.TableAdapterManager.CentrosTrabajoTableAdapter = Nothing
-        Me.TableAdapterManager.ClientesTableAdapter = Nothing
-        Me.TableAdapterManager.CNAETableAdapter = Nothing
-        Me.TableAdapterManager.CNO11TableAdapter = Nothing
-        Me.TableAdapterManager.CNO94TableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.ConvenioCategoríasConceptosTableAdapter = Nothing
-        Me.TableAdapterManager.ConvenioCategoríasTableAdapter = Nothing
-        Me.TableAdapterManager.ConvenioGruposTableAdapter = Nothing
-        Me.TableAdapterManager.Convenios_ColectivosJulio2014TableAdapter = Nothing
-        Me.TableAdapterManager.ConveniosEmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.ConveniosTableAdapter = Nothing
-        Me.TableAdapterManager.Cta1TableAdapter = Nothing
-        Me.TableAdapterManager.Cta2TableAdapter = Nothing
-        Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
-        Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
-        Me.TableAdapterManager.CuentasTableAdapter = Nothing
-        Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
-        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
-        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Nothing
-        Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
-        Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
-        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Nothing
-        Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
-        Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
-        Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
-        Me.TableAdapterManager.NominasDeEmpresaTableAdapter = Nothing
-        Me.TableAdapterManager.NóminasTableAdapter = Nothing
-        Me.TableAdapterManager.PaisesTableAdapter = Nothing
-        Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
-        Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
-        Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
-        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
-        Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
-        Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
-        Me.TableAdapterManager.SexosTableAdapter = Nothing
-        Me.TableAdapterManager.TiposComplementoSalarialTableAdapter = Nothing
-        Me.TableAdapterManager.TiposDocumentoIdentidadTableAdapter = Nothing
-        Me.TableAdapterManager.TiposNóminaTableAdapter = Nothing
-        Me.TableAdapterManager.TiposVíaTableAdapter = Nothing
-        Me.TableAdapterManager.UnidadesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'CuentasBancariasTableAdapter
-        '
-        Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
-        '
-        'FacturasRecibidasTableAdapter
-        '
-        Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn10
         '
@@ -484,9 +408,9 @@ Partial Class frmFacturasRecibidas
         'DataGridViewTextBoxColumn21
         '
         Me.DataGridViewTextBoxColumn21.DataPropertyName = "BaseImponible"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.Format = "N2"
-        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle17.Format = "N2"
+        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridViewTextBoxColumn21.HeaderText = "Base Imponible"
         Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
         Me.DataGridViewTextBoxColumn21.ReadOnly = True
@@ -496,8 +420,8 @@ Partial Class frmFacturasRecibidas
         'DataGridViewTextBoxColumn22
         '
         Me.DataGridViewTextBoxColumn22.DataPropertyName = "TipoIVA"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn22.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn22.DefaultCellStyle = DataGridViewCellStyle18
         Me.DataGridViewTextBoxColumn22.HeaderText = "Tipo IVA"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         Me.DataGridViewTextBoxColumn22.ReadOnly = True
@@ -506,9 +430,9 @@ Partial Class frmFacturasRecibidas
         'DataGridViewTextBoxColumn23
         '
         Me.DataGridViewTextBoxColumn23.DataPropertyName = "Cuota"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle19.Format = "N2"
+        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle19
         Me.DataGridViewTextBoxColumn23.HeaderText = "Cuota"
         Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
         Me.DataGridViewTextBoxColumn23.ReadOnly = True
@@ -517,9 +441,9 @@ Partial Class frmFacturasRecibidas
         'DataGridViewTextBoxColumn24
         '
         Me.DataGridViewTextBoxColumn24.DataPropertyName = "Total"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle20.Format = "N2"
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewTextBoxColumn24.HeaderText = "Total"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.ReadOnly = True
@@ -534,16 +458,92 @@ Partial Class frmFacturasRecibidas
         Me.DataGridViewTextBoxColumn20.Visible = False
         Me.DataGridViewTextBoxColumn20.Width = 233
         '
+        'FacturasRecibidasBindingSource
+        '
+        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
+        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'BDContabilidadGMELO
+        '
+        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
+        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CuentasBancariasBindingSource
+        '
+        Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
+        Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AbonosTableAdapter = Nothing
+        Me.TableAdapterManager.AsientosTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
+        Me.TableAdapterManager.CargosTableAdapter = Nothing
+        Me.TableAdapterManager.CentrosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.ClientesTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.CNO11TableAdapter = Nothing
+        Me.TableAdapterManager.CNO94TableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioGruposTableAdapter = Nothing
+        Me.TableAdapterManager.Convenios_ColectivosJulio2014TableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosEmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosTableAdapter = Nothing
+        Me.TableAdapterManager.Cta1TableAdapter = Nothing
+        Me.TableAdapterManager.Cta2TableAdapter = Nothing
+        Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasTableAdapter = Nothing
+        Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidas1TableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Nothing
+        Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
+        Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
+        Me.TableAdapterManager.NominasDeEmpresaTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasTableAdapter = Nothing
+        Me.TableAdapterManager.PaisesTableAdapter = Nothing
+        Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
+        Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
+        Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosLargoPlazoTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
+        Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.SexosTableAdapter = Nothing
+        Me.TableAdapterManager.TiposComplementoSalarialTableAdapter = Nothing
+        Me.TableAdapterManager.TiposDocumentoIdentidadTableAdapter = Nothing
+        Me.TableAdapterManager.TiposNóminaTableAdapter = Nothing
+        Me.TableAdapterManager.TiposVíaTableAdapter = Nothing
+        Me.TableAdapterManager.UnidadesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'CuentasBancariasTableAdapter
+        '
+        Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
+        '
+        'FacturasRecibidasTableAdapter
+        '
+        Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
+        '
         'frmFacturasRecibidas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1388, 882)
+        Me.ClientSize = New System.Drawing.Size(1324, 717)
         Me.Controls.Add(Me.FacturasRecibidasDataGridView)
         Me.Controls.Add(Me.FacturasRecibidasBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmFacturasRecibidas"
         Me.Text = "frmFacturasRecibidas"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
