@@ -73,23 +73,21 @@
     End Sub
 
     Private Sub frmConveniosEmpresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.CentrosTrabajo' Puede moverla o quitarla según sea necesario.
+
         Me.CentrosTrabajoTableAdapter.Fill(Me.bdcontabilidadgmelo.CentrosTrabajo)
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.Empresas' Puede moverla o quitarla según sea necesario.
+
         Me.EmpresasTableAdapter.Fill(Me.bdcontabilidadgmelo.Empresas)
 
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.Unidades' Puede moverla o quitarla según sea necesario.
-        Me.UnidadesTableAdapter.Fill(Me.bdcontabilidadgmelo.Unidades)
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.TiposComplementoSalarial' Puede moverla o quitarla según sea necesario.
+        Me.UnidadesTableAdapter.Fill(Me.BDContabilidadGMELO.Unidades)
+
         Me.TiposComplementoSalarialTableAdapter.Fill(Me.bdcontabilidadgmelo.TiposComplementoSalarial)
 
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.ConvenioCategoríasConceptos' Puede moverla o quitarla según sea necesario.
-        Me.ConvenioCategoríasConceptosTableAdapter.Fill(Me.bdcontabilidadgmelo.ConvenioCategoríasConceptos)
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.ConvenioCategorías' Puede moverla o quitarla según sea necesario.
+        Me.ConvenioCategoríasConceptosTableAdapter.Fill(Me.BDContabilidadGMELO.ConvenioCategoríasConceptos)
+
         Me.ConvenioCategoríasTableAdapter.Fill(Me.bdcontabilidadgmelo.ConvenioCategorías)
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.ConvenioGrupos' Puede moverla o quitarla según sea necesario.
+
         Me.ConvenioGruposTableAdapter.Fill(Me.bdcontabilidadgmelo.ConvenioGrupos)
-        'TODO: esta línea de código carga datos en la tabla 'bdcontabilidadgmelo.Convenios' Puede moverla o quitarla según sea necesario.
+
         Me.ConveniosTableAdapter.Fill(Me.bdcontabilidadgmelo.Convenios)
 
     End Sub

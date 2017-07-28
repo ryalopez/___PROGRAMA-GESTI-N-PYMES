@@ -34,23 +34,23 @@ Public Class frmNóminas
     End Sub
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Empleados' Puede moverla o quitarla según sea necesario.
+
         Me.EmpleadosTableAdapter.Fill(Me.BDContabilidadGMELO.Empleados)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Nóminas' Puede moverla o quitarla según sea necesario.
+
         Me.NóminasTableAdapter.Fill(Me.BDContabilidadGMELO.Nóminas)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasBancarias' Puede moverla o quitarla según sea necesario.
+
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Abonos' Puede moverla o quitarla según sea necesario.
+
         Me.AbonosTableAdapter.Fill(Me.BDContabilidadGMELO.Abonos)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cargos' Puede moverla o quitarla según sea necesario.
+
         Me.CargosTableAdapter.Fill(Me.BDContabilidadGMELO.Cargos)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Asientos' Puede moverla o quitarla según sea necesario.
+
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasMaestras' Puede moverla o quitarla según sea necesario.
+
         Me.CuentasMaestrasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasMaestras)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cuentas' Puede moverla o quitarla según sea necesario.
+
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Clientes' Puede moverla o quitarla según sea necesario.
+
         Me.ClientesTableAdapter.Fill(Me.BDContabilidadGMELO.Clientes)
 
         Me.Text = My.Resources.Título + " - Gestión de Nóminas"

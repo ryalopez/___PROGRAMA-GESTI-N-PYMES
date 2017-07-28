@@ -2,6 +2,7 @@
 
 Public Class frmCuentas
 
+    Friend WithEvents frmA As frmAltaCuenta
     Private VoyACerrar As Boolean = False
 
     Private Sub GruposBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) _
@@ -365,12 +366,29 @@ Public Class frmCuentas
     ''' <remarks></remarks>
     Private Sub CuentasMaestrasDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles CuentasMaestrasDataGridView.RowHeaderMouseDoubleClick
 
-        Dim filtro As String = "CódigoCuentaMaestra = " +
-           Me.CuentasMaestrasDataGridView.CurrentRow.Cells(0).Value.ToString
-        Dim FamiliaCuentas() As BDContabilidadGMELO.CuentasRow =
-            CType(Me.BDContabilidadGMELO.Cuentas.Select(filtro, "Código"), BDContabilidadGMELO.CuentasRow())
-        Dim Nueva As New frmNuevaCuenta(My.Settings.BDContabilidadConnectionString, CType(Me.CuentasMaestrasDataGridView.CurrentRow.Cells(0).Value, Integer))
-        Nueva.Show(Me)
+        frmA = New frmAltaCuenta
+        frmA.CódigoCuentaMaestra = CInt(Me.CuentasMaestrasDataGridView.CurrentRow.Cells(0).Value)
+        If frmA.CódigoCuentaMaestra = 4100 Then
+            frmA.Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
+            frmA.CódigoCuentaTextBox.Enabled = False
+            frmA.CódigoCuentaMaestra = 4100
+            frmA.idCuentaPerdidasyGanancias = 0
+            frmA.PérdidasyGananciasComboBox.Enabled = False
+            frmA.idCuentaBalanceResultados = 52
+            frmA.BalanceSituaciónComboBox.Enabled = False
+            frmA.Nombre = "ESCRIBA AQUI EL NOMBRE DEL PROVEEDOR"
+        Else
+            frmA.Código = frmA.CódigoCuentaMaestra
+            frmA.idCuentaPerdidasyGanancias = 0
+            frmA.idCuentaBalanceResultados = 52
+            frmA.Nombre = "ESCRIBA AQUI EL NOMBRE DE LA CUENTA"
+        End If
+
+        If frmA.ShowDialog(Me) = DialogResult.OK Then
+
+        Else
+
+        End If
 
     End Sub
     ''' <summary>
@@ -380,6 +398,7 @@ Public Class frmCuentas
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub CuentasMaestrasDataGridView_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles CuentasMaestrasDataGridView.RowPostPaint
+
         'Convert the image to icon, in order to load it in the row header column
         Dim myBitmap As Bitmap = New Bitmap(My.Resources.add)
         myBitmap.MakeTransparent(Color.Magenta)
@@ -410,11 +429,15 @@ Public Class frmCuentas
     ''' <remarks></remarks>
     Private Sub CuentasDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles CuentasDataGridView.RowHeaderMouseDoubleClick
 
-        Dim resp As MsgBoxResult = CMódulo.MsgPregunta("Necesitará facilitar su código de autorización para borrar cuentas. ¿Quiere continuar?")
+        Dim resp As MsgBoxResult = CMódulo.MsgPregunta("¿Está seguro que quiere borrar la cuenta " +
+                                                       CType(Me.CuentasBindingSource.Current, DataRowView).Item("Código").ToString + " - " +
+                                                       CType(Me.CuentasBindingSource.Current, DataRowView).Item("Nombre").ToString +
+                                                       ". ¿Quiere continuar?")
 
         If resp = MsgBoxResult.Yes Then
 
-            CMódulo.MsgInformativo("Se pide el código, se comprueba y se borra o no")
+            Me.CuentasBindingSource.RemoveCurrent()
+            CMódulo.MsgInformativo("Cuenta borrada")
 
         End If
 

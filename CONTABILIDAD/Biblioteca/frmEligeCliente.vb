@@ -20,7 +20,7 @@ Public Class frmEligeCliente
 
         Me.Text = My.Resources.Título + " - Selección de CLIENTE"
 
-        'TODO: esta línea de código carga datos en la tabla 'BDEmpresaDataSet.Clientes' Puede moverla o quitarla según sea necesario.
+
         Me.ClientesTableAdapter.Fill(Me.BDEmpresaDataSet.Clientes)
         Me.ClientesComboBox.SelectedIndex = -1
         Me.ClientesComboBox.SelectedIndex = 0

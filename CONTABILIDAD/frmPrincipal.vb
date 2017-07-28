@@ -52,6 +52,10 @@ Public Class frmPrincipal
 
         Dim a As New frmAsientos()
         a.ShowDialog(Me)
+        While a.DialogResult <> DialogResult.Abort
+            a = New frmAsientos()
+            a.ShowDialog(Me)
+        End While
 
     End Sub
     Private Sub mnuAsientos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuAsientos.Click
@@ -513,7 +517,7 @@ Public Class frmPrincipal
 
     End Sub
 
-    Private Sub KkkkToolStripMenuItem_Click(sender As Object, e As EventArgs) ' Handles KkkkToolStripMenuItem.Click
+    Private Sub KkkkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KkkkToolStripMenuItem.Click
 
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
@@ -531,4 +535,5 @@ Public Class frmPrincipal
         Next
         MsgBox("fin")
     End Sub
+
 End Class

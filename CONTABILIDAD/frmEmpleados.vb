@@ -28,16 +28,15 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Empleados' Puede moverla o quitarla según sea necesario.
+
         Me.EmpleadosTableAdapter.Fill(Me.BDContabilidadGMELO.Empleados)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Clientes' Puede moverla o quitarla según sea necesario.
+
         Me.ClientesTableAdapter.Fill(Me.BDContabilidadGMELO.Clientes)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.TiposDocumentoIdentidad' Puede moverla o quitarla según sea necesario.
+
         Me.TiposDocumentoIdentidadTableAdapter.Fill(Me.BDContabilidadGMELO.TiposDocumentoIdentidad)
 
         Me.Text = My.Resources.Título + " - Gestión de EMPLEADOS"
 
-        'TODO: esta línea de código carga datos en la tabla 'BDEmpresaDataSet.Clientes' Puede moverla o quitarla según sea necesario.
         Me.ClientesTableAdapter.Fill(Me.BDContabilidadGMELO.Clientes)
 
     End Sub

@@ -54,7 +54,8 @@
         Else
 
             Dim cnx1 As String = "Data Source="
-            Dim cnx3 As String = "\SQLEXPRESS;Initial Catalog=BDContabilidadGMELO *;Integrated Security=True"
+            ' Dim cnx3 As String = "\SQLEXPRESS;Initial Catalog=BDContabilidadGMELO *;Integrated Security=True"
+            Dim cnx3 As String = ";Initial Catalog=BDContabilidadGMELO *;Integrated Security=True"
             Dim cnx2 As String = ""
             Select Case índice
                 Case eServidores.PCPAPA

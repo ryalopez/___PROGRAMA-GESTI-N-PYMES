@@ -19,6 +19,7 @@ K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.dll.config
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.dll
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.pdb
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.xml
+K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbprojResolveAssemblyReference.cache
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Interop.MSComctlLib.dll
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbproj.ResolveComReference.cache
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.ctlDatosBancarios.resources
@@ -34,4 +35,3 @@ K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbproj.GenerateResour
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.dll
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.xml
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.pdb
-K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbprojResolveAssemblyReference.cache

@@ -53,17 +53,17 @@
     End Sub
 
     Private Sub frmEmpresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Empleados' Puede moverla o quitarla según sea necesario.
+
         Me.EmpleadosTableAdapter.Fill(Me.BDContabilidadGMELO.Empleados)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.TiposNómina' Puede moverla o quitarla según sea necesario.
+
         Me.TiposNóminaTableAdapter.Fill(Me.BDContabilidadGMELO.TiposNómina)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.NominasDeEmpresa' Puede moverla o quitarla según sea necesario.
+
         Me.NominasDeEmpresaTableAdapter.Fill(Me.BDContabilidadGMELO.NominasDeEmpresa)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Convenios' Puede moverla o quitarla según sea necesario.
+
         Me.ConveniosTableAdapter.Fill(Me.BDContabilidadGMELO.Convenios)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.CentrosTrabajo' Puede moverla o quitarla según sea necesario.
+
         Me.CentrosTrabajoTableAdapter.Fill(Me.BDContabilidadGMELO.CentrosTrabajo)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Empresas' Puede moverla o quitarla según sea necesario.
+
         Me.EmpresasTableAdapter.Fill(Me.BDContabilidadGMELO.Empresas)
 
     End Sub

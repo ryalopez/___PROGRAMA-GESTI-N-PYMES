@@ -3,8 +3,6 @@ Imports Word = Microsoft.Office.Interop.Word
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
 Imports Biblioteca
-Imports Microsoft.VisualBasic.PowerPacks
-
 Public Class frmFacturasRecibidas
 
     Private VoyACerrar As Boolean = False

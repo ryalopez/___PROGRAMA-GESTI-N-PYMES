@@ -50,7 +50,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>true</Prefer32Bit>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
-    <IntermediateOutputPath>C:\Users\rafa_\AppData\Local\Temp\vs11F2.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\rafa_\AppData\Local\Temp\vs7325.tmp\Debug\</IntermediateOutputPath>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -63,7 +63,7 @@
     <NoWarn>42353,42354,42355</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
-    <IntermediateOutputPath>C:\Users\rafa_\AppData\Local\Temp\vs11F2.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\rafa_\AppData\Local\Temp\vs7325.tmp\Release\</IntermediateOutputPath>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
@@ -221,12 +221,6 @@
       <DependentUpon>frmFacturasRecibidas.vb</DependentUpon>
     </Compile>
     <Compile Include="frmFacturasRecibidas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNuevaCuenta.designer.vb">
-      <DependentUpon>frmNuevaCuenta.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmNuevaCuenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmNóminas.designer.vb">
@@ -455,9 +449,6 @@
     <EmbeddedResource Include="frmFacturasRecibidas.resx">
       <DependentUpon>frmFacturasRecibidas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNuevaCuenta.resx">
-      <DependentUpon>frmNuevaCuenta.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmNóminas.resx">
       <DependentUpon>frmNóminas.vb</DependentUpon>
     </EmbeddedResource>
@@ -600,6 +591,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\DataSources\Biblioteca.CCuenta.datasource" />
+    <None Include="My Project\DataSources\Controles.ctlDocumentoIdentidad.datasource" />
     <None Include="My Project\DataSources\frmAsientos.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -726,6 +718,10 @@
     <None Include="imágenes\logoAlcoladoAbogados.gif" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controles\Controles.vbproj">
+      <Project>{30C2F4CC-16E4-4E69-8066-364E0F00CF9A}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
     <ProjectReference Include="Biblioteca\Biblioteca.vbproj">
       <Project>{d60a47f2-699d-4576-9e8d-10ca083c204a}</Project>
       <Name>Biblioteca</Name>

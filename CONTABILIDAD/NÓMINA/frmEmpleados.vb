@@ -129,44 +129,41 @@
     End Function
 
     Private Sub frmEmpleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.CNO11' Puede moverla o quitarla según sea necesario.
+
         Me.CNO11TableAdapter.Fill(Me.BDMeloDataSet.CNO11)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.CNO94' Puede moverla o quitarla según sea necesario.
+
         Me.CNO94TableAdapter.Fill(Me.BDMeloDataSet.CNO94)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.CNAE' Puede moverla o quitarla según sea necesario.
+
         Me.CNAETableAdapter.Fill(Me.BDMeloDataSet.CNAE)
 
-
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.TiposDocumentoIdentidad' Puede moverla o quitarla según sea necesario.
         Me.ConvenioCategoríasConceptosTableAdapter.Fill(Me.BDMeloDataSet.ConvenioCategoríasConceptos)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.ConvenioGrupos' Puede moverla o quitarla según sea necesario.
+
         Me.ConvenioGruposTableAdapter.Fill(Me.BDMeloDataSet.ConvenioGrupos)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.ConvenioCategorías' Puede moverla o quitarla según sea necesario.
+
         Me.ConvenioCategoríasTableAdapter.Fill(Me.BDMeloDataSet.ConvenioCategorías)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Convenios' Puede moverla o quitarla según sea necesario.
+
         Me.ConveniosTableAdapter.Fill(Me.BDMeloDataSet.Convenios)
 
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.NóminaConceptos' Puede moverla o quitarla según sea necesario.
         Me.NóminaConceptosTableAdapter.Fill(Me.BDMeloDataSet.NóminaConceptos)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.NominasDeEmpresa' Puede moverla o quitarla según sea necesario.
+
         Me.NominasDeEmpresaTableAdapter.Fill(Me.BDMeloDataSet.NominasDeEmpresa)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.NóminasDeEmpleado' Puede moverla o quitarla según sea necesario.
+
         Me.NóminasDeEmpleadoTableAdapter.Fill(Me.BDMeloDataSet.NóminasDeEmpleado)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.CentrosTrabajo' Puede moverla o quitarla según sea necesario.
+
         Me.CentrosTrabajoTableAdapter.Fill(Me.BDMeloDataSet.CentrosTrabajo)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Empresas' Puede moverla o quitarla según sea necesario.
+
         Me.EmpresasTableAdapter.Fill(Me.BDMeloDataSet.Empresas)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Paises' Puede moverla o quitarla según sea necesario.
+
         Me.PaisesTableAdapter.Fill(Me.BDMeloDataSet.Paises)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Provincias' Puede moverla o quitarla según sea necesario.
+
         Me.ProvinciasTableAdapter.Fill(Me.BDMeloDataSet.Provincias)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.TiposVía' Puede moverla o quitarla según sea necesario.
+
         Me.TiposVíaTableAdapter.Fill(Me.BDMeloDataSet.TiposVía)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Sexos' Puede moverla o quitarla según sea necesario.
+
         Me.SexosTableAdapter.Fill(Me.BDMeloDataSet.Sexos)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.Empleados' Puede moverla o quitarla según sea necesario.
+
         Me.TiposDocumentoIdentidadTableAdapter.Fill(Me.BDMeloDataSet.TiposDocumentoIdentidad)
-        'TODO: esta línea de código carga datos en la tabla 'BDMeloDataSet.TiposDocumentoIdentidad' Puede moverla o quitarla según sea necesario.
+
         Me.EmpleadosTableAdapter.Fill(Me.BDMeloDataSet.Empleados)
 
     End Sub

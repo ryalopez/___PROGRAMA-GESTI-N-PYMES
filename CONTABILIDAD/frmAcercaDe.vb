@@ -10,8 +10,6 @@
         End If
         Me.Text = String.Format("Acerca de {0}", ApplicationTitle)
         ' Inicialice el texto mostrado en el cuadro Acerca de.
-        ' TODO: Personalice la información del ensamblado de la aplicación en el panel "Aplicación" del 
-        '    cuadro de diálogo propiedades del proyecto (bajo el menú "Proyecto").
         Me.LabelProductName.Text = My.Application.Info.ProductName
         Me.LabelVersion.Text = String.Format("Versión {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright

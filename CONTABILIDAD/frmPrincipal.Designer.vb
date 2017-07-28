@@ -121,7 +121,6 @@ Partial Class frmPrincipal
         Me.KkkkToolStripMenuItem.Name = "KkkkToolStripMenuItem"
         Me.KkkkToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.KkkkToolStripMenuItem.Text = "kkkk"
-        Me.KkkkToolStripMenuItem.Visible = False
         '
         'CONTABILIDADToolStripMenuItem
         '

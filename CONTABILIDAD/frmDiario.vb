@@ -72,7 +72,8 @@ Public Class frmDiario
 
     Private Sub frmAsientos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        'TODO: esta línea de código carga datos en la tabla 'DsGrupos.CuentasMaestras' Puede moverla o quitarla según sea necesario.
+        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadMelo.FacturasRecibidas)
+
         Me.CuentasMaestrasTableAdapter.Fill(Me.BDContabilidadMelo.CuentasMaestras)
 
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadMelo.Cuentas)
@@ -179,6 +180,23 @@ Public Class frmDiario
                 Next
 
             End With
+
+        Next
+        '
+        '
+        '
+        Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadMelo.FacturasRecibidas)
+        'Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
+
+        For Each asto As BDContabilidadGMELO.AsientosRow In Me.BDContabilidadMelo.Asientos
+
+            Dim Clave As String = CMódulo.Clave(asto.Fecha.ToString + asto.Operación + asto.Justificante)
+            Dim p As Integer = Me.FacturasRecibidasBindingSource.Find("clave", Clave)
+            If p > -1 Then
+                Me.AsientosTableAdapter.Update(asto.Fecha, asto.Justificante, asto.Operación, Clave, asto.Número, asto.Fecha, asto.Debe, asto.Haber)
+                'Else
+                '    MsgBox("pasar por alto")
+            End If
 
         Next
         '

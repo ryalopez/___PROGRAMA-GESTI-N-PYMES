@@ -203,6 +203,8 @@ Partial Public Class BDContabilidadGMELO
     
     Private relationFK_LíneasFacturaEmitida_FacturasEmitidas1 As Global.System.Data.DataRelation
     
+    Private relationFK_FacturasRecibidas_Proveedores As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1529,6 +1531,7 @@ Partial Public Class BDContabilidadGMELO
         Me.relationFK_Cargos_Cuentas1 = Me.Relations("FK_Cargos_Cuentas1")
         Me.relationPréstamosLargoPlazo_Préstamos = Me.Relations("PréstamosLargoPlazo_Préstamos")
         Me.relationFK_LíneasFacturaEmitida_FacturasEmitidas1 = Me.Relations("FK_LíneasFacturaEmitida_FacturasEmitidas1")
+        Me.relationFK_FacturasRecibidas_Proveedores = Me.Relations("FK_FacturasRecibidas_Proveedores")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1723,6 +1726,8 @@ Partial Public Class BDContabilidadGMELO
         Me.Relations.Add(Me.relationPréstamosLargoPlazo_Préstamos)
         Me.relationFK_LíneasFacturaEmitida_FacturasEmitidas1 = New Global.System.Data.DataRelation("FK_LíneasFacturaEmitida_FacturasEmitidas1", New Global.System.Data.DataColumn() {Me.tableFacturasEmitidas1.idColumn}, New Global.System.Data.DataColumn() {Me.tableLíneasFacturaEmitida.idFacturaColumn}, false)
         Me.Relations.Add(Me.relationFK_LíneasFacturaEmitida_FacturasEmitidas1)
+        Me.relationFK_FacturasRecibidas_Proveedores = New Global.System.Data.DataRelation("FK_FacturasRecibidas_Proveedores", New Global.System.Data.DataColumn() {Me.tableProveedores.Cuenta4Column}, New Global.System.Data.DataColumn() {Me.tableFacturasRecibidas.idProveedorColumn}, false)
+        Me.Relations.Add(Me.relationFK_FacturasRecibidas_Proveedores)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18737,6 +18742,8 @@ Partial Public Class BDContabilidadGMELO
         
         Private columnOPERACIÓN As Global.System.Data.DataColumn
         
+        Private columnidProveedor As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -18869,6 +18876,14 @@ Partial Public Class BDContabilidadGMELO
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idProveedorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidProveedor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -18905,9 +18920,12 @@ Partial Public Class BDContabilidadGMELO
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddFacturasRecibidasRow(ByVal Número As String, ByVal FechaEmisión As Date, ByVal FechaOperación As Date, ByVal CIF As String, ByVal NombreProveedor As String, ByVal Clave As String, ByVal BaseImponible As Double, ByVal TipoIVA As Double, ByVal Cuota As Double, ByVal Total As Double, ByVal OPERACIÓN As String) As FacturasRecibidasRow
+        Public Overloads Function AddFacturasRecibidasRow(ByVal Número As String, ByVal FechaEmisión As Date, ByVal FechaOperación As Date, ByVal CIF As String, ByVal NombreProveedor As String, ByVal Clave As String, ByVal BaseImponible As Double, ByVal TipoIVA As Double, ByVal Cuota As Double, ByVal Total As Double, ByVal OPERACIÓN As String, ByVal parentProveedoresRowByFK_FacturasRecibidas_Proveedores As ProveedoresRow) As FacturasRecibidasRow
             Dim rowFacturasRecibidasRow As FacturasRecibidasRow = CType(Me.NewRow,FacturasRecibidasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN, Nothing}
+            If (Not (parentProveedoresRowByFK_FacturasRecibidas_Proveedores) Is Nothing) Then
+                columnValuesArray(12) = parentProveedoresRowByFK_FacturasRecibidas_Proveedores(12)
+            End If
             rowFacturasRecibidasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFacturasRecibidasRow)
             Return rowFacturasRecibidasRow
@@ -18948,6 +18966,7 @@ Partial Public Class BDContabilidadGMELO
             Me.columnCuota = MyBase.Columns("Cuota")
             Me.columnTotal = MyBase.Columns("Total")
             Me.columnOPERACIÓN = MyBase.Columns("OPERACIÓN")
+            Me.columnidProveedor = MyBase.Columns("idProveedor")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18977,6 +18996,8 @@ Partial Public Class BDContabilidadGMELO
             MyBase.Columns.Add(Me.columnTotal)
             Me.columnOPERACIÓN = New Global.System.Data.DataColumn("OPERACIÓN", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOPERACIÓN)
+            Me.columnidProveedor = New Global.System.Data.DataColumn("idProveedor", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidProveedor)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -18987,9 +19008,7 @@ Partial Public Class BDContabilidadGMELO
             Me.columnNúmero.AllowDBNull = false
             Me.columnNúmero.MaxLength = 50
             Me.columnFechaEmisión.AllowDBNull = false
-            Me.columnCIF.AllowDBNull = false
             Me.columnCIF.MaxLength = 50
-            Me.columnNombreProveedor.AllowDBNull = false
             Me.columnNombreProveedor.MaxLength = 2147483647
             Me.columnClave.AllowDBNull = false
             Me.columnClave.MaxLength = 2147483647
@@ -18999,6 +19018,7 @@ Partial Public Class BDContabilidadGMELO
             Me.columnTotal.AllowDBNull = false
             Me.columnOPERACIÓN.ReadOnly = true
             Me.columnOPERACIÓN.MaxLength = 2147483647
+            Me.columnidProveedor.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -27942,6 +27962,16 @@ Partial Public Class BDContabilidadGMELO
         Public Sub SetHaberNull()
             Me(Me.tableProveedores.HaberColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetFacturasRecibidasRows() As FacturasRecibidasRow()
+            If (Me.Table.ChildRelations("FK_FacturasRecibidas_Proveedores") Is Nothing) Then
+                Return New FacturasRecibidasRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_FacturasRecibidas_Proveedores")),FacturasRecibidasRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -28552,7 +28582,11 @@ Partial Public Class BDContabilidadGMELO
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property CIF() As String
             Get
-                Return CType(Me(Me.tableFacturasRecibidas.CIFColumn),String)
+                Try 
+                    Return CType(Me(Me.tableFacturasRecibidas.CIFColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CIF' de la tabla 'FacturasRecibidas' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableFacturasRecibidas.CIFColumn) = value
@@ -28563,7 +28597,12 @@ Partial Public Class BDContabilidadGMELO
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property NombreProveedor() As String
             Get
-                Return CType(Me(Me.tableFacturasRecibidas.NombreProveedorColumn),String)
+                Try 
+                    Return CType(Me(Me.tableFacturasRecibidas.NombreProveedorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NombreProveedor' de la tabla 'FacturasRecibidas' es DBNul"& _ 
+                            "l.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableFacturasRecibidas.NombreProveedorColumn) = value
@@ -28642,6 +28681,28 @@ Partial Public Class BDContabilidadGMELO
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idProveedor() As Integer
+            Get
+                Return CType(Me(Me.tableFacturasRecibidas.idProveedorColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableFacturasRecibidas.idProveedorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ProveedoresRow() As ProveedoresRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_FacturasRecibidas_Proveedores")),ProveedoresRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_FacturasRecibidas_Proveedores"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsFechaOperaciónNull() As Boolean
             Return Me.IsNull(Me.tableFacturasRecibidas.FechaOperaciónColumn)
         End Function
@@ -28650,6 +28711,30 @@ Partial Public Class BDContabilidadGMELO
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetFechaOperaciónNull()
             Me(Me.tableFacturasRecibidas.FechaOperaciónColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCIFNull() As Boolean
+            Return Me.IsNull(Me.tableFacturasRecibidas.CIFColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCIFNull()
+            Me(Me.tableFacturasRecibidas.CIFColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNombreProveedorNull() As Boolean
+            Return Me.IsNull(Me.tableFacturasRecibidas.NombreProveedorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNombreProveedorNull()
+            Me(Me.tableFacturasRecibidas.NombreProveedorColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49548,6 +49633,40 @@ Namespace BDContabilidadGMELOTableAdapters
             tableMapping.ColumnMappings.Add("Cuenta4", "Cuenta4")
             tableMapping.ColumnMappings.Add("Cuenta6", "Cuenta6")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Proveedores] WHERE (([DocumentoIdentidad] = @Original_DocumentoIdent"& _ 
+                "idad) AND ([TipoDocumentoIdentidad] = @Original_TipoDocumentoIdentidad) AND ((@I"& _ 
+                "sNull_Localidad = 1 AND [Localidad] IS NULL) OR ([Localidad] = @Original_Localid"& _ 
+                "ad)) AND ((@IsNull_CódigoPostal = 1 AND [CódigoPostal] IS NULL) OR ([CódigoPosta"& _ 
+                "l] = @Original_CódigoPostal)) AND ([idFormaPago] = @Original_idFormaPago) AND (("& _ 
+                "@IsNull_idCtaBancaria = 1 AND [idCtaBancaria] IS NULL) OR ([idCtaBancaria] = @Or"& _ 
+                "iginal_idCtaBancaria)) AND ((@IsNull_DatosBancarios = 1 AND [DatosBancarios] IS "& _ 
+                "NULL) OR ([DatosBancarios] = @Original_DatosBancarios)) AND ((@IsNull_Baja = 1 A"& _ 
+                "ND [Baja] IS NULL) OR ([Baja] = @Original_Baja)) AND ((@IsNull_Debe = 1 AND [Deb"& _ 
+                "e] IS NULL) OR ([Debe] = @Original_Debe)) AND ((@IsNull_Haber = 1 AND [Haber] IS"& _ 
+                " NULL) OR ([Haber] = @Original_Haber)) AND ([Cuenta4] = @Original_Cuenta4) AND ("& _ 
+                "[Cuenta6] = @Original_Cuenta6))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DocumentoIdentidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DocumentoIdentidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TipoDocumentoIdentidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoDocumentoIdentidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Localidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Localidad", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Localidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Localidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CódigoPostal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CódigoPostal", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CódigoPostal", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CódigoPostal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idFormaPago", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idFormaPago", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_idCtaBancaria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idCtaBancaria", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idCtaBancaria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idCtaBancaria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DatosBancarios", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatosBancarios", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DatosBancarios", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatosBancarios", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Baja", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Baja", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Baja", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Baja", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Debe", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Debe", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Debe", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Debe", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Haber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Haber", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Haber", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Haber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cuenta4", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta4", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cuenta6", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta6", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Proveedores] ([DocumentoIdentidad], [Nombre], [TipoDocumentoIdentida"& _ 
@@ -49555,7 +49674,10 @@ Namespace BDContabilidadGMELOTableAdapters
                 "atosBancarios], [Baja], [Debe], [Haber], [Cuenta4], [Cuenta6]) VALUES (@Document"& _ 
                 "oIdentidad, @Nombre, @TipoDocumentoIdentidad, @Domicilio, @Localidad, @CódigoPos"& _ 
                 "tal, @idFormaPago, @idCtaBancaria, @DatosBancarios, @Baja, @Debe, @Haber, @Cuent"& _ 
-                "a4, @Cuenta6)"
+                "a4, @Cuenta6);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT DocumentoIdentidad, Nombre, TipoDocumentoIdentidad, Domic"& _ 
+                "ilio, Localidad, CódigoPostal, idFormaPago, idCtaBancaria, DatosBancarios, Baja,"& _ 
+                " Debe, Haber, Cuenta4, Cuenta6 FROM Proveedores WHERE (Cuenta4 = @Cuenta4) ORDER"& _ 
+                " BY Nombre"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DocumentoIdentidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DocumentoIdentidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -49571,6 +49693,62 @@ Namespace BDContabilidadGMELOTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Haber", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Haber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cuenta4", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta4", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cuenta6", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta6", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Proveedores] SET [DocumentoIdentidad] = @DocumentoIdentidad, [Nombre] = @"& _ 
+                "Nombre, [TipoDocumentoIdentidad] = @TipoDocumentoIdentidad, [Domicilio] = @Domic"& _ 
+                "ilio, [Localidad] = @Localidad, [CódigoPostal] = @CódigoPostal, [idFormaPago] = "& _ 
+                "@idFormaPago, [idCtaBancaria] = @idCtaBancaria, [DatosBancarios] = @DatosBancari"& _ 
+                "os, [Baja] = @Baja, [Debe] = @Debe, [Haber] = @Haber, [Cuenta4] = @Cuenta4, [Cue"& _ 
+                "nta6] = @Cuenta6 WHERE (([DocumentoIdentidad] = @Original_DocumentoIdentidad) AN"& _ 
+                "D ([TipoDocumentoIdentidad] = @Original_TipoDocumentoIdentidad) AND ((@IsNull_Lo"& _ 
+                "calidad = 1 AND [Localidad] IS NULL) OR ([Localidad] = @Original_Localidad)) AND"& _ 
+                " ((@IsNull_CódigoPostal = 1 AND [CódigoPostal] IS NULL) OR ([CódigoPostal] = @Or"& _ 
+                "iginal_CódigoPostal)) AND ([idFormaPago] = @Original_idFormaPago) AND ((@IsNull_"& _ 
+                "idCtaBancaria = 1 AND [idCtaBancaria] IS NULL) OR ([idCtaBancaria] = @Original_i"& _ 
+                "dCtaBancaria)) AND ((@IsNull_DatosBancarios = 1 AND [DatosBancarios] IS NULL) OR"& _ 
+                " ([DatosBancarios] = @Original_DatosBancarios)) AND ((@IsNull_Baja = 1 AND [Baja"& _ 
+                "] IS NULL) OR ([Baja] = @Original_Baja)) AND ((@IsNull_Debe = 1 AND [Debe] IS NU"& _ 
+                "LL) OR ([Debe] = @Original_Debe)) AND ((@IsNull_Haber = 1 AND [Haber] IS NULL) O"& _ 
+                "R ([Haber] = @Original_Haber)) AND ([Cuenta4] = @Original_Cuenta4) AND ([Cuenta6"& _ 
+                "] = @Original_Cuenta6));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT DocumentoIdentidad, Nombre, TipoDocumentoIdenti"& _ 
+                "dad, Domicilio, Localidad, CódigoPostal, idFormaPago, idCtaBancaria, DatosBancar"& _ 
+                "ios, Baja, Debe, Haber, Cuenta4, Cuenta6 FROM Proveedores WHERE (Cuenta4 = @Cuen"& _ 
+                "ta4) ORDER BY Nombre"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DocumentoIdentidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DocumentoIdentidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TipoDocumentoIdentidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoDocumentoIdentidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Domicilio", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Domicilio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Localidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Localidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CódigoPostal", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CódigoPostal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idFormaPago", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idFormaPago", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idCtaBancaria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idCtaBancaria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatosBancarios", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatosBancarios", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Baja", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Baja", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Debe", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Debe", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Haber", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Haber", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cuenta4", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta4", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cuenta6", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta6", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DocumentoIdentidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DocumentoIdentidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TipoDocumentoIdentidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoDocumentoIdentidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Localidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Localidad", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Localidad", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Localidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CódigoPostal", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CódigoPostal", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CódigoPostal", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CódigoPostal", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idFormaPago", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idFormaPago", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_idCtaBancaria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idCtaBancaria", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idCtaBancaria", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idCtaBancaria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DatosBancarios", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatosBancarios", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DatosBancarios", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatosBancarios", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Baja", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Baja", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Baja", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Baja", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Debe", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Debe", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Debe", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Debe", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Haber", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Haber", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Haber", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Haber", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cuenta4", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta4", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cuenta6", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuenta6", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -49687,6 +49865,84 @@ Namespace BDContabilidadGMELOTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_DocumentoIdentidad As String, ByVal Original_TipoDocumentoIdentidad As Integer, ByVal Original_Localidad As String, ByVal Original_CódigoPostal As String, ByVal Original_idFormaPago As Integer, ByVal Original_idCtaBancaria As Global.System.Nullable(Of Integer), ByVal Original_DatosBancarios As String, ByVal Original_Baja As Global.System.Nullable(Of Boolean), ByVal Original_Debe As Global.System.Nullable(Of Double), ByVal Original_Haber As Global.System.Nullable(Of Double), ByVal Original_Cuenta4 As Integer, ByVal Original_Cuenta6 As Integer) As Integer
+            If (Original_DocumentoIdentidad Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_DocumentoIdentidad")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_DocumentoIdentidad,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_TipoDocumentoIdentidad,Integer)
+            If (Original_Localidad Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Localidad,String)
+            End If
+            If (Original_CódigoPostal Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_CódigoPostal,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_idFormaPago,Integer)
+            If (Original_idCtaBancaria.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_idCtaBancaria.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DatosBancarios Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_DatosBancarios,String)
+            End If
+            If (Original_Baja.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Baja.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Debe.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Debe.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Haber.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Haber.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_Cuenta4,Integer)
+            Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Cuenta6,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
         Public Overloads Overridable Function Insert(ByVal DocumentoIdentidad As String, ByVal Nombre As String, ByVal TipoDocumentoIdentidad As Integer, ByVal Domicilio As String, ByVal Localidad As String, ByVal CódigoPostal As String, ByVal idFormaPago As Integer, ByVal idCtaBancaria As Global.System.Nullable(Of Integer), ByVal DatosBancarios As String, ByVal Baja As Global.System.Nullable(Of Boolean), ByVal Debe As Global.System.Nullable(Of Double), ByVal Haber As Global.System.Nullable(Of Double), ByVal Cuenta4 As Integer, ByVal Cuenta6 As Integer) As Integer
             If (DocumentoIdentidad Is Nothing) Then
@@ -49756,6 +50012,197 @@ Namespace BDContabilidadGMELOTableAdapters
                     Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal DocumentoIdentidad As String,  _
+                    ByVal Nombre As String,  _
+                    ByVal TipoDocumentoIdentidad As Integer,  _
+                    ByVal Domicilio As String,  _
+                    ByVal Localidad As String,  _
+                    ByVal CódigoPostal As String,  _
+                    ByVal idFormaPago As Integer,  _
+                    ByVal idCtaBancaria As Global.System.Nullable(Of Integer),  _
+                    ByVal DatosBancarios As String,  _
+                    ByVal Baja As Global.System.Nullable(Of Boolean),  _
+                    ByVal Debe As Global.System.Nullable(Of Double),  _
+                    ByVal Haber As Global.System.Nullable(Of Double),  _
+                    ByVal Cuenta4 As Integer,  _
+                    ByVal Cuenta6 As Integer,  _
+                    ByVal Original_DocumentoIdentidad As String,  _
+                    ByVal Original_TipoDocumentoIdentidad As Integer,  _
+                    ByVal Original_Localidad As String,  _
+                    ByVal Original_CódigoPostal As String,  _
+                    ByVal Original_idFormaPago As Integer,  _
+                    ByVal Original_idCtaBancaria As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_DatosBancarios As String,  _
+                    ByVal Original_Baja As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Debe As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Haber As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Cuenta4 As Integer,  _
+                    ByVal Original_Cuenta6 As Integer) As Integer
+            If (DocumentoIdentidad Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DocumentoIdentidad")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(DocumentoIdentidad,String)
+            End If
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Nombre,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(TipoDocumentoIdentidad,Integer)
+            If (Domicilio Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Domicilio,String)
+            End If
+            If (Localidad Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Localidad,String)
+            End If
+            If (CódigoPostal Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(CódigoPostal,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(idFormaPago,Integer)
+            If (idCtaBancaria.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(idCtaBancaria.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (DatosBancarios Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(DatosBancarios,String)
+            End If
+            If (Baja.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Baja.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Debe.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Debe.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Haber.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Haber.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Cuenta4,Integer)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Cuenta6,Integer)
+            If (Original_DocumentoIdentidad Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_DocumentoIdentidad")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_DocumentoIdentidad,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_TipoDocumentoIdentidad,Integer)
+            If (Original_Localidad Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Localidad,String)
+            End If
+            If (Original_CódigoPostal Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_CódigoPostal,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_idFormaPago,Integer)
+            If (Original_idCtaBancaria.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_idCtaBancaria.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DatosBancarios Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_DatosBancarios,String)
+            End If
+            If (Original_Baja.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Baja.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Debe.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Debe.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Haber.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_Haber.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_Cuenta4,Integer)
+            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_Cuenta6,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal Nombre As String,  _
+                    ByVal TipoDocumentoIdentidad As Integer,  _
+                    ByVal Domicilio As String,  _
+                    ByVal Localidad As String,  _
+                    ByVal CódigoPostal As String,  _
+                    ByVal idFormaPago As Integer,  _
+                    ByVal idCtaBancaria As Global.System.Nullable(Of Integer),  _
+                    ByVal DatosBancarios As String,  _
+                    ByVal Baja As Global.System.Nullable(Of Boolean),  _
+                    ByVal Debe As Global.System.Nullable(Of Double),  _
+                    ByVal Haber As Global.System.Nullable(Of Double),  _
+                    ByVal Cuenta4 As Integer,  _
+                    ByVal Cuenta6 As Integer,  _
+                    ByVal Original_DocumentoIdentidad As String,  _
+                    ByVal Original_TipoDocumentoIdentidad As Integer,  _
+                    ByVal Original_Localidad As String,  _
+                    ByVal Original_CódigoPostal As String,  _
+                    ByVal Original_idFormaPago As Integer,  _
+                    ByVal Original_idCtaBancaria As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_DatosBancarios As String,  _
+                    ByVal Original_Baja As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_Debe As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Haber As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Cuenta4 As Integer,  _
+                    ByVal Original_Cuenta6 As Integer) As Integer
+            Return Me.Update(Original_DocumentoIdentidad, Nombre, TipoDocumentoIdentidad, Domicilio, Localidad, CódigoPostal, idFormaPago, idCtaBancaria, DatosBancarios, Baja, Debe, Haber, Cuenta4, Cuenta6, Original_DocumentoIdentidad, Original_TipoDocumentoIdentidad, Original_Localidad, Original_CódigoPostal, Original_idFormaPago, Original_idCtaBancaria, Original_DatosBancarios, Original_Baja, Original_Debe, Original_Haber, Original_Cuenta4, Original_Cuenta6)
         End Function
     End Class
     
@@ -50268,80 +50715,78 @@ Namespace BDContabilidadGMELOTableAdapters
             tableMapping.ColumnMappings.Add("Cuota", "Cuota")
             tableMapping.ColumnMappings.Add("Total", "Total")
             tableMapping.ColumnMappings.Add("OPERACIÓN", "OPERACIÓN")
+            tableMapping.ColumnMappings.Add("idProveedor", "idProveedor")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [FacturasRecibidas] WHERE (([id] = @Original_id) AND ([Número] = @Ori"& _ 
                 "ginal_Número) AND ([FechaEmisión] = @Original_FechaEmisión) AND ((@IsNull_FechaO"& _ 
                 "peración = 1 AND [FechaOperación] IS NULL) OR ([FechaOperación] = @Original_Fech"& _ 
-                "aOperación)) AND ([CIF] = @Original_CIF) AND ([BaseImponible] = @Original_BaseIm"& _ 
-                "ponible) AND ([TipoIVA] = @Original_TipoIVA) AND ([Cuota] = @Original_Cuota) AND"& _ 
-                " ([Total] = @Original_Total))"
+                "aOperación)) AND ([BaseImponible] = @Original_BaseImponible) AND ([TipoIVA] = @O"& _ 
+                "riginal_TipoIVA) AND ([Cuota] = @Original_Cuota) AND ([Total] = @Original_Total)"& _ 
+                " AND ([idProveedor] = @Original_idProveedor))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Número", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Número", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FechaEmisión", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaEmisión", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FechaOperación", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaOperación", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FechaOperación", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaOperación", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CIF", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CIF", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BaseImponible", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BaseImponible", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TipoIVA", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoIVA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cuota", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuota", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idProveedor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idProveedor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [FacturasRecibidas] ([Número], [FechaEmisión], [FechaOperación], [CIF"& _ 
-                "], [NombreProveedor], [Clave], [BaseImponible], [TipoIVA], [Cuota], [Total]) VAL"& _ 
-                "UES (@Número, @FechaEmisión, @FechaOperación, @CIF, @NombreProveedor, @Clave, @B"& _ 
-                "aseImponible, @TipoIVA, @Cuota, @Total);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Número, FechaEmisión, Fecha"& _ 
-                "Operación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OP"& _ 
-                "ERACIÓN FROM FacturasRecibidas WHERE (id = SCOPE_IDENTITY()) ORDER BY FechaEmisi"& _ 
-                "ón"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [FacturasRecibidas] ([Número], [FechaEmisión], [FechaOperación], [Cla"& _ 
+                "ve], [BaseImponible], [TipoIVA], [Cuota], [Total], [idProveedor]) VALUES (@Númer"& _ 
+                "o, @FechaEmisión, @FechaOperación, @Clave, @BaseImponible, @TipoIVA, @Cuota, @To"& _ 
+                "tal, @idProveedor);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Número, FechaEmisión, FechaOperación, CIF, Nombr"& _ 
+                "eProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN, idProveedor "& _ 
+                "FROM FacturasRecibidas WHERE (id = SCOPE_IDENTITY()) ORDER BY FechaEmisión"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Número", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Número", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaEmisión", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaEmisión", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaOperación", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaOperación", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CIF", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CIF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NombreProveedor", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NombreProveedor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Clave", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Clave", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BaseImponible", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BaseImponible", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TipoIVA", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoIVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cuota", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idProveedor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idProveedor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [FacturasRecibidas] SET [Número] = @Número, [FechaEmisión] = @FechaEmisión"& _ 
-                ", [FechaOperación] = @FechaOperación, [CIF] = @CIF, [NombreProveedor] = @NombreP"& _ 
-                "roveedor, [Clave] = @Clave, [BaseImponible] = @BaseImponible, [TipoIVA] = @TipoI"& _ 
-                "VA, [Cuota] = @Cuota, [Total] = @Total WHERE (([id] = @Original_id) AND ([Número"& _ 
-                "] = @Original_Número) AND ([FechaEmisión] = @Original_FechaEmisión) AND ((@IsNul"& _ 
-                "l_FechaOperación = 1 AND [FechaOperación] IS NULL) OR ([FechaOperación] = @Origi"& _ 
-                "nal_FechaOperación)) AND ([CIF] = @Original_CIF) AND ([BaseImponible] = @Origina"& _ 
-                "l_BaseImponible) AND ([TipoIVA] = @Original_TipoIVA) AND ([Cuota] = @Original_Cu"& _ 
-                "ota) AND ([Total] = @Original_Total));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Número, FechaEmisión, FechaOp"& _ 
-                "eración, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPER"& _ 
-                "ACIÓN FROM FacturasRecibidas WHERE (id = @id) ORDER BY FechaEmisión"
+                ", [FechaOperación] = @FechaOperación, [Clave] = @Clave, [BaseImponible] = @BaseI"& _ 
+                "mponible, [TipoIVA] = @TipoIVA, [Cuota] = @Cuota, [Total] = @Total, [idProveedor"& _ 
+                "] = @idProveedor WHERE (([id] = @Original_id) AND ([Número] = @Original_Número) "& _ 
+                "AND ([FechaEmisión] = @Original_FechaEmisión) AND ((@IsNull_FechaOperación = 1 A"& _ 
+                "ND [FechaOperación] IS NULL) OR ([FechaOperación] = @Original_FechaOperación)) A"& _ 
+                "ND ([BaseImponible] = @Original_BaseImponible) AND ([TipoIVA] = @Original_TipoIV"& _ 
+                "A) AND ([Cuota] = @Original_Cuota) AND ([Total] = @Original_Total) AND ([idProve"& _ 
+                "edor] = @Original_idProveedor));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Número, FechaEmisión, FechaOperació"& _ 
+                "n, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN,"& _ 
+                " idProveedor FROM FacturasRecibidas WHERE (id = @id) ORDER BY FechaEmisión"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Número", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Número", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaEmisión", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaEmisión", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaOperación", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaOperación", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CIF", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CIF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NombreProveedor", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NombreProveedor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Clave", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Clave", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BaseImponible", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BaseImponible", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TipoIVA", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoIVA", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cuota", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idProveedor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idProveedor", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Número", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Número", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FechaEmisión", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaEmisión", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FechaOperación", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaOperación", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FechaOperación", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaOperación", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CIF", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CIF", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BaseImponible", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BaseImponible", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TipoIVA", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TipoIVA", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Cuota", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Cuota", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idProveedor", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idProveedor", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -50359,8 +50804,8 @@ Namespace BDContabilidadGMELOTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        id, Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Cla"& _ 
-                "ve, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FacturasRec"& _ 
-                "ibidas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaEmisión"
+                "ve, BaseImponible, TipoIVA, Cuota, Total, OPERACIÓN, idProveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
+                "  FacturasRecibidas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaEmisión"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -50420,7 +50865,7 @@ Namespace BDContabilidadGMELOTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_Número As String, ByVal Original_FechaEmisión As Date, ByVal Original_FechaOperación As Global.System.Nullable(Of Date), ByVal Original_CIF As String, ByVal Original_BaseImponible As Double, ByVal Original_TipoIVA As Double, ByVal Original_Cuota As Double, ByVal Original_Total As Double) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_Número As String, ByVal Original_FechaEmisión As Date, ByVal Original_FechaOperación As Global.System.Nullable(Of Date), ByVal Original_BaseImponible As Double, ByVal Original_TipoIVA As Double, ByVal Original_Cuota As Double, ByVal Original_Total As Double, ByVal Original_idProveedor As Integer) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,Integer)
             If (Original_Número Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Número")
@@ -50435,15 +50880,11 @@ Namespace BDContabilidadGMELOTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Original_CIF Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CIF")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_CIF,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_BaseImponible,Double)
-            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_TipoIVA,Double)
-            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Cuota,Double)
-            Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Total,Double)
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_BaseImponible,Double)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_TipoIVA,Double)
+            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Cuota,Double)
+            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Total,Double)
+            Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_idProveedor,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -50463,7 +50904,7 @@ Namespace BDContabilidadGMELOTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Número As String, ByVal FechaEmisión As Date, ByVal FechaOperación As Global.System.Nullable(Of Date), ByVal CIF As String, ByVal NombreProveedor As String, ByVal Clave As String, ByVal BaseImponible As Double, ByVal TipoIVA As Double, ByVal Cuota As Double, ByVal Total As Double) As Integer
+        Public Overloads Overridable Function Insert(ByVal Número As String, ByVal FechaEmisión As Date, ByVal FechaOperación As Global.System.Nullable(Of Date), ByVal Clave As String, ByVal BaseImponible As Double, ByVal TipoIVA As Double, ByVal Cuota As Double, ByVal Total As Double, ByVal idProveedor As Integer) As Integer
             If (Número Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Número")
             Else
@@ -50475,25 +50916,16 @@ Namespace BDContabilidadGMELOTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (CIF Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CIF")
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(CIF,String)
-            End If
-            If (NombreProveedor Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NombreProveedor")
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(NombreProveedor,String)
-            End If
             If (Clave Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Clave")
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Clave,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Clave,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(6).Value = CType(BaseImponible,Double)
-            Me.Adapter.InsertCommand.Parameters(7).Value = CType(TipoIVA,Double)
-            Me.Adapter.InsertCommand.Parameters(8).Value = CType(Cuota,Double)
-            Me.Adapter.InsertCommand.Parameters(9).Value = CType(Total,Double)
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(BaseImponible,Double)
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(TipoIVA,Double)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(Cuota,Double)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(Total,Double)
+            Me.Adapter.InsertCommand.Parameters(8).Value = CType(idProveedor,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -50517,22 +50949,21 @@ Namespace BDContabilidadGMELOTableAdapters
                     ByVal Número As String,  _
                     ByVal FechaEmisión As Date,  _
                     ByVal FechaOperación As Global.System.Nullable(Of Date),  _
-                    ByVal CIF As String,  _
-                    ByVal NombreProveedor As String,  _
                     ByVal Clave As String,  _
                     ByVal BaseImponible As Double,  _
                     ByVal TipoIVA As Double,  _
                     ByVal Cuota As Double,  _
                     ByVal Total As Double,  _
+                    ByVal idProveedor As Integer,  _
                     ByVal Original_id As Integer,  _
                     ByVal Original_Número As String,  _
                     ByVal Original_FechaEmisión As Date,  _
                     ByVal Original_FechaOperación As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CIF As String,  _
                     ByVal Original_BaseImponible As Double,  _
                     ByVal Original_TipoIVA As Double,  _
                     ByVal Original_Cuota As Double,  _
                     ByVal Original_Total As Double,  _
+                    ByVal Original_idProveedor As Integer,  _
                     ByVal id As Integer) As Integer
             If (Número Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Número")
@@ -50545,49 +50976,36 @@ Namespace BDContabilidadGMELOTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (CIF Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CIF")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(CIF,String)
-            End If
-            If (NombreProveedor Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NombreProveedor")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(NombreProveedor,String)
-            End If
             If (Clave Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Clave")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Clave,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Clave,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(BaseImponible,Double)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(TipoIVA,Double)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Cuota,Double)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Total,Double)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(BaseImponible,Double)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(TipoIVA,Double)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Cuota,Double)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Total,Double)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(idProveedor,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_id,Integer)
             If (Original_Número Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Número")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Número,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Número,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_FechaEmisión,Date)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FechaEmisión,Date)
             If (Original_FechaOperación.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_FechaOperación.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FechaOperación.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
-            If (Original_CIF Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CIF")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_CIF,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_BaseImponible,Double)
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_TipoIVA,Double)
-            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Cuota,Double)
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Total,Double)
-            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_BaseImponible,Double)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_TipoIVA,Double)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Cuota,Double)
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Total,Double)
+            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_idProveedor,Integer)
+            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -50611,23 +51029,22 @@ Namespace BDContabilidadGMELOTableAdapters
                     ByVal Número As String,  _
                     ByVal FechaEmisión As Date,  _
                     ByVal FechaOperación As Global.System.Nullable(Of Date),  _
-                    ByVal CIF As String,  _
-                    ByVal NombreProveedor As String,  _
                     ByVal Clave As String,  _
                     ByVal BaseImponible As Double,  _
                     ByVal TipoIVA As Double,  _
                     ByVal Cuota As Double,  _
                     ByVal Total As Double,  _
+                    ByVal idProveedor As Integer,  _
                     ByVal Original_id As Integer,  _
                     ByVal Original_Número As String,  _
                     ByVal Original_FechaEmisión As Date,  _
                     ByVal Original_FechaOperación As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CIF As String,  _
                     ByVal Original_BaseImponible As Double,  _
                     ByVal Original_TipoIVA As Double,  _
                     ByVal Original_Cuota As Double,  _
-                    ByVal Original_Total As Double) As Integer
-            Return Me.Update(Número, FechaEmisión, FechaOperación, CIF, NombreProveedor, Clave, BaseImponible, TipoIVA, Cuota, Total, Original_id, Original_Número, Original_FechaEmisión, Original_FechaOperación, Original_CIF, Original_BaseImponible, Original_TipoIVA, Original_Cuota, Original_Total, Original_id)
+                    ByVal Original_Total As Double,  _
+                    ByVal Original_idProveedor As Integer) As Integer
+            Return Me.Update(Número, FechaEmisión, FechaOperación, Clave, BaseImponible, TipoIVA, Cuota, Total, idProveedor, Original_id, Original_Número, Original_FechaEmisión, Original_FechaOperación, Original_BaseImponible, Original_TipoIVA, Original_Cuota, Original_Total, Original_idProveedor, Original_id)
         End Function
     End Class
     
@@ -53356,15 +53773,6 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._formasPagoTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.FormasPago.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._formasPagoTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._cuentasBancariasTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.CuentasBancarias.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -53383,12 +53791,30 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._formasPagoTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.FormasPago.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._formasPagoTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._convenioGruposTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.ConvenioGrupos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._convenioGruposTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._balanceSituaciónTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.BalanceSituación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._balanceSituaciónTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53428,12 +53854,12 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._balanceSituaciónTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.BalanceSituación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._balanceSituaciónTableAdapter.Update(updatedRows))
+                    result = (result + Me._proveedoresTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53455,21 +53881,21 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._convenioCategoríasTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.ConvenioCategorías.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._convenioCategoríasTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._préstamosLargoPlazoTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.PréstamosLargoPlazo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._préstamosLargoPlazoTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._convenioCategoríasTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.ConvenioCategorías.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._convenioCategoríasTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53491,21 +53917,21 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._tiposDocumentoIdentidadTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TiposDocumentoIdentidad.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tiposDocumentoIdentidadTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._asientosTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Asientos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._asientosTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._tiposDocumentoIdentidadTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TiposDocumentoIdentidad.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._tiposDocumentoIdentidadTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53527,12 +53953,12 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._cNO11TableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNO11.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._cNAETableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._cNO11TableAdapter.Update(updatedRows))
+                    result = (result + Me._cNAETableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53554,12 +53980,12 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._empleadosTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Empleados.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._proveedoresTableAdapter.Update(updatedRows))
+                    result = (result + Me._empleadosTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53572,21 +53998,21 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._empleadosTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Empleados.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._empleadosTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._cNO94TableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNO94.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._cNO94TableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._líneasDiarioTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.LíneasDiario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._líneasDiarioTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53608,21 +54034,21 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._líneasDiarioTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.LíneasDiario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._líneasDiarioTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._sexosTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Sexos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._sexosTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._cNO11TableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNO11.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._cNO11TableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53662,12 +54088,12 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._líneasMayorTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.LíneasMayor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._nóminasTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Nóminas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._líneasMayorTableAdapter.Update(updatedRows))
+                    result = (result + Me._nóminasTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53707,15 +54133,6 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._nóminasTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Nóminas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._nóminasTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._préstamosTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Préstamos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -53734,12 +54151,12 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._cNAETableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._líneasMayorTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.LíneasMayor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._cNAETableAdapter.Update(updatedRows))
+                    result = (result + Me._líneasMayorTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -53794,14 +54211,6 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._formasPagoTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.FormasPago.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._formasPagoTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._cuentasBancariasTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.CuentasBancarias.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -53818,11 +54227,27 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._formasPagoTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.FormasPago.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._formasPagoTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._convenioGruposTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.ConvenioGrupos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._convenioGruposTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._balanceSituaciónTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.BalanceSituación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._balanceSituaciónTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -53858,11 +54283,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._balanceSituaciónTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.BalanceSituación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._balanceSituaciónTableAdapter.Update(addedRows))
+                    result = (result + Me._proveedoresTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -53882,19 +54307,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._convenioCategoríasTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.ConvenioCategorías.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._convenioCategoríasTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._préstamosLargoPlazoTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.PréstamosLargoPlazo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._préstamosLargoPlazoTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._convenioCategoríasTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.ConvenioCategorías.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._convenioCategoríasTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -53914,19 +54339,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._tiposDocumentoIdentidadTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TiposDocumentoIdentidad.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tiposDocumentoIdentidadTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._asientosTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Asientos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._asientosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._tiposDocumentoIdentidadTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TiposDocumentoIdentidad.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._tiposDocumentoIdentidadTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -53946,11 +54371,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._cNO11TableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.CNO11.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._cNAETableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._cNO11TableAdapter.Update(addedRows))
+                    result = (result + Me._cNAETableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -53970,11 +54395,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._empleadosTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Empleados.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._proveedoresTableAdapter.Update(addedRows))
+                    result = (result + Me._empleadosTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -53986,19 +54411,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._empleadosTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Empleados.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._empleadosTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._cNO94TableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.CNO94.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._cNO94TableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._líneasDiarioTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.LíneasDiario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._líneasDiarioTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -54018,19 +54443,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._líneasDiarioTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.LíneasDiario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._líneasDiarioTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._sexosTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Sexos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._sexosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._cNO11TableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.CNO11.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._cNO11TableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -54066,11 +54491,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._líneasMayorTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.LíneasMayor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._nóminasTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Nóminas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._líneasMayorTableAdapter.Update(addedRows))
+                    result = (result + Me._nóminasTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -54106,14 +54531,6 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._nóminasTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Nóminas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._nóminasTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._préstamosTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Préstamos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -54130,11 +54547,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._cNAETableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._líneasMayorTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.LíneasMayor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._cNAETableAdapter.Update(addedRows))
+                    result = (result + Me._líneasMayorTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -54164,11 +54581,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._cNAETableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._líneasMayorTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.LíneasMayor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._cNAETableAdapter.Update(deletedRows))
+                    result = (result + Me._líneasMayorTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54185,14 +54602,6 @@ Namespace BDContabilidadGMELOTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._préstamosTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._nóminasTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Nóminas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._nóminasTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54228,11 +54637,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._líneasMayorTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.LíneasMayor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._nóminasTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Nóminas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._líneasMayorTableAdapter.Update(deletedRows))
+                    result = (result + Me._nóminasTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54268,19 +54677,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._cNO11TableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNO11.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._cNO11TableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._sexosTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Sexos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._sexosTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._líneasDiarioTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.LíneasDiario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._líneasDiarioTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54300,19 +54709,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._líneasDiarioTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.LíneasDiario.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._líneasDiarioTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._cNO94TableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNO94.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._cNO94TableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._empleadosTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Empleados.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._empleadosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54324,11 +54733,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._empleadosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Empleados.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._proveedoresTableAdapter.Update(deletedRows))
+                    result = (result + Me._empleadosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54348,11 +54757,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._cNO11TableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNO11.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._cNAETableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CNAE.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._cNO11TableAdapter.Update(deletedRows))
+                    result = (result + Me._cNAETableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54372,19 +54781,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._asientosTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Asientos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._asientosTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._tiposDocumentoIdentidadTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.TiposDocumentoIdentidad.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tiposDocumentoIdentidadTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._asientosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Asientos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._asientosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54404,19 +54813,19 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._préstamosLargoPlazoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.PréstamosLargoPlazo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._préstamosLargoPlazoTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._convenioCategoríasTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.ConvenioCategorías.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._convenioCategoríasTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._préstamosLargoPlazoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.PréstamosLargoPlazo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._préstamosLargoPlazoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54436,11 +54845,11 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._balanceSituaciónTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.BalanceSituación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._proveedoresTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Proveedores.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._balanceSituaciónTableAdapter.Update(deletedRows))
+                    result = (result + Me._proveedoresTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54476,11 +54885,27 @@ Namespace BDContabilidadGMELOTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._balanceSituaciónTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.BalanceSituación.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._balanceSituaciónTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._convenioGruposTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.ConvenioGrupos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._convenioGruposTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._formasPagoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.FormasPago.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._formasPagoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -54497,14 +54922,6 @@ Namespace BDContabilidadGMELOTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._cuentasBancariasTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._formasPagoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.FormasPago.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._formasPagoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If

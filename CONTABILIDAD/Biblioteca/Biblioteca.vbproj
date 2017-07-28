@@ -91,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDAdminDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BDContabilidadGMELODataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDContabilidadGMELODataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BDEmpresaDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,29 +107,19 @@
       <DependentUpon>BDINEDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="CCambioUI.vb" />
-    <Compile Include="CCuenta.vb" />
-    <Compile Include="CCuenta1.vb" />
     <Compile Include="CDatosBancoNumEventArgs.vb" />
     <Compile Include="CDatosDomicilio.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CDocumentoIdentidad.vb" />
     <Compile Include="CDomicilioErrorEventArgs.vb" />
     <Compile Include="CMódulo.vb" />
     <Compile Include="CPrefijoCuenta.vb" />
     <Compile Include="CServidor.vb" />
-    <Compile Include="CTipoDocumento.vb" />
     <Compile Include="CEmpleado.vb" />
     <Compile Include="ctlDatosBancarios.Designer.vb">
       <DependentUpon>ctlDatosBancarios.vb</DependentUpon>
     </Compile>
     <Compile Include="ctlDatosBancarios.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CtlDomicilio.Designer.vb">
-      <DependentUpon>CtlDomicilio.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CtlDomicilio.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CUsuario.vb" />
@@ -184,6 +179,7 @@
     <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ICuenta.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -245,6 +241,17 @@
     </None>
     <None Include="BDAdminDataSet.xss">
       <DependentUpon>BDAdminDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDContabilidadGMELODataSet.xsc">
+      <DependentUpon>BDContabilidadGMELODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDContabilidadGMELODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDContabilidadGMELODataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDContabilidadGMELODataSet.xss">
+      <DependentUpon>BDContabilidadGMELODataSet.xsd</DependentUpon>
     </None>
     <None Include="BDEmpresaDataSet.xsc">
       <DependentUpon>BDEmpresaDataSet.xsd</DependentUpon>

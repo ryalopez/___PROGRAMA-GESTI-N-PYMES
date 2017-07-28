@@ -3,7 +3,6 @@ Imports Word = Microsoft.Office.Interop.Word
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
 Imports Biblioteca
-Imports Microsoft.VisualBasic.PowerPacks
 
 Public Class frmFacturasEmitidas
 
@@ -38,9 +37,8 @@ Public Class frmFacturasEmitidas
     End Sub
 
     Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasEmitidas1' Puede moverla o quitarla según sea necesario.
-        Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
 
+        Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
 
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
 

@@ -122,6 +122,1236 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.AbonosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.AsientosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.BalanceSituaciónDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CargosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CentrosTrabajoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNAEDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNO11DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNO94DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioCategoríasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioCategoríasConceptosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioGruposDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConveniosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Convenios_ColectivosJulio2014DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConveniosEmpresasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Cta1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Cta2DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasBancariasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasMaestrasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.EmpleadosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Empleados1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.EmpresasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasEmitidasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasRecibidasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FormasPagoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasDiarioDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasFacturaEmitidaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasMayorDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminaConceptosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminasDeEmpleadoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NominasDeEmpresaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PaisesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PérdidasyGananciasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PerdidasyGananciasSeccionesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PoblacionesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PréstamosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ProveedoresDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ProvinciasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PuestosTrabajoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.SexosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.tempFacturasDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposComplementoSalarialDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposDocumentoIdentidadDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposNóminaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposVíaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.UnidadesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.BuscarClienteDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesActivosConFacturaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesDeudoresDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasBalanceDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasClientesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasGastoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasGestiónDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasIngresoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasProveedoresDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasClienteAñoMesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasParaDuplicarDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.AbonosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.AsientosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.BalanceSituaciónRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CargosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CentrosTrabajoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNAERow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNO11Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNO94Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioCategoríasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioCategoríasConceptosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioGruposRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConveniosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Convenios_ColectivosJulio2014Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConveniosEmpresasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Cta1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Cta2Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasBancariasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasMaestrasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.EmpleadosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Empleados1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.EmpresasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasEmitidasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasRecibidasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FormasPagoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasDiarioRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasFacturaEmitidaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasMayorRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminaConceptosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminasDeEmpleadoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NominasDeEmpresaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PaisesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PérdidasyGananciasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PerdidasyGananciasSeccionesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PoblacionesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PréstamosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ProveedoresRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ProvinciasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PuestosTrabajoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.SexosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.tempFacturasRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposComplementoSalarialRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposDocumentoIdentidadRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposNóminaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposVíaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.UnidadesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.BuscarClienteRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesActivosConFacturaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesDeudoresRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasBalanceRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasClientesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasGastoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasGestiónRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasIngresoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasProveedoresRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasClienteAñoMesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasParaDuplicarRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.AbonosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.AsientosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.BalanceSituaciónRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CargosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CentrosTrabajoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNAERowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNO11RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CNO94RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioCategoríasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioCategoríasConceptosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConvenioGruposRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConveniosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Convenios_ColectivosJulio2014RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ConveniosEmpresasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Cta1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Cta2RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasBancariasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasMaestrasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.EmpleadosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.Empleados1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.EmpresasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasEmitidasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasRecibidasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FormasPagoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasDiarioRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasFacturaEmitidaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.LíneasMayorRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminaConceptosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NóminasDeEmpleadoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.NominasDeEmpresaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PaisesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PérdidasyGananciasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PerdidasyGananciasSeccionesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PoblacionesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PréstamosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ProveedoresRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ProvinciasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.PuestosTrabajoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.SexosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.tempFacturasRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposComplementoSalarialRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposDocumentoIdentidadRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposNóminaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.TiposVíaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.UnidadesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.BuscarClienteRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesActivosConFacturaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.ClientesDeudoresRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasBalanceRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasClientesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasGastoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasGestiónRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasIngresoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.CuentasProveedoresRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasClienteAñoMesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSet.FacturasParaDuplicarRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.AbonosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.AsientosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.BalanceSituaciónTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CargosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CentrosTrabajoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ClientesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CNAETableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CNO11TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CNO94TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ConvenioCategoríasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ConvenioCategoríasConceptosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ConvenioGruposTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ConveniosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.Convenios_ColectivosJulio2014TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ConveniosEmpresasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.Cta1TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.Cta2TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasBancariasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasMaestrasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.EmpleadosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.Empleados1TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.EmpresasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.FacturasEmitidasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.FacturasRecibidasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.FormasPagoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.LíneasDiarioTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.LíneasFacturaEmitidaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.LíneasMayorTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.NóminaConceptosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.NóminasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.NóminasDeEmpleadoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.NominasDeEmpresaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.PaisesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.PérdidasyGananciasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.PerdidasyGananciasSeccionesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.PoblacionesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.PréstamosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ProveedoresTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ProvinciasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.PuestosTrabajoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.SexosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.tempFacturasTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TiposComplementoSalarialTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TiposDocumentoIdentidadTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TiposNóminaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TiposVíaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.UnidadesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.BuscarClienteTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ClientesActivosConFacturaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.ClientesDeudoresTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasBalanceTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasClientesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasGastoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasGestiónTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasIngresoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.CuentasProveedoresTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.FacturasClienteAñoMesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.FacturasParaDuplicarTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.QueriesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Biblioteca.BDContabilidadGMELODataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Biblioteca.BDContabilidadGMELODataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Biblioteca.BDContabilidadGMELODataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.UpdateAll(Biblioteca.BDContabilidadGMELODataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Biblioteca.BDContabilidadGMELODataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:Biblioteca.BDEmpresaDataSet">
 <summary>
 Represents a strongly typed in-memory cache of data.

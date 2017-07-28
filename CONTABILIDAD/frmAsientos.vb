@@ -80,25 +80,25 @@ Public Class frmAsientos
 
     Private Sub frmAsientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.FacturasRecibidas' Puede moverla o quitarla según sea necesario.
+
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Cargos' Puede moverla o quitarla según sea necesario.
+
         Me.CargosTableAdapter.Fill(Me.BDContabilidadGMELO.Cargos)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Abonos' Puede moverla o quitarla según sea necesario.
+
         Me.AbonosTableAdapter.Fill(Me.BDContabilidadGMELO.Abonos)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasBancarias' Puede moverla o quitarla según sea necesario.
+
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Proveedores' Puede moverla o quitarla según sea necesario.
+
         Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasProveedores' Puede moverla o quitarla según sea necesario.
+
         Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.CuentasGasto' Puede moverla o quitarla según sea necesario.
+
         Me.CuentasGastoTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasGasto)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Asientos' Puede moverla o quitarla según sea necesario.
+
         Me.AsientosTableAdapter.Fill(Me.BDContabilidadGMELO.Asientos)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.PréstamosLargoPlazo' Puede moverla o quitarla según sea necesario.
+
         Me.PréstamosLargoPlazoTableAdapter.Fill(Me.BDContabilidadGMELO.PréstamosLargoPlazo)
-        'TODO: esta línea de código carga datos en la tabla 'BDContabilidadGMELO.Préstamos' Puede moverla o quitarla según sea necesario.
+
         Me.PréstamosTableAdapter.Fill(Me.BDContabilidadGMELO.Préstamos)
 
         m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
@@ -444,7 +444,7 @@ Public Class frmAsientos
 
         End If
     End Sub
-    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
+    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
 
@@ -541,8 +541,8 @@ Public Class frmAsientos
         'Generar Factura
         '
 
-        asto.FacturasRecibidasTableAdapter.Insert(asto.Justificante, asto.FechaAsiento, Nothing, asto.CIF,
-                                                  asto.NombreProveedor, asto.ClaveHash, asto.BaseIVA, asto.IVA, asto.CuotaIVA, asto.ImporteTotal)
+        asto.FacturasRecibidasTableAdapter.Insert(asto.Justificante, asto.FechaAsiento, Nothing, asto.ClaveHash, asto.BaseIVA, asto.IVA, asto.CuotaIVA, asto.ImporteTotal,
+                                                  asto.CuentaProveedor)
 
         Return True
 
@@ -677,8 +677,8 @@ Public Class frmAsientos
         'Generar Factura
         '
 
-        asto.FacturasRecibidasTableAdapter.Insert(asto.Justificante, asto.FechaAsiento, Nothing, asto.CIF,
-                                                  asto.NombreProveedor, asto.ClaveHash, asto.BaseIVA, asto.IVA, asto.CuotaIVA, asto.ImporteTotal)
+        asto.FacturasRecibidasTableAdapter.Insert(asto.Justificante, asto.FechaAsiento, Nothing, asto.ClaveHash, asto.BaseIVA, asto.IVA, asto.CuotaIVA, asto.ImporteTotal,
+                                                  asto.CuentaProveedor)
 
         Return True
 
@@ -1085,4 +1085,8 @@ Public Class frmAsientos
 
     End Sub
 
+    Private Sub Cancel_Button_Click_1(sender As Object, e As EventArgs) Handles Cancel_Button.Click
+        Me.DialogResult = System.Windows.Forms.DialogResult.Abort
+        Me.Close()
+    End Sub
 End Class

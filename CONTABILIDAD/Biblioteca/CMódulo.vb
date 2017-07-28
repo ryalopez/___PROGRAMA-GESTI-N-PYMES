@@ -324,6 +324,79 @@ Public Class CMódulo
         Return NúmeroAsiento
 
     End Function
+    Public Shared Function ClaveNuevoProveedor(ByVal prmConnectionString As String, Optional ClaveCuenta As Integer = 0) As Integer
+
+        Dim ClaveProveedor As Integer = -1
+
+        Try
+
+            Dim myConn As New SqlConnection(prmConnectionString)
+
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ClaveNuevoProveedor", myConn)
+
+            MiSqlCMD.CommandType = CommandType.StoredProcedure
+
+            Dim prm As New SqlParameter()
+
+            prm.ParameterName = "@Código"
+            prm.DbType = SqlDbType.Int
+            prm.Direction = ParameterDirection.ReturnValue
+            prm.Value = 0
+
+            MiSqlCMD.Parameters.Add(prm)
+
+            myConn.Open()
+            MiSqlCMD.ExecuteNonQuery()
+            myConn.Close()
+
+            ClaveProveedor = CInt(MiSqlCMD.Parameters("@Código").Value)
+
+        Catch ex As Exception
+
+            CMódulo.MsgErrorCrítico("ClaveNuevoProveedor " + ex.Message)
+
+        End Try
+
+        Return ClaveProveedor
+
+    End Function
+
+    Public Shared Function ClaveNuevoCliente(ByVal prmConnectionString As String, Optional ClaveCuenta As Integer = 0) As Integer
+
+        Dim ClaveCliente As Integer = -1
+
+        Try
+
+            Dim myConn As New SqlConnection(prmConnectionString)
+
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ClaveNuevoCliente", myConn)
+
+            MiSqlCMD.CommandType = CommandType.StoredProcedure
+
+            Dim prm As New SqlParameter()
+
+            prm.ParameterName = "@Código"
+            prm.DbType = SqlDbType.Int
+            prm.Direction = ParameterDirection.ReturnValue
+            prm.Value = 0
+
+            MiSqlCMD.Parameters.Add(prm)
+
+            myConn.Open()
+            MiSqlCMD.ExecuteNonQuery()
+            myConn.Close()
+
+            ClaveCliente = CInt(MiSqlCMD.Parameters("@Código").Value)
+
+        Catch ex As Exception
+
+            CMódulo.MsgErrorCrítico("ClaveNuevoCliente " + ex.Message)
+
+        End Try
+
+        Return ClaveCliente
+
+    End Function
 
     Public Shared Function IdAsientoConJustificante(ByVal prmConnectionString As String, Justificante As String) As Integer
 

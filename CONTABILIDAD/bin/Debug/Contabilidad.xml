@@ -1375,6 +1375,21 @@ Used to sort self-referenced table's rows
  Se genera un asiento
  Cuenta Cliente   465CCC   -> Cuenta Banco  572BBB</remarks>
 </member>
+<member name="M:Contabilidad.frmClientes.frmCliProg_Load(System.Object,System.EventArgs)">
+ <summary>
+  Carga el formulario.
+  Se enlaza un control de usuario
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Contabilidad.frmClientes.ClientesBindingSource_AddingNew(System.Object,System.ComponentModel.AddingNewEventArgs)">
+ <summary>
+ Crea un nuevo Cliente
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:Contabilidad.frmCuentas.CuentasMaestrasDataGridView_RowHeaderMouseDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
  <summary>
  Crea una cuenta del grupo de la cuenta maestra en la que han hecho doble click

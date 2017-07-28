@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmProveedores
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmProveedores
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DocumentoIdentidadLabel As System.Windows.Forms.Label
@@ -42,7 +42,6 @@ Partial Class frmProveedores
         Me.ProveedoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.btnSalir = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -54,7 +53,7 @@ Partial Class frmProveedores
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ProveedoresBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
-        Me.btnListarClientes = New System.Windows.Forms.ToolStripButton()
+        Me.btnListarProveedores = New System.Windows.Forms.ToolStripButton()
         Me.TiposDocumentoIdentidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TiposDocumentoIdentidadTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.TiposDocumentoIdentidadTableAdapter()
         Me.DocumentoIdentidadTextBox = New System.Windows.Forms.TextBox()
@@ -62,8 +61,6 @@ Partial Class frmProveedores
         Me.DomicilioTextBox = New System.Windows.Forms.TextBox()
         Me.LocalidadTextBox = New System.Windows.Forms.TextBox()
         Me.CódigoPostalTextBox = New System.Windows.Forms.TextBox()
-        Me.IdFormaPagoTextBox = New System.Windows.Forms.TextBox()
-        Me.IdCtaBancariaTextBox = New System.Windows.Forms.TextBox()
         Me.DatosBancariosTextBox = New System.Windows.Forms.TextBox()
         Me.DebeTextBox = New System.Windows.Forms.TextBox()
         Me.HaberTextBox = New System.Windows.Forms.TextBox()
@@ -82,6 +79,15 @@ Partial Class frmProveedores
         Me.Cuenta6TextBox = New System.Windows.Forms.TextBox()
         Me.Código4ComboBox = New System.Windows.Forms.ComboBox()
         Me.Cuenta4TextBox = New System.Windows.Forms.TextBox()
+        Me.FormasPagoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FormasPagoTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FormasPagoTableAdapter()
+        Me.FormasPagoComboBox = New System.Windows.Forms.ComboBox()
+        Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
+        Me.CuentasBancariasComboBox = New System.Windows.Forms.ComboBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.btnBorrarProveedor = New System.Windows.Forms.ToolStripButton()
         DocumentoIdentidadLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TipoDocumentoIdentidadLabel = New System.Windows.Forms.Label()
@@ -103,12 +109,15 @@ Partial Class frmProveedores
         CType(Me.CuentasProveedoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContabilidadGroupBox.SuspendLayout()
+        CType(Me.FormasPagoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DocumentoIdentidadLabel
         '
         DocumentoIdentidadLabel.AutoSize = True
-        DocumentoIdentidadLabel.Location = New System.Drawing.Point(273, 156)
+        DocumentoIdentidadLabel.Location = New System.Drawing.Point(304, 155)
         DocumentoIdentidadLabel.Name = "DocumentoIdentidadLabel"
         DocumentoIdentidadLabel.Size = New System.Drawing.Size(146, 17)
         DocumentoIdentidadLabel.TabIndex = 6
@@ -162,29 +171,29 @@ Partial Class frmProveedores
         'IdFormaPagoLabel
         '
         IdFormaPagoLabel.AutoSize = True
-        IdFormaPagoLabel.Location = New System.Drawing.Point(41, 274)
+        IdFormaPagoLabel.Location = New System.Drawing.Point(41, 283)
         IdFormaPagoLabel.Name = "IdFormaPagoLabel"
-        IdFormaPagoLabel.Size = New System.Drawing.Size(104, 17)
+        IdFormaPagoLabel.Size = New System.Drawing.Size(89, 17)
         IdFormaPagoLabel.TabIndex = 20
-        IdFormaPagoLabel.Text = "id Forma Pago:"
+        IdFormaPagoLabel.Text = "Forma Pago:"
         '
         'IdCtaBancariaLabel
         '
         IdCtaBancariaLabel.AutoSize = True
-        IdCtaBancariaLabel.Location = New System.Drawing.Point(293, 278)
+        IdCtaBancariaLabel.Location = New System.Drawing.Point(379, 283)
         IdCtaBancariaLabel.Name = "IdCtaBancariaLabel"
-        IdCtaBancariaLabel.Size = New System.Drawing.Size(108, 17)
+        IdCtaBancariaLabel.Size = New System.Drawing.Size(57, 17)
         IdCtaBancariaLabel.TabIndex = 22
-        IdCtaBancariaLabel.Text = "id Cta Bancaria:"
+        IdCtaBancariaLabel.Text = "Cuenta:"
         '
         'DatosBancariosLabel
         '
         DatosBancariosLabel.AutoSize = True
-        DatosBancariosLabel.Location = New System.Drawing.Point(525, 281)
+        DatosBancariosLabel.Location = New System.Drawing.Point(624, 283)
         DatosBancariosLabel.Name = "DatosBancariosLabel"
-        DatosBancariosLabel.Size = New System.Drawing.Size(116, 17)
+        DatosBancariosLabel.Size = New System.Drawing.Size(43, 17)
         DatosBancariosLabel.TabIndex = 24
-        DatosBancariosLabel.Text = "Datos Bancarios:"
+        DatosBancariosLabel.Text = "IBAN:"
         '
         'DebeLabel
         '
@@ -227,9 +236,9 @@ Partial Class frmProveedores
         Me.ProveedoresBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
         Me.ProveedoresBindingNavigator.BindingSource = Me.ProveedoresBindingSource
         Me.ProveedoresBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.ProveedoresBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.ProveedoresBindingNavigator.DeleteItem = Nothing
         Me.ProveedoresBindingNavigator.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ProveedoresBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSalir, Me.ToolStripSeparator1, Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.ProveedoresBindingNavigatorSaveItem, Me.btnListarClientes})
+        Me.ProveedoresBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnSalir, Me.ToolStripSeparator1, Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.btnBorrarProveedor, Me.ProveedoresBindingNavigatorSaveItem, Me.btnListarProveedores, Me.ToolStripButton1})
         Me.ProveedoresBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.ProveedoresBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.ProveedoresBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -237,7 +246,7 @@ Partial Class frmProveedores
         Me.ProveedoresBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ProveedoresBindingNavigator.Name = "ProveedoresBindingNavigator"
         Me.ProveedoresBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ProveedoresBindingNavigator.Size = New System.Drawing.Size(1686, 27)
+        Me.ProveedoresBindingNavigator.Size = New System.Drawing.Size(1765, 27)
         Me.ProveedoresBindingNavigator.TabIndex = 6
         Me.ProveedoresBindingNavigator.Text = "Proveedores"
         '
@@ -267,15 +276,6 @@ Partial Class frmProveedores
         Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(24, 24)
-        Me.BindingNavigatorDeleteItem.Text = "Eliminar"
         '
         'btnSalir
         '
@@ -359,15 +359,15 @@ Partial Class frmProveedores
         Me.ProveedoresBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
         Me.ProveedoresBindingNavigatorSaveItem.Text = "Guardar datos"
         '
-        'btnListarClientes
+        'btnListarProveedores
         '
-        Me.btnListarClientes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnListarClientes.Image = Global.Contabilidad.My.Resources.Resources.Listar
-        Me.btnListarClientes.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnListarClientes.Name = "btnListarClientes"
-        Me.btnListarClientes.Size = New System.Drawing.Size(24, 24)
-        Me.btnListarClientes.Text = "ToolStripButton8"
-        Me.btnListarClientes.ToolTipText = "Listado alfabético de clientes"
+        Me.btnListarProveedores.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnListarProveedores.Image = Global.Contabilidad.My.Resources.Resources.Listar
+        Me.btnListarProveedores.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnListarProveedores.Name = "btnListarProveedores"
+        Me.btnListarProveedores.Size = New System.Drawing.Size(24, 24)
+        Me.btnListarProveedores.Text = "ToolStripButton8"
+        Me.btnListarProveedores.ToolTipText = "Listado alfabético de clientes"
         '
         'TiposDocumentoIdentidadBindingSource
         '
@@ -381,7 +381,7 @@ Partial Class frmProveedores
         'DocumentoIdentidadTextBox
         '
         Me.DocumentoIdentidadTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "DocumentoIdentidad", True))
-        Me.DocumentoIdentidadTextBox.Location = New System.Drawing.Point(425, 153)
+        Me.DocumentoIdentidadTextBox.Location = New System.Drawing.Point(456, 151)
         Me.DocumentoIdentidadTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DocumentoIdentidadTextBox.Name = "DocumentoIdentidadTextBox"
         Me.DocumentoIdentidadTextBox.Size = New System.Drawing.Size(123, 22)
@@ -389,6 +389,7 @@ Partial Class frmProveedores
         '
         'NombreTextBox
         '
+        Me.NombreTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Nombre", True))
         Me.NombreTextBox.Location = New System.Drawing.Point(163, 114)
         Me.NombreTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -398,6 +399,7 @@ Partial Class frmProveedores
         '
         'DomicilioTextBox
         '
+        Me.DomicilioTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.DomicilioTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Domicilio", True))
         Me.DomicilioTextBox.Location = New System.Drawing.Point(163, 192)
         Me.DomicilioTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -407,6 +409,7 @@ Partial Class frmProveedores
         '
         'LocalidadTextBox
         '
+        Me.LocalidadTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.LocalidadTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Localidad", True))
         Me.LocalidadTextBox.Location = New System.Drawing.Point(372, 231)
         Me.LocalidadTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -420,51 +423,35 @@ Partial Class frmProveedores
         Me.CódigoPostalTextBox.Location = New System.Drawing.Point(163, 231)
         Me.CódigoPostalTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CódigoPostalTextBox.Name = "CódigoPostalTextBox"
-        Me.CódigoPostalTextBox.Size = New System.Drawing.Size(104, 22)
+        Me.CódigoPostalTextBox.Size = New System.Drawing.Size(123, 22)
         Me.CódigoPostalTextBox.TabIndex = 5
-        '
-        'IdFormaPagoTextBox
-        '
-        Me.IdFormaPagoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "idFormaPago", True))
-        Me.IdFormaPagoTextBox.Location = New System.Drawing.Point(163, 272)
-        Me.IdFormaPagoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.IdFormaPagoTextBox.Name = "IdFormaPagoTextBox"
-        Me.IdFormaPagoTextBox.Size = New System.Drawing.Size(104, 22)
-        Me.IdFormaPagoTextBox.TabIndex = 7
-        '
-        'IdCtaBancariaTextBox
-        '
-        Me.IdCtaBancariaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "idCtaBancaria", True))
-        Me.IdCtaBancariaTextBox.Location = New System.Drawing.Point(407, 274)
-        Me.IdCtaBancariaTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.IdCtaBancariaTextBox.Name = "IdCtaBancariaTextBox"
-        Me.IdCtaBancariaTextBox.Size = New System.Drawing.Size(104, 22)
-        Me.IdCtaBancariaTextBox.TabIndex = 8
         '
         'DatosBancariosTextBox
         '
         Me.DatosBancariosTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "DatosBancarios", True))
-        Me.DatosBancariosTextBox.Location = New System.Drawing.Point(661, 278)
+        Me.DatosBancariosTextBox.Location = New System.Drawing.Point(687, 274)
         Me.DatosBancariosTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DatosBancariosTextBox.Name = "DatosBancariosTextBox"
-        Me.DatosBancariosTextBox.Size = New System.Drawing.Size(321, 22)
+        Me.DatosBancariosTextBox.Size = New System.Drawing.Size(296, 22)
         Me.DatosBancariosTextBox.TabIndex = 9
         '
         'DebeTextBox
         '
-        Me.DebeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Debe", True))
+        Me.DebeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Debe", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "0", "N2"))
         Me.DebeTextBox.Location = New System.Drawing.Point(123, 103)
         Me.DebeTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DebeTextBox.Name = "DebeTextBox"
+        Me.DebeTextBox.ReadOnly = True
         Me.DebeTextBox.Size = New System.Drawing.Size(104, 22)
         Me.DebeTextBox.TabIndex = 31
         '
         'HaberTextBox
         '
-        Me.HaberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Haber", True))
+        Me.HaberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProveedoresBindingSource, "Haber", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "0", "N2"))
         Me.HaberTextBox.Location = New System.Drawing.Point(123, 130)
         Me.HaberTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.HaberTextBox.Name = "HaberTextBox"
+        Me.HaberTextBox.ReadOnly = True
         Me.HaberTextBox.Size = New System.Drawing.Size(104, 22)
         Me.HaberTextBox.TabIndex = 33
         '
@@ -477,7 +464,7 @@ Partial Class frmProveedores
         Me.TiposDocumentoIdentidadComboBox.Location = New System.Drawing.Point(163, 151)
         Me.TiposDocumentoIdentidadComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TiposDocumentoIdentidadComboBox.Name = "TiposDocumentoIdentidadComboBox"
-        Me.TiposDocumentoIdentidadComboBox.Size = New System.Drawing.Size(111, 24)
+        Me.TiposDocumentoIdentidadComboBox.Size = New System.Drawing.Size(123, 24)
         Me.TiposDocumentoIdentidadComboBox.TabIndex = 2
         Me.TiposDocumentoIdentidadComboBox.ValueMember = "id"
         '
@@ -602,8 +589,8 @@ Partial Class frmProveedores
         Me.ContabilidadGroupBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ContabilidadGroupBox.Name = "ContabilidadGroupBox"
         Me.ContabilidadGroupBox.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ContabilidadGroupBox.Size = New System.Drawing.Size(679, 162)
-        Me.ContabilidadGroupBox.TabIndex = 40
+        Me.ContabilidadGroupBox.Size = New System.Drawing.Size(744, 162)
+        Me.ContabilidadGroupBox.TabIndex = 10
         Me.ContabilidadGroupBox.TabStop = False
         Me.ContabilidadGroupBox.Text = "Datos Contabilidad"
         '
@@ -626,8 +613,9 @@ Partial Class frmProveedores
         Me.Cuenta6TextBox.Location = New System.Drawing.Point(123, 66)
         Me.Cuenta6TextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Cuenta6TextBox.Name = "Cuenta6TextBox"
+        Me.Cuenta6TextBox.ReadOnly = True
         Me.Cuenta6TextBox.Size = New System.Drawing.Size(104, 22)
-        Me.Cuenta6TextBox.TabIndex = 3
+        Me.Cuenta6TextBox.TabIndex = 4
         '
         'Código4ComboBox
         '
@@ -639,7 +627,7 @@ Partial Class frmProveedores
         Me.Código4ComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Código4ComboBox.Name = "Código4ComboBox"
         Me.Código4ComboBox.Size = New System.Drawing.Size(436, 24)
-        Me.Código4ComboBox.TabIndex = 0
+        Me.Código4ComboBox.TabIndex = 1
         Me.Código4ComboBox.ValueMember = "Código"
         '
         'Cuenta4TextBox
@@ -648,15 +636,84 @@ Partial Class frmProveedores
         Me.Cuenta4TextBox.Location = New System.Drawing.Point(123, 36)
         Me.Cuenta4TextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Cuenta4TextBox.Name = "Cuenta4TextBox"
+        Me.Cuenta4TextBox.ReadOnly = True
         Me.Cuenta4TextBox.Size = New System.Drawing.Size(104, 22)
-        Me.Cuenta4TextBox.TabIndex = 1
+        Me.Cuenta4TextBox.TabIndex = 3
+        '
+        'FormasPagoBindingSource
+        '
+        Me.FormasPagoBindingSource.DataMember = "FormasPago"
+        Me.FormasPagoBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'FormasPagoTableAdapter
+        '
+        Me.FormasPagoTableAdapter.ClearBeforeFill = True
+        '
+        'FormasPagoComboBox
+        '
+        Me.FormasPagoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProveedoresBindingSource, "idFormaPago", True))
+        Me.FormasPagoComboBox.DataSource = Me.FormasPagoBindingSource
+        Me.FormasPagoComboBox.DisplayMember = "FormaPago"
+        Me.FormasPagoComboBox.FormattingEnabled = True
+        Me.FormasPagoComboBox.Location = New System.Drawing.Point(163, 274)
+        Me.FormasPagoComboBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.FormasPagoComboBox.Name = "FormasPagoComboBox"
+        Me.FormasPagoComboBox.Size = New System.Drawing.Size(192, 24)
+        Me.FormasPagoComboBox.TabIndex = 7
+        Me.FormasPagoComboBox.ValueMember = "id"
+        '
+        'CuentasBancariasBindingSource
+        '
+        Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
+        Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'CuentasBancariasTableAdapter
+        '
+        Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
+        '
+        'CuentasBancariasComboBox
+        '
+        Me.CuentasBancariasComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProveedoresBindingSource, "idCtaBancaria", True))
+        Me.CuentasBancariasComboBox.DataSource = Me.CuentasBancariasBindingSource
+        Me.CuentasBancariasComboBox.DisplayMember = "Banco"
+        Me.CuentasBancariasComboBox.FormattingEnabled = True
+        Me.CuentasBancariasComboBox.Location = New System.Drawing.Point(441, 273)
+        Me.CuentasBancariasComboBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.CuentasBancariasComboBox.Name = "CuentasBancariasComboBox"
+        Me.CuentasBancariasComboBox.Size = New System.Drawing.Size(175, 24)
+        Me.CuentasBancariasComboBox.TabIndex = 8
+        Me.CuentasBancariasComboBox.ValueMember = "id"
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(24, 24)
+        Me.ToolStripButton1.Text = "ToolStripButton1"
+        '
+        'btnBorrarProveedor
+        '
+        Me.btnBorrarProveedor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnBorrarProveedor.Image = CType(resources.GetObject("btnBorrarProveedor.Image"), System.Drawing.Image)
+        Me.btnBorrarProveedor.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnBorrarProveedor.Name = "btnBorrarProveedor"
+        Me.btnBorrarProveedor.Size = New System.Drawing.Size(24, 24)
+        Me.btnBorrarProveedor.Text = "ToolStripButton8"
         '
         'frmProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1656, 768)
+        Me.ClientSize = New System.Drawing.Size(1765, 768)
+        Me.Controls.Add(Me.CuentasBancariasComboBox)
+        Me.Controls.Add(Me.FormasPagoComboBox)
         Me.Controls.Add(Me.ContabilidadGroupBox)
         Me.Controls.Add(Me.ProveedoresComboBox)
         Me.Controls.Add(Me.BajaCheckBox)
@@ -673,9 +730,7 @@ Partial Class frmProveedores
         Me.Controls.Add(CódigoPostalLabel)
         Me.Controls.Add(Me.CódigoPostalTextBox)
         Me.Controls.Add(IdFormaPagoLabel)
-        Me.Controls.Add(Me.IdFormaPagoTextBox)
         Me.Controls.Add(IdCtaBancariaLabel)
-        Me.Controls.Add(Me.IdCtaBancariaTextBox)
         Me.Controls.Add(DatosBancariosLabel)
         Me.Controls.Add(Me.DatosBancariosTextBox)
         Me.Controls.Add(Me.ProveedoresBindingNavigator)
@@ -693,6 +748,9 @@ Partial Class frmProveedores
         CType(Me.CuentasGastoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContabilidadGroupBox.ResumeLayout(False)
         Me.ContabilidadGroupBox.PerformLayout()
+        CType(Me.FormasPagoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -701,7 +759,6 @@ Partial Class frmProveedores
     Friend WithEvents ProveedoresBindingNavigator As System.Windows.Forms.BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents BindingNavigatorDeleteItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents btnSalir As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BindingNavigatorMoveFirstItem As System.Windows.Forms.ToolStripButton
@@ -716,7 +773,7 @@ Partial Class frmProveedores
     Friend WithEvents TiposDocumentoIdentidadBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TiposDocumentoIdentidadTableAdapter As Contabilidad.BDContabilidadGMELOTableAdapters.TiposDocumentoIdentidadTableAdapter
     Friend WithEvents ProveedoresBindingNavigatorSaveItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents btnListarClientes As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnListarProveedores As System.Windows.Forms.ToolStripButton
     Friend WithEvents IdDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NombreRazónSocialDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProveedoresBindingSource As BindingSource
@@ -725,8 +782,6 @@ Partial Class frmProveedores
     Friend WithEvents DomicilioTextBox As TextBox
     Friend WithEvents LocalidadTextBox As TextBox
     Friend WithEvents CódigoPostalTextBox As TextBox
-    Friend WithEvents IdFormaPagoTextBox As TextBox
-    Friend WithEvents IdCtaBancariaTextBox As TextBox
     Friend WithEvents DatosBancariosTextBox As TextBox
     Friend WithEvents DebeTextBox As TextBox
     Friend WithEvents HaberTextBox As TextBox
@@ -745,4 +800,13 @@ Partial Class frmProveedores
     Friend WithEvents Cuenta6TextBox As TextBox
     Friend WithEvents Código4ComboBox As ComboBox
     Friend WithEvents Cuenta4TextBox As TextBox
+    Friend WithEvents FormasPagoBindingSource As BindingSource
+    Friend WithEvents FormasPagoTableAdapter As BDContabilidadGMELOTableAdapters.FormasPagoTableAdapter
+    Friend WithEvents FormasPagoComboBox As ComboBox
+    Friend WithEvents CuentasBancariasBindingSource As BindingSource
+    Friend WithEvents CuentasBancariasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter
+    Friend WithEvents CuentasBancariasComboBox As ComboBox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents btnBorrarProveedor As ToolStripButton
+    Friend WithEvents ToolStripButton1 As ToolStripButton
 End Class
