@@ -18,7 +18,7 @@ Public Class CDocumentoIdentidad
 
                 Exit Select
 
-            Case eTipoDocumento.NIF
+            Case eTipoDocumento.NIF_DNI
                 If EsNIFVálido(prmValorDocumento) Then
                     Me.mTipo = prmTipo
                     Me.mValor = prmValorDocumento

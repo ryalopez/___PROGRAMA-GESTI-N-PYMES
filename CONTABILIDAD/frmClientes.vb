@@ -452,7 +452,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
 
                     MsgBox("No se pueden grabar los cambios pendientes porque hay errores pendientes de subsanar", MsgBoxStyle.OkOnly, My.Resources.Título)
                     Exit Sub
-                    '''''kike Buscar forma de cancelar movimiento
+                    'TODO: kike Buscar forma de cancelar movimiento
 
                 End If
 
@@ -460,7 +460,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
 
         End If
 
-        'Me.VoyACerrar = True
+        Me.VoyACerrar = True
 
     End Sub
 
@@ -496,7 +496,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
 
     Public Function EsPersonaFísica(prmTipo As eTipoDocumento) As Boolean
 
-        If prmTipo = eTipoDocumento.Ninguno OrElse prmTipo = eTipoDocumento.NIF OrElse prmTipo = eTipoDocumento.NIE OrElse
+        If prmTipo = eTipoDocumento.Ninguno OrElse prmTipo = eTipoDocumento.NIF_DNI OrElse prmTipo = eTipoDocumento.NIE OrElse
             prmTipo = eTipoDocumento.Pasaporte Then
 
             Return True

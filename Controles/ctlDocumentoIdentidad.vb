@@ -88,9 +88,9 @@ Public Class ctlDocumentoIdentidad
 
                 Return True
 
-            Case eTipoDocumento.NIF
+            Case eTipoDocumento.NIF_DNI
 
-                Return False
+                Return CMódulo.Validar_DNI_NIF(Me.NúmeroDocumento)
 
             Case eTipoDocumento.CIF
 

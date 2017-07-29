@@ -14,6 +14,36 @@ Public Class CMódulo
 
     Public Shared Sub Main()
 
+        Dim message, title, defaultValue As String
+        Dim myValue As Object
+        ' Set prompt.
+        message = "Enter a número dni"
+        ' Set title.
+        title = "InputBox Demo"
+        defaultValue = "-1"   ' Set default value.
+
+        ' Display dialog box at position 100, 100.
+        myValue = InputBox(message, title, defaultValue, 100, 100)
+        ' If user has clicked Cancel, set myValue to defaultValue
+        While myValue <> ""
+
+            Dim número As Integer = 0
+            Dim letra As String = ""
+            Dim atrás As Boolean = False
+            If Validar_NIE(myValue.ToString) Then
+
+                MsgInformativo("El número de Documento " + myValue.ToString + " es correcto")
+
+            Else
+
+                'MsgErrorCrítico("El número de documento " + myValue.ToString + " no es válido.")
+
+            End If
+
+            myValue = InputBox(message, title, defaultValue, 100, 100)
+
+        End While
+
     End Sub
 
 
@@ -857,5 +887,277 @@ Public Class CMódulo
         Return sBuilder.ToString()
 
     End Function 'GetMd5Hash
+    ''' <summary>
+    ''' Separa un numero de documento en número y letra e indica si la letra está al principio o al final
+    ''' </summary>
+    ''' <param name="NúmeroDocumento">Es el original</param>
+    ''' <param name="Número">Devuelve el número</param>
+    ''' <param name="Letra">Devuelve la letra</param>
+    ''' <param name="LetraDespues">Si es true la letra esta al final del número</param>
+    ''' <returns></returns>
+    Public Shared Function SeparaDocumentoIdentidad(ByVal NúmeroDocumento As String, Optional ByRef Número As Integer = 0, Optional ByRef Letra As String = "", Optional ByRef LetraDespues As Boolean = False) As Boolean
+
+        Dim a As Array = NúmeroDocumento.ToCharArray
+        For i = 0 To a.Length - 1
+
+            If Not Char.IsLetterOrDigit(a(i)) Then
+
+                Return False
+
+            ElseIf Char.IsDigit(a(i)) Then
+
+                Número = CInt(Número.ToString + a(i).ToString)
+
+            Else
+
+                Letra = a(i).ToString.ToUpper
+                If i = 0 Then
+
+                    LetraDespues = False
+
+                ElseIf i = a.Length - 1 Then
+
+                    LetraDespues = True
+
+                Else
+
+                    Return False
+
+                End If
+
+            End If
+        Next
+
+        Return True
+
+    End Function
+    ''' <summary>
+    ''' Valida un número de DNI o NIF. Primero separa el número de la letra y luego comprueba si la letra es la que corresponde a ese número
+    ''' 
+    ''' La formula para calcular la letra del DNI y obtener el NIF es la siguiente:
+    '''
+    '''Tomamos el número completo de hasta 8 cifras de nuestro DNI, lo dividimos entre 23 y nos quedamos con el resto de dicha división, 
+    '''o dicho de otro modo, calculamos el módulo 23 del DNI.
+    '''
+    '''Sea como sea, el resultado anterior es un número entre 0 y 22. A cada uno de estos posibles números le corresponde una letra, 
+    '''según la siguiente tabla
+    '''
+    '''RESTO	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22
+    '''LETRA	T	R	W	A	G	M	Y	F	P	D	X	B	N	J	Z	S	Q	V	H	L	C	K	E
+    ''' </summary>
+    ''' <param name="NúmeroDocumento"></param>
+    ''' <returns></returns>
+    Public Shared Function Validar_DNI_NIF(ByRef NúmeroDocumento As String) As Boolean
+
+        Dim número As Integer = 0
+        Dim letra As String = ""
+        Dim atrás As Boolean = False
+        If SeparaDocumentoIdentidad(NúmeroDocumento.ToString, número, letra, atrás) Then
+            '
+            ' la letra en el DNI y el NIF debe ir atrás
+            If atrás = False Then
+
+                Return False
+
+            End If
+
+            Dim l As String = ""
+            Dim i As Integer = número Mod 23
+            Select Case i
+                Case 0
+                    l = "T"
+                Case 1
+                    l = "R"
+                Case 2
+                    l = "W"
+                Case 3
+                    l = "A"
+                Case 4
+                    l = "G"
+                Case 5
+                    l = "M"
+                Case 6
+                    l = "Y"
+                Case 7
+                    l = "F"
+                Case 8
+                    l = "P"
+                Case 9
+                    l = "D"
+                Case 10
+                    l = "X"
+                Case 11
+                    l = "B"
+                Case 12
+                    l = "N"
+                Case 13
+                    l = "J"
+                Case 14
+                    l = "Z"
+                Case 15
+                    l = "S"
+                Case 16
+                    l = "Q"
+                Case 17
+                    l = "V"
+                Case 18
+                    l = "H"
+                Case 19
+                    l = "L"
+                Case 20
+                    l = "C"
+                Case 21
+                    l = "K"
+                Case 22
+                    l = "E"
+            End Select
+
+            If l = letra Then
+
+                NúmeroDocumento = número.ToString.PadLeft(8, "0") + letra
+                Return True
+
+            Else
+
+                Dim pNúmeroDocumento As String = ""
+                pNúmeroDocumento = número.ToString.PadLeft(8, "0") + l
+
+                If MsgPregunta("El número de documento " + NúmeroDocumento + " no es correcto. Debería ser " + pNúmeroDocumento + ". ¿Quiere corregirlo?") = MsgBoxResult.Yes Then
+                    NúmeroDocumento = pNúmeroDocumento
+                    Return True
+
+                End If
+
+                Return False
+
+            End If
+
+        Else
+
+            MsgErrorCrítico("El número de documento " + NúmeroDocumento + " no es válido.")
+            Return False
+
+        End If
+
+        Return False
+
+    End Function
+    ''' <summary>
+    ''' Valida un número de NIE de extranjeros residentes en españa, que consta de C1234567L C es X, Y o Z
+    ''' 
+    ''' X8312197C
+    ''' 
+    ''' Primero se separan el número de la primera y segunda letra y luego comprueba si las letras son las que corresponden a ese número
+    ''' 
+    ''' La formula para calcular la letra del NIE es la siguiente:
+    '''
+    '''Tomamos el número completo de hasta 7 cifras de nuestro NIE, lo dividimos entre 23 y nos quedamos con el resto de dicha división, 
+    '''o dicho de otro modo, calculamos el módulo 23 del NIE.
+    '''
+    '''Sea como sea, el resultado anterior es un número entre 0 y 22. A cada uno de estos posibles números le corresponde una letra, 
+    '''según la siguiente tabla
+    '''
+    '''RESTO	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22
+    '''LETRA	T	R	W	A	G	M	Y	F	P	D	X	B	N	J	Z	S	Q	V	H	L	C	K	E
+    '''
+    ''' El dígito de control (primer dígito) se sustituye 0->X, 1->Y, 2->Z
+    ''' </summary>
+    ''' <param name="NúmeroDocumento"></param>
+    ''' <returns></returns>
+    Public Shared Function Validar_NIE(ByRef NúmeroDocumento As String) As Boolean
+
+        Dim número As Integer = 0
+        Dim letra As String = ""
+        Dim atrás As Boolean = False
+        If SeparaDocumentoIdentidad(NúmeroDocumento.ToString, número, letra, atrás) Then
+            '
+            ' la letra en el DNI y el NIF debe ir atrás
+            If atrás = False Then
+
+                Return False
+
+            End If
+
+            Dim l As String = ""
+            Dim i As Integer = número Mod 23
+            Select Case i
+                Case 0
+                    l = "T"
+                Case 1
+                    l = "R"
+                Case 2
+                    l = "W"
+                Case 3
+                    l = "A"
+                Case 4
+                    l = "G"
+                Case 5
+                    l = "M"
+                Case 6
+                    l = "Y"
+                Case 7
+                    l = "F"
+                Case 8
+                    l = "P"
+                Case 9
+                    l = "D"
+                Case 10
+                    l = "X"
+                Case 11
+                    l = "B"
+                Case 12
+                    l = "N"
+                Case 13
+                    l = "J"
+                Case 14
+                    l = "Z"
+                Case 15
+                    l = "S"
+                Case 16
+                    l = "Q"
+                Case 17
+                    l = "V"
+                Case 18
+                    l = "H"
+                Case 19
+                    l = "L"
+                Case 20
+                    l = "C"
+                Case 21
+                    l = "K"
+                Case 22
+                    l = "E"
+            End Select
+
+            If l = letra Then
+
+                NúmeroDocumento = número.ToString.PadLeft(8, "0") + letra
+                Return True
+
+            Else
+
+                Dim pNúmeroDocumento As String = ""
+                pNúmeroDocumento = número.ToString.PadLeft(8, "0") + l
+
+                If MsgPregunta("El número de documento " + NúmeroDocumento + " no es correcto. Debería ser " + pNúmeroDocumento + ". ¿Quiere corregirlo?") = MsgBoxResult.Yes Then
+                    NúmeroDocumento = pNúmeroDocumento
+                    Return True
+
+                End If
+
+                Return False
+
+            End If
+
+        Else
+
+            MsgErrorCrítico("El número de documento " + NúmeroDocumento + " no es válido.")
+            Return False
+
+        End If
+
+        Return False
+
+    End Function
 
 End Class

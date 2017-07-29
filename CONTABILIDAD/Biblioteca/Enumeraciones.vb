@@ -53,7 +53,7 @@ End Enum
 Public Enum eTipoDocumento
 
     Ninguno = 0
-    NIF = 1
+    NIF_DNI = 1
     CIF = 2
     NIE = 3
     Pasaporte = 4

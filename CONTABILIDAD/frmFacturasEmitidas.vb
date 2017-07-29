@@ -593,7 +593,7 @@ Public Class frmFacturasEmitidas
                     Doc = "CIF: " + cliente.DocumentoIdentidad
                 ElseIf cliente.TipoDocumentoIdentidad - 1 = eTipoDocumento.NIE Then
                     Doc = "NIE: " + cliente.DocumentoIdentidad
-                ElseIf cliente.TipoDocumentoIdentidad - 1 = eTipoDocumento.NIF Then
+                ElseIf cliente.TipoDocumentoIdentidad - 1 = eTipoDocumento.NIF_DNI Then
                     Doc = "NIF: " + cliente.DocumentoIdentidad
                 End If
                 oPara1.Range.Text = "FACTURA: " + factura.Número + vbTab + vbTab + Doc
@@ -1358,7 +1358,7 @@ Public Class frmFacturasEmitidas
             Doc = "CIF: " + Cliente.DocumentoIdentidad
         ElseIf Cliente.TipoDocumentoIdentidad = eTipoDocumento.NIE Then
             Doc = "NIE: " + Cliente.DocumentoIdentidad
-        ElseIf Cliente.TipoDocumentoIdentidad = eTipoDocumento.NIF Then
+        ElseIf Cliente.TipoDocumentoIdentidad = eTipoDocumento.NIF_DNI Then
             Doc = "NIF: " + Cliente.DocumentoIdentidad
         End If
         oPara1.Range.Text = "FACTURA: " + Número + vbTab + vbTab + Doc

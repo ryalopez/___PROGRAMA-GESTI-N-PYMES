@@ -96,7 +96,7 @@ Public Class frmEmpleados
     Private Function EsCorrectoDocumento(ByRef msg As String, TipoDocumento As DataGridViewCell, Documento As DataGridViewCell) As Boolean
 
         If CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.Ninguno Or
-                CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.NIF Or
+                CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.NIF_DNI Or
                 CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.CIF Or
                 CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.NIE Or
                 CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.Pasaporte Then

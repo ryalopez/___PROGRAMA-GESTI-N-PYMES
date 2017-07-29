@@ -1870,5 +1870,33 @@ Used to sort self-referenced table's rows
  </summary>
  <remarks></remarks>
 </member>
+<member name="M:Biblioteca.CMódulo.SeparaDocumentoIdentidad(System.String,System.Int32@,System.String@,System.Boolean@)">
+ <summary>
+ Separa un numero de documento en número y letra e indica si la letra está al principio o al final
+ </summary>
+ <param name="NúmeroDocumento">Es el original</param>
+ <param name="Número">Devuelve el número</param>
+ <param name="Letra">Devuelve la letra</param>
+ <param name="LetraDespues">Si es true la letra esta al final del número</param>
+ <returns></returns>
+</member>
+<member name="M:Biblioteca.CMódulo.Validar_DNI_NIF(System.String@)">
+ <summary>
+ Valida un número de DNI o NIF. Primero separa el número de la letra y luego comprueba si la letra es la que corresponde a ese número
+ 
+ La formula para calcular la letra del DNI y obtener el NIF es la siguiente:
+
+Tomamos el número completo de hasta 8 cifras de nuestro DNI, lo dividimos entre 23 y nos quedamos con el resto de dicha división, 
+o dicho de otro modo, calculamos el módulo 23 del DNI.
+
+Sea como sea, el resultado anterior es un número entre 0 y 22. A cada uno de estos posibles números le corresponde una letra, 
+según la siguiente tabla
+
+RESTO	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22
+LETRA	T	R	W	A	G	M	Y	F	P	D	X	B	N	J	Z	S	Q	V	H	L	C	K	E
+ </summary>
+ <param name="NúmeroDocumento"></param>
+ <returns></returns>
+</member>
 </members>
 </doc>

@@ -15,8 +15,6 @@ K:\Grupo MELO\Biblioteca\obj\Debug\Biblioteca.vbproj.GenerateResource.Cache
 K:\Grupo MELO\Biblioteca\obj\Debug\Biblioteca.dll
 K:\Grupo MELO\Biblioteca\obj\Debug\Biblioteca.xml
 K:\Grupo MELO\Biblioteca\obj\Debug\Biblioteca.pdb
-K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.dll.config
-K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.dll
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.pdb
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.xml
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbprojResolveAssemblyReference.cache
@@ -32,6 +30,8 @@ K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.frmLogin.resources
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.frmPrincipal.resources
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.Resources.resources
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.vbproj.GenerateResource.Cache
-K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.dll
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.xml
 K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.pdb
+K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.exe.config
+K:\Grupo MELO\CONTABILIDAD\Biblioteca\bin\Debug\Biblioteca.exe
+K:\Grupo MELO\CONTABILIDAD\Biblioteca\obj\Debug\Biblioteca.exe

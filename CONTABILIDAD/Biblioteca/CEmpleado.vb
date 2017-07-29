@@ -42,7 +42,7 @@ Public Class CEmpleado
 
     Public Property tipoDocumentoIdentidad As eTipoDocumento
         Get
-            Return eTipoDocumento.NIF
+            Return eTipoDocumento.NIF_DNI
         End Get
         Set(value As eTipoDocumento)
 
