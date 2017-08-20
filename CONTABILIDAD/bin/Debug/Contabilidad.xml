@@ -1350,7 +1350,7 @@ Used to sort self-referenced table's rows
  Se genera un asiento
  572BBB Cuenta Banco   ->  Cuenta Cliente   470CCC</remarks>
 </member>
-<member name="M:Contabilidad.frmNóminas.ContabilizarStripButton_Click(System.Object,System.EventArgs)">
+<member name="M:Contabilidad.FrmNóminas.ContabilizarStripButton_Click(System.Object,System.EventArgs)">
  <summary>
  Contabilizar Los recibos salariales emitidos que aún no lo están
  </summary>
@@ -1365,7 +1365,7 @@ Used to sort self-referenced table's rows
                                          Remuneraciones ptes. pago Empleado  465CCC
  </remarks>
 </member>
-<member name="M:Contabilidad.frmNóminas.PagarStripButton_Click(System.Object,System.EventArgs)">
+<member name="M:Contabilidad.FrmNóminas.PagarStripButton_Click(System.Object,System.EventArgs)">
  <summary>
  Contabilizar Pago de las nóminas que aún no están contabilizadas
  </summary>
@@ -1375,7 +1375,7 @@ Used to sort self-referenced table's rows
  Se genera un asiento
  Cuenta Cliente   465CCC   -> Cuenta Banco  572BBB</remarks>
 </member>
-<member name="M:Contabilidad.frmClientes.frmCliProg_Load(System.Object,System.EventArgs)">
+<member name="M:Contabilidad.FrmClientes.FrmCliProg_Load(System.Object,System.EventArgs)">
  <summary>
   Carga el formulario.
   Se enlaza un control de usuario
@@ -1383,14 +1383,14 @@ Used to sort self-referenced table's rows
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:Contabilidad.frmClientes.ClientesBindingSource_AddingNew(System.Object,System.ComponentModel.AddingNewEventArgs)">
+<member name="M:Contabilidad.FrmClientes.ClientesBindingSource_AddingNew(System.Object,System.ComponentModel.AddingNewEventArgs)">
  <summary>
  Crea un nuevo Cliente
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:Contabilidad.frmCuentas.CuentasMaestrasDataGridView_RowHeaderMouseDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+<member name="M:Contabilidad.FrmCuentas.CuentasMaestrasDataGridView_RowHeaderMouseDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
  <summary>
  Crea una cuenta del grupo de la cuenta maestra en la que han hecho doble click
  </summary>
@@ -1398,7 +1398,7 @@ Used to sort self-referenced table's rows
  <param name="e"></param>
  <remarks></remarks>
 </member>
-<member name="M:Contabilidad.frmCuentas.CuentasMaestrasDataGridView_RowPostPaint(System.Object,System.Windows.Forms.DataGridViewRowPostPaintEventArgs)">
+<member name="M:Contabilidad.FrmCuentas.CuentasMaestrasDataGridView_RowPostPaint(System.Object,System.Windows.Forms.DataGridViewRowPostPaintEventArgs)">
  <summary>
  pinta el simbolo de crear una cuenta en las filas de las cuentas maestras
  </summary>
@@ -1406,7 +1406,7 @@ Used to sort self-referenced table's rows
  <param name="e"></param>
  <remarks></remarks>
 </member>
-<member name="M:Contabilidad.frmCuentas.CuentasDataGridView_RowHeaderMouseDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
+<member name="M:Contabilidad.FrmCuentas.CuentasDataGridView_RowHeaderMouseDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
  <summary>
  borra la cuenta en la que han hecho doble click
  </summary>
@@ -1414,7 +1414,7 @@ Used to sort self-referenced table's rows
  <param name="e"></param>
  <remarks></remarks>
 </member>
-<member name="M:Contabilidad.frmCuentas.CuentasDataGridView_RowPostPaint(System.Object,System.Windows.Forms.DataGridViewRowPostPaintEventArgs)">
+<member name="M:Contabilidad.FrmCuentas.CuentasDataGridView_RowPostPaint(System.Object,System.Windows.Forms.DataGridViewRowPostPaintEventArgs)">
  <summary>
  pinta el simbolo de borrar cuenta en las filas de las cuentas
  </summary>

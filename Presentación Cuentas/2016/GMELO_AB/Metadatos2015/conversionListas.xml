@@ -1,0 +1,1614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Listas>
+  <!--  Lista de conversión para los valores booleanos-->
+  <Booleanos>
+    <ItemLista>
+      <Valor>1</Valor>
+      <ValorXBRL>true</ValorXBRL>
+      <ValorXBRL>1</ValorXBRL>
+      <ValorXBRL>01</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>0</Valor>
+      <ValorXBRL>false</ValorXBRL>
+      <ValorXBRL>0</ValorXBRL>
+    </ItemLista>
+  </Booleanos>
+
+  <!-- Lista de conversión para las provincias -->
+  <Provincias>
+    <ItemLista>
+      <!-- Álava -->
+      <Valor>01</Valor>
+      <ValorXBRL>01</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Albacete -->
+      <Valor>02</Valor>
+      <ValorXBRL>02</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Alicante -->
+      <Valor>03</Valor>
+      <ValorXBRL>03</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Almeria -->
+      <Valor>04</Valor>
+      <ValorXBRL>04</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ávila -->
+      <Valor>05</Valor>
+      <ValorXBRL>05</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Badajoz -->
+      <Valor>06</Valor>
+      <ValorXBRL>06</ValorXBRL>
+    </ItemLista>
+    <!--En XBRL és Palma de Mallorca-->
+    <ItemLista>
+      <!-- Islas Baleares -->
+      <Valor>07</Valor>
+      <ValorXBRL>07</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Barcelona -->
+      <Valor>08</Valor>
+      <ValorXBRL>08</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Burgos -->
+      <Valor>09</Valor>
+      <ValorXBRL>09</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Cáceres -->
+      <Valor>10</Valor>
+      <ValorXBRL>10</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Cádiz -->
+      <Valor>11</Valor>
+      <ValorXBRL>11</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Castellón -->
+      <Valor>12</Valor>
+      <ValorXBRL>12</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ciudad Real -->
+      <Valor>13</Valor>
+      <ValorXBRL>13</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Córdoba -->
+      <Valor>14</Valor>
+      <ValorXBRL>14</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- A Coruña -->
+      <Valor>15</Valor>
+      <ValorXBRL>15</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Cuenca -->
+      <Valor>16</Valor>
+      <ValorXBRL>16</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Girona -->
+      <Valor>17</Valor>
+      <ValorXBRL>17</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Granada -->
+      <Valor>18</Valor>
+      <ValorXBRL>18</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Guadalajara -->
+      <Valor>19</Valor>
+      <ValorXBRL>19</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Guipúzcoa -->
+      <Valor>20</Valor>
+      <ValorXBRL>20</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Huelva -->
+      <Valor>21</Valor>
+      <ValorXBRL>21</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Huesca -->
+      <Valor>22</Valor>
+      <ValorXBRL>22</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Jaén -->
+      <Valor>23</Valor>
+      <ValorXBRL>23</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- León -->
+      <Valor>24</Valor>
+      <ValorXBRL>24</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Lleida -->
+      <Valor>25</Valor>
+      <ValorXBRL>25</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- La Rioja -->
+      <Valor>26</Valor>
+      <ValorXBRL>26</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Lugo -->
+      <Valor>27</Valor>
+      <ValorXBRL>27</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Madrid -->
+      <Valor>28</Valor>
+      <ValorXBRL>28</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Málaga -->
+      <Valor>29</Valor>
+      <ValorXBRL>29</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Murcia -->
+      <Valor>30</Valor>
+      <ValorXBRL>30</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Navarra -->
+      <Valor>31</Valor>
+      <ValorXBRL>31</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ourense -->
+      <Valor>32</Valor>
+      <ValorXBRL>32</ValorXBRL>
+    </ItemLista>
+    <!--Al XBRL és Oviedo-->
+    <ItemLista>
+      <!-- Asturias -->
+      <Valor>33</Valor>
+      <ValorXBRL>33</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Palencia -->
+      <Valor>34</Valor>
+      <ValorXBRL>34</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Las Palmas -->
+      <Valor>35</Valor>
+      <ValorXBRL>35</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Pontevedra -->
+      <Valor>36</Valor>
+      <ValorXBRL>36</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Salamanca -->
+      <Valor>37</Valor>
+      <ValorXBRL>37</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Santa Cruz de Tenerife -->
+      <Valor>38</Valor>
+      <ValorXBRL>38</ValorXBRL>
+    </ItemLista>
+    <!--Al XBRL és Santander-->
+    <ItemLista>
+      <!-- Cantabria -->
+      <Valor>39</Valor>
+      <ValorXBRL>39</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Segovia -->
+      <Valor>40</Valor>
+      <ValorXBRL>40</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Sevilla -->
+      <Valor>41</Valor>
+      <ValorXBRL>41</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Soria -->
+      <Valor>42</Valor>
+      <ValorXBRL>42</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Tarragona -->
+      <Valor>43</Valor>
+      <ValorXBRL>43</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Teruel -->
+      <Valor>44</Valor>
+      <ValorXBRL>44</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Toledo -->
+      <Valor>45</Valor>
+      <ValorXBRL>45</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Valencia -->
+      <Valor>46</Valor>
+      <ValorXBRL>46</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Valladolid -->
+      <Valor>47</Valor>
+      <ValorXBRL>47</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Vizcaya -->
+      <Valor>48</Valor>
+      <ValorXBRL>48</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Zamora -->
+      <Valor>49</Valor>
+      <ValorXBRL>49</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Zaragoza -->
+      <Valor>50</Valor>
+      <ValorXBRL>50</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ceuta -->
+      <Valor>51</Valor>
+      <ValorXBRL>51</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Melilla -->
+      <Valor>52</Valor>
+      <ValorXBRL>52</ValorXBRL>
+    </ItemLista>
+  </Provincias>
+  <!-- Lista de conversión para las provincias (Texto libre)-->
+  <ProvinciasTextoLibre>
+    <ItemLista>
+      <!-- Álava -->
+      <Valor>01</Valor>
+      <ValorXBRL>Alava</ValorXBRL>
+      <ValorXBRL>Araba/Alava </ValorXBRL>
+      <ValorXBRL>Araba</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Albacete -->
+      <Valor>02</Valor>
+      <ValorXBRL>Albacete</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Alicante -->
+      <Valor>03</Valor>
+      <ValorXBRL>Alicante</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Almeria -->
+      <Valor>04</Valor>
+      <ValorXBRL>Almeria</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Álava -->
+      <Valor>05</Valor>
+      <ValorXBRL>Avila</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Badajoz -->
+      <Valor>06</Valor>
+      <ValorXBRL>Badajoz</ValorXBRL>
+    </ItemLista>
+    <!--En XBRL és Palma de Mallorca-->
+    <ItemLista>
+      <!-- Islas Baleares -->
+      <Valor>07</Valor>
+      <ValorXBRL>Islas Baleares</ValorXBRL>
+      <ValorXBRL>Palma de Mallorca</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Barcelona -->
+      <Valor>08</Valor>
+      <ValorXBRL>Barcelona</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Burgos -->
+      <Valor>09</Valor>
+      <ValorXBRL>Burgos</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Cáceres -->
+      <Valor>10</Valor>
+      <ValorXBRL>Caceres</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Cádiz -->
+      <Valor>11</Valor>
+      <ValorXBRL>Cadiz</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Castellón -->
+      <Valor>12</Valor>
+      <ValorXBRL>Castellon</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ciudad Real -->
+      <Valor>13 Real</Valor>
+      <ValorXBRL>Ciudad Real</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Córdoba -->
+      <Valor>14</Valor>
+      <ValorXBRL>Cordoba</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- A Coruña -->
+      <Valor>15</Valor>
+      <ValorXBRL>A Coruña</ValorXBRL>
+      <ValorXBRL>La Coruña</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Cuenca -->
+      <Valor>16</Valor>
+      <ValorXBRL>Cuenca</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Girona -->
+      <Valor>17</Valor>
+      <ValorXBRL>Girona</ValorXBRL>
+      <ValorXBRL>Gerona</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Granada -->
+      <Valor>18</Valor>
+      <ValorXBRL>Granada</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Guadalajara -->
+      <Valor>19</Valor>
+      <ValorXBRL>Guadalajara</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Guipúzcoa -->
+      <Valor>20</Valor>
+      <ValorXBRL>Guipuzcoa</ValorXBRL>
+      <ValorXBRL>Gipuzkoa</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Huelva -->
+      <Valor>21</Valor>
+      <ValorXBRL>Huelva</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Huesca -->
+      <Valor>22</Valor>
+      <ValorXBRL>Huesca</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Jaén -->
+      <Valor>23</Valor>
+      <ValorXBRL>Jaen</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- León -->
+      <Valor>24</Valor>
+      <ValorXBRL>Leon</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Lleida -->
+      <Valor>25</Valor>
+      <ValorXBRL>Lleida</ValorXBRL>
+      <ValorXBRL>Lerida</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- La Rioja -->
+      <Valor>26</Valor>
+      <ValorXBRL>La Rioja</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Lugo -->
+      <Valor>27</Valor>
+      <ValorXBRL>Lugo</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Madrid -->
+      <Valor>28</Valor>
+      <ValorXBRL>Madrid</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Málaga -->
+      <Valor>29</Valor>
+      <ValorXBRL>Malaga</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Murcia -->
+      <Valor>30</Valor>
+      <ValorXBRL>Murcia</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Navarra -->
+      <Valor>31</Valor>
+      <ValorXBRL>Navarra</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ourense -->
+      <Valor>32</Valor>
+      <ValorXBRL>Ourense</ValorXBRL>
+      <ValorXBRL>Orense</ValorXBRL>
+    </ItemLista>
+    <!--Al XBRL és Oviedo-->
+    <ItemLista>
+      <!-- Oviedo -->
+      <Valor>33</Valor>
+      <ValorXBRL>Asturias</ValorXBRL>
+      <ValorXBRL>Oviedo</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Palencia -->
+      <Valor>34</Valor>
+      <ValorXBRL>Palencia</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Las Palmas -->
+      <Valor>35</Valor>
+      <ValorXBRL>Las Palmas</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Pontevedra -->
+      <Valor>36</Valor>
+      <ValorXBRL>Pontevedra</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Salamanca -->
+      <Valor>37</Valor>
+      <ValorXBRL>Salamanca</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Santa Cruz de Tenerife -->
+      <Valor>38</Valor>
+      <ValorXBRL>Santa Cruz de Tenerife</ValorXBRL>
+    </ItemLista>
+    <!--Al XBRL és Santander-->
+    <ItemLista>
+      <!-- Cantabria -->
+      <Valor>39</Valor>
+      <ValorXBRL>Cantabria</ValorXBRL>
+      <ValorXBRL>Santander</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Segovia -->
+      <Valor>40</Valor>
+      <ValorXBRL>Segovia</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Sevilla -->
+      <Valor>41</Valor>
+      <ValorXBRL>Sevilla</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Soria -->
+      <Valor>42</Valor>
+      <ValorXBRL>Soria</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Tarragona -->
+      <Valor>43</Valor>
+      <ValorXBRL>Tarragona</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Teruel -->
+      <Valor>44</Valor>
+      <ValorXBRL>Teruel</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Toledo -->
+      <Valor>45</Valor>
+      <ValorXBRL>Toledo</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Valencia -->
+      <Valor>46</Valor>
+      <ValorXBRL>Valencia</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Valladolid -->
+      <Valor>47</Valor>
+      <ValorXBRL>Valladolid</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Vizcaya -->
+      <Valor>48</Valor>
+      <ValorXBRL>Vizcaya</ValorXBRL>
+      <ValorXBRL>Bizkaia</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Zamora -->
+      <Valor>49</Valor>
+      <ValorXBRL>Zamora</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Zaragoza -->
+      <Valor>50</Valor>
+      <ValorXBRL>Zaragoza</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Ceuta -->
+      <Valor>51</Valor>
+      <ValorXBRL>Ceuta</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!-- Melilla -->
+      <Valor>52</Valor>
+      <ValorXBRL>Melilla</ValorXBRL>
+    </ItemLista>
+  </ProvinciasTextoLibre>
+
+  <!-- Lista de conversión para las unidades -->
+  <UnidadesEuros>
+    <ItemLista>
+      <Valor>1</Valor>
+      <ValorXBRL>01</ValorXBRL>
+    </ItemLista>
+  </UnidadesEuros>
+  <MilesEuros>
+    <ItemLista>
+      <Valor>1</Valor>
+      <ValorXBRL>02</ValorXBRL>
+    </ItemLista>
+  </MilesEuros>
+  <MillonesEuros>
+    <ItemLista>
+      <Valor>1</Valor>
+      <ValorXBRL>03</ValorXBRL>
+    </ItemLista>
+  </MillonesEuros>
+  <!-- Lista de conversión para la forma juridica -->
+  <SociedadAnonima>
+    <ItemLista>
+      <Valor>1</Valor>
+      <ValorXBRL>001</ValorXBRL>
+    </ItemLista>
+  </SociedadAnonima>
+  <SociedadLimitada>
+    <ItemLista>
+      <Valor>1</Valor>
+      <ValorXBRL>023</ValorXBRL>
+    </ItemLista>
+  </SociedadLimitada>
+  <!-- Lista de conversión para la forma juridica en texto (memoria normal)-->
+  <SociedadAnonimaTexto>
+    <ItemLista>
+      <Valor>SA</Valor>
+      <ValorXBRL>001</ValorXBRL>
+    </ItemLista>
+  </SociedadAnonimaTexto>
+  <SociedadLimitadaTexto>
+    <ItemLista>
+      <Valor>SL</Valor>
+      <ValorXBRL>023</ValorXBRL>
+    </ItemLista>
+  </SociedadLimitadaTexto>
+  <!-- Lista de conversión para la forma juridica en texto fusión, escisión, etc. (memoria normal)-->
+  <FormaJuridicaTexto>
+    <ItemLista>
+      <Valor>Fusión por u.</Valor>
+      <ValorXBRL>01</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Fusión por ab.</Valor>
+      <ValorXBRL>02</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Escisión</Valor>
+      <ValorXBRL>03</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Apor. o trans.</Valor>
+      <ValorXBRL>04</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Cesión</Valor>
+      <ValorXBRL>05</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Cesión global</Valor>
+      <ValorXBRL>06</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Fusión</Valor>
+      <ValorXBRL>07</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>Transfor.</Valor>
+      <ValorXBRL>08</ValorXBRL>
+    </ItemLista>
+  </FormaJuridicaTexto>
+  <!-- Lista de conversión para el tipo de relación con grupo consolidado -->
+  <TipoRelacionConsolidado>
+    <ItemLista>
+      <!--Dependiente-->
+      <Valor>1</Valor>
+      <ValorXBRL>01</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <!--Multigrupo-->
+      <Valor>2</Valor>
+      <ValorXBRL>02</ValorXBRL>
+    </ItemLista>
+  </TipoRelacionConsolidado>
+  <!-- Lista de conversión para los países -->
+  <Paises>
+    <ItemLista>
+      <Valor>ARUBA</Valor>
+      <ValorXBRL>ABW</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>AFGANISTÁN</Valor>
+      <ValorXBRL>AFG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ANGOLA</Valor>
+      <ValorXBRL>AGO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ANGUILA</Valor>
+      <ValorXBRL>AIA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ALBANIA</Valor>
+      <ValorXBRL>ALB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ANDORRA</Valor>
+      <ValorXBRL>AND</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ANTILLAS HOLANDESAS</Valor>
+      <ValorXBRL>ANT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>EMIRATOS ÁRABES UNIDOS</Valor>
+      <ValorXBRL>ARE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ARGENTINA</Valor>
+      <ValorXBRL>ARG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ARMENIA</Valor>
+      <ValorXBRL>ARM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAMOA ESTADOUNIDENSE</Valor>
+      <ValorXBRL>ASM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ANTÁRTIDA</Valor>
+      <ValorXBRL>ATA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TERRITORIOS DEL SUR DE FRANCIA</Valor>
+      <ValorXBRL>ATF</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ANTIGUA Y BARBUDA</Valor>
+      <ValorXBRL>ATG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>AUSTRALIA</Valor>
+      <ValorXBRL>AUS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>AUSTRIA</Valor>
+      <ValorXBRL>AUT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>AZERBAIYÁN</Valor>
+      <ValorXBRL>AZE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BURUNDI</Valor>
+      <ValorXBRL>BDI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BÉLGICA</Valor>
+      <ValorXBRL>BEL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BENÍN</Valor>
+      <ValorXBRL>BEN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BURKINA FASO</Valor>
+      <ValorXBRL>BFA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BANGLADESH</Valor>
+      <ValorXBRL>BGD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BULGARIA</Valor>
+      <ValorXBRL>BGR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BAHREIN</Valor>
+      <ValorXBRL>BHR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BAHAMAS</Valor>
+      <ValorXBRL>BHS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BOSNIA-HERZEGOVINA</Valor>
+      <ValorXBRL>BIH</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BIELORRUSIA</Valor>
+      <ValorXBRL>BLR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BELICE</Valor>
+      <ValorXBRL>BLZ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BERMUDAS</Valor>
+      <ValorXBRL>BMU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BOLIVIA</Valor>
+      <ValorXBRL>BOL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BRASIL</Valor>
+      <ValorXBRL>BRA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BARBADOS</Valor>
+      <ValorXBRL>BRB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BRUNEI</Valor>
+      <ValorXBRL>BRN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BUTÁN</Valor>
+      <ValorXBRL>BTN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLA BOUVET</Valor>
+      <ValorXBRL>BVT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>BOTSWANA</Valor>
+      <ValorXBRL>BWA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA CENTROAFRICANA</Valor>
+      <ValorXBRL>CAF</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CANADÁ</Valor>
+      <ValorXBRL>CAN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>COCOS(KEELING)</Valor>
+      <ValorXBRL>CCK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SUIZA</Valor>
+      <ValorXBRL>CHE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CHILE</Valor>
+      <ValorXBRL>CHL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CHINA</Valor>
+      <ValorXBRL>CHN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>COSTA DEL MARFIL</Valor>
+      <ValorXBRL>CIV</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CAMERÚN</Valor>
+      <ValorXBRL>CMR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DEMOCRÁTICA DEL CONGO</Valor>
+      <ValorXBRL>COD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DEL CONGO</Valor>
+      <ValorXBRL>COG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS COOK</Valor>
+      <ValorXBRL>COK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>COLOMBIA</Valor>
+      <ValorXBRL>COL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>COMORES</Valor>
+      <ValorXBRL>COM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CABOVERDE</Valor>
+      <ValorXBRL>CPV</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>COSTA RICA</Valor>
+      <ValorXBRL>CRI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CUBA</Valor>
+      <ValorXBRL>CUB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLA DE PASCUA</Valor>
+      <ValorXBRL>CXR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLASC AIMÁN</Valor>
+      <ValorXBRL>CYM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CHIPRE</Valor>
+      <ValorXBRL>CYP</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA CHECA</Valor>
+      <ValorXBRL>CZE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ALEMANIA</Valor>
+      <ValorXBRL>DEU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>DJIBOUTI</Valor>
+      <ValorXBRL>DJI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>DOMINICA</Valor>
+      <ValorXBRL>DMA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>DINAMARCA</Valor>
+      <ValorXBRL>DNK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DOMINICANA</Valor>
+      <ValorXBRL>DOM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ARGELIA</Valor>
+      <ValorXBRL>DZA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ECUADOR</Valor>
+      <ValorXBRL>ECU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>EGIPTO</Valor>
+      <ValorXBRL>EGY</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ERITREA</Valor>
+      <ValorXBRL>ERI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAHARA OCCIDENTAL</Valor>
+      <ValorXBRL>ESH</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ESPAÑA</Valor>
+      <ValorXBRL>ESP</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ESTONIA</Valor>
+      <ValorXBRL>EST</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ETIOPÍA</Valor>
+      <ValorXBRL>ETH</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>FINLANDIA</Valor>
+      <ValorXBRL>FIN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS FIDJI</Valor>
+      <ValorXBRL>FJI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS MALVINAS(FALKLAND)</Valor>
+      <ValorXBRL>FLK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>FRANCIA</Valor>
+      <ValorXBRL>FRA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS FEROE</Valor>
+      <ValorXBRL>FRO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ESTADOS FEDERADOS DE MICRONESIA</Valor>
+      <ValorXBRL>FSM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GABÓN</Valor>
+      <ValorXBRL>GAB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REINOUNIDO</Valor>
+      <ValorXBRL>GBR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GEORGIA</Valor>
+      <ValorXBRL>GEO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GHANA</Valor>
+      <ValorXBRL>GHA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GIBRALTAR</Valor>
+      <ValorXBRL>GIB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUINEA</Valor>
+      <ValorXBRL>GIN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUADALUPE</Valor>
+      <ValorXBRL>GLP</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GAMBIA</Valor>
+      <ValorXBRL>GMB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUINEA-BISSAU</Valor>
+      <ValorXBRL>GNB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUINEA ECUATORIAL</Valor>
+      <ValorXBRL>GNQ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GRECIA</Valor>
+      <ValorXBRL>GRC</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GRANADA</Valor>
+      <ValorXBRL>GRD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GROENLANDIA</Valor>
+      <ValorXBRL>GRL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUATEMALA</Valor>
+      <ValorXBRL>GTM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUAYANA FRANCESA</Valor>
+      <ValorXBRL>GUF</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUAM</Valor>
+      <ValorXBRL>GUM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>GUYANA</Valor>
+      <ValorXBRL>GUY</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>HONG KONG</Valor>
+      <ValorXBRL>HKG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLA HEARD E ISLAS MCDONALD</Valor>
+      <ValorXBRL>HMD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>HONDURAS</Valor>
+      <ValorXBRL>HND</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CROACIA</Valor>
+      <ValorXBRL>HRV</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>HAITÍ</Valor>
+      <ValorXBRL>HTI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>HUNGRÍA</Valor>
+      <ValorXBRL>HUN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>INDONESIA</Valor>
+      <ValorXBRL>IDN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>INDIA</Valor>
+      <ValorXBRL>IND</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TERRITORIO BRITÁNICO DEL OCÉANO ÍNDICO</Valor>
+      <ValorXBRL>IOT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>IRLANDA</Valor>
+      <ValorXBRL>IRL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA ISLÁMICA DE IRÁN</Valor>
+      <ValorXBRL>IRN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>IRAK</Valor>
+      <ValorXBRL>IRQ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLANDIA</Valor>
+      <ValorXBRL>ISL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISRAEL</Valor>
+      <ValorXBRL>ISR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ITALIA</Valor>
+      <ValorXBRL>ITA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>JAMAICA</Valor>
+      <ValorXBRL>JAM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>JORDANIA</Valor>
+      <ValorXBRL>JOR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>JAPÓN</Valor>
+      <ValorXBRL>JPN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>KAZAJSTÁN</Valor>
+      <ValorXBRL>KAZ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>KENIA</Valor>
+      <ValorXBRL>KEN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>KIRGUIZISTÁN</Valor>
+      <ValorXBRL>KGZ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CAMBOYA</Valor>
+      <ValorXBRL>KHM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>KIRIBATI</Valor>
+      <ValorXBRL>KIR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAINT KITTS Y NEVIS</Valor>
+      <ValorXBRL>KNA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DE COREA</Valor>
+      <ValorXBRL>KOR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>KUWAIT</Valor>
+      <ValorXBRL>KWT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DEMOCRÁTICA POPULAR DE LAOS</Valor>
+      <ValorXBRL>LAO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LÍBANO</Valor>
+      <ValorXBRL>LBN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LIBERIA</Valor>
+      <ValorXBRL>LBR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LIBIA</Valor>
+      <ValorXBRL>LBY</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SANTA LUCÍA</Valor>
+      <ValorXBRL>LCA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LIECHTENSTEIN</Valor>
+      <ValorXBRL>LIE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SRI LANKA</Valor>
+      <ValorXBRL>LKA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LESOTHO</Valor>
+      <ValorXBRL>LSO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LITUANIA</Valor>
+      <ValorXBRL>LTU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LUXEMBURGO</Valor>
+      <ValorXBRL>LUX</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>LETONIA</Valor>
+      <ValorXBRL>LVA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MACAO</Valor>
+      <ValorXBRL>MAC</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MARRUECOS</Valor>
+      <ValorXBRL>MAR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MÓNACO</Valor>
+      <ValorXBRL>MCO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DE MOLDAVIA</Valor>
+      <ValorXBRL>MDA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MADAGASCAR</Valor>
+      <ValorXBRL>MDG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS MALDIVAS</Valor>
+      <ValorXBRL>MDV</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MÉJICO</Valor>
+      <ValorXBRL>MEX</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS MARSHALL</Valor>
+      <ValorXBRL>MHL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>EX REPUBLICA YUGOSLAVA DE MACEDONIA</Valor>
+      <ValorXBRL>MKD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MALI</Valor>
+      <ValorXBRL>MLI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MALTA</Valor>
+      <ValorXBRL>MLT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MYANMAR</Valor>
+      <ValorXBRL>MMR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MONGOLIA</Valor>
+      <ValorXBRL>MNG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS MARIANAS SEPTENTRIONALES</Valor>
+      <ValorXBRL>MNP</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MOZAMBIQUE</Valor>
+      <ValorXBRL>MOZ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MAURITANIA</Valor>
+      <ValorXBRL>MRT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MONTSERRAT</Valor>
+      <ValorXBRL>MSR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MARTINICA</Valor>
+      <ValorXBRL>MTQ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MAURICIO</Valor>
+      <ValorXBRL>MUS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MALAWI</Valor>
+      <ValorXBRL>MWI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MALASIA</Valor>
+      <ValorXBRL>MYS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>MAYOTTE</Valor>
+      <ValorXBRL>MYT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NAMIBIA</Valor>
+      <ValorXBRL>NAM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NUEVA CALEDONIA</Valor>
+      <ValorXBRL>NCL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NÍGER</Valor>
+      <ValorXBRL>NER</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLA NORFOLK</Valor>
+      <ValorXBRL>NFK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NIGERIA</Valor>
+      <ValorXBRL>NGA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NICARAGUA</Valor>
+      <ValorXBRL>NIC</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NIUE</Valor>
+      <ValorXBRL>NIU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PAÍSES BAJOS</Valor>
+      <ValorXBRL>NLD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NORUEGA</Valor>
+      <ValorXBRL>NOR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NEPAL</Valor>
+      <ValorXBRL>NPL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NAURU</Valor>
+      <ValorXBRL>NRU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>NUEVAZ ELANDA</Valor>
+      <ValorXBRL>NZL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>OMÁN</Valor>
+      <ValorXBRL>OMN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PAKISTÁN</Valor>
+      <ValorXBRL>PAK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PANAMÁ</Valor>
+      <ValorXBRL>PAN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PITCAIRN</Valor>
+      <ValorXBRL>PCN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PERÚ</Valor>
+      <ValorXBRL>PER</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>FILIPINAS</Valor>
+      <ValorXBRL>PHL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PALAU</Valor>
+      <ValorXBRL>PLW</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PAPUA-NUEVA GUINEA</Valor>
+      <ValorXBRL>PNG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>POLONIA</Valor>
+      <ValorXBRL>POL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PUERTO RICO</Valor>
+      <ValorXBRL>PRI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DEMOCRÁTICA POPULAR DE COREA</Valor>
+      <ValorXBRL>PRK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PORTUGAL</Valor>
+      <ValorXBRL>PRT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>PARAGUAY</Valor>
+      <ValorXBRL>PRY</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TERRITORIO PALESTINO OCUPADO</Valor>
+      <ValorXBRL>PSE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>POLINESIA FRANCESA</Valor>
+      <ValorXBRL>PYF</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>QATAR</Valor>
+      <ValorXBRL>QAT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS REUNIÓN</Valor>
+      <ValorXBRL>REU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>RUMANIA</Valor>
+      <ValorXBRL>ROU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>FEDERACIÓN RUSA</Valor>
+      <ValorXBRL>RUS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>RUANDA</Valor>
+      <ValorXBRL>RWA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ARABIA SAUDITA</Valor>
+      <ValorXBRL>SAU</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SERBIA Y MONTENEGRO</Valor>
+      <ValorXBRL>SCG</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SUDÁN</Valor>
+      <ValorXBRL>SDN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SENEGAL</Valor>
+      <ValorXBRL>SEN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SINGAPUR</Valor>
+      <ValorXBRL>SGP</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS GEORGIA DEL SUR Y SANDWICH DEL SUR</Valor>
+      <ValorXBRL>SGS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SANTA ELENA</Valor>
+      <ValorXBRL>SHN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SVALVARD Y JAN MAYEN</Valor>
+      <ValorXBRL>SJM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS SALOMÓN</Valor>
+      <ValorXBRL>SLB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SIERRA LEONA</Valor>
+      <ValorXBRL>SLE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>EL SALVADOR</Valor>
+      <ValorXBRL>SLV</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAN MARINO</Valor>
+      <ValorXBRL>SMR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SOMALIA</Valor>
+      <ValorXBRL>SOM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAINT PIERRE Y MIQUELON</Valor>
+      <ValorXBRL>SPM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SANTOTOMÉ Y PRÍNCIPE</Valor>
+      <ValorXBRL>STP</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SURINAM</Valor>
+      <ValorXBRL>SUR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ESLOVAQUIA</Valor>
+      <ValorXBRL>SVK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ESLOVENIA</Valor>
+      <ValorXBRL>SVN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SUECIA</Valor>
+      <ValorXBRL>SWE</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SUAZILANDIA</Valor>
+      <ValorXBRL>SWZ</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS SEYCHELLES</Valor>
+      <ValorXBRL>SYC</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA ÁRABE SIRIA</Valor>
+      <ValorXBRL>SYR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS TURKS Y CAICOS</Valor>
+      <ValorXBRL>TCA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>CHAD</Valor>
+      <ValorXBRL>TCD</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TOGO</Valor>
+      <ValorXBRL>TGO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TAILANDIA</Valor>
+      <ValorXBRL>THA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TADJIKISTÁN</Valor>
+      <ValorXBRL>TJK</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TOKELAU</Valor>
+      <ValorXBRL>TKL</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TURKMENISTÁN</Valor>
+      <ValorXBRL>TKM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TIMOR-LESTE</Valor>
+      <ValorXBRL>TLS</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TONGA</Valor>
+      <ValorXBRL>TON</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TRINIDAD Y TOBAGO</Valor>
+      <ValorXBRL>TTO</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TÚNEZ</Valor>
+      <ValorXBRL>TUN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TURQUÍA</Valor>
+      <ValorXBRL>TUR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TUVALU</Valor>
+      <ValorXBRL>TUV</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>TAIYUAN,PROVINCIA DE CHINA</Valor>
+      <ValorXBRL>TWN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>REPÚBLICA DE TANZANIA</Valor>
+      <ValorXBRL>TZA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>UGANDA</Valor>
+      <ValorXBRL>UGA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>UCRANIA</Valor>
+      <ValorXBRL>UKR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS PERIFÉRICAS MENORES DE ESTADOS UNIDOS</Valor>
+      <ValorXBRL>UMI</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>URUGUAY</Valor>
+      <ValorXBRL>URY</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ESTADOS UNIDOS DE AMÉRICA</Valor>
+      <ValorXBRL>USA</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>UZBEKISTÁN</Valor>
+      <ValorXBRL>UZB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SANTA SEDE(ESTADO DE LA CIUDAD DEL VATICANO)</Valor>
+      <ValorXBRL>VAT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAN VICENTE Y GRANADINAS</Valor>
+      <ValorXBRL>VCT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>VENEZUELA</Valor>
+      <ValorXBRL>VEN</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS VÍRGENES BRITÁNICAS</Valor>
+      <ValorXBRL>VGB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ISLAS VÍRGENES ESTADOUNIDENSES</Valor>
+      <ValorXBRL>VIR</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>VIETNAM</Valor>
+      <ValorXBRL>VNM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>VANUATU</Valor>
+      <ValorXBRL>VUT</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>WALLIS Y FUTUNA</Valor>
+      <ValorXBRL>WLF</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SAMOA</Valor>
+      <ValorXBRL>WSM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>YEMEN</Valor>
+      <ValorXBRL>YEM</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>SUDÁFRICA</Valor>
+      <ValorXBRL>ZAF</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ZAMBIA</Valor>
+      <ValorXBRL>ZMB</ValorXBRL>
+    </ItemLista>
+    <ItemLista>
+      <Valor>ZIMBABWE</Valor>
+      <ValorXBRL>ZWE</ValorXBRL>
+    </ItemLista>
+  </Paises>
+</Listas>

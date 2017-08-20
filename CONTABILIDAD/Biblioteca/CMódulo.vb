@@ -27,9 +27,6 @@ Public Class CMódulo
         ' If user has clicked Cancel, set myValue to defaultValue
         While myValue <> ""
 
-            Dim número As Integer = 0
-            Dim letra As String = ""
-            Dim atrás As Boolean = False
             If Validar_NIE(myValue.ToString) Then
 
                 MsgInformativo("El número de Documento " + myValue.ToString + " es correcto")
@@ -185,25 +182,25 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("ExisteCuenta", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ExisteCuenta", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@CTA"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = Cta
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@CTA",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = Cta,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@EXISTE"
-            prm2.DbType = SqlDbType.Bit
-            prm2.Direction = ParameterDirection.Output
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@EXISTE",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
 
             MiSqlCMD.Parameters.Add(prm2)
 
@@ -232,25 +229,25 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("ExisteAsientoConJustificante", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ExisteAsientoConJustificante", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@JUSTIFICANTE"
-            prm1.DbType = SqlDbType.VarChar
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = Justificante
-            prm1.Size = Justificante.Trim.Length
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@JUSTIFICANTE",
+                .DbType = SqlDbType.VarChar,
+                .Direction = ParameterDirection.Input,
+                .Value = Justificante,
+                .Size = Justificante.Trim.Length
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@EXISTE"
-            prm2.DbType = SqlDbType.Bit
-            prm2.Direction = ParameterDirection.Output
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@EXISTE",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
 
             MiSqlCMD.Parameters.Add(prm2)
 
@@ -279,26 +276,26 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("NúmeroNuevaFactura", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("NúmeroNuevaFactura", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm As New SqlParameter()
-
-            prm.ParameterName = "@NUM_FAC"
-            prm.DbType = SqlDbType.VarChar
-            prm.Direction = ParameterDirection.Output
-            prm.Size = 8
+            Dim prm As New SqlParameter With {
+                .ParameterName = "@NUM_FAC",
+                .DbType = SqlDbType.VarChar,
+                .Direction = ParameterDirection.Output,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm)
 
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@ANNO"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = año
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@ANNO",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = año,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
@@ -326,16 +323,16 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("NúmeroNuevoAsiento", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("NúmeroNuevoAsiento", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm As New SqlParameter()
-
-            prm.ParameterName = "@NUM_ASIENTO"
-            prm.DbType = SqlDbType.Int
-            prm.Direction = ParameterDirection.ReturnValue
-            prm.Value = 0
+            Dim prm As New SqlParameter With {
+                .ParameterName = "@NUM_ASIENTO",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.ReturnValue,
+                .Value = 0
+            }
 
             MiSqlCMD.Parameters.Add(prm)
 
@@ -362,16 +359,16 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("ClaveNuevoProveedor", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ClaveNuevoProveedor", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm As New SqlParameter()
-
-            prm.ParameterName = "@Código"
-            prm.DbType = SqlDbType.Int
-            prm.Direction = ParameterDirection.ReturnValue
-            prm.Value = 0
+            Dim prm As New SqlParameter With {
+                .ParameterName = "@Código",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.ReturnValue,
+                .Value = 0
+            }
 
             MiSqlCMD.Parameters.Add(prm)
 
@@ -399,16 +396,16 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("ClaveNuevoCliente", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ClaveNuevoCliente", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm As New SqlParameter()
-
-            prm.ParameterName = "@Código"
-            prm.DbType = SqlDbType.Int
-            prm.Direction = ParameterDirection.ReturnValue
-            prm.Value = 0
+            Dim prm As New SqlParameter With {
+                .ParameterName = "@Código",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.ReturnValue,
+                .Value = 0
+            }
 
             MiSqlCMD.Parameters.Add(prm)
 
@@ -436,25 +433,25 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("idAsientoConJustificante", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("idAsientoConJustificante", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@JUSTIFICANTE"
-            prm1.DbType = SqlDbType.VarChar
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = Justificante
-            prm1.Size = Justificante.Trim.Length
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@JUSTIFICANTE",
+                .DbType = SqlDbType.VarChar,
+                .Direction = ParameterDirection.Input,
+                .Value = Justificante,
+                .Size = Justificante.Trim.Length
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@ID"
-            prm2.DbType = SqlDbType.Int
-            prm2.Direction = ParameterDirection.Output
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@ID",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Output
+            }
 
             MiSqlCMD.Parameters.Add(prm2)
 
@@ -482,25 +479,25 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("idFacturaConNúmero", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("idFacturaConNúmero", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@NÚMERO"
-            prm1.DbType = SqlDbType.VarChar
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = Número
-            prm1.Size = Número.Trim.Length
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@NÚMERO",
+                .DbType = SqlDbType.VarChar,
+                .Direction = ParameterDirection.Input,
+                .Value = Número,
+                .Size = Número.Trim.Length
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@ID"
-            prm2.DbType = SqlDbType.Int
-            prm2.Direction = ParameterDirection.Output
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@ID",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Output
+            }
 
             MiSqlCMD.Parameters.Add(prm2)
 
@@ -527,9 +524,9 @@ Public Class CMódulo
 
             Dim myConn As New SqlConnection(prmConnectionString)
 
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("NúmeroNuevoApunte", myConn)
-
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("NúmeroNuevoApunte", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
             Dim prm As New SqlParameter()
 
@@ -592,25 +589,25 @@ Public Class CMódulo
         Try
 
             Dim myConn As New SqlConnection(prmConnectionString)
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("BorrarFacturaEmitida", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("BorrarFacturaEmitida", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@id"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = id
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@id",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = id,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@Ok"
-            prm2.DbType = SqlDbType.Bit
-            prm2.Direction = ParameterDirection.Output
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@Ok",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
             'prm2.Value = Tipo
 
             MiSqlCMD.Parameters.Add(prm2)
@@ -639,34 +636,34 @@ Public Class CMódulo
         Try
 
             Dim myConn As New SqlConnection(prmConnectionString)
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("ActualizarContabilidad", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ActualizarContabilidad", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@id"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = id
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@id",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = id,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@Tipo"
-            prm2.DbType = SqlDbType.VarChar
-            prm2.Direction = ParameterDirection.Input
-            prm2.Value = Tipo
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@Tipo",
+                .DbType = SqlDbType.VarChar,
+                .Direction = ParameterDirection.Input,
+                .Value = Tipo
+            }
 
             MiSqlCMD.Parameters.Add(prm2)
 
-            Dim prm3 As New SqlParameter()
-
-            prm3.ParameterName = "@Ok"
-            prm3.DbType = SqlDbType.Bit
-            prm3.Direction = ParameterDirection.Output
+            Dim prm3 As New SqlParameter With {
+                .ParameterName = "@Ok",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
             'prm3.Value = Tipo
 
             MiSqlCMD.Parameters.Add(prm3)
@@ -694,34 +691,34 @@ Public Class CMódulo
         Try
 
             Dim myConn As New SqlConnection(prmConnectionString)
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("ActualizarPagos", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("ActualizarPagos", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@id"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = id
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@id",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = id,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@Tipo"
-            prm2.DbType = SqlDbType.VarChar
-            prm2.Direction = ParameterDirection.Input
-            prm2.Value = Tipo
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@Tipo",
+                .DbType = SqlDbType.VarChar,
+                .Direction = ParameterDirection.Input,
+                .Value = Tipo
+            }
 
             MiSqlCMD.Parameters.Add(prm2)
 
-            Dim prm3 As New SqlParameter()
-
-            prm3.ParameterName = "@Ok"
-            prm3.DbType = SqlDbType.Bit
-            prm3.Direction = ParameterDirection.Output
+            Dim prm3 As New SqlParameter With {
+                .ParameterName = "@Ok",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
             'prm3.Value = Tipo
 
             MiSqlCMD.Parameters.Add(prm3)
@@ -748,25 +745,25 @@ Public Class CMódulo
         Try
 
             Dim myConn As New SqlConnection(prmConnectionString)
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("BorrarAsientos", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("BorrarAsientos", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@id"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = id
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@id",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = id,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
-            Dim prm2 As New SqlParameter()
-
-            prm2.ParameterName = "@Ok"
-            prm2.DbType = SqlDbType.Bit
-            prm2.Direction = ParameterDirection.Output
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@Ok",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
             'prm2.Value = Tipo
 
             MiSqlCMD.Parameters.Add(prm2)
@@ -792,17 +789,17 @@ Public Class CMódulo
         Try
 
             Dim myConn As New SqlConnection(prmConnectionString)
-            Dim MiSqlCMD As SqlCommand = New SqlCommand("PrepararLibroMayor", myConn)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("PrepararLibroMayor", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
 
-            MiSqlCMD.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As New SqlParameter()
-
-            prm1.ParameterName = "@Cuenta"
-            prm1.DbType = SqlDbType.Int
-            prm1.Direction = ParameterDirection.Input
-            prm1.Value = cuenta
-            prm1.Size = 8
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@Cuenta",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = cuenta,
+                .Size = 8
+            }
 
             MiSqlCMD.Parameters.Add(prm1)
 
@@ -1043,6 +1040,62 @@ Public Class CMódulo
 
     End Function
     ''' <summary>
+    ''' Separa un numero de documento en primera letra, número y última letra
+    ''' </summary>
+    ''' <param name="NúmeroDocumento">Es el original</param>
+    ''' <param name="Número">Devuelve el número</param>
+    ''' <param name="LetraPrimera">Devuelve la letra</param>
+    ''' <param name="LetraÚltima">Si es true la letra esta al final del número</param>
+    ''' <returns></returns>
+    Public Shared Function SeparaDocumentoIdentidad(ByRef NúmeroDocumento As String, Optional ByRef Número As Integer = 0, Optional ByRef LetraPrimera As String = "", Optional ByRef LetraÚltima As String = "") As Boolean
+
+        Dim a As Array = NúmeroDocumento.ToCharArray
+        For i = 0 To a.Length - 1
+
+            If Not Char.IsLetterOrDigit(a(i)) Then
+
+                Return False
+
+            ElseIf Char.IsDigit(a(i)) Then
+
+                Número = CInt(Número.ToString + a(i).ToString)
+
+            Else
+
+                If i = 0 Then
+                    'TODO Revisar primera letra. Comprobar si es X, Y o Z y poner el primer dígito númerico
+                    LetraPrimera = a(i).ToString.ToUpper
+                    If LetraPrimera = "X" Then
+                        Número = 0
+                    ElseIf LetraPrimera = "Y" Then
+                        Número = 1
+                    ElseIf LetraPrimera = "Z" Then
+                        Número = 2
+
+                    End If
+                ElseIf i = a.Length - 1 Then
+
+                    LetraÚltima = a(i).ToString.ToUpper
+
+                Else
+
+                    Return False
+
+                End If
+
+            End If
+        Next
+
+        If LetraPrimera.Trim.Length = 0 Or LetraÚltima.Trim.Length = 0 Then
+
+            Return False
+
+        End If
+
+        Return True
+
+    End Function
+    ''' <summary>
     ''' Valida un número de NIE de extranjeros residentes en españa, que consta de C1234567L C es X, Y o Z
     ''' 
     ''' X8312197C
@@ -1067,85 +1120,103 @@ Public Class CMódulo
     Public Shared Function Validar_NIE(ByRef NúmeroDocumento As String) As Boolean
 
         Dim número As Integer = 0
-        Dim letra As String = ""
-        Dim atrás As Boolean = False
-        If SeparaDocumentoIdentidad(NúmeroDocumento.ToString, número, letra, atrás) Then
-            '
-            ' la letra en el DNI y el NIF debe ir atrás
-            If atrás = False Then
+        Dim letraPrimera As String = ""
+        Dim letraÚltima As String = ""
+        If SeparaDocumentoIdentidad(NúmeroDocumento.ToString, número, letraPrimera, letraÚltima) Then
 
-                Return False
-
-            End If
-
-            Dim l As String = ""
+            Dim l1 As String = ""
+            Dim l2 As String = ""
             Dim i As Integer = número Mod 23
             Select Case i
                 Case 0
-                    l = "T"
+                    l1 = "T"
                 Case 1
-                    l = "R"
+                    l1 = "R"
                 Case 2
-                    l = "W"
+                    l1 = "W"
                 Case 3
-                    l = "A"
+                    l1 = "A"
                 Case 4
-                    l = "G"
+                    l1 = "G"
                 Case 5
-                    l = "M"
+                    l1 = "M"
                 Case 6
-                    l = "Y"
+                    l1 = "Y"
                 Case 7
-                    l = "F"
+                    l1 = "F"
                 Case 8
-                    l = "P"
+                    l1 = "P"
                 Case 9
-                    l = "D"
+                    l1 = "D"
                 Case 10
-                    l = "X"
+                    l1 = "X"
                 Case 11
-                    l = "B"
+                    l1 = "B"
                 Case 12
-                    l = "N"
+                    l1 = "N"
                 Case 13
-                    l = "J"
+                    l1 = "J"
                 Case 14
-                    l = "Z"
+                    l1 = "Z"
                 Case 15
-                    l = "S"
+                    l1 = "S"
                 Case 16
-                    l = "Q"
+                    l1 = "Q"
                 Case 17
-                    l = "V"
+                    l1 = "V"
                 Case 18
-                    l = "H"
+                    l1 = "H"
                 Case 19
-                    l = "L"
+                    l1 = "l1"
                 Case 20
-                    l = "C"
+                    l1 = "C"
                 Case 21
-                    l = "K"
+                    l1 = "K"
                 Case 22
-                    l = "E"
+                    l1 = "E"
+                Case Else
+                    Throw New Exception("Error en la función Módulo Entero en Validad_NIE")
+                    Return False
+
             End Select
 
-            If l = letra Then
+            NúmeroDocumento = número.ToString.PadLeft(8, "0")
+            Select Case NúmeroDocumento.Substring(0, 1)
+                Case "0"
+                    l2 = "X"
 
-                NúmeroDocumento = número.ToString.PadLeft(8, "0") + letra
+                Case "1"
+                    l2 = "Y"
+
+                Case "2"
+                    l2 = "Z"
+
+                Case Else
+                    MsgErrorCrítico("El número de documento " + NúmeroDocumento + " no es válido.")
+                    Return False
+
+            End Select
+            '
+            ' Quitar el primer dígito numérico
+            '
+            NúmeroDocumento = letraPrimera + NúmeroDocumento.Substring(1)
+
+            Dim pNúmeroDocumento As String = ""
+            If l1 = letraÚltima Then
+
+                NúmeroDocumento = NúmeroDocumento + letraÚltima
                 Return True
 
             Else
 
-                Dim pNúmeroDocumento As String = ""
-                pNúmeroDocumento = número.ToString.PadLeft(8, "0") + l
+                pNúmeroDocumento = NúmeroDocumento + l1
 
-                If MsgPregunta("El número de documento " + NúmeroDocumento + " no es correcto. Debería ser " + pNúmeroDocumento + ". ¿Quiere corregirlo?") = MsgBoxResult.Yes Then
-                    NúmeroDocumento = pNúmeroDocumento
-                    Return True
+            End If
 
-                End If
+            If MsgPregunta("El número de documento " + NúmeroDocumento + letraÚltima + " no es correcto. Debería ser " + pNúmeroDocumento + ". ¿Quiere corregirlo?") = MsgBoxResult.Yes Then
+                NúmeroDocumento = pNúmeroDocumento
 
-                Return False
+                Return True
 
             End If
 
@@ -1157,7 +1228,34 @@ Public Class CMódulo
         End If
 
         Return False
-
     End Function
+    ''' <summary>
+    ''' Valida un CIF de extranjeros residentes en españa, que consta de 9 dígitos alfanuméricos con la siguiente estructura: O P P N N N N N C
+    ''' O: Tipo de Organización  ; P: Código provincia  ; N: Número correlativo por provincia ; C: Dígito o letra de control
+    ''' 
+    ''' TIPO DE ORGANIZACION (Letra O)
+    ''' A - Sociedad Anónima.	
+    ''' B - Sociedad de Responsabilidad Limitada.	
+    ''' C - Sociedad Colectiva.
+    ''' D - Sociedad Comanditaria.	
+    ''' E - Comunidad de Bienes.	
+    ''' F - Sociedad Cooperativa.
+    ''' G - Asociaciones y otros tipos no definidos.	
+    ''' H - Comunidad de propietarios en régimen de propiedad horizontal.	
+    ''' K,L,M - Formato Antiguo.
+    ''' N - Entidades no residentes.	
+    ''' P - Corporación local.	
+    ''' Q - Organismo autónomo estatal o no,y asimilados, 
+    ''' R - Congregaciones e instituciones religiosas.
+    ''' S - Organos de la Administración del Estado y Comunidades Autónomas	 
+    ''' 
+    ''' 1-64 70-84 92-99 '88 (64 + 15 + 8 =) 87
+    ''' 
+    ''' </summary>
+    ''' <param name="NúmeroDocumento"></param>
+    ''' <returns></returns>
+    Public Shared Function Validar_CIF(ByRef NúmeroDocumento As String) As Boolean
 
+        Return False
+    End Function
 End Class

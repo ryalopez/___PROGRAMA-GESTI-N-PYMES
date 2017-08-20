@@ -7,9 +7,9 @@ Public Class frmProveedores
     '
     Private VoyACerrar As Boolean = False
     Private Const DOMICILIADO As Integer = 5
-    Friend WithEvents f As frmAltaCuenta
+    Friend WithEvents F As frmAltaCuenta
 
-    Private Sub frmProveedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmProveedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
 
@@ -29,7 +29,7 @@ Public Class frmProveedores
 
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
         Me.Close()
 
@@ -63,7 +63,7 @@ Public Class frmProveedores
         End If
     End Sub
 
-    Private Sub frmProveedores_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub FrmProveedores_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
 
         If Me.BDContabilidadGMELO.HasChanges = True Then
 
@@ -99,13 +99,13 @@ Public Class frmProveedores
 
     End Sub
 
-    Private Sub btnListarProveedores_Click(sender As Object, e As EventArgs) Handles btnListarProveedores.Click
+    Private Sub BtnListarProveedores_Click(sender As Object, e As EventArgs) Handles btnListarProveedores.Click
 
         Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
 
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -308,17 +308,17 @@ Public Class frmProveedores
     End Sub
 
     Private Sub ProveedoresBindingSource_AddingNew(sender As Object, e As AddingNewEventArgs) Handles ProveedoresBindingSource.AddingNew
-
-        f = New frmAltaCuenta
-        f.Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
-        f.CódigoCuentaTextBox.Enabled = False
-        f.CódigoCuentaMaestra = 4100
-        f.idCuentaPerdidasyGanancias = 0
-        f.PérdidasyGananciasComboBox.Enabled = False
-        f.idCuentaBalanceResultados = 52
-        f.BalanceSituaciónComboBox.Enabled = False
-        f.Nombre = "ESCRIBA AQUI EL NOMBRE DEL PROVEEDOR"
-        If f.ShowDialog(Me) = DialogResult.OK Then
+        F = New frmAltaCuenta With {
+            .Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
+        }
+        F.CódigoCuentaTextBox.Enabled = False
+        F.CódigoCuentaMaestra = 4100
+        F.idCuentaPerdidasyGanancias = 0
+        F.PérdidasyGananciasComboBox.Enabled = False
+        F.idCuentaBalanceResultados = 52
+        F.BalanceSituaciónComboBox.Enabled = False
+        F.Nombre = "ESCRIBA AQUI EL NOMBRE DEL PROVEEDOR"
+        If F.ShowDialog(Me) = DialogResult.OK Then
 
             Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
             Me.Código4ComboBox.Select()
@@ -366,9 +366,9 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
     Private Sub ProveedoresBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles ProveedoresBindingSource.CurrentItemChanged
 
         'Se Cancela el alta del proveedor si se ha abandonado la creación de cuenta
-        If Not IsNothing(Me.f) AndAlso Me.f.CanceladaAltaCuenta Then
+        If Not IsNothing(Me.F) AndAlso Me.F.CanceladaAltaCuenta Then
 
-            Me.f.CanceladaAltaCuenta = False
+            Me.F.CanceladaAltaCuenta = False
 
             With Me.ProveedoresBindingSource
 
@@ -382,7 +382,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
     End Sub
 
 
-    Private Sub btnBorrarProveedor_Click(sender As Object, e As EventArgs) Handles btnBorrarProveedor.Click
+    Private Sub BtnBorrarProveedor_Click(sender As Object, e As EventArgs) Handles btnBorrarProveedor.Click
 
 
         If CMódulo.MsgPregunta("¿Seguro que quiere borrar el proveedor " + Me.NombreTextBox.Text.Trim + ". Se borrará también la cuenta en contabilidad.") = MsgBoxResult.Yes Then

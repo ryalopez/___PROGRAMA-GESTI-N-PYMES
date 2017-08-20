@@ -8,7 +8,7 @@ Public Class frmFacturasEmitidas
 
     Private VoyACerrar As Boolean = False
 
-    Private Sub frmFacturasEmitidas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub FrmFacturasEmitidas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         If Me.BDContabilidadGMELO.HasChanges = True Then
 
@@ -36,7 +36,7 @@ Public Class frmFacturasEmitidas
 
     End Sub
 
-    Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
 
@@ -62,7 +62,7 @@ Public Class frmFacturasEmitidas
 
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
         Me.Close()
 
@@ -831,11 +831,10 @@ Public Class frmFacturasEmitidas
     End Sub
 
 
-    Private Sub btnListarFacturasEmitidas_Click(sender As Object, e As EventArgs) Handles btnListarFacturasEmitidas.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarFacturasEmitidas_Click(sender As Object, e As EventArgs) Handles btnListarFacturasEmitidas.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -852,7 +851,7 @@ Public Class frmFacturasEmitidas
 
     End Sub
 
-    Private Sub btnEmitirFacturasToolStrip_Click(sender As Object, e As EventArgs) Handles btnEmitirFacturasToolStrip.Click
+    Private Sub BtnEmitirFacturasToolStrip_Click(sender As Object, e As EventArgs) Handles btnEmitirFacturasToolStrip.Click
 
         Dim msg As String = "Se van a emitir las facturas del mes que indique. " &
     "Podrá seleccionar si de todos los clientes o de uno sólo. " &
@@ -896,9 +895,9 @@ Public Class frmFacturasEmitidas
         End If
         CMódulo.MsgAdvertencia("Se van a imprimir facturas con fecha " + FechaFactura.ToString)
 
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -913,7 +912,7 @@ Public Class frmFacturasEmitidas
 
     End Sub
 
-    Private Sub btnResumenExcel_Click(sender As Object, e As EventArgs) Handles btnResumenExcel.Click
+    Private Sub BtnResumenExcel_Click(sender As Object, e As EventArgs) Handles btnResumenExcel.Click
 
         Dim msg As String = "Se va a generar una hoja de Excel con un resumen de facturas, " &
             "de todos los clientes, incluidos los no activos, y para las fechas que indique. " & vbCrLf &
@@ -1562,9 +1561,9 @@ Public Class frmFacturasEmitidas
     End Sub
 
     Private Sub MorososToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MorososToolStripMenuItem.Click
-
-        Dim adapter As New BDContabilidadGMELOTableAdapters.ClientesDeudoresTableAdapter
-        adapter.ClearBeforeFill = True
+        Dim adapter As New BDContabilidadGMELOTableAdapters.ClientesDeudoresTableAdapter With {
+            .ClearBeforeFill = True
+        }
         adapter.Fill(BDContabilidadGMELO.ClientesDeudores)
         Me.BDContabilidadGMELO.LíneaDeudaClientes.Clear()
 
@@ -1608,9 +1607,9 @@ Public Class frmFacturasEmitidas
         'Me.BDContabilidadGMELO.AcceptChanges()
 
 
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 

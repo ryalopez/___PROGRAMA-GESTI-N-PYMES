@@ -1,10 +1,10 @@
 ﻿Imports System.ComponentModel
 Imports Biblioteca
 
-Public Class frmClientes
+Public Class FrmClientes
     Private VoyACerrar As Boolean = False
     Private Const DOMICILIADO As Integer = 5
-    Friend WithEvents f As frmAltaCuenta
+    Friend WithEvents F As frmAltaCuenta
     Private TipoDocumentoBindingSource As BindingSource
     ''' <summary>
     '''  Carga el formulario.
@@ -12,7 +12,7 @@ Public Class frmClientes
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.FormasPagoTableAdapter.Fill(Me.BDContabilidadGMELO.FormasPago)
 
@@ -36,7 +36,7 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
         Me.Close()
 
@@ -72,7 +72,7 @@ Public Class frmClientes
         End If
 
     End Sub
-    Private Sub frmClientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub FrmClientes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         If Me.BDContabilidadGMELO.HasChanges = True Then
 
@@ -115,11 +115,10 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub btnListarClientes_Click(sender As Object, e As EventArgs) Handles btnListarClientes.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarClientes_Click(sender As Object, e As EventArgs) Handles btnListarClientes.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -135,11 +134,10 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub btnListarClientesAlta_Click(sender As Object, e As EventArgs) Handles btnListarClientesAlta.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarClientesAlta_Click(sender As Object, e As EventArgs) Handles btnListarClientesAlta.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -155,11 +153,10 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub btnListarClientesBaja_Click(sender As Object, e As EventArgs) Handles btnListarClientesBaja.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarClientesBaja_Click(sender As Object, e As EventArgs) Handles btnListarClientesBaja.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -175,11 +172,10 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub btnListarClientesActivosFactura_Click(sender As Object, e As EventArgs) Handles btnListarClientesActivosFactura.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarClientesActivosFactura_Click(sender As Object, e As EventArgs) Handles btnListarClientesActivosFactura.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -195,10 +191,10 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub btnListarClientesActivosRecibo_Click(sender As Object, e As EventArgs) Handles btnListarClientesActivosRecibo.Click
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarClientesActivosRecibo_Click(sender As Object, e As EventArgs) Handles btnListarClientesActivosRecibo.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -407,16 +403,16 @@ Public Class frmClientes
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ClientesBindingSource_AddingNew(sender As Object, e As AddingNewEventArgs) Handles ClientesBindingSource.AddingNew
-
-        f = New frmAltaCuenta
-        f.Código = CMódulo.ClaveNuevoCliente(My.Settings.BDContabilidadConnectionString)
-        f.CódigoCuentaTextBox.Enabled = False
-        f.CódigoCuentaMaestra = 430
-        f.idCuentaPerdidasyGanancias = 0
-        f.PérdidasyGananciasComboBox.Enabled = False
-        f.idCuentaBalanceResultados = 13
-        f.BalanceSituaciónComboBox.Enabled = False
-        f.Nombre = Me.NombreTextBox.Text
+        F = New frmAltaCuenta With {
+            .Código = CMódulo.ClaveNuevoCliente(My.Settings.BDContabilidadConnectionString)
+        }
+        F.CódigoCuentaTextBox.Enabled = False
+        F.CódigoCuentaMaestra = 430
+        F.idCuentaPerdidasyGanancias = 0
+        F.PérdidasyGananciasComboBox.Enabled = False
+        F.idCuentaBalanceResultados = 13
+        F.BalanceSituaciónComboBox.Enabled = False
+        F.Nombre = Me.NombreTextBox.Text
 
     End Sub
 
@@ -467,9 +463,9 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
     Private Sub ClientesBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles ClientesBindingSource.CurrentItemChanged
 
         'Se Cancela el alta del proveedor si se ha abandonado la creación de cuenta
-        If Not IsNothing(Me.f) AndAlso Me.f.CanceladaAltaCuenta Then
+        If Not IsNothing(Me.F) AndAlso Me.F.CanceladaAltaCuenta Then
 
-            Me.f.CanceladaAltaCuenta = False
+            Me.F.CanceladaAltaCuenta = False
 
             With Me.ClientesBindingSource
 

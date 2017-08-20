@@ -1,12 +1,13 @@
-Public Class frmAyuda
+Public Class FrmAyuda
 
-    Private Sub frmAyuda_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub FrmAyuda_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
 
         'Para que esto funciones. El sitio Web con la Ayuda tiene que colgar de InetPub/wwwroot
 
-        Dim uriBld As New UriBuilder
-        uriBld.Path = "/Ayuda"
+        Dim uriBld As New UriBuilder With {
+            .Path = "/Ayuda"
+        }
 
         Dim siteUri As Uri = uriBld.Uri
         Me.WebBrowser1.Url = siteUri
@@ -17,14 +18,14 @@ Public Class frmAyuda
 
     End Sub
 
-    Private Sub btnAnterior_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnterior.Click
+    Private Sub BtnAnterior_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnterior.Click
 
         Me.WebBrowser1.GoBack()
 
     End Sub
 
     ' Disables the Back button at the beginning of the navigation history.
-    Private Sub webBrowser1_CanGoBackChanged( _
+    Private Sub WebBrowser1_CanGoBackChanged(
         ByVal sender As Object, ByVal e As EventArgs) _
         Handles WebBrowser1.CanGoBackChanged
 
@@ -32,14 +33,14 @@ Public Class frmAyuda
 
     End Sub
 
-    Private Sub btnPróximo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPróximo.Click
+    Private Sub BtnPróximo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPróximo.Click
 
         Me.WebBrowser1.GoForward()
 
     End Sub
 
     ' Disables the Forward button at the end of navigation history.
-    Private Sub webBrowser1_CanGoForwardChanged( _
+    Private Sub WebBrowser1_CanGoForwardChanged(
         ByVal sender As Object, ByVal e As EventArgs) _
         Handles WebBrowser1.CanGoForwardChanged
 
@@ -47,7 +48,7 @@ Public Class frmAyuda
 
     End Sub
 
-    Private Sub impPágina_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub ImpPágina_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         Me.WebBrowser1.Print()
 

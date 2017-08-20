@@ -76,6 +76,7 @@
       <DependentUpon>BDContabilidadDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="CDocumentoIdentidad.vb" />
+    <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>

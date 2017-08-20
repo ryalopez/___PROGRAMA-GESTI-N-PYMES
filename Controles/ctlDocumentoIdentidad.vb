@@ -55,13 +55,13 @@ Public Class ctlDocumentoIdentidad
         End Set
     End Property
 
-    Private Sub ctlDocumentoIdentidad_Validated(sender As Object, e As EventArgs) Handles Me.Validated
+    Private Sub CtlDocumentoIdentidad_Validated(sender As Object, e As EventArgs) Handles Me.Validated
 
         Me.ErrorProvider1.SetError(Me.DocumentoIdentidadTextBox, "")
 
     End Sub
 
-    Private Sub ctlDocumentoIdentidad_Validating(sender As Object, e As CancelEventArgs) Handles Me.Validating
+    Private Sub CtlDocumentoIdentidad_Validating(sender As Object, e As CancelEventArgs) Handles Me.Validating
         If Me.DocumentoIdentidadTextBox.Text.Trim.Length = 0 Then
 
             e.Cancel = True
@@ -98,7 +98,7 @@ Public Class ctlDocumentoIdentidad
 
             Case eTipoDocumento.NIE
 
-                Return False
+                Return CMódulo.Validar_NIE(Me.NúmeroDocumento)
 
             Case eTipoDocumento.Pasaporte
 

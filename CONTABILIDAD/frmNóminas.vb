@@ -3,11 +3,11 @@ Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
 Imports Biblioteca
 
-Public Class frmNóminas
+Public Class FrmNóminas
 
     Private VoyACerrar As Boolean = False
 
-    Private Sub frmNóminas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub FrmNóminas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         If Me.BDContabilidadGMELO.HasChanges = True Then
 
@@ -33,7 +33,7 @@ Public Class frmNóminas
 
     End Sub
 
-    Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.EmpleadosTableAdapter.Fill(Me.BDContabilidadGMELO.Empleados)
 
@@ -58,7 +58,7 @@ Public Class frmNóminas
 
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
         Me.Close()
 
@@ -271,9 +271,9 @@ Public Class frmNóminas
                     End With
                 Else
 
-                    Throw New Exception("Contabilizando nóminas, no se ha podido recuperar el asiento con el número " + _
-                                        idAsiento.ToString + " proporcionado por el procedimiento almacenado " + _
-                                        """IdAsientoConJustificante(""" + Justificante.Trim + """) de la Base de Datos." + _
+                    Throw New Exception("Contabilizando nóminas, no se ha podido recuperar el asiento con el número " +
+                                        idAsiento.ToString + " proporcionado por el procedimiento almacenado " +
+                                        """IdAsientoConJustificante(""" + Justificante.Trim + """) de la Base de Datos." +
                                         "Se cancelará el proceso.")
 
                     Exit Sub
@@ -365,7 +365,7 @@ Public Class frmNóminas
         ' cuenta de 3 dígitos. Copiar una cuenta maestra
         If scta.Length = 3 Then
 
-            Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow = _
+            Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow =
                 Me.BDContabilidadGMELO.CuentasMaestras.FindByCódigo(cta)
             With cuenta
 
@@ -385,9 +385,9 @@ Public Class frmNóminas
                 ctaM = CInt(scta.Substring(0, 3))
             End If
 
-            Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow = _
+            Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow =
                Me.BDContabilidadGMELO.CuentasMaestras.FindByCódigo(ctaM)
-            Dim empleado As BDContabilidadGMELO.EmpleadosRow = _
+            Dim empleado As BDContabilidadGMELO.EmpleadosRow =
                 Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(idEmpleado)
 
             With cuenta
@@ -421,11 +421,10 @@ Public Class frmNóminas
 
     End Function
 
-    Private Sub btnListarFacturasEmitidas_Click(sender As Object, e As EventArgs) Handles btnListarNóminas.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarFacturasEmitidas_Click(sender As Object, e As EventArgs) Handles btnListarNóminas.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 
@@ -440,9 +439,9 @@ Public Class frmNóminas
 
     End Sub
 
-    Private Sub btnGenerarResumenExcel_Click(sender As Object, e As EventArgs) Handles btnGenerarResumenExcel.Click
-        Dim msg As String = "Se va a generar una hoja de Excel con un resumen de nóminas, " & _
-    "para las fechas que indique. " & vbCrLf & _
+    Private Sub BtnGenerarResumenExcel_Click(sender As Object, e As EventArgs) Handles btnGenerarResumenExcel.Click
+        Dim msg As String = "Se va a generar una hoja de Excel con un resumen de nóminas, " &
+    "para las fechas que indique. " & vbCrLf &
     "¿Quiere continuar?"
 
         If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
@@ -538,10 +537,10 @@ Public Class frmNóminas
         ' contador de filas del resumen
         For Each r As BDContabilidadGMELO.EmpleadosRow In EmpleadosTableAdapter.GetData
 
-            Dim criterio As String = "idEmpleado = " + r.idEmpleado.ToString + " and FechaNómina <= #" + _
-                FechaFinalFactura.Month.ToString + "/" + FechaFinalFactura.Day.ToString + "/" + _
-                FechaFinalFactura.Year.ToString + "# And FechaNómina >= #" + _
-                FechaInicialFactura.Month.ToString + "/" + FechaInicialFactura.Day.ToString + "/" + _
+            Dim criterio As String = "idEmpleado = " + r.idEmpleado.ToString + " and FechaNómina <= #" +
+                FechaFinalFactura.Month.ToString + "/" + FechaFinalFactura.Day.ToString + "/" +
+                FechaFinalFactura.Year.ToString + "# And FechaNómina >= #" +
+                FechaInicialFactura.Month.ToString + "/" + FechaInicialFactura.Day.ToString + "/" +
                 FechaInicialFactura.Year.ToString + "#"
 
             Dim nominas As BDContabilidadGMELO.NóminasRow() = CType(BDContabilidadGMELO.Nóminas.Select(criterio), Contabilidad.BDContabilidadGMELO.NóminasRow())
@@ -618,9 +617,9 @@ Public Class frmNóminas
 
         Next
 
-        Dim NomFicheroExcel As String = Application.StartupPath & "\FACTURAS CLIENTES\ResumenNóminas" + _
-           FechaInicialFactura.Year.ToString + DateAndTime.MonthName(FechaInicialFactura.Month) + "_" + _
-           FechaFinalFactura.Year.ToString + DateAndTime.MonthName(FechaFinalFactura.Month) + _
+        Dim NomFicheroExcel As String = Application.StartupPath & "\FACTURAS CLIENTES\ResumenNóminas" +
+           FechaInicialFactura.Year.ToString + DateAndTime.MonthName(FechaInicialFactura.Month) + "_" +
+           FechaFinalFactura.Year.ToString + DateAndTime.MonthName(FechaFinalFactura.Month) +
            ".xls"
         NomFicheroExcel = NomFicheroExcel.Replace("/", " ")
         oExcel.ActiveWorkbook.SaveAs(NomFicheroExcel)
@@ -693,7 +692,7 @@ Public Class frmNóminas
 
 
                 ''Buscar el asiento con justificante (PAGO NÓMINA. EMPLEADO. MES/AAAA)
-                Dim Justificante As String = "PAGO NÓMINA de " + nómina.FechaNómina.ToShortDateString + " de " + _
+                Dim Justificante As String = "PAGO NÓMINA de " + nómina.FechaNómina.ToShortDateString + " de " +
                     Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado).NomyApe
 
                 Dim asiento As BDContabilidadGMELO.AsientosRow
@@ -729,9 +728,9 @@ Public Class frmNóminas
 
                     Else
 
-                        Throw New Exception("Contabilizando pago de nóminas, no se ha podido recuperar el asiento con el número " + _
-                                            idAsiento.ToString + " proporcionado por el procedimiento almacenado " + _
-                                            """IdAsientoConJustificante(""" + Justificante.Trim + """) de la Base de Datos." + _
+                        Throw New Exception("Contabilizando pago de nóminas, no se ha podido recuperar el asiento con el número " +
+                                            idAsiento.ToString + " proporcionado por el procedimiento almacenado " +
+                                            """IdAsientoConJustificante(""" + Justificante.Trim + """) de la Base de Datos." +
                                             "Se cancelará el proceso.")
 
                         Exit Sub

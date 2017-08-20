@@ -1,8 +1,8 @@
 ﻿Imports Biblioteca
 
-Public Class frmCuentas
+Public Class FrmCuentas
 
-    Friend WithEvents frmA As frmAltaCuenta
+    Friend WithEvents FrmA As frmAltaCuenta
     Private VoyACerrar As Boolean = False
 
     Private Sub GruposBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) _
@@ -19,7 +19,7 @@ Public Class frmCuentas
 
     End Sub
 
-    Private Sub frmGrupos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub FrmGrupos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 
         If Me.BDContabilidadGMELO.HasChanges = True Then
 
@@ -43,7 +43,7 @@ Public Class frmCuentas
 
     End Sub
 
-    Private Sub frmGrupos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub FrmGrupos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Me.BalanceSituaciónTableAdapter.Fill(Me.BDContabilidadGMELO.BalanceSituación)
 
@@ -115,9 +115,9 @@ Public Class frmCuentas
     End Sub
 
     Private Sub SumasYSaldosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SumasYSaldosToolStripMenuItem.Click
-
-        Dim selecEjercicio As New frmSelecFechas
-        selecEjercicio.Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        Dim selecEjercicio As New frmSelecFechas With {
+            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
         selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
 
@@ -147,13 +147,14 @@ Public Class frmCuentas
 
     End Sub
 
-    Private Sub btnBalanceSituación_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBalanceSituación.Click
+    Private Sub BtnBalanceSituación_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBalanceSituación.Click
 
         'CARGAR DATOS DE LA CUENTA DE BALANCE de SITUACIÓN
         Me.BalanceSituaciónTableAdapter.Fill(Me.BDContabilidadGMELO.BalanceSituación)
 
-        Dim selecEjercicio As New frmSelecFechas
-        selecEjercicio.Text = "BALANCE SITUACIÓN - Selección de Fechas"
+        Dim selecEjercicio As New frmSelecFechas With {
+            .Text = "BALANCE SITUACIÓN - Selección de Fechas"
+        }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro ejercicio."
         selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSituación, Contabilidad.TipoListado)
 
@@ -183,8 +184,9 @@ Public Class frmCuentas
     End Sub
 
     Private Sub SumasYSaldos3ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos3ToolStripMenuItem.Click
-        Dim selecEjercicio As New frmSelecFechas
-        selecEjercicio.Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        Dim selecEjercicio As New frmSelecFechas With {
+            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
         selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
 
@@ -214,9 +216,9 @@ Public Class frmCuentas
     End Sub
 
     Private Sub SumasYSaldos2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos2ToolStripMenuItem.Click
-
-        Dim selecEjercicio As New frmSelecFechas
-        selecEjercicio.Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        Dim selecEjercicio As New frmSelecFechas With {
+            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
         selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
 
@@ -246,9 +248,9 @@ Public Class frmCuentas
     End Sub
 
     Private Sub LibroMayorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroMayorToolStripMenuItem.Click
-
-        Dim selecCuentas As New frmSelecCuenta
-        selecCuentas.Text = "LIBRO MAYOR - Selección de Cuenta"
+        Dim selecCuentas As New frmSelecCuenta With {
+            .Text = "LIBRO MAYOR - Selección de Cuenta"
+        }
         selecCuentas.Label1.Text = "Seleccione la cuenta cuyos movimientos quiere listar."
         selecCuentas.tipoListado = CType(eTipoListadoContable.Mayor, Contabilidad.TipoListado)
 
@@ -332,7 +334,7 @@ Public Class frmCuentas
 
     End Sub
 
-    Private Sub btnCtaPerdidasYGanancias_Click(sender As Object, e As EventArgs) Handles btnCtaPerdidasYGanancias.Click
+    Private Sub BtnCtaPerdidasYGanancias_Click(sender As Object, e As EventArgs) Handles btnCtaPerdidasYGanancias.Click
 
         'CARGAR DATOS DE LA CUENTA DE PÉRDIDAS Y GANANCIAS
         Me.PérdidasyGananciasTableAdapter.Fill(Me.BDContabilidadGMELO.PérdidasyGanancias)
@@ -365,26 +367,26 @@ Public Class frmCuentas
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub CuentasMaestrasDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles CuentasMaestrasDataGridView.RowHeaderMouseDoubleClick
-
-        frmA = New frmAltaCuenta
-        frmA.CódigoCuentaMaestra = CInt(Me.CuentasMaestrasDataGridView.CurrentRow.Cells(0).Value)
-        If frmA.CódigoCuentaMaestra = 4100 Then
-            frmA.Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
-            frmA.CódigoCuentaTextBox.Enabled = False
-            frmA.CódigoCuentaMaestra = 4100
-            frmA.idCuentaPerdidasyGanancias = 0
-            frmA.PérdidasyGananciasComboBox.Enabled = False
-            frmA.idCuentaBalanceResultados = 52
-            frmA.BalanceSituaciónComboBox.Enabled = False
-            frmA.Nombre = "ESCRIBA AQUI EL NOMBRE DEL PROVEEDOR"
+        FrmA = New frmAltaCuenta With {
+            .CódigoCuentaMaestra = CInt(Me.CuentasMaestrasDataGridView.CurrentRow.Cells(0).Value)
+        }
+        If FrmA.CódigoCuentaMaestra = 4100 Then
+            FrmA.Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
+            FrmA.CódigoCuentaTextBox.Enabled = False
+            FrmA.CódigoCuentaMaestra = 4100
+            FrmA.idCuentaPerdidasyGanancias = 0
+            FrmA.PérdidasyGananciasComboBox.Enabled = False
+            FrmA.idCuentaBalanceResultados = 52
+            FrmA.BalanceSituaciónComboBox.Enabled = False
+            FrmA.Nombre = "ESCRIBA AQUI EL NOMBRE DEL PROVEEDOR"
         Else
-            frmA.Código = frmA.CódigoCuentaMaestra
-            frmA.idCuentaPerdidasyGanancias = 0
-            frmA.idCuentaBalanceResultados = 52
-            frmA.Nombre = "ESCRIBA AQUI EL NOMBRE DE LA CUENTA"
+            FrmA.Código = FrmA.CódigoCuentaMaestra
+            FrmA.idCuentaPerdidasyGanancias = 0
+            FrmA.idCuentaBalanceResultados = 52
+            FrmA.Nombre = "ESCRIBA AQUI EL NOMBRE DE LA CUENTA"
         End If
 
-        If frmA.ShowDialog(Me) = DialogResult.OK Then
+        If FrmA.ShowDialog(Me) = DialogResult.OK Then
 
         Else
 

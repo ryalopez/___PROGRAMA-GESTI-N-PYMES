@@ -4,7 +4,7 @@ Public Class frmEmpleados
 
     Private VoyACerrar As Boolean = False
 
-    Private Sub frmEmpleados_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub FrmEmpleados_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         If Me.BDContabilidadGMELO.HasChanges = True Then
 
@@ -27,7 +27,7 @@ Public Class frmEmpleados
         Me.VoyACerrar = True
     End Sub
 
-    Private Sub frmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmCliProg_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.EmpleadosTableAdapter.Fill(Me.BDContabilidadGMELO.Empleados)
 
@@ -41,7 +41,7 @@ Public Class frmEmpleados
 
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
         Me.Close()
 
@@ -130,11 +130,10 @@ Public Class frmEmpleados
 
     End Sub
 
-    Private Sub btnListarEmpleados_Click(sender As Object, e As EventArgs) Handles btnListarEmpleados.Click
-
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+    Private Sub BtnListarEmpleados_Click(sender As Object, e As EventArgs) Handles btnListarEmpleados.Click
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Listado
 

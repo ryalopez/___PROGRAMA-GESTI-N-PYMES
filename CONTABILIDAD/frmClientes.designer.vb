@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmClientes
+Partial Class FrmClientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -34,7 +34,7 @@ Partial Class frmClientes
         Dim DatosBancariosLabel As System.Windows.Forms.Label
         Dim HorasSemanalesLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmClientes))
         Me.ClientesTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.ClientesTableAdapter()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()

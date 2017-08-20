@@ -60,13 +60,13 @@ Public Class frmPrincipal
     End Sub
     Private Sub mnuAsientos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuAsientos.Click
 
-        frmDiario.Show(Me)
+        FrmDiario.Show(Me)
 
     End Sub
 
     Private Sub mnuCuentas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuCuentas.Click
 
-        frmCuentas.Show(Me)
+        FrmCuentas.Show(Me)
 
     End Sub
 
@@ -85,7 +85,7 @@ Public Class frmPrincipal
     '
     Private Sub mnuClientes_Click(sender As Object, e As EventArgs) Handles mnuClientes.Click
 
-        frmClientes.Show(Me)
+        FrmClientes.Show(Me)
 
     End Sub
 
@@ -102,7 +102,7 @@ Public Class frmPrincipal
 
     Private Sub mnuFacturasProveedores_Click(sender As Object, e As EventArgs) Handles mnuFacturasProveedores.Click
 
-        frmFacturasRecibidas.Show(Me)
+        FrmFacturasRecibidas.Show(Me)
 
     End Sub
     '
@@ -116,7 +116,7 @@ Public Class frmPrincipal
 
     Private Sub mnuNóminas_Click(sender As Object, e As EventArgs) Handles mnuNóminas.Click
 
-        frmNóminas.Show(Me)
+        FrmNóminas.Show(Me)
 
     End Sub
 

@@ -1898,6 +1898,16 @@ LETRA	T	R	W	A	G	M	Y	F	P	D	X	B	N	J	Z	S	Q	V	H	L	C	K	E
  <param name="NúmeroDocumento"></param>
  <returns></returns>
 </member>
+<member name="M:Biblioteca.CMódulo.SeparaDocumentoIdentidad(System.String@,System.Int32@,System.String@,System.String@)">
+ <summary>
+ Separa un numero de documento en primera letra, número y última letra
+ </summary>
+ <param name="NúmeroDocumento">Es el original</param>
+ <param name="Número">Devuelve el número</param>
+ <param name="LetraPrimera">Devuelve la letra</param>
+ <param name="LetraÚltima">Si es true la letra esta al final del número</param>
+ <returns></returns>
+</member>
 <member name="M:Biblioteca.CMódulo.Validar_NIE(System.String@)">
  <summary>
  Valida un número de NIE de extranjeros residentes en españa, que consta de C1234567L C es X, Y o Z
@@ -1918,6 +1928,33 @@ RESTO	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22
 LETRA	T	R	W	A	G	M	Y	F	P	D	X	B	N	J	Z	S	Q	V	H	L	C	K	E
 
  El dígito de control (primer dígito) se sustituye 0->X, 1->Y, 2->Z
+ </summary>
+ <param name="NúmeroDocumento"></param>
+ <returns></returns>
+</member>
+<member name="M:Biblioteca.CMódulo.Validar_CIF(System.String@)">
+ <summary>
+ Valida un CIF de extranjeros residentes en españa, que consta de 9 dígitos alfanuméricos con la siguiente estructura: O P P N N N N N C
+ O: Tipo de Organización  ; P: Código provincia  ; N: Número correlativo por provincia ; C: Dígito o letra de control
+ 
+ TIPO DE ORGANIZACION (Letra O)
+ A - Sociedad Anónima.	
+ B - Sociedad de Responsabilidad Limitada.	
+ C - Sociedad Colectiva.
+ D - Sociedad Comanditaria.	
+ E - Comunidad de Bienes.	
+ F - Sociedad Cooperativa.
+ G - Asociaciones y otros tipos no definidos.	
+ H - Comunidad de propietarios en régimen de propiedad horizontal.	
+ K,L,M - Formato Antiguo.
+ N - Entidades no residentes.	
+ P - Corporación local.	
+ Q - Organismo autónomo estatal o no,y asimilados, 
+ R - Congregaciones e instituciones religiosas.
+ S - Organos de la Administración del Estado y Comunidades Autónomas	 
+ 
+ 1-64 70-84 92-99 '88 (64 + 15 + 8 =) 87
+ 
  </summary>
  <param name="NúmeroDocumento"></param>
  <returns></returns>

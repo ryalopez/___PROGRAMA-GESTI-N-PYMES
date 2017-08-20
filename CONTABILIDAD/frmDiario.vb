@@ -2,7 +2,7 @@
 Imports Biblioteca
 
 
-Public Class frmDiario
+Public Class FrmDiario
 
     Private VoyACerrar As Boolean = False
     'Private Modificado As Boolean = False
@@ -31,7 +31,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub frmAsientos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub FrmAsientos_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 
         If Me.BDContabilidadMelo.HasChanges = True Then
 
@@ -70,7 +70,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub frmAsientos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub FrmAsientos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadMelo.FacturasRecibidas)
 
@@ -85,7 +85,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub btnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCerrar.Click
+    Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCerrar.Click
 
         Me.Close()
 
@@ -113,7 +113,7 @@ Public Class frmDiario
             Then
             MessageBox.Show("parsing error")
         End If
-        If (e.Context = _
+        If (e.Context =
             DataGridViewDataErrorContexts.LeaveControl) Then
             MessageBox.Show("leave control error")
         End If
@@ -128,7 +128,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub btnRenum_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRenum.Click
+    Private Sub BtnRenum_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRenum.Click
 
         Me.AsientosBindingSource.MoveFirst()
 
@@ -223,11 +223,12 @@ Public Class frmDiario
         Dim NuevosAsientos As DataTable = ds.Tables.Add("NuevosAsientos")
         For Each c As DataColumn In BDContabilidadMelo.Asientos.Columns
 
-            Dim cNew As New DataColumn
-            cNew.DataType = c.DataType
-            cNew.ColumnName = c.ColumnName
-            cNew.Unique = c.Unique
-            cNew.ReadOnly = c.ReadOnly
+            Dim cNew As New DataColumn With {
+                .DataType = c.DataType,
+                .ColumnName = c.ColumnName,
+                .Unique = c.Unique,
+                .ReadOnly = c.ReadOnly
+            }
 
             NuevosAsientos.Columns.Add(cNew)
 
@@ -240,11 +241,12 @@ Public Class frmDiario
         Dim NuevosCargos As DataTable = ds.Tables.Add("NuevosCargos")
         For Each c As DataColumn In BDContabilidadMelo.Cargos.Columns
 
-            Dim cNew As New DataColumn
-            cNew.DataType = c.DataType
-            cNew.ColumnName = c.ColumnName
-            cNew.Unique = c.Unique
-            cNew.ReadOnly = c.ReadOnly
+            Dim cNew As New DataColumn With {
+                .DataType = c.DataType,
+                .ColumnName = c.ColumnName,
+                .Unique = c.Unique,
+                .ReadOnly = c.ReadOnly
+            }
 
             NuevosCargos.Columns.Add(cNew)
 
@@ -258,11 +260,12 @@ Public Class frmDiario
         Dim NuevosAbonos As DataTable = ds.Tables.Add("NuevosAbonos")
         For Each c As DataColumn In BDContabilidadMelo.Abonos.Columns
 
-            Dim cNew As New DataColumn
-            cNew.DataType = c.DataType
-            cNew.ColumnName = c.ColumnName
-            cNew.Unique = c.Unique
-            cNew.ReadOnly = c.ReadOnly
+            Dim cNew As New DataColumn With {
+                .DataType = c.DataType,
+                .ColumnName = c.ColumnName,
+                .Unique = c.Unique,
+                .ReadOnly = c.ReadOnly
+            }
 
             NuevosAbonos.Columns.Add(cNew)
 
@@ -342,7 +345,7 @@ Public Class frmDiario
 
     End Function
 
-    Private Sub btnCierre_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCierre.Click
+    Private Sub BtnCierre_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCierre.Click
 
         MsgBox("El cierre está desactivado")
 
@@ -350,8 +353,9 @@ Public Class frmDiario
 
         CMódulo.MsgErrorCrítico("ANTES DE OBTENER LA CUENTA DE RESULTADOS Y CERRAR LA CONTABILIDAD DEBE SACAR LOS BALANCES Y HACER UNA COPIA DE SEGURIDAD")
 
-        Dim selecEjercicio As frmSelecFechas = New frmSelecFechas
-        selecEjercicio.Text = "ASIENTO DE CIERRE - Selección de Ejercicio"
+        Dim selecEjercicio As frmSelecFechas = New frmSelecFechas With {
+            .Text = "ASIENTO DE CIERRE - Selección de Ejercicio"
+        }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del ejercicio."
 
         selecEjercicio.ShowDialog(Me)
@@ -369,7 +373,7 @@ Public Class frmDiario
 
             If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, Cod_Cta_PérdidasGanacias) Then
 
-                Dim CuentaPérdidasGanacias As Contabilidad.BDContabilidadGMELO.CuentasRow = _
+                Dim CuentaPérdidasGanacias As Contabilidad.BDContabilidadGMELO.CuentasRow =
                     Me.BDContabilidadMelo.Cuentas.NewCuentasRow
                 CuentaPérdidasGanacias.Código = Cod_Cta_PérdidasGanacias
                 CuentaPérdidasGanacias.CódigoCuentaMaestra = 129
@@ -576,13 +580,13 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub btnListarDiario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListarDiario.Click
+    Private Sub BtnListarDiario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListarDiario.Click
 
         Me.Cursor = Cursors.WaitCursor
 
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Me.BDContabilidadMelo
 
@@ -651,9 +655,9 @@ Public Class frmDiario
 
         Me.Cursor = Cursors.WaitCursor
 
-        Dim Listado As New frmVisorInformes
-
-        Listado.NombreEmpresa = My.Resources.NombreEmpresa
+        Dim Listado As New frmVisorInformes With {
+            .NombreEmpresa = My.Resources.NombreEmpresa
+        }
 
         With Me.BDContabilidadMelo
 
@@ -778,7 +782,7 @@ Public Class frmDiario
 
         If e.KeyCode = Keys.Enter Then
 
-            Dim criterio As String = "Operación Like '*" + CType(sender, ToolStripTextBox).Text + _
+            Dim criterio As String = "Operación Like '*" + CType(sender, ToolStripTextBox).Text +
                 "*' OR Justificante LIKE '*" + CType(sender, ToolStripTextBox).Text + "*'"
 
             Dim Válidos As BDContabilidadGMELO.AsientosRow() = CType(Me.BDContabilidadMelo.Asientos.Select(criterio, "Fecha"), BDContabilidadGMELO.AsientosRow())
@@ -850,7 +854,7 @@ Public Class frmDiario
         ' Determine whether the keystroke is a number from the top of the keyboard.
         If e.KeyCode = Keys.Enter Then
 
-            Dim criterio As String = "Debe = " + CType(sender, ToolStripTextBox).Text + _
+            Dim criterio As String = "Debe = " + CType(sender, ToolStripTextBox).Text +
                 " OR Haber = " + CType(sender, ToolStripTextBox).Text
             criterio = Replace(criterio, ",", ".")
 
@@ -972,7 +976,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub btnBorrarAsiento_Click(sender As Object, e As EventArgs) Handles btnBorrarAsiento.Click
+    Private Sub BtnBorrarAsiento_Click(sender As Object, e As EventArgs) Handles btnBorrarAsiento.Click
 
         Dim p As Integer = CInt(CType(Me.AsientosBindingSource.Current, System.Data.DataRowView).Item("Número"))
         If p > -1 Then
@@ -1020,7 +1024,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub btnBorrarCargo_Click(sender As Object, e As EventArgs) Handles btnBorrarCargo.Click
+    Private Sub BtnBorrarCargo_Click(sender As Object, e As EventArgs) Handles btnBorrarCargo.Click
 
         Dim pAsto As Integer = CInt(CType(Me.CargosBindingSource.Current, System.Data.DataRowView).Item("NúmeroAsiento"))
         Dim pApte As Integer = CInt(CType(Me.CargosBindingSource.Current, System.Data.DataRowView).Item("NúmeroApunte"))
@@ -1040,7 +1044,7 @@ Public Class frmDiario
 
     End Sub
 
-    Private Sub btnBorrarAbono_Click(sender As Object, e As EventArgs) Handles btnBorrarAbono.Click
+    Private Sub BtnBorrarAbono_Click(sender As Object, e As EventArgs) Handles btnBorrarAbono.Click
 
         Dim pAsto As Integer = CInt(CType(Me.AbonosBindingSource.Current, System.Data.DataRowView).Item("NúmeroAsiento"))
         Dim pApte As Integer = CInt(CType(Me.AbonosBindingSource.Current, System.Data.DataRowView).Item("NúmeroApunte"))
@@ -1099,7 +1103,7 @@ Public Class frmDiario
         CargosBindingSource.SuspendBinding()
         AbonosBindingSource.SuspendBinding()
         AsientosBindingSource.SuspendBinding()
-        
+
 
         ' Buscar el asiento
         Dim Asiento As BDContabilidadGMELO.AsientosRow = Me.BDContabilidadMelo.Asientos.FindByNúmero(p)
