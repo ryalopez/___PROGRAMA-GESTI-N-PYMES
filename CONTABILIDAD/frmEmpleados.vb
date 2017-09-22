@@ -1,4 +1,6 @@
-﻿Imports Biblioteca
+﻿Imports System
+Imports CBiblioteca
+Imports Microsoft.VisualBasic
 
 Public Class frmEmpleados
 
@@ -95,11 +97,11 @@ Public Class frmEmpleados
 
     Private Function EsCorrectoDocumento(ByRef msg As String, TipoDocumento As DataGridViewCell, Documento As DataGridViewCell) As Boolean
 
-        If CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.Ninguno Or
-                CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.NIF_DNI Or
-                CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.CIF Or
-                CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.NIE Or
-                CType(TipoDocumento.Value, eTipoDocumento) = eTipoDocumento.Pasaporte Then
+        If CType(TipoDocumento.Value, ETipoDocumento) = ETipoDocumento.Ninguno Or
+                CType(TipoDocumento.Value, ETipoDocumento) = ETipoDocumento.NIF_DNI Or
+                CType(TipoDocumento.Value, ETipoDocumento) = ETipoDocumento.CIF Or
+                CType(TipoDocumento.Value, ETipoDocumento) = ETipoDocumento.NIE Or
+                CType(TipoDocumento.Value, ETipoDocumento) = ETipoDocumento.Pasaporte Then
 
             Return True
 
@@ -131,20 +133,20 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub BtnListarEmpleados_Click(sender As Object, e As EventArgs) Handles btnListarEmpleados.Click
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "rptClientes.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptClientes.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 

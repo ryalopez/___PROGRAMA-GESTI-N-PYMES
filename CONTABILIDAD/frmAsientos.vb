@@ -1,5 +1,11 @@
-﻿Imports System.Windows.Forms
-Imports Biblioteca
+﻿Imports System
+Imports System.Data
+
+Imports Microsoft.VisualBasic
+Imports System.Windows.Forms
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Tab
+Imports CBiblioteca
+Imports System.Drawing
 
 Public Class frmAsientos
 
@@ -12,9 +18,9 @@ Public Class frmAsientos
     Public Event CálculosInterés()
     Public Event CálculosInterésMora()
     Public Event CuentasPréstamo(PréstamoLargo As Integer, NombrePréstamo As String)
-    Public Event CambioTipoAsiento(tipoAsiento As eTiposAsiento)
+    Public Event CambioTipoAsiento(tipoAsiento As ETiposAsiento)
 
-    Private m_tipoAsiento As eTiposAsiento
+    Private m_tipoAsiento As ETiposAsiento
 
     Private m_ClaveHash As String
 
@@ -101,18 +107,18 @@ Public Class frmAsientos
 
         Me.PréstamosTableAdapter.Fill(Me.BDContabilidadGMELO.Préstamos)
 
-        m_númeroAsiento = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+        m_númeroAsiento = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.NúmeroTextBox.Text = Me.NúmeroAsiento.ToString
 
         Me.Text = My.Resources.Título + " - Entrada de asientos"
     End Sub
 
 
-    Public Property TipoAsiento As eTiposAsiento
+    Public Property TipoAsiento As ETiposAsiento
         Get
             Return Me.m_tipoAsiento
         End Get
-        Set(value As eTiposAsiento)
+        Set(value As ETiposAsiento)
             Me.m_tipoAsiento = value
             RaiseEvent CambioTipoAsiento(m_tipoAsiento)
         End Set
@@ -290,7 +296,7 @@ Public Class frmAsientos
 
             End If
 
-            If Me.TipoAsiento = eTiposAsiento.COMPRA Then
+            If Me.TipoAsiento = ETiposAsiento.COMPRA Then
 
                 Me.m_Operación = Me.NombreGasto + " / " + Me.NombreProveedor
 
@@ -306,7 +312,7 @@ Public Class frmAsientos
     Private Sub rbComprasRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbComprasRadioButton.CheckedChanged
         If rbComprasRadioButton.Checked Then
 
-            Me.m_tipoAsiento = eTiposAsiento.COMPRA
+            Me.m_tipoAsiento = ETiposAsiento.COMPRA
             Me.DatosCompraGroupBox.Location = Esquina
             Me.DatosCompraGroupBox.Visible = True
             Me.TipoDisposiciónGroupBox.Visible = False
@@ -320,7 +326,7 @@ Public Class frmAsientos
 
         If rbReintegroRadioButton.Checked Then
 
-            Me.m_tipoAsiento = eTiposAsiento.REINTEGRO_EFECTIVO
+            Me.m_tipoAsiento = ETiposAsiento.REINTEGRO_EFECTIVO
             Me.DatosCompraGroupBox.Visible = False
             Me.TipoDisposiciónGroupBox.Location = Esquina
             Me.TipoDisposiciónGroupBox.Visible = True
@@ -332,7 +338,7 @@ Public Class frmAsientos
     Private Sub rbAdeudoTelePeajeRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbAdeudoTelePeajeRadioButton.CheckedChanged
         If rbAdeudoTelePeajeRadioButton.Checked Then
 
-            Me.m_tipoAsiento = eTiposAsiento.ADEUDO_TELEPEAJE
+            Me.m_tipoAsiento = ETiposAsiento.ADEUDO_TELEPEAJE
             Me.DatosCompraGroupBox.Visible = False
             Me.TipoDisposiciónGroupBox.Visible = False
             Me.AdeudoTelepeajeGroupBox.Location = Esquina
@@ -343,7 +349,7 @@ Public Class frmAsientos
     End Sub
 
     Private Sub CuotaTarjetaRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles CuotaTarjetaRadioButton.CheckedChanged
-        Me.m_tipoAsiento = eTiposAsiento.CUOTA_TARJETA
+        Me.m_tipoAsiento = ETiposAsiento.CUOTA_TARJETA
         Me.DatosCompraGroupBox.Visible = False
         Me.TipoDisposiciónGroupBox.Visible = False
         Me.AdeudoTelepeajeGroupBox.Visible = False
@@ -353,7 +359,7 @@ Public Class frmAsientos
     End Sub
 
     Private Sub DevolPrestamoRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles DevolPrestamoRadioButton.CheckedChanged
-        Me.m_tipoAsiento = eTiposAsiento.AMORTIZACIÓN_PRÉSTAMO
+        Me.m_tipoAsiento = ETiposAsiento.AMORTIZACIÓN_PRÉSTAMO
         Me.DatosCompraGroupBox.Visible = False
         Me.TipoDisposiciónGroupBox.Visible = False
         Me.AdeudoTelepeajeGroupBox.Visible = False
@@ -364,13 +370,13 @@ Public Class frmAsientos
     Private Sub rbVentasRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles rbVentasRadioButton.CheckedChanged
         If rbVentasRadioButton.Checked Then
 
-            Me.m_tipoAsiento = eTiposAsiento.VENTA
+            Me.m_tipoAsiento = ETiposAsiento.VENTA
             Me.DatosCompraGroupBox.Visible = False
             Me.TipoDisposiciónGroupBox.Visible = False
             Me.AdeudoTelepeajeGroupBox.Visible = False
             Me.CuotaTarjetaGroupBox.Visible = False
             Me.DevolPrestamoGroupBox.Visible = False
-            CMódulo.MsgInformativo("No está disponible ésta entrada de asientos.")
+            MDLMensajes.MsgInformativo("No está disponible ésta entrada de asientos.")
             Me.rbVentanillaRadioButton.Checked = False
         End If
 
@@ -456,23 +462,23 @@ Public Class frmAsientos
         ' Validar asiento
         '
         Select Case Me.TipoAsiento
-            Case eTiposAsiento.COMPRA
+            Case ETiposAsiento.COMPRA
                 If Not frmAsientos.GenerarAsientoCompra(Me) Then
                     Exit Sub
                 End If
-            Case eTiposAsiento.REINTEGRO_EFECTIVO
+            Case ETiposAsiento.REINTEGRO_EFECTIVO
                 If Not frmAsientos.GenerarAsientoReintegro(Me) Then
                     Exit Sub
                 End If
-            Case eTiposAsiento.ADEUDO_TELEPEAJE
+            Case ETiposAsiento.ADEUDO_TELEPEAJE
                 If Not frmAsientos.GenerarAsientoTelePeaje(Me) Then
                     Exit Sub
                 End If
-            Case eTiposAsiento.CUOTA_TARJETA
+            Case ETiposAsiento.CUOTA_TARJETA
                 If Not frmAsientos.GenerarAsientoCuotaTarjeta(Me) Then
                     Exit Sub
                 End If
-            Case eTiposAsiento.AMORTIZACIÓN_PRÉSTAMO
+            Case ETiposAsiento.AMORTIZACIÓN_PRÉSTAMO
                 If Not frmAsientos.GenerarAsientoDevoluciónPréstamo(Me) Then
                     Exit Sub
                 End If
@@ -510,18 +516,18 @@ Public Class frmAsientos
         End If
         If Len(Trim(msg)) <> 0 Then
 
-            CMódulo.MsgErrorCrítico(msg)
+            MDLMensajes.MsgErrorCrítico(msg)
             Return False
 
         End If
 
-        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.m_ClaveHash = MDLMensajes.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
         asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
 
         '
         ' Agregar cargos
         '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
         asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.BaseIVA)
         If asto.IVA <> 0 Then
             NúmeroApunte += 1
@@ -533,7 +539,7 @@ Public Class frmAsientos
         '
         ' Agregar abonos
         '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaProveedor, NúmeroApunte, asto.ImporteTotal)
         NúmeroApunte += 1
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.ImporteTotal)
@@ -561,7 +567,7 @@ Public Class frmAsientos
             asto.m_Operación = "ABONO DE CHEQUE " + Trim(asto.NúmeroOficinaTextBox.Text)
             asto.m_Justificante = Trim(asto.NúmeroOficinaTextBox.Text)
         Else
-            CMódulo.MsgErrorCrítico("ERROR AL GENERAR ASIENTO DE REINTEGRO. ASIENTO NO GENERADO")
+            MDLMensajes.MsgErrorCrítico("ERROR AL GENERAR ASIENTO DE REINTEGRO. ASIENTO NO GENERADO")
             Return False
 
         End If
@@ -588,24 +594,24 @@ Public Class frmAsientos
         End If
         If Len(Trim(msg)) <> 0 Then
 
-            CMódulo.MsgErrorCrítico(msg)
+            MDLMensajes.MsgErrorCrítico(msg)
             Return False
 
         End If
 
-        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.m_ClaveHash = MDLMensajes.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
         asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
 
         '
         ' Agregar cargos
         '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
         asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.BaseIVA)
 
         '
         ' Agregar abonos
         '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.ImporteTotal)
 
         Return True
@@ -648,18 +654,18 @@ Public Class frmAsientos
         End If
         If Len(Trim(msg)) <> 0 Then
 
-            CMódulo.MsgErrorCrítico(msg)
+            MDLMensajes.MsgErrorCrítico(msg)
             Return False
 
         End If
 
-        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.m_ClaveHash = MDLMensajes.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
         asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
 
         '
         ' Agregar cargos
         '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
         asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.BaseIVA)
         NúmeroApunte += 1
         asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaIVASoportado, NúmeroApunte, asto.CuotaIVA)
@@ -669,7 +675,7 @@ Public Class frmAsientos
         '
         ' Agregar abonos
         '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaProveedor, NúmeroApunte, asto.ImporteTotal)
         NúmeroApunte += 1
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.ImporteTotal)
@@ -713,24 +719,24 @@ Public Class frmAsientos
         End If
         If Len(Trim(msg)) <> 0 Then
 
-            CMódulo.MsgErrorCrítico(msg)
+            MDLMensajes.MsgErrorCrítico(msg)
             Return False
 
         End If
 
-        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.m_ClaveHash = MDLMensajes.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
         asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
 
         '
         ' Agregar cargos
         '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
         asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaGasto, NúmeroApunte, asto.CuotaTarjeta)
 
         '
         ' Agregar abonos
         '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.CuotaTarjeta)
 
         Return True
@@ -759,17 +765,17 @@ Public Class frmAsientos
         End If
         If Len(Trim(msg)) <> 0 Then
 
-            CMódulo.MsgErrorCrítico(msg)
+            MDLMensajes.MsgErrorCrítico(msg)
             Return False
 
         End If
-        asto.m_ClaveHash = CMódulo.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
+        asto.m_ClaveHash = MDLMensajes.Clave(asto.FechaAsiento.ToString + asto.Operación + asto.Justificante)
         asto.AsientosTableAdapter.Insert(asto.NúmeroAsiento, asto.FechaAsiento, asto.Justificante, asto.Operación, asto.ClaveHash)
 
         '
         ' Agregar cargos
         '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "C")
         asto.CargosTableAdapter.Insert(asto.NúmeroAsiento, asto.CtaPréstamo, NúmeroApunte, asto.CapitalDevuelo)
         If asto.Interés <> 0 Then
             NúmeroApunte += 1
@@ -782,7 +788,7 @@ Public Class frmAsientos
         '
         ' Agregar abonos
         '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
+        NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asto.NúmeroAsiento, "A")
         asto.AbonosTableAdapter.Insert(asto.NúmeroAsiento, asto.CuentaBanco, NúmeroApunte, asto.CapitalDevuelo + asto.Interés + asto.InterésMora)
 
 

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<CUsuario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Configurado>false</Configurado>
-  <Nombre>rafa</Nombre>
-  <Autoridad>ROOT</Autoridad>
-  <Fecha>2015-03-03T13:49:45.1854444+01:00</Fecha>
-</CUsuario>

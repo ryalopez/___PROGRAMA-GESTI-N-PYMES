@@ -2,7 +2,10 @@
 Imports Word = Microsoft.Office.Interop.Word
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
-Imports Biblioteca
+Imports CBiblioteca
+Imports System
+Imports Microsoft.VisualBasic
+
 Public Class FrmFacturasRecibidas
 
     Private VoyACerrar As Boolean = False
@@ -81,22 +84,22 @@ Public Class FrmFacturasRecibidas
     End Sub
 
     Private Sub BtnListarFacturasRecibidas_Click(sender As Object, e As EventArgs) Handles btnListarFacturasRecibidas.Click
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
+        '    Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadGMELO.FacturasRecibidas)
 
-            .NombreInforme = "rptFacturasRecibidas.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptFacturasRecibidas.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 

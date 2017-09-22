@@ -1,5 +1,8 @@
-﻿Imports System.ComponentModel
-Imports Biblioteca
+﻿Imports System
+Imports Microsoft.VisualBasic
+Imports System.ComponentModel
+
+Imports CBiblioteca
 
 Public Class frmProveedores
     '
@@ -7,7 +10,7 @@ Public Class frmProveedores
     '
     Private VoyACerrar As Boolean = False
     Private Const DOMICILIADO As Integer = 5
-    Friend WithEvents F As frmAltaCuenta
+    Friend WithEvents F As FrmAltaCuenta
 
     Private Sub FrmProveedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -46,7 +49,7 @@ Public Class frmProveedores
 
             Catch ex As Exception
 
-                CMódulo.MsgErrorCrítico(ex.Message)
+                MDLMensajes.MsgErrorCrítico(ex.Message)
                 Exit Sub
 
             End Try
@@ -78,7 +81,7 @@ Public Class frmProveedores
 
                 Catch ex As Exception
 
-                    CMódulo.MsgAdvertencia(ex.Message + " " + ex.HelpLink)
+                    MDLMensajes.MsgAdvertencia(ex.Message + " " + ex.HelpLink)
                     Exit Sub
 
                 End Try
@@ -103,20 +106,20 @@ Public Class frmProveedores
 
         Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
 
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "rptProveedores.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptProveedores.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 
@@ -308,8 +311,8 @@ Public Class frmProveedores
     End Sub
 
     Private Sub ProveedoresBindingSource_AddingNew(sender As Object, e As AddingNewEventArgs) Handles ProveedoresBindingSource.AddingNew
-        F = New frmAltaCuenta With {
-            .Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
+        F = New FrmAltaCuenta With {
+            .Código = MDLProcedimientosAlmacenados.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
         }
         F.CódigoCuentaTextBox.Enabled = False
         F.CódigoCuentaMaestra = 4100
@@ -346,7 +349,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
 
                 Catch ex As Exception
 
-                    CMódulo.MsgAdvertencia(ex.Message + " " + ex.HelpLink)
+                    MDLMensajes.MsgAdvertencia(ex.Message + " " + ex.HelpLink)
                     Exit Sub
 
                 End Try
@@ -385,7 +388,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
     Private Sub BtnBorrarProveedor_Click(sender As Object, e As EventArgs) Handles btnBorrarProveedor.Click
 
 
-        If CMódulo.MsgPregunta("¿Seguro que quiere borrar el proveedor " + Me.NombreTextBox.Text.Trim + ". Se borrará también la cuenta en contabilidad.") = MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta("¿Seguro que quiere borrar el proveedor " + Me.NombreTextBox.Text.Trim + ". Se borrará también la cuenta en contabilidad.") = MsgBoxResult.Yes Then
 
             Me.ProveedoresBindingSource.RemoveCurrent()
 

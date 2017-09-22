@@ -1,8 +1,10 @@
 ﻿Imports System.Windows.Forms
+Imports System.EventArgs
 Imports System.ComponentModel
-Imports Biblioteca
+Imports CBiblioteca
+Imports System
 
-Public Class frmAltaCuenta
+Public Class FrmAltaCuenta
     Implements INotifyPropertyChanged, ICuenta
 
     Private mCódigo As Integer
@@ -20,7 +22,7 @@ Public Class frmAltaCuenta
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Dim a As New BDContabilidadGMELOTableAdapters.CuentasTableAdapter
-        a.Insert(Me.Código, Me.CódigoCuentaMaestra, Me.Nombre, Me.idCuentaPerdidasyGanancias, Me.idCuentaBalanceResultados)
+        a.Insert(Me.Código, CódigoCuentaMaestra, Me.Nombre, Me.idCuentaPerdidasyGanancias, Me.idCuentaBalanceResultados, Me.Código)
         Me.mCanceladaAltaCuenta = False
         Me.Close()
     End Sub
@@ -31,7 +33,7 @@ Public Class frmAltaCuenta
         Me.Close()
     End Sub
 
-    Private Sub frmAltaCuenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmAltaCuenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.PérdidasyGananciasTableAdapter.Fill(Me.BDContabilidadGMELO.PérdidasyGanancias)
         Me.BalanceSituaciónTableAdapter.Fill(Me.BDContabilidadGMELO.BalanceSituación)

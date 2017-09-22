@@ -1,6 +1,10 @@
 ﻿Imports System.Windows.Forms
-Imports Biblioteca
+Imports Microsoft.Office.Interop.Outlook
+Imports Microsoft.Office.Interop.Word
+Imports System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder
 
+Imports CBiblioteca
+Imports System.Data.Common.CommandTrees.ExpressionBuilder
 
 Public Class frmPedirFecha
 
@@ -15,7 +19,7 @@ Public Class frmPedirFecha
         If Me.FechaFinalDateTimePicker.Value < Me.FechaDateTimePicker.Value Then
 
             Dim msg As String = "La fecha final tiene que ser mayor que la fecha inicial"
-            CMódulo.MsgErrorCrítico(msg)
+            MDLMensajes.MsgErrorCrítico(msg)
             Exit Sub
 
         End If
@@ -30,8 +34,8 @@ Public Class frmPedirFecha
 
     Private Sub frmPedirFecha_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        Me.FechaDateTimePicker.Value = Now
-        Me.FechaFinalDateTimePicker.Value = Now
+        'Me.FechaDateTimePicker.Value = today
+        'Me.FechaFinalDateTimePicker.Value = datetime
 
     End Sub
 

@@ -58,10 +58,13 @@ Partial Class frmPrincipal
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
         Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CuentasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter()
         Me.mnuPrincipal.SuspendLayout()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mnuPrincipal
@@ -326,6 +329,15 @@ Partial Class frmPrincipal
         Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
         Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
         '
+        'CuentasBindingSource
+        '
+        Me.CuentasBindingSource.DataMember = "Cuentas"
+        Me.CuentasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'CuentasTableAdapter
+        '
+        Me.CuentasTableAdapter.ClearBeforeFill = True
+        '
         'frmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -342,6 +354,7 @@ Partial Class frmPrincipal
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -381,4 +394,6 @@ Partial Class frmPrincipal
     Friend WithEvents mnuEntradaAsientos As ToolStripMenuItem
     Friend WithEvents FinanciaciónToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PréstamosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CuentasBindingSource As BindingSource
+    Friend WithEvents CuentasTableAdapter As BDContabilidadGMELOTableAdapters.CuentasTableAdapter
 End Class

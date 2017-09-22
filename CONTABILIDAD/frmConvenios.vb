@@ -1,4 +1,8 @@
-﻿Public Class frmConvenios
+﻿Imports System
+Imports Microsoft.VisualBasic
+
+
+Public Class frmConvenios
 
     Private VoyACerrar As Boolean = False
 
@@ -16,15 +20,15 @@
         Me.ConveniosBindingSource.EndEdit()
 
         Me.ConvenioCategoríasConceptosTableAdapter.Update(Me.BDContabilidadGMELO)
-        Me.ConvenioCategoríasTableAdapter.Update(Me.bdcontabilidadgmelo)
-        Me.ConvenioGruposTableAdapter.Update(Me.bdcontabilidadgmelo)
+        Me.ConvenioCategoríasTableAdapter.Update(Me.BDContabilidadGMELO)
+        Me.ConvenioGruposTableAdapter.Update(Me.BDContabilidadGMELO)
 
-        Me.CentrosTrabajoTableAdapter.Update(Me.bdcontabilidadgmelo)
-        Me.EmpresasTableAdapter.Update(Me.bdcontabilidadgmelo)
+        Me.CentrosTrabajoTableAdapter.Update(Me.BDContabilidadGMELO)
+        Me.EmpresasTableAdapter.Update(Me.BDContabilidadGMELO)
 
         Me.ConveniosTableAdapter.Update(Me.BDContabilidadGMELO)
 
-        If Me.bdcontabilidadgmelo.HasChanges = False Then
+        If Me.BDContabilidadGMELO.HasChanges = False Then
 
             MsgBox("Los cambios pendientes se han guardado correctamente en la Base de Datos", MsgBoxStyle.OkOnly, My.Resources.Título)
 
@@ -34,7 +38,7 @@
 
     Private Sub frmConveniosEmpresas_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 
-        If Me.bdcontabilidadgmelo.HasChanges = True Then
+        If Me.BDContabilidadGMELO.HasChanges = True Then
 
             If MsgBox("Hay cambios pendientes. ¿Quiere salvarlos?", MsgBoxStyle.YesNo, My.Resources.Título) = MsgBoxResult.Yes Then
 
@@ -49,16 +53,16 @@
 
                 Me.ConveniosBindingSource.EndEdit()
 
-                Me.ConvenioCategoríasConceptosTableAdapter.Update(Me.bdcontabilidadgmelo)
-                Me.ConvenioCategoríasTableAdapter.Update(Me.bdcontabilidadgmelo)
-                Me.ConvenioGruposTableAdapter.Update(Me.bdcontabilidadgmelo)
+                Me.ConvenioCategoríasConceptosTableAdapter.Update(Me.BDContabilidadGMELO)
+                Me.ConvenioCategoríasTableAdapter.Update(Me.BDContabilidadGMELO)
+                Me.ConvenioGruposTableAdapter.Update(Me.BDContabilidadGMELO)
 
-                Me.CentrosTrabajoTableAdapter.Update(Me.bdcontabilidadgmelo)
-                Me.EmpresasTableAdapter.Update(Me.bdcontabilidadgmelo)
+                Me.CentrosTrabajoTableAdapter.Update(Me.BDContabilidadGMELO)
+                Me.EmpresasTableAdapter.Update(Me.BDContabilidadGMELO)
 
-                Me.ConveniosTableAdapter.Update(Me.bdcontabilidadgmelo)
+                Me.ConveniosTableAdapter.Update(Me.BDContabilidadGMELO)
 
-                If Me.bdcontabilidadgmelo.HasChanges = False Then
+                If Me.BDContabilidadGMELO.HasChanges = False Then
 
                     MsgBox("Los cambios pendientes se han guardado correctamente en la Base de Datos", MsgBoxStyle.OkOnly, My.Resources.Título)
 
@@ -74,21 +78,21 @@
 
     Private Sub frmConveniosEmpresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.CentrosTrabajoTableAdapter.Fill(Me.bdcontabilidadgmelo.CentrosTrabajo)
+        Me.CentrosTrabajoTableAdapter.Fill(Me.BDContabilidadGMELO.CentrosTrabajo)
 
-        Me.EmpresasTableAdapter.Fill(Me.bdcontabilidadgmelo.Empresas)
+        Me.EmpresasTableAdapter.Fill(Me.BDContabilidadGMELO.Empresas)
 
         Me.UnidadesTableAdapter.Fill(Me.BDContabilidadGMELO.Unidades)
 
-        Me.TiposComplementoSalarialTableAdapter.Fill(Me.bdcontabilidadgmelo.TiposComplementoSalarial)
+        Me.TiposComplementoSalarialTableAdapter.Fill(Me.BDContabilidadGMELO.TiposComplementoSalarial)
 
         Me.ConvenioCategoríasConceptosTableAdapter.Fill(Me.BDContabilidadGMELO.ConvenioCategoríasConceptos)
 
-        Me.ConvenioCategoríasTableAdapter.Fill(Me.bdcontabilidadgmelo.ConvenioCategorías)
+        Me.ConvenioCategoríasTableAdapter.Fill(Me.BDContabilidadGMELO.ConvenioCategorías)
 
-        Me.ConvenioGruposTableAdapter.Fill(Me.bdcontabilidadgmelo.ConvenioGrupos)
+        Me.ConvenioGruposTableAdapter.Fill(Me.BDContabilidadGMELO.ConvenioGrupos)
 
-        Me.ConveniosTableAdapter.Fill(Me.bdcontabilidadgmelo.Convenios)
+        Me.ConveniosTableAdapter.Fill(Me.BDContabilidadGMELO.Convenios)
 
     End Sub
 

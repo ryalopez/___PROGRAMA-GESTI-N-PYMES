@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmVisorInformes
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class FrmVisorInformes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,34 +20,21 @@ Partial Class frmVisorInformes
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Visor = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.SuspendLayout()
         '
-        'Visor
+        'FrmVisorInformes
         '
-        Me.Visor.ActiveViewIndex = -1
-        Me.Visor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Visor.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Visor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Visor.Location = New System.Drawing.Point(0, 0)
-        Me.Visor.Name = "Visor"
-        'Me.Visor.SelectionFormula = ""
-        Me.Visor.Size = New System.Drawing.Size(1136, 391)
-        Me.Visor.TabIndex = 0
-        'Me.Visor.ViewTimeSelectionFormula = ""
-        '
-        'frmVisorInformes
-        '
-        Me.ClientSize = New System.Drawing.Size(1136, 391)
-        Me.Controls.Add(Me.Visor)
-        Me.Name = "frmVisorInformes"
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(605, 321)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Name = "FrmVisorInformes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Visor de Informes"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents Visor As CrystalDecisions.Windows.Forms.CrystalReportViewer
-
 End Class

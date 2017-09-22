@@ -2,9 +2,11 @@
 Imports Word = Microsoft.Office.Interop.Word
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
-Imports Biblioteca
+Imports CBiblioteca
+Imports System
+Imports Microsoft.VisualBasic
 
-Public Class frmFacturasEmitidas
+Public Class FrmFacturasEmitidas
 
     Private VoyACerrar As Boolean = False
 
@@ -211,7 +213,7 @@ Public Class frmFacturasEmitidas
 
         Me.Cursor = Cursors.WaitCursor
 
-        If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 477) Then
+        If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 477) Then
 
             If Me.CrearCuenta(477) Then
 
@@ -220,7 +222,7 @@ Public Class frmFacturasEmitidas
             End If
 
         End If
-        If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 705) Then
+        If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 705) Then
 
             If Me.CrearCuenta(705) Then
 
@@ -239,7 +241,7 @@ Public Class frmFacturasEmitidas
 
             End While
             Dim NumCtaCli As Integer = CInt("430" + s)
-            If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
+            If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
 
                 If Me.CrearCuenta(NumCtaCli, factura.idCliente) Then
 
@@ -254,13 +256,13 @@ Public Class frmFacturasEmitidas
                     Me.BDContabilidadGMELO.Clientes.FindByid(factura.idCliente)
             Dim asiento As BDContabilidadGMELO.AsientosRow
 
-            If Not CMódulo.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
+            If Not MDLProcedimientosAlmacenados.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
                 ' NO EXISTE EL ASIENTO
 
                 asiento = BDContabilidadGMELO.Asientos.NewAsientosRow
                 With asiento
 
-                    .Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+                    .Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
                     .Fecha = factura.FechaEmisión
                     .Justificante = Justificante
                     .Operación = "Pago servicios " + factura.NomCliente
@@ -271,7 +273,7 @@ Public Class frmFacturasEmitidas
 
             Else
                 ' RECUPERAR EL ASIENTO              
-                Dim idAsiento As Integer = CMódulo.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
+                Dim idAsiento As Integer = MDLProcedimientosAlmacenados.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
                 asiento = BDContabilidadGMELO.Asientos.FindByNúmero(idAsiento)
                 ' se comprueba que realmente IdAsientoConJustificante(Justificante) ha funcionado OK
                 If asiento IsNot Nothing Then
@@ -307,7 +309,7 @@ Public Class frmFacturasEmitidas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = NumCtaCli
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
                 .Importe = factura.Total
 
             End With
@@ -323,7 +325,7 @@ Public Class frmFacturasEmitidas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = 705
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                 .Importe = factura.BaseImponible
 
             End With
@@ -333,14 +335,14 @@ Public Class frmFacturasEmitidas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = 477
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                 .Importe = factura.Cuota
 
             End With
             Me.BDContabilidadGMELO.Abonos.AddAbonosRow(abono)
             Me.AbonosTableAdapter.Update(Me.BDContabilidadGMELO.Abonos)
 
-            CMódulo.MarcarContabilizado(My.Settings.BDContabilidadConnectionString, factura.id, "F")
+            MDLProcedimientosAlmacenados.MarcarContabilizado(My.Settings.BDContabilidadConnectionString, factura.id, "F")
 
         Next
 
@@ -360,11 +362,11 @@ Public Class frmFacturasEmitidas
         If scta.Length = 3 Then
 
             Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow =
-                Me.BDContabilidadGMELO.CuentasMaestras.FindByCódigo(cta)
+                Me.BDContabilidadGMELO.CuentasMaestras.FindByCodigo(cta)
             With cuenta
 
-                .Código = cta
-                .CódigoCuentaMaestra = maestra.Código
+                .Codigo = cta
+                .CodigoCuentaMaestra = maestra.Codigo
                 .Nombre = maestra.Nombre
                 .idPerdidasyGanancias = 0
                 .idBalanceResultados = 0
@@ -375,14 +377,14 @@ Public Class frmFacturasEmitidas
 
             Dim ctaM As Integer = CInt(scta.Substring(0, 3))
             Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow =
-               Me.BDContabilidadGMELO.CuentasMaestras.FindByCódigo(ctaM)
+               Me.BDContabilidadGMELO.CuentasMaestras.FindByCodigo(ctaM)
             Dim cliente As BDContabilidadGMELO.ClientesRow =
                 Me.BDContabilidadGMELO.Clientes.FindByid(idCliente)
 
             With cuenta
 
-                .Código = cta
-                .CódigoCuentaMaestra = maestra.Código
+                .Codigo = cta
+                .CodigoCuentaMaestra = maestra.Codigo
                 .Nombre = maestra.Nombre + Me.BDContabilidadGMELO.Clientes.FindByid(idCliente).NomyApes 'NombreCliente(cliente)
                 .idPerdidasyGanancias = 0
                 .idBalanceResultados = 0
@@ -405,7 +407,7 @@ Public Class frmFacturasEmitidas
             "copiando las del mes anterior. " &
             "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -478,16 +480,16 @@ Public Class frmFacturasEmitidas
 
                 cliente = BDContabilidadGMELO.Clientes.FindByid(.idCliente)
 
-                Dim miNúmero As String = CMódulo.NúmeroNuevaFactura(My.Settings.BDContabilidadConnectionString, FechaFactura.Year)
+                Dim miNúmero As String = MDLProcedimientosAlmacenados.NúmeroNuevaFactura(My.Settings.BDContabilidadConnectionString, FechaFactura.Year)
                 Me.FacturasEmitidasTableAdapter.Insert(Número:=miNúmero, FechaEmisión:=FechaFactura, FechaOperación:=FechaFactura, idCliente:=facturaAnterior.idCliente,
                                                            TipoIVA:=facturaAnterior.TipoIVA, Contabilizada:=False, Pagada:=False, FechaPago:=FechaFactura,
                                                            idCtaBancaria:=1, Bloqueada:=False)
                 'recupera la factura recien creada
-                Dim idFactura As Integer = CMódulo.IdFacturaConNúmero(My.Settings.BDContabilidadConnectionString, miNúmero)
+                Dim idFactura As Integer = MDLProcedimientosAlmacenados.IdFacturaConNúmero(My.Settings.BDContabilidadConnectionString, miNúmero)
                 factura = Me.FacturasEmitidasTableAdapter.FindById(idFactura)(0)
 
                 ' Se copian a la nueva factura las líneas de la antigua
-                Dim idFacturaAnterior As Integer = CMódulo.IdFacturaConNúmero(My.Settings.BDContabilidadConnectionString, facturaAnterior.Número)
+                Dim idFacturaAnterior As Integer = MDLProcedimientosAlmacenados.IdFacturaConNúmero(My.Settings.BDContabilidadConnectionString, facturaAnterior.Número)
                 Dim Líneas As BDContabilidadGMELO.LíneasFacturaEmitidaRow() =
                         CType(Me.BDContabilidadGMELO.LíneasFacturaEmitida.Select("idFactura = " + idFacturaAnterior.ToString), BDContabilidadGMELO.LíneasFacturaEmitidaRow())
                 For Each l As BDContabilidadGMELO.LíneasFacturaEmitidaRow In Líneas
@@ -537,7 +539,7 @@ Public Class frmFacturasEmitidas
                 'Dim img As Image = My.Resources.logoMelo
                 'oShape = oDoc.Bookmarks.Item("\startofdoc").Range.InlineShapes.AddPicture("", LinkToFile:=False)
                 oShape = oDoc.Bookmarks.Item("\startofdoc").Range.InlineShapes.AddPicture(
-                        "K:\Grupo MELO\CONTABILIDAD\imágenes\logomelo.gif", LinkToFile:=False)
+                        "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\Imágenes\logomelo.gif", LinkToFile:=False)
                 'oShape.Width = oWord.CentimetersToPoints(4)
                 'oShape.Height = oWord.CentimetersToPoints(1.5)
 
@@ -589,11 +591,11 @@ Public Class frmFacturasEmitidas
                 oPara1.Range.ParagraphFormat.TabStops.Add(oWord.CentimetersToPoints(14), Word.WdAlignmentTabAlignment.wdRight, Word.WdTabLeader.wdTabLeaderSpaces)
                 oPara1.Range.ParagraphFormat.TabStops.Add(oWord.CentimetersToPoints(15.5), Word.WdAlignmentTabAlignment.wdRight, Word.WdTabLeader.wdTabLeaderSpaces)
                 Dim Doc As String = ""
-                If cliente.TipoDocumentoIdentidad - 1 = eTipoDocumento.CIF Then
+                If cliente.TipoDocumentoIdentidad - 1 = ETipoDocumento.CIF Then
                     Doc = "CIF: " + cliente.DocumentoIdentidad
-                ElseIf cliente.TipoDocumentoIdentidad - 1 = eTipoDocumento.NIE Then
+                ElseIf cliente.TipoDocumentoIdentidad - 1 = ETipoDocumento.NIE Then
                     Doc = "NIE: " + cliente.DocumentoIdentidad
-                ElseIf cliente.TipoDocumentoIdentidad - 1 = eTipoDocumento.NIF_DNI Then
+                ElseIf cliente.TipoDocumentoIdentidad - 1 = ETipoDocumento.NIF_DNI Then
                     Doc = "NIF: " + cliente.DocumentoIdentidad
                 End If
                 oPara1.Range.Text = "FACTURA: " + factura.Número + vbTab + vbTab + Doc
@@ -783,7 +785,7 @@ Public Class frmFacturasEmitidas
                 oPara1.Range.Text = "GRACIAS"
 
 
-                Dim NomFichero As String = Application.StartupPath & "\FACTURAS CLIENTES\Fra" +
+                Dim NomFichero As String = "K:\Grupo MELO\CLIENTES\FACTURAS\Fra" +
                         FechaFactura.Year.ToString + DateAndTime.MonthName(FechaFactura.Month) +
                         Trim(factura.NomCliente) + ".docx"
                 NomFichero = NomFichero.Replace("/", " ")
@@ -805,7 +807,7 @@ Public Class frmFacturasEmitidas
 
         ' Next
 
-        Dim NomFicheroExcel As String = Application.StartupPath & "\FACTURAS CLIENTES\ResumenFacturas" +
+        Dim NomFicheroExcel As String = "K:\Grupo MELO\CLIENTES\FACTURAS\ResumenFacturas" +
            FechaFactura.Year.ToString + DateAndTime.MonthName(FechaFactura.Month) +
            ".xls"
         NomFicheroExcel = NomFicheroExcel.Replace("/", " ")
@@ -826,28 +828,28 @@ Public Class frmFacturasEmitidas
         Me.FacturasEmitidasBindingSource.ResetBindings(False)
         Me.LíneasFacturaEmitidaBindingSource.ResetBindings(False)
 
-        CMódulo.MsgInformativo("Se ha terminado la generación de facturas. Puede recogerlas en " +
-                              Application.StartupPath + "\FACTURAS CLIENTES\")
+        MDLMensajes.MsgInformativo("Se ha terminado la generación de facturas. Puede recogerlas en " +
+                              "K:\Grupo MELO\CLIENTES\FACTURAS\")
     End Sub
 
 
     Private Sub BtnListarFacturasEmitidas_Click(sender As Object, e As EventArgs) Handles btnListarFacturasEmitidas.Click
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
+        '    Me.FacturasEmitidas1TableAdapter.Fill(Me.BDContabilidadGMELO.FacturasEmitidas1)
 
-            .NombreInforme = "rptFacturasEmitidas.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptFacturasEmitidas.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 
@@ -857,7 +859,7 @@ Public Class frmFacturasEmitidas
     "Podrá seleccionar si de todos los clientes o de uno sólo. " &
     "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -893,22 +895,22 @@ Public Class frmFacturasEmitidas
             FechaFactura = CDate("30/" + FechaFactura.Month.ToString + "/" + FechaFactura.Year.ToString)
 
         End If
-        CMódulo.MsgAdvertencia("Se van a imprimir facturas con fecha " + FechaFactura.ToString)
+        MDLMensajes.MsgAdvertencia("Se van a imprimir facturas con fecha " + FechaFactura.ToString)
 
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "rptFacturaCliente.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptFacturaCliente.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 
@@ -918,7 +920,7 @@ Public Class frmFacturasEmitidas
             "de todos los clientes, incluidos los no activos, y para las fechas que indique. " & vbCrLf &
             "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -1096,7 +1098,7 @@ Public Class frmFacturasEmitidas
         oExcel.ActiveWorkbook.SaveAs(NomFicheroExcel)
         oExcel.ActiveWorkbook.Close()
 
-        CMódulo.MsgInformativo("Se ha terminado la generación del resumen de facturas. Puede recogerlas en " +
+        MDLMensajes.MsgInformativo("Se ha terminado la generación del resumen de facturas. Puede recogerlas en " +
                               Application.StartupPath + "\FACTURAS CLIENTES\")
 
     End Sub
@@ -1148,13 +1150,13 @@ Public Class frmFacturasEmitidas
             Dim cliente As BDContabilidadGMELO.ClientesRow =
                     Me.BDContabilidadGMELO.Clientes.FindByid(f.idCliente)
             Dim asiento As BDContabilidadGMELO.AsientosRow
-            If Not CMódulo.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
+            If Not MDLProcedimientosAlmacenados.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
                 ' NO EXISTE EL ASIENTO
 
                 asiento = BDContabilidadGMELO.Asientos.NewAsientosRow()
                 With asiento
 
-                    .Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+                    .Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
                     .Fecha = f.FechaPago
                     .Justificante = Justificante
                     .Operación = "Cobro factura del mes " + Me.BDContabilidadGMELO.Clientes.FindByid(f.idCliente).NomyApes ' NombreCliente(cliente)
@@ -1165,7 +1167,7 @@ Public Class frmFacturasEmitidas
 
             Else
                 ' RECUPERAR EL ASIENTO
-                Dim idAsiento As Integer = CMódulo.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
+                Dim idAsiento As Integer = MDLProcedimientosAlmacenados.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
                 asiento = BDContabilidadGMELO.Asientos.FindByNúmero(idAsiento)
                 ' se comprueba que realmente IdAsientoConJustificante(Justificante) ha funcionado OK
                 If asiento IsNot Nothing Then
@@ -1227,7 +1229,7 @@ Public Class frmFacturasEmitidas
             Me.BDContabilidadGMELO.Abonos.AddAbonosRow(abono)
             Me.AbonosTableAdapter.Update(Me.BDContabilidadGMELO.Abonos)
 
-            CMódulo.MarcarPagado(My.Settings.BDContabilidadConnectionString, f.id, "F")
+            MDLProcedimientosAlmacenados.MarcarPagado(My.Settings.BDContabilidadConnectionString, f.id, "F")
 
         Next
 
@@ -1248,12 +1250,12 @@ Public Class frmFacturasEmitidas
         ' Se trabaja en la Base de Datos con métodos directos. Se "desenganchan los binding"        
         FacturasEmitidasBindingSource.SuspendBinding()
 
-        Dim NúmeroFactura As String = CMódulo.NúmeroNuevaFactura(My.Settings.BDContabilidadConnectionString, Today.Year)
+        Dim NúmeroFactura As String = MDLProcedimientosAlmacenados.NúmeroNuevaFactura(My.Settings.BDContabilidadConnectionString, Today.Year)
 
         Me.FacturasEmitidasTableAdapter.Insert(NúmeroFactura, Today, Today, idCliente, TipoIVA, False, False, Today, 1, False)
 
         ' Se copian a la nueva factura las líneas de la antigua
-        Dim idNuevaFactura As Integer = CMódulo.IdFacturaConNúmero(My.Settings.BDContabilidadConnectionString, NúmeroFactura)
+        Dim idNuevaFactura As Integer = MDLProcedimientosAlmacenados.IdFacturaConNúmero(My.Settings.BDContabilidadConnectionString, NúmeroFactura)
 
         Dim facturaActual As BDContabilidadGMELO.FacturasEmitidasRow = Me.BDContabilidadGMELO.FacturasEmitidas.FindByid(idFacturaActual)
         For Each l As BDContabilidadGMELO.LíneasFacturaEmitidaRow In facturaActual.GetLíneasFacturaEmitidaRows
@@ -1303,7 +1305,7 @@ Public Class frmFacturasEmitidas
 
         'Dim img As Image = My.Resources.logoMelo
         oShape = oDoc.Bookmarks.Item("\startofdoc").Range.InlineShapes.AddPicture(
-            "K:\Grupo MELO\CONTABILIDAD\imágenes\logomelo.gif", LinkToFile:=False)
+            "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\Recursos\Imágenes\logomelo.gif", LinkToFile:=False)
 
         oDoc.PageSetup.LeftMargin = oWord.CentimetersToPoints(3)
         oDoc.PageSetup.RightMargin = oWord.CentimetersToPoints(2)
@@ -1353,11 +1355,11 @@ Public Class frmFacturasEmitidas
         oPara1.Range.ParagraphFormat.TabStops.Add(oWord.CentimetersToPoints(14), Word.WdAlignmentTabAlignment.wdRight, Word.WdTabLeader.wdTabLeaderSpaces)
         oPara1.Range.ParagraphFormat.TabStops.Add(oWord.CentimetersToPoints(15.5), Word.WdAlignmentTabAlignment.wdRight, Word.WdTabLeader.wdTabLeaderSpaces)
         Dim Doc As String = ""
-        If Cliente.TipoDocumentoIdentidad = eTipoDocumento.CIF Then
+        If Cliente.TipoDocumentoIdentidad = ETipoDocumento.CIF Then
             Doc = "CIF: " + Cliente.DocumentoIdentidad
-        ElseIf Cliente.TipoDocumentoIdentidad = eTipoDocumento.NIE Then
+        ElseIf Cliente.TipoDocumentoIdentidad = ETipoDocumento.NIE Then
             Doc = "NIE: " + Cliente.DocumentoIdentidad
-        ElseIf Cliente.TipoDocumentoIdentidad = eTipoDocumento.NIF_DNI Then
+        ElseIf Cliente.TipoDocumentoIdentidad = ETipoDocumento.NIF_DNI Then
             Doc = "NIF: " + Cliente.DocumentoIdentidad
         End If
         oPara1.Range.Text = "FACTURA: " + Número + vbTab + vbTab + Doc
@@ -1544,7 +1546,7 @@ Public Class frmFacturasEmitidas
         oPara1.Range.Text = "GRACIAS"
 
 
-        Dim NomFichero As String = Application.StartupPath & "\FACTURAS CLIENTES\Fra" +
+        Dim NomFichero As String = "K:\Grupo MELO\CLIENTES\FACTURAS\Fra" +
             FechaEmisión.Year.ToString + DateAndTime.MonthName(FechaEmisión.Month) +
             Trim(Cliente.NomyApes) + ".docx"
         NomFichero = NomFichero.Replace("/", " ")
@@ -1554,8 +1556,8 @@ Public Class frmFacturasEmitidas
         'cerrar aplicaciones office
         oWord.Quit()
 
-        CMódulo.MsgInformativo("Se ha terminado la generación de la factura. Puede recogerla en " +
-                       Application.StartupPath + "\FACTURAS CLIENTES\")
+        MDLMensajes.MsgInformativo("Se ha terminado la generación de la factura. Puede recogerla en " +
+                      "K:\Grupo MELO\CLIENTES\FACTURAS\")
 
 
     End Sub
@@ -1607,20 +1609,20 @@ Public Class frmFacturasEmitidas
         'Me.BDContabilidadGMELO.AcceptChanges()
 
 
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "rptMorosos.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptMorosos.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
         Me.BDContabilidadGMELO.LíneaDeudaClientes.RejectChanges()
         Me.BDContabilidadGMELO.ClientesDeudores.RejectChanges()
@@ -1646,7 +1648,7 @@ Public Class frmFacturasEmitidas
 
     Private Sub BindingNavigatorDeleteItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorDeleteItem.Click
 
-        CMódulo.BorrarFacturaEmitida(My.Settings.BDContabilidadConnectionString,
+        MDLProcedimientosAlmacenados.BorrarFacturaEmitida(My.Settings.BDContabilidadConnectionString,
                                          CType(CType(Me.FacturasEmitidasBindingSource.Current, System.Data.DataRowView).Item("id"), Integer))
 
         Me.BDContabilidadGMELO.FacturasEmitidas.AcceptChanges()
@@ -1656,4 +1658,5 @@ Public Class frmFacturasEmitidas
         Me.LíneasFacturaEmitidaBindingSource.ResetBindings(False)
 
     End Sub
+
 End Class

@@ -1,7 +1,9 @@
 ﻿Imports System.Text.RegularExpressions
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Data.SqlClient
-Imports Biblioteca
+Imports CBiblioteca
+Imports System
+Imports Microsoft.VisualBasic
 
 Public Class FrmNóminas
 
@@ -186,7 +188,7 @@ Public Class FrmNóminas
         ' Selecciona las nóminas emitidas que están sin contabilizar
         ' Se genera asiento
         '
-        If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 4751) Then
+        If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 4751) Then
 
             If Me.CrearCuenta(4751) Then
 
@@ -195,7 +197,7 @@ Public Class FrmNóminas
             End If
 
         End If
-        If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 476) Then
+        If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, 476) Then
 
             If Me.CrearCuenta(476) Then
 
@@ -209,7 +211,7 @@ Public Class FrmNóminas
 
             Dim emp As BDContabilidadGMELO.EmpleadosRow = Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado)
             Dim NumCtaCli As Integer = CInt(emp.CuentaGastoEmpleado)
-            If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
+            If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
 
                 If Me.CrearCuenta(NumCtaCli, nómina.idEmpleado) Then
 
@@ -219,7 +221,7 @@ Public Class FrmNóminas
 
             End If
             NumCtaCli = CInt(emp.CuentaBalanceEmpleado)
-            If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
+            If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
 
                 If Me.CrearCuenta(NumCtaCli, nómina.idEmpleado) Then
 
@@ -229,7 +231,7 @@ Public Class FrmNóminas
 
             End If
             NumCtaCli = CInt(emp.CuentaSegSocCargoEmpresaEmpleado)
-            If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
+            If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
 
                 If Me.CrearCuenta(NumCtaCli, nómina.idEmpleado) Then
 
@@ -242,11 +244,11 @@ Public Class FrmNóminas
             Dim Justificante As String = "ABONO HABERES. de " + nómina.FechaNómina.ToShortDateString + " de " + Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado).NomyApe
             Dim asiento As BDContabilidadGMELO.AsientosRow
 
-            If Not CMódulo.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
+            If Not MDLProcedimientosAlmacenados.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
                 asiento = BDContabilidadGMELO.Asientos.NewAsientosRow
                 With asiento
 
-                    .Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+                    .Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
                     .Fecha = nómina.FechaNómina
                     .Justificante = Justificante
                     .Operación = "Abono haberes de " + Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado).NomyApe
@@ -257,7 +259,7 @@ Public Class FrmNóminas
 
             Else
                 ' RECUPERAR EL ASIENTO
-                Dim idAsiento As Integer = CMódulo.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
+                Dim idAsiento As Integer = MDLProcedimientosAlmacenados.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
                 asiento = BDContabilidadGMELO.Asientos.FindByNúmero(idAsiento)
                 ' se comprueba que realmente IdAsientoConJustificante(Justificante) ha funcionado OK
                 If asiento IsNot Nothing Then
@@ -292,7 +294,7 @@ Public Class FrmNóminas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = CInt(emp.CuentaGastoEmpleado)
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
                 .Importe = nómina.Bruto
 
             End With
@@ -302,7 +304,7 @@ Public Class FrmNóminas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = CInt(emp.CuentaSegSocCargoEmpresaEmpleado)
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
                 .Importe = nómina.SegSocialEmpresa
 
             End With
@@ -319,7 +321,7 @@ Public Class FrmNóminas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = 476
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                 .Importe = nómina.SegSocialEmpresa + nómina.SegSocEmpleado
 
             End With
@@ -329,7 +331,7 @@ Public Class FrmNóminas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = 4751
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                 .Importe = nómina.CuotaIRPF
 
             End With
@@ -339,14 +341,14 @@ Public Class FrmNóminas
 
                 .NúmeroAsiento = asiento.Número
                 .CódigoCuenta = CInt(emp.CuentaBalanceEmpleado)
-                .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                 .Importe = nómina.Neto
 
             End With
             Me.BDContabilidadGMELO.Abonos.AddAbonosRow(abono)
             Me.AbonosTableAdapter.Update(Me.BDContabilidadGMELO.Abonos)
 
-            CMódulo.MarcarContabilizado(My.Settings.BDContabilidadConnectionString, nómina.id, "N")
+            MDLProcedimientosAlmacenados.MarcarContabilizado(My.Settings.BDContabilidadConnectionString, nómina.id, "N")
 
         Next
 
@@ -366,11 +368,11 @@ Public Class FrmNóminas
         If scta.Length = 3 Then
 
             Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow =
-                Me.BDContabilidadGMELO.CuentasMaestras.FindByCódigo(cta)
+                Me.BDContabilidadGMELO.CuentasMaestras.FindByCodigo(cta)
             With cuenta
 
-                .Código = cta
-                .CódigoCuentaMaestra = maestra.Código
+                .Codigo = cta
+                .CodigoCuentaMaestra = maestra.Codigo
                 .Nombre = maestra.Nombre
 
             End With
@@ -386,14 +388,14 @@ Public Class FrmNóminas
             End If
 
             Dim maestra As BDContabilidadGMELO.CuentasMaestrasRow =
-               Me.BDContabilidadGMELO.CuentasMaestras.FindByCódigo(ctaM)
+               Me.BDContabilidadGMELO.CuentasMaestras.FindByCodigo(ctaM)
             Dim empleado As BDContabilidadGMELO.EmpleadosRow =
                 Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(idEmpleado)
 
             With cuenta
 
-                .Código = cta
-                .CódigoCuentaMaestra = maestra.Código
+                .Codigo = cta
+                .CodigoCuentaMaestra = maestra.Codigo
                 .Nombre = maestra.Nombre
                 If Not empleado Is Nothing Then
                     .Nombre = maestra.Nombre + ". " + empleado.NomyApe
@@ -401,7 +403,7 @@ Public Class FrmNóminas
             End With
 
         End If
-        If CType(Me.CuentasTableAdapter.EsCuentaBalance(cuenta.Código), Integer) = 1 Then
+        If CType(Me.CuentasTableAdapter.EsCuentaBalance(cuenta.Codigo), Integer) = 1 Then
             ' LAS CUENTAS 465
             cuenta.idBalanceResultados = 52
             cuenta.idPerdidasyGanancias = 0
@@ -422,20 +424,20 @@ Public Class FrmNóminas
     End Function
 
     Private Sub BtnListarFacturasEmitidas_Click(sender As Object, e As EventArgs) Handles btnListarNóminas.Click
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "rptNóminas.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = ""
+        '    .NombreInforme = "rptNóminas.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 
@@ -444,7 +446,7 @@ Public Class FrmNóminas
     "para las fechas que indique. " & vbCrLf &
     "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -625,7 +627,7 @@ Public Class FrmNóminas
         oExcel.ActiveWorkbook.SaveAs(NomFicheroExcel)
         oExcel.ActiveWorkbook.Close()
 
-        CMódulo.MsgInformativo("Se ha terminado la generación del resumen de nóminas. Puede recogerlas en " +
+        MDLMensajes.MsgInformativo("Se ha terminado la generación del resumen de nóminas. Puede recogerlas en " +
                               Application.StartupPath + "\FACTURAS CLIENTES\")
 
     End Sub
@@ -653,7 +655,7 @@ Public Class FrmNóminas
                 'Cuenta del empleado
                 Dim emp As BDContabilidadGMELO.EmpleadosRow = Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado)
                 Dim NumCtaCli As Integer = CInt(emp.CuentaGastoEmpleado)
-                If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
+                If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
 
                     If Me.CrearCuenta(NumCtaCli, nómina.idEmpleado) Then
 
@@ -663,7 +665,7 @@ Public Class FrmNóminas
 
                 End If
                 NumCtaCli = CInt(emp.CuentaBalanceEmpleado)
-                If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
+                If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, NumCtaCli) Then
 
                     If Me.CrearCuenta(NumCtaCli, nómina.idEmpleado) Then
 
@@ -696,13 +698,13 @@ Public Class FrmNóminas
                     Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado).NomyApe
 
                 Dim asiento As BDContabilidadGMELO.AsientosRow
-                If Not CMódulo.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
+                If Not MDLProcedimientosAlmacenados.ExisteAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante) Then
                     '    ' NO EXISTE EL ASIENTO
 
                     asiento = BDContabilidadGMELO.Asientos.NewAsientosRow
                     With asiento
 
-                        .Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+                        .Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
                         .Fecha = nómina.FechaPago
                         .Justificante = Justificante
                         .Operación = "Pago Nómina de " + Me.BDContabilidadGMELO.Empleados.FindByidEmpleado(nómina.idEmpleado).NomyApe + ". "
@@ -713,7 +715,7 @@ Public Class FrmNóminas
 
                 Else
                     ' RECUPERAR EL ASIENTO
-                    Dim idAsiento As Integer = CMódulo.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
+                    Dim idAsiento As Integer = MDLProcedimientosAlmacenados.IdAsientoConJustificante(My.Settings.BDContabilidadConnectionString, Justificante)
                     asiento = BDContabilidadGMELO.Asientos.FindByNúmero(idAsiento)
                     ' se comprueba que realmente IdAsientoConJustificante(Justificante) ha funcionado OK
                     If asiento IsNot Nothing Then
@@ -752,7 +754,7 @@ Public Class FrmNóminas
 
                         .NúmeroAsiento = asiento.Número
                         .CódigoCuenta = CInt(emp.CuentaBalanceEmpleado)
-                        .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
+                        .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
                         .Importe = nómina.Neto
 
                     End With
@@ -770,7 +772,7 @@ Public Class FrmNóminas
 
                         .NúmeroAsiento = asiento.Número
                         .CódigoCuenta = NumCtaBan
-                        .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                        .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                         .Importe = nómina.Neto
 
                     End With
@@ -790,7 +792,7 @@ Public Class FrmNóminas
 
                         .NúmeroAsiento = asiento.Número
                         .CódigoCuenta = CInt(emp.CuentaBalanceEmpleado)
-                        .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
+                        .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "C")
                         .Importe = nómina.Neto
 
                     End With
@@ -808,7 +810,7 @@ Public Class FrmNóminas
 
                         .NúmeroAsiento = asiento.Número
                         .CódigoCuenta = 570
-                        .NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
+                        .NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, asiento.Número, "A")
                         .Importe = nómina.Neto
 
                     End With
@@ -818,7 +820,7 @@ Public Class FrmNóminas
 
                 End If
 
-                CMódulo.MarcarPagado(My.Settings.BDContabilidadConnectionString, nómina.id, "N")
+                MDLProcedimientosAlmacenados.MarcarPagado(My.Settings.BDContabilidadConnectionString, nómina.id, "N")
 
             End If
 

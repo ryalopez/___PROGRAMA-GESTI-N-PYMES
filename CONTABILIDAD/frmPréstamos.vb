@@ -1,4 +1,8 @@
-﻿Imports Biblioteca
+﻿Imports System
+Imports System.Data
+
+Imports CBiblioteca
+Imports Microsoft.VisualBasic
 
 Public Class frmPréstamos
 

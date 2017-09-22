@@ -1,8 +1,19 @@
-﻿Imports Biblioteca
+﻿Imports System
+Imports System.IO
+Imports Microsoft.VisualBasic
+Imports Microsoft.Reporting.WinForms
+Imports Microsoft.SqlServer.Types
+Imports System.Data
+
+Imports CBiblioteca
+Imports System.Drawing
 
 Public Class FrmCuentas
 
-    Friend WithEvents FrmA As frmAltaCuenta
+    Private Const PathInformes As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\"
+    Private Const BalanceSumasSaldos As String = "BSS.rdlc"
+    Private Const BalanceSumasSaldos3 As String = "K:/Grupo MELO/___PROGRAMA GESTIÓN PYMES/CONTABILIDAD/informes/BSS3.rdlc"
+    Friend WithEvents FrmA As FrmAltaCuenta
     Private VoyACerrar As Boolean = False
 
     Private Sub GruposBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) _
@@ -115,11 +126,162 @@ Public Class FrmCuentas
     End Sub
 
     Private Sub SumasYSaldosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SumasYSaldosToolStripMenuItem.Click
+
+        Dim selecEjercicio As New frmSelecFechas With {
+            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
+        }
+        Dim Visor As New FrmVisorInformes
+
+        'selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
+        'selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
+
+        'selecEjercicio.ShowDialog(Me)
+
+        'If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
+
+        '    Dim Visor As New FrmVisorInformes
+
+        '    If Not File.Exists(PathInformes + BalanceSumasSaldos) Then
+
+        '        CBiblioteca.MsgErrorCrítico("No existe la definición del informe CONTABILIDAD.Balance Sumas y Saldos.rdlc")
+        '        Return
+
+        '    Else
+
+        '        Try
+        '            ' Create an instance of StreamReader to read from a file.
+        '            Using sr As New StreamReader(PathInformes + BalanceSumasSaldos)
+
+        '                Dim line As String
+        '                ' Read and display the lines from the file until the end 
+        '                ' of the file is reached.
+        '                Do
+        '                    line = sr.ReadLine()
+        '                    Console.WriteLine(line)
+        '                Loop Until line Is Nothing
+        '                sr.Close()
+
+        '                Visor.ReportViewer1.LocalReport.ReportPath = PathInformes
+        '                Visor.ReportViewer1.LocalReport.ReportEmbeddedResource = BalanceSumasSaldos
+        '                Visor.ReportViewer1.LocalReport.LoadReportDefinition(sr)
+
+        '            End Using
+
+        '        Catch Ex As Exception
+
+        '            ' Let the user know what went wrong.
+        '            'CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance Sumas y Saldos.rdlc. " + Ex.Message)
+        '            'Return
+
+        '        End Try
+
+        '    End If
+        '    '
+        '    ' Datasource
+        '    '
+        '    Dim tabla As New ReportDataSource With {
+        '            .Name = "DataSet1",
+        '            .Value = Me.BDContabilidadGMELO.Cuentas
+        '        }
+        '    '
+        '    ' Parámetros
+        '    '
+        '    Dim Parámetros As ReportParameterCollection
+        '    Parámetros = New ReportParameterCollection()
+
+        '    Dim prmEjercicio As ReportParameter
+        '    prmEjercicio = New ReportParameter("PrmEjercicio", selecEjercicio.resul)
+
+        '    Parámetros.Add(prmEjercicio)
+
+        '    Visor.ReportViewer1.LocalReport.DataSources.Add(tabla)
+        '    ' Visor.ReportViewer1.LocalReport.SetParameters(Parámetros)
+
+        Visor.ShowDialog()
+
+        'End If
+
+    End Sub
+    Private Sub SumasYSaldos3ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos3ToolStripMenuItem.Click
+        Dim selecEjercicio As New frmSelecFechas With {
+            .Text = "BALANCE SUMAS Y SALDOS 3 - Selección de Fechas"
+        }
+        selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
+        selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
+
+        selecEjercicio.ShowDialog(Me)
+
+        'If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
+
+        '    Dim Visor As New FrmVisorInformes
+
+        '    If Not File.Exists(BalanceSumasSaldos3) Then
+
+        '        CBiblioteca.MsgErrorCrítico("No existe la definición del informe CONTABILIDAD.Balance Sumas y Saldos 3.rdlc")
+        '        Return
+
+        '    Else
+
+        '        Try
+        '            ' Create an instance of StreamReader to read from a file.
+        '            Using sr As New StreamReader(BalanceSumasSaldos3)
+
+        '                Dim line As String
+        '                ' Read and display the lines from the file until the end 
+        '                ' of the file is reached.
+        '                Do
+        '                    line = sr.ReadLine()
+        '                    Console.WriteLine(line)
+        '                Loop Until line Is Nothing
+        '                sr.Close()
+
+        '                Visor.ReportViewer1.LocalReport.LoadReportDefinition(sr)
+
+        '            End Using
+
+        '        Catch Ex As Exception
+
+        '            ' Let the user know what went wrong.
+        '            'CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance Sumas y Saldos.rdlc. " + Ex.Message)
+        '            'Return
+
+        '        End Try
+
+        '    End If
+        '    '
+        '    ' Datasource
+        '    '
+        '    Dim tabla As New ReportDataSource With {
+        '            .Name = "DataSet1",
+        '            .Value = Me.BDContabilidadGMELO.CuentasMaestras
+        '        }
+        '    '
+        '    ' Parámetros
+        '    '
+        '    Dim Parámetros As ReportParameterCollection
+        '    Parámetros = New ReportParameterCollection()
+
+        '    Dim prmEjercicio As ReportParameter
+        '    prmEjercicio = New ReportParameter("PrmEjercicio", selecEjercicio.resul)
+
+        '    Parámetros.Add(prmEjercicio)
+
+        '    Visor.ReportViewer1.LocalReport.DataSources.Add(tabla)
+
+        '    Visor.ReportViewer1.LocalReport.SetParameters(Parámetros)
+
+        '    Visor.ShowDialog()
+
+        'End If
+
+    End Sub
+
+    Private Sub SumasYSaldos2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos2ToolStripMenuItem.Click
         Dim selecEjercicio As New frmSelecFechas With {
             .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
         }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
-        selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
+        selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
 
         selecEjercicio.ShowDialog(Me)
 
@@ -128,20 +290,19 @@ Public Class FrmCuentas
             'FILTRAR APUNTES DEL EJERCICIO
             Dim txtEjercicio As String = selecEjercicio.resul
 
-            Dim Listado As New frmVisorInformes
+            'Dim Listado As New frmVisorInformes
 
-            With Listado
+            'With Listado
 
-                .NombreEmpresa = My.Resources.NombreEmpresa
-                .NombreInforme = "Balance.rpt"
-                .TipoOrigenDatos = eTipoOrigenDatos.ADO
-                .ADODataSet = Me.BDContabilidadGMELO
-                .Filtro = txtEjercicio
-                .Tipo = eTipoListadoContable.Balance
+            '    .NombreEmpresa = My.Resources.NombreEmpresa
+            '    .NombreInforme = "Balance2d.rpt"
+            '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+            '    .ADODataSet = Me.BDContabilidadGMELO
+            '    .Filtro = txtEjercicio
 
-                Listado.ShowDialog()
+            '    Listado.ShowDialog()
 
-            End With
+            'End With
 
         End If
 
@@ -156,7 +317,7 @@ Public Class FrmCuentas
             .Text = "BALANCE SITUACIÓN - Selección de Fechas"
         }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro ejercicio."
-        selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSituación, Contabilidad.TipoListado)
+        selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSituación, Contabilidad.TipoListado)
 
         selecEjercicio.ShowDialog(Me)
 
@@ -165,94 +326,31 @@ Public Class FrmCuentas
             'FILTRAR APUNTES DEL EJERCICIO
             Dim txtEjercicio As String = selecEjercicio.resul
 
-            Dim Listado As New frmVisorInformes
+            Dim Listado As New FrmVisorInformes
 
-            With Listado
+            'With Listado
 
-                .NombreEmpresa = My.Resources.NombreEmpresa
-                .NombreInforme = "rptBalanceSituación.rpt"
-                .TipoOrigenDatos = eTipoOrigenDatos.ADO
-                .ADODataSet = Me.BDContabilidadGMELO
-                .Filtro = txtEjercicio
+            '    .NombreEmpresa = My.Resources.NombreEmpresa
+            '    .NombreInforme = "rptBalanceSituación.rpt"
+            '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+            '    .ADODataSet = Me.BDContabilidadGMELO
+            '    .Filtro = txtEjercicio
 
-                Listado.ShowDialog()
+            Listado.ShowDialog()
 
-            End With
-
-        End If
-
-    End Sub
-
-    Private Sub SumasYSaldos3ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos3ToolStripMenuItem.Click
-        Dim selecEjercicio As New frmSelecFechas With {
-            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
-        }
-        selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
-        selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
-
-        selecEjercicio.ShowDialog(Me)
-
-        If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
-
-            'FILTRAR APUNTES DEL EJERCICIO
-            Dim txtEjercicio As String = selecEjercicio.resul
-
-            Dim Listado As New frmVisorInformes
-
-            With Listado
-
-                .NombreEmpresa = My.Resources.NombreEmpresa
-                .NombreInforme = "Balance3d.rpt"
-                .TipoOrigenDatos = eTipoOrigenDatos.ADO
-                .ADODataSet = Me.BDContabilidadGMELO
-                .Filtro = txtEjercicio
-
-                Listado.ShowDialog()
-
-            End With
+            'End With
 
         End If
 
     End Sub
 
-    Private Sub SumasYSaldos2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos2ToolStripMenuItem.Click
-        Dim selecEjercicio As New frmSelecFechas With {
-            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
-        }
-        selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
-        selecEjercicio.tipoListado = CType(eTipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
-
-        selecEjercicio.ShowDialog(Me)
-
-        If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
-
-            'FILTRAR APUNTES DEL EJERCICIO
-            Dim txtEjercicio As String = selecEjercicio.resul
-
-            Dim Listado As New frmVisorInformes
-
-            With Listado
-
-                .NombreEmpresa = My.Resources.NombreEmpresa
-                .NombreInforme = "Balance2d.rpt"
-                .TipoOrigenDatos = eTipoOrigenDatos.ADO
-                .ADODataSet = Me.BDContabilidadGMELO
-                .Filtro = txtEjercicio
-
-                Listado.ShowDialog()
-
-            End With
-
-        End If
-
-    End Sub
 
     Private Sub LibroMayorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibroMayorToolStripMenuItem.Click
         Dim selecCuentas As New frmSelecCuenta With {
             .Text = "LIBRO MAYOR - Selección de Cuenta"
         }
         selecCuentas.Label1.Text = "Seleccione la cuenta cuyos movimientos quiere listar."
-        selecCuentas.tipoListado = CType(eTipoListadoContable.Mayor, Contabilidad.TipoListado)
+        selecCuentas.tipoListado = CType(ETipoListadoContable.Mayor, Contabilidad.TipoListado)
 
         selecCuentas.ShowDialog(Me)
 
@@ -315,20 +413,20 @@ Public Class FrmCuentas
             End With
 
 
-            Dim listado As New frmVisorInformes
+            'Dim listado As New frmVisorInformes
 
-            With listado
+            'With listado
 
-                .NombreEmpresa = My.Resources.NombreEmpresa
-                .NombreInforme = "rptLibroMayor.rpt"
-                .TipoOrigenDatos = eTipoOrigenDatos.ADO
-                .ADODataSet = Me.BDContabilidadGMELO
-                .Filtro = ""
-                '.Tipo = eTipoListado.Todos
+            '    .NombreEmpresa = My.Resources.NombreEmpresa
+            '    .NombreInforme = "rptLibroMayor.rpt"
+            '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+            '    .ADODataSet = Me.BDContabilidadGMELO
+            '    .Filtro = ""
+            '    '.Tipo = eTipoListado.Todos
 
-                listado.ShowDialog()
+            '    listado.ShowDialog()
 
-            End With
+            'End With
 
         End If
 
@@ -343,20 +441,20 @@ Public Class FrmCuentas
         'FILTRAR APUNTES DEL EJERCICIO
         Dim txtEjercicio As String = ""
 
-        Dim Listado As New frmVisorInformes
+        'Dim Listado As New frmVisorInformes
 
-        With Listado
+        'With Listado
 
-            .NombreEmpresa = My.Resources.NombreEmpresa
-            .NombreInforme = "rptPérdidasYGanancias.rpt"
-            '.NombreInforme = "rptCrystalReport1.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadGMELO
-            .Filtro = "Ejercicio Actual"
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '    .NombreInforme = "rptPérdidasYGanancias.rpt"
+        '    '.NombreInforme = "rptCrystalReport1.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadGMELO
+        '    .Filtro = "Ejercicio Actual"
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
     End Sub
 
@@ -367,11 +465,11 @@ Public Class FrmCuentas
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub CuentasMaestrasDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles CuentasMaestrasDataGridView.RowHeaderMouseDoubleClick
-        FrmA = New frmAltaCuenta With {
+        FrmA = New FrmAltaCuenta With {
             .CódigoCuentaMaestra = CInt(Me.CuentasMaestrasDataGridView.CurrentRow.Cells(0).Value)
         }
         If FrmA.CódigoCuentaMaestra = 4100 Then
-            FrmA.Código = CMódulo.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
+            FrmA.Código = MDLProcedimientosAlmacenados.ClaveNuevoProveedor(My.Settings.BDContabilidadConnectionString)
             FrmA.CódigoCuentaTextBox.Enabled = False
             FrmA.CódigoCuentaMaestra = 4100
             FrmA.idCuentaPerdidasyGanancias = 0
@@ -431,7 +529,7 @@ Public Class FrmCuentas
     ''' <remarks></remarks>
     Private Sub CuentasDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles CuentasDataGridView.RowHeaderMouseDoubleClick
 
-        Dim resp As MsgBoxResult = CMódulo.MsgPregunta("¿Está seguro que quiere borrar la cuenta " +
+        Dim resp As MsgBoxResult = MDLMensajes.MsgPregunta("¿Está seguro que quiere borrar la cuenta " +
                                                        CType(Me.CuentasBindingSource.Current, DataRowView).Item("Código").ToString + " - " +
                                                        CType(Me.CuentasBindingSource.Current, DataRowView).Item("Nombre").ToString +
                                                        ". ¿Quiere continuar?")
@@ -439,7 +537,7 @@ Public Class FrmCuentas
         If resp = MsgBoxResult.Yes Then
 
             Me.CuentasBindingSource.RemoveCurrent()
-            CMódulo.MsgInformativo("Cuenta borrada")
+            MDLMensajes.MsgInformativo("Cuenta borrada")
 
         End If
 

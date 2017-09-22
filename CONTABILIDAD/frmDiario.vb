@@ -1,6 +1,8 @@
-﻿Imports System.Data.SqlClient
-Imports Biblioteca
-
+﻿Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports CBiblioteca
+Imports Microsoft.VisualBasic
 
 Public Class FrmDiario
 
@@ -57,7 +59,7 @@ Public Class FrmDiario
 
                 Catch ex As Exception
 
-                    CMódulo.MsgAdvertencia(ex.Message + " " +
+                    MDLMensajes.MsgAdvertencia(ex.Message + " " +
                                    ex.HelpLink)
 
                 End Try
@@ -73,7 +75,6 @@ Public Class FrmDiario
     Private Sub FrmAsientos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Me.FacturasRecibidasTableAdapter.Fill(Me.BDContabilidadMelo.FacturasRecibidas)
-
         Me.CuentasMaestrasTableAdapter.Fill(Me.BDContabilidadMelo.CuentasMaestras)
 
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadMelo.Cuentas)
@@ -87,7 +88,7 @@ Public Class FrmDiario
 
     Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCerrar.Click
 
-        Me.Close()
+        Close()
 
     End Sub
 
@@ -190,7 +191,7 @@ Public Class FrmDiario
 
         For Each asto As BDContabilidadGMELO.AsientosRow In Me.BDContabilidadMelo.Asientos
 
-            Dim Clave As String = CMódulo.Clave(asto.Fecha.ToString + asto.Operación + asto.Justificante)
+            Dim Clave As String = MDLMensajes.Clave(asto.Fecha.ToString + asto.Operación + asto.Justificante)
             Dim p As Integer = Me.FacturasRecibidasBindingSource.Find("clave", Clave)
             If p > -1 Then
                 Me.AsientosTableAdapter.Update(asto.Fecha, asto.Justificante, asto.Operación, Clave, asto.Número, asto.Fecha, asto.Debe, asto.Haber)
@@ -351,7 +352,7 @@ Public Class FrmDiario
 
         Exit Sub
 
-        CMódulo.MsgErrorCrítico("ANTES DE OBTENER LA CUENTA DE RESULTADOS Y CERRAR LA CONTABILIDAD DEBE SACAR LOS BALANCES Y HACER UNA COPIA DE SEGURIDAD")
+        MDLMensajes.MsgErrorCrítico("ANTES DE OBTENER LA CUENTA DE RESULTADOS Y CERRAR LA CONTABILIDAD DEBE SACAR LOS BALANCES Y HACER UNA COPIA DE SEGURIDAD")
 
         Dim selecEjercicio As frmSelecFechas = New frmSelecFechas With {
             .Text = "ASIENTO DE CIERRE - Selección de Ejercicio"
@@ -371,12 +372,12 @@ Public Class FrmDiario
 
             Dim Cod_Cta_PérdidasGanacias As Integer = 129001
 
-            If Not CMódulo.ExisteCuenta(My.Settings.BDContabilidadConnectionString, Cod_Cta_PérdidasGanacias) Then
+            If Not MDLProcedimientosAlmacenados.ExisteCuenta(My.Settings.BDContabilidadConnectionString, Cod_Cta_PérdidasGanacias) Then
 
                 Dim CuentaPérdidasGanacias As Contabilidad.BDContabilidadGMELO.CuentasRow =
                     Me.BDContabilidadMelo.Cuentas.NewCuentasRow
-                CuentaPérdidasGanacias.Código = Cod_Cta_PérdidasGanacias
-                CuentaPérdidasGanacias.CódigoCuentaMaestra = 129
+                CuentaPérdidasGanacias.Codigo = Cod_Cta_PérdidasGanacias
+                CuentaPérdidasGanacias.CodigoCuentaMaestra = 129
                 CuentaPérdidasGanacias.Nombre = "PÉRDIDAS Y GANANCIAS EJERCICIO " + txtEjercicio
 
                 Me.BDContabilidadMelo.Cuentas.AddCuentasRow(CuentaPérdidasGanacias)
@@ -388,7 +389,7 @@ Public Class FrmDiario
             ' Cuentas GRUPO 6
             '
             Dim AsientoCierreGastos As Contabilidad.BDContabilidadGMELO.AsientosRow = Me.BDContabilidadMelo.Asientos.NewAsientosRow
-            AsientoCierreGastos.Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+            AsientoCierreGastos.Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
             AsientoCierreGastos.Fecha = CDate("31/12/" + txtEjercicio)
             AsientoCierreGastos.Operación = "CIERRE DEL EJERCICIO " + txtEjercicio + ". GASTOS"
             AsientoCierreGastos.Justificante = "CUENTA RESULTADOS"
@@ -399,7 +400,7 @@ Public Class FrmDiario
             Dim CargoCierre As Contabilidad.BDContabilidadGMELO.CargosRow
             CargoCierre = Me.BDContabilidadMelo.Cargos.NewCargosRow
             CargoCierre.NúmeroAsiento = AsientoCierreGastos.Número
-            CargoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreGastos.Número, "C")
+            CargoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreGastos.Número, "C")
             CargoCierre.CódigoCuenta = Cod_Cta_PérdidasGanacias
             CargoCierre.Importe = 0
 
@@ -409,8 +410,8 @@ Public Class FrmDiario
                 AbonoCierre = Me.BDContabilidadMelo.Abonos.NewAbonosRow
                 AbonoCierre.NúmeroAsiento = AsientoCierreGastos.Número
                 'NúmeroApunte =
-                AbonoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreGastos.Número, "A")
-                AbonoCierre.CódigoCuenta = Cuenta.Código
+                AbonoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreGastos.Número, "A")
+                AbonoCierre.CódigoCuenta = Cuenta.Codigo
                 AbonoCierre.Importe = Cuenta.SaldoDebe
 
                 Me.BDContabilidadMelo.Abonos.AddAbonosRow(AbonoCierre)
@@ -451,7 +452,7 @@ Public Class FrmDiario
             ' Cuentas GRUPO 7
             '
             Dim AsientoCierreIngresos As Contabilidad.BDContabilidadGMELO.AsientosRow = Me.BDContabilidadMelo.Asientos.NewAsientosRow
-            AsientoCierreIngresos.Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+            AsientoCierreIngresos.Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
             AsientoCierreIngresos.Fecha = CDate("31/12/" + txtEjercicio)
             AsientoCierreIngresos.Operación = "CIERRE DEL EJERCICIO " + txtEjercicio + ". INGRESOS"
             AsientoCierreIngresos.Justificante = "CUENTA RESULTADOS"
@@ -460,7 +461,7 @@ Public Class FrmDiario
 
             AbonoCierre = Me.BDContabilidadMelo.Abonos.NewAbonosRow
             AbonoCierre.NúmeroAsiento = AsientoCierreIngresos.Número
-            AbonoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "A")
+            AbonoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "A")
             AbonoCierre.CódigoCuenta = Cod_Cta_PérdidasGanacias
             AbonoCierre.Importe = 0
 
@@ -469,8 +470,8 @@ Public Class FrmDiario
                 Console.WriteLine(Cuenta.Nombre + " DEBE " + Cuenta.SaldoDebe.ToString + " HABER " + Cuenta.SaldoHaber.ToString)
                 CargoCierre = Me.BDContabilidadMelo.Cargos.NewCargosRow
                 CargoCierre.NúmeroAsiento = AsientoCierreIngresos.Número
-                CargoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "C")
-                CargoCierre.CódigoCuenta = Cuenta.Código
+                CargoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "C")
+                CargoCierre.CódigoCuenta = Cuenta.Codigo
                 CargoCierre.Importe = Cuenta.SaldoHaber
 
                 Me.BDContabilidadMelo.Cargos.AddCargosRow(CargoCierre)
@@ -499,7 +500,7 @@ Public Class FrmDiario
             '' Cierre de la Contabilidad
             ''
             AsientoCierreIngresos = Me.BDContabilidadMelo.Asientos.NewAsientosRow
-            AsientoCierreIngresos.Número = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+            AsientoCierreIngresos.Número = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
             AsientoCierreIngresos.Fecha = CDate("31/12/" + txtEjercicio)
             AsientoCierreIngresos.Operación = "CIERRE DE LA CONTABILIDAD " + txtEjercicio
             AsientoCierreIngresos.Justificante = "CIERRE DE LA CONTABILIDAD"
@@ -508,7 +509,7 @@ Public Class FrmDiario
 
             AbonoCierre = Me.BDContabilidadMelo.Abonos.NewAbonosRow
             AbonoCierre.NúmeroAsiento = AsientoCierreIngresos.Número
-            AbonoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "A")
+            AbonoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "A")
             AbonoCierre.CódigoCuenta = Cod_Cta_PérdidasGanacias
             AbonoCierre.Importe = 0
 
@@ -519,8 +520,8 @@ Public Class FrmDiario
                     'Console.WriteLine(Cuenta.Nombre + " DEBE " + Cuenta.SaldoDebe.ToString + " HABER " + Cuenta.SaldoHaber.ToString)
                     AbonoCierre = Me.BDContabilidadMelo.Abonos.NewAbonosRow
                     AbonoCierre.NúmeroAsiento = AsientoCierreIngresos.Número
-                    AbonoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "A")
-                    AbonoCierre.CódigoCuenta = Cuenta.Código
+                    AbonoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "A")
+                    AbonoCierre.CódigoCuenta = Cuenta.Codigo
                     AbonoCierre.Importe = Cuenta.SaldoDebe
 
                     Me.BDContabilidadMelo.Abonos.AddAbonosRow(AbonoCierre)
@@ -530,8 +531,8 @@ Public Class FrmDiario
                     'Console.WriteLine(Cuenta.Nombre + " DEBE " + Cuenta.SaldoDebe.ToString + " HABER " + Cuenta.SaldoHaber.ToString)
                     CargoCierre = Me.BDContabilidadMelo.Cargos.NewCargosRow
                     CargoCierre.NúmeroAsiento = AsientoCierreIngresos.Número
-                    CargoCierre.NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "C")
-                    CargoCierre.CódigoCuenta = Cuenta.Código
+                    CargoCierre.NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, AsientoCierreIngresos.Número, "C")
+                    CargoCierre.CódigoCuenta = Cuenta.Codigo
                     CargoCierre.Importe = Cuenta.SaldoHaber
 
                     Me.BDContabilidadMelo.Cargos.AddCargosRow(CargoCierre)
@@ -584,9 +585,9 @@ Public Class FrmDiario
 
         Me.Cursor = Cursors.WaitCursor
 
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
         With Me.BDContabilidadMelo
 
@@ -635,16 +636,16 @@ Public Class FrmDiario
 
         End With
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "Diario.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadMelo
-            .Filtro = ""
+        '    .NombreInforme = "Diario.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadMelo
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
         Me.BDContabilidadMelo.LíneasDiario.RejectChanges()
 
@@ -655,9 +656,9 @@ Public Class FrmDiario
 
         Me.Cursor = Cursors.WaitCursor
 
-        Dim Listado As New frmVisorInformes With {
-            .NombreEmpresa = My.Resources.NombreEmpresa
-        }
+        'Dim Listado As New frmVisorInformes With {
+        '    .NombreEmpresa = My.Resources.NombreEmpresa
+        '}
 
         With Me.BDContabilidadMelo
 
@@ -708,16 +709,16 @@ Public Class FrmDiario
 
         End With
 
-        With Listado
+        'With Listado
 
-            .NombreInforme = "Diario.rpt"
-            .TipoOrigenDatos = eTipoOrigenDatos.ADO
-            .ADODataSet = Me.BDContabilidadMelo
-            .Filtro = ""
+        '    .NombreInforme = "Diario.rpt"
+        '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
+        '    .ADODataSet = Me.BDContabilidadMelo
+        '    .Filtro = ""
 
-            Listado.ShowDialog()
+        '    Listado.ShowDialog()
 
-        End With
+        'End With
 
         Me.BDContabilidadMelo.LíneasDiario.RejectChanges()
 
@@ -944,19 +945,19 @@ Public Class FrmDiario
         '
         ' Agregar asiento
         '
-        Dim NúmeroAsiento As Integer = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+        Dim NúmeroAsiento As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
         Me.AsientosTableAdapter.Insert(NúmeroAsiento, Today, "*", "*", "clave")
 
         Dim CódigoCuenta As String = "570"
         '
         ' Agregar cargo
         '
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, "C")
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, "C")
         Me.CargosTableAdapter.Insert(NúmeroAsiento, CInt(CódigoCuenta), NúmeroApunte, 0)
         '
         ' Agregar abono
         '
-        NúmeroApunte = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, "A")
+        NúmeroApunte = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, "A")
         Me.AbonosTableAdapter.Insert(NúmeroAsiento, CInt(CódigoCuenta), NúmeroApunte, 0)
         '
         ' Vuelve a enganchar y recargar los binding
@@ -1018,7 +1019,7 @@ Public Class FrmDiario
 
         Else
 
-            CMódulo.MsgErrorCrítico("No se ha podido borrar el asiento correspondiente al Current del BindingSource.")
+            MDLMensajes.MsgErrorCrítico("No se ha podido borrar el asiento correspondiente al Current del BindingSource.")
 
         End If
 
@@ -1038,7 +1039,7 @@ Public Class FrmDiario
 
         Catch ex As Exception
 
-            CMódulo.MsgErrorCrítico("No se ha podido borrar el cargo número " + pApte.ToString + " del asiento " + pAsto.ToString + " debido a " + ex.Message)
+            MDLMensajes.MsgErrorCrítico("No se ha podido borrar el cargo número " + pApte.ToString + " del asiento " + pAsto.ToString + " debido a " + ex.Message)
 
         End Try
 
@@ -1058,7 +1059,7 @@ Public Class FrmDiario
 
         Catch ex As Exception
 
-            CMódulo.MsgErrorCrítico("No se ha podido borrar el Abono número " + pApte.ToString + " del asiento " + pAsto.ToString + " debido a " + ex.Message)
+            MDLMensajes.MsgErrorCrítico("No se ha podido borrar el Abono número " + pApte.ToString + " del asiento " + pAsto.ToString + " debido a " + ex.Message)
 
         End Try
 
@@ -1076,7 +1077,7 @@ Public Class FrmDiario
             TipoApunte = "A"
         End If
 
-        Dim NúmeroApunte As Integer = CMódulo.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, TipoApunte)
+        Dim NúmeroApunte As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoApunte(My.Settings.BDContabilidadConnectionString, NúmeroAsiento, TipoApunte)
 
         Dim CódigoCuenta As String = "570"
 
@@ -1109,7 +1110,7 @@ Public Class FrmDiario
         Dim Asiento As BDContabilidadGMELO.AsientosRow = Me.BDContabilidadMelo.Asientos.FindByNúmero(p)
         With Asiento
 
-            Dim NúmeroAsiento As Integer = CMódulo.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
+            Dim NúmeroAsiento As Integer = MDLProcedimientosAlmacenados.NúmeroNuevoAsiento(My.Settings.BDContabilidadConnectionString)
 
             Me.AsientosTableAdapter.Insert(NúmeroAsiento, CDate(CDate(Today).ToShortDateString), Asiento.Justificante, Asiento.Operación, "clave")
 

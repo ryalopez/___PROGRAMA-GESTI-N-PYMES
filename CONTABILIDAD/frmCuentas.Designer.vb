@@ -24,29 +24,31 @@ Partial Class FrmCuentas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCuentas))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.CuentasPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.BindingNavigator3 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CuentasMaestrasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Cta2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Cta1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
+        Me.CuentasPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.BindingNavigator3 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton23 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton24 = New System.Windows.Forms.ToolStripButton()
@@ -78,7 +80,19 @@ Partial Class FrmCuentas
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.CuentasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CuentasMaestrasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cuentas2BindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
@@ -104,31 +118,13 @@ Partial Class FrmCuentas
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnCtaPerdidasYGanancias = New System.Windows.Forms.ToolStripMenuItem()
         Me.Cta1DataGridView = New System.Windows.Forms.DataGridView()
-        Me.Cta2DataGridView = New System.Windows.Forms.DataGridView()
-        Me.Cta1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
-        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cta2DataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -152,12 +148,15 @@ Partial Class FrmCuentas
         Me.PerdidasyGananciasSeccionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PerdidasyGananciasSeccionesTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.PerdidasyGananciasSeccionesTableAdapter()
         Me.BalanceSituaciónTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.BalanceSituaciónTableAdapter()
-        Me.CuentasPanel.SuspendLayout()
-        CType(Me.BindingNavigator3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator3.SuspendLayout()
+        Me.CuentasMaestrasCuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Cta2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Cta1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CuentasPanel.SuspendLayout()
+        CType(Me.BindingNavigator3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator3.SuspendLayout()
         CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator2.SuspendLayout()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,14 +167,38 @@ Partial Class FrmCuentas
         Me.Cuentas2BindingNavigator.SuspendLayout()
         CType(Me.Cta1DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Cta2DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Cta1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PérdidasyGananciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PerdidasyGananciasSeccionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasMaestrasCuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'CuentasBindingSource
+        '
+        Me.CuentasBindingSource.DataMember = "CuentasMaestras_Cuentas"
+        Me.CuentasBindingSource.DataSource = Me.CuentasMaestrasBindingSource
+        '
+        'CuentasMaestrasBindingSource
+        '
+        Me.CuentasMaestrasBindingSource.DataMember = "Cta2_CuentasMaestras"
+        Me.CuentasMaestrasBindingSource.DataSource = Me.Cta2BindingSource
+        '
+        'Cta2BindingSource
+        '
+        Me.Cta2BindingSource.DataMember = "FK_Cta2_Cta1"
+        Me.Cta2BindingSource.DataSource = Me.Cta1BindingSource
+        '
+        'Cta1BindingSource
+        '
+        Me.Cta1BindingSource.DataMember = "Cta1"
+        Me.Cta1BindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'BDContabilidadGMELO
+        '
+        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
+        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CuentasPanel
         '
@@ -223,21 +246,6 @@ Partial Class FrmCuentas
         Me.BindingNavigator3.Size = New System.Drawing.Size(203, 27)
         Me.BindingNavigator3.TabIndex = 7
         Me.BindingNavigator3.Text = "BindingNavigator3"
-        '
-        'CuentasBindingSource
-        '
-        Me.CuentasBindingSource.DataMember = "FK_Cuentas_CuentasMaestras"
-        Me.CuentasBindingSource.DataSource = Me.CuentasMaestrasBindingSource
-        '
-        'CuentasMaestrasBindingSource
-        '
-        Me.CuentasMaestrasBindingSource.DataMember = "Cta2_CuentasMaestras"
-        Me.CuentasMaestrasBindingSource.DataSource = Me.Cta2BindingSource
-        '
-        'Cta2BindingSource
-        '
-        Me.Cta2BindingSource.DataMember = "FK_Cta2_Cta1"
-        Me.Cta2BindingSource.DataSource = Me.Cta1BindingSource
         '
         'ToolStripLabel3
         '
@@ -489,44 +497,153 @@ Partial Class FrmCuentas
         '
         Me.CuentasDataGridView.AllowUserToAddRows = False
         Me.CuentasDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CuentasDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CuentasDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
         Me.CuentasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CuentasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn31})
-        Me.CuentasDataGridView.DataSource = Me.CuentasBindingSource
+        Me.CuentasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn31})
+        Me.CuentasDataGridView.DataSource = Me.CuentasMaestrasCuentasBindingSource
         Me.CuentasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CuentasDataGridView.Location = New System.Drawing.Point(698, 420)
         Me.CuentasDataGridView.Name = "CuentasDataGridView"
         Me.CuentasDataGridView.Size = New System.Drawing.Size(690, 386)
         Me.CuentasDataGridView.TabIndex = 4
         '
+        'DataGridViewTextBoxColumn30
+        '
+        Me.DataGridViewTextBoxColumn30.DataPropertyName = "Nombre"
+        Me.DataGridViewTextBoxColumn30.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
+        Me.DataGridViewTextBoxColumn30.Width = 300
+        '
+        'DataGridViewTextBoxColumn33
+        '
+        Me.DataGridViewTextBoxColumn33.DataPropertyName = "SumasDebe"
+        DataGridViewCellStyle20.Format = "N2"
+        Me.DataGridViewTextBoxColumn33.DefaultCellStyle = DataGridViewCellStyle20
+        Me.DataGridViewTextBoxColumn33.HeaderText = "Sumas Debe"
+        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
+        Me.DataGridViewTextBoxColumn33.ReadOnly = True
+        Me.DataGridViewTextBoxColumn33.Width = 77
+        '
+        'DataGridViewTextBoxColumn34
+        '
+        Me.DataGridViewTextBoxColumn34.DataPropertyName = "SumasHaber"
+        DataGridViewCellStyle21.Format = "N2"
+        Me.DataGridViewTextBoxColumn34.DefaultCellStyle = DataGridViewCellStyle21
+        Me.DataGridViewTextBoxColumn34.HeaderText = "Sumas Haber"
+        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
+        Me.DataGridViewTextBoxColumn34.ReadOnly = True
+        Me.DataGridViewTextBoxColumn34.Width = 77
+        '
+        'DataGridViewTextBoxColumn35
+        '
+        Me.DataGridViewTextBoxColumn35.DataPropertyName = "SaldoDebe"
+        DataGridViewCellStyle22.Format = "N2"
+        Me.DataGridViewTextBoxColumn35.DefaultCellStyle = DataGridViewCellStyle22
+        Me.DataGridViewTextBoxColumn35.HeaderText = "Saldo Debe"
+        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
+        Me.DataGridViewTextBoxColumn35.ReadOnly = True
+        Me.DataGridViewTextBoxColumn35.Width = 77
+        '
+        'DataGridViewTextBoxColumn36
+        '
+        Me.DataGridViewTextBoxColumn36.DataPropertyName = "SaldoHaber"
+        DataGridViewCellStyle23.Format = "N2"
+        Me.DataGridViewTextBoxColumn36.DefaultCellStyle = DataGridViewCellStyle23
+        Me.DataGridViewTextBoxColumn36.HeaderText = "Saldo Haber"
+        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
+        Me.DataGridViewTextBoxColumn36.ReadOnly = True
+        Me.DataGridViewTextBoxColumn36.Width = 77
+        '
+        'DataGridViewTextBoxColumn32
+        '
+        Me.DataGridViewTextBoxColumn32.DataPropertyName = "idBalanceResultados"
+        Me.DataGridViewTextBoxColumn32.HeaderText = "idBalanceResultados"
+        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
+        Me.DataGridViewTextBoxColumn32.Visible = False
+        '
+        'DataGridViewTextBoxColumn31
+        '
+        Me.DataGridViewTextBoxColumn31.DataPropertyName = "idPerdidasyGanancias"
+        Me.DataGridViewTextBoxColumn31.HeaderText = "idPerdidasyGanancias"
+        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
+        Me.DataGridViewTextBoxColumn31.Visible = False
+        '
         'CuentasMaestrasDataGridView
         '
         Me.CuentasMaestrasDataGridView.AllowUserToAddRows = False
         Me.CuentasMaestrasDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CuentasMaestrasDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CuentasMaestrasDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle24
         Me.CuentasMaestrasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CuentasMaestrasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn22})
-        Me.CuentasMaestrasDataGridView.DataSource = Me.CuentasMaestrasBindingSource
+        Me.CuentasMaestrasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
+        Me.CuentasMaestrasDataGridView.DataMember = "Cta2_CuentasMaestras"
+        Me.CuentasMaestrasDataGridView.DataSource = Me.Cta2BindingSource
         Me.CuentasMaestrasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CuentasMaestrasDataGridView.Location = New System.Drawing.Point(3, 420)
         Me.CuentasMaestrasDataGridView.Name = "CuentasMaestrasDataGridView"
         Me.CuentasPanel.SetRowSpan(Me.CuentasMaestrasDataGridView, 2)
         Me.CuentasMaestrasDataGridView.Size = New System.Drawing.Size(689, 394)
         Me.CuentasMaestrasDataGridView.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "Nombre"
+        Me.DataGridViewTextBoxColumn23.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.Width = 300
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "SumasDebe"
+        DataGridViewCellStyle25.Format = "N2"
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle25
+        Me.DataGridViewTextBoxColumn24.HeaderText = "Sumas Debe"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.ReadOnly = True
+        Me.DataGridViewTextBoxColumn24.Width = 77
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.DataPropertyName = "SumasHaber"
+        DataGridViewCellStyle26.Format = "N2"
+        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle26
+        Me.DataGridViewTextBoxColumn25.HeaderText = "Sumas Haber"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.ReadOnly = True
+        Me.DataGridViewTextBoxColumn25.Width = 77
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.DataPropertyName = "SaldoDebe"
+        DataGridViewCellStyle27.Format = "N2"
+        Me.DataGridViewTextBoxColumn26.DefaultCellStyle = DataGridViewCellStyle27
+        Me.DataGridViewTextBoxColumn26.HeaderText = "Saldo Debe"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        Me.DataGridViewTextBoxColumn26.ReadOnly = True
+        Me.DataGridViewTextBoxColumn26.Width = 77
+        '
+        'DataGridViewTextBoxColumn27
+        '
+        Me.DataGridViewTextBoxColumn27.DataPropertyName = "SaldoHaber"
+        DataGridViewCellStyle28.Format = "N2"
+        Me.DataGridViewTextBoxColumn27.DefaultCellStyle = DataGridViewCellStyle28
+        Me.DataGridViewTextBoxColumn27.HeaderText = "Saldo Haber"
+        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        Me.DataGridViewTextBoxColumn27.ReadOnly = True
+        Me.DataGridViewTextBoxColumn27.Width = 77
         '
         'Cuentas2BindingNavigator
         '
@@ -720,169 +837,6 @@ Partial Class FrmCuentas
         Me.Cta1DataGridView.Size = New System.Drawing.Size(691, 344)
         Me.Cta1DataGridView.TabIndex = 2
         '
-        'Cta2DataGridView
-        '
-        Me.Cta2DataGridView.AllowUserToAddRows = False
-        Me.Cta2DataGridView.AllowUserToDeleteRows = False
-        Me.Cta2DataGridView.AutoGenerateColumns = False
-        Me.Cta2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Cta2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn15})
-        Me.Cta2DataGridView.DataSource = Me.Cta2BindingSource
-        Me.Cta2DataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cta2DataGridView.Location = New System.Drawing.Point(697, 41)
-        Me.Cta2DataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.Cta2DataGridView.Name = "Cta2DataGridView"
-        Me.Cta2DataGridView.ReadOnly = True
-        Me.Cta2DataGridView.RowTemplate.Height = 24
-        Me.Cta2DataGridView.Size = New System.Drawing.Size(692, 344)
-        Me.Cta2DataGridView.TabIndex = 3
-        '
-        'Cta1BindingSource
-        '
-        Me.Cta1BindingSource.DataMember = "Cta1"
-        Me.Cta1BindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'BDContabilidadGMELO
-        '
-        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
-        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn28
-        '
-        Me.DataGridViewTextBoxColumn28.DataPropertyName = "Código"
-        Me.DataGridViewTextBoxColumn28.HeaderText = "Código"
-        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
-        Me.DataGridViewTextBoxColumn28.Width = 50
-        '
-        'DataGridViewTextBoxColumn30
-        '
-        Me.DataGridViewTextBoxColumn30.DataPropertyName = "Nombre"
-        Me.DataGridViewTextBoxColumn30.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
-        Me.DataGridViewTextBoxColumn30.Width = 300
-        '
-        'DataGridViewTextBoxColumn33
-        '
-        Me.DataGridViewTextBoxColumn33.DataPropertyName = "SumasDebe"
-        DataGridViewCellStyle2.Format = "N2"
-        Me.DataGridViewTextBoxColumn33.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn33.HeaderText = "Sumas Debe"
-        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
-        Me.DataGridViewTextBoxColumn33.ReadOnly = True
-        Me.DataGridViewTextBoxColumn33.Width = 77
-        '
-        'DataGridViewTextBoxColumn34
-        '
-        Me.DataGridViewTextBoxColumn34.DataPropertyName = "SumasHaber"
-        DataGridViewCellStyle3.Format = "N2"
-        Me.DataGridViewTextBoxColumn34.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn34.HeaderText = "Sumas Haber"
-        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
-        Me.DataGridViewTextBoxColumn34.ReadOnly = True
-        Me.DataGridViewTextBoxColumn34.Width = 77
-        '
-        'DataGridViewTextBoxColumn35
-        '
-        Me.DataGridViewTextBoxColumn35.DataPropertyName = "SaldoDebe"
-        DataGridViewCellStyle4.Format = "N2"
-        Me.DataGridViewTextBoxColumn35.DefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridViewTextBoxColumn35.HeaderText = "Saldo Debe"
-        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
-        Me.DataGridViewTextBoxColumn35.ReadOnly = True
-        Me.DataGridViewTextBoxColumn35.Width = 77
-        '
-        'DataGridViewTextBoxColumn36
-        '
-        Me.DataGridViewTextBoxColumn36.DataPropertyName = "SaldoHaber"
-        DataGridViewCellStyle5.Format = "N2"
-        Me.DataGridViewTextBoxColumn36.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridViewTextBoxColumn36.HeaderText = "Saldo Haber"
-        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
-        Me.DataGridViewTextBoxColumn36.ReadOnly = True
-        Me.DataGridViewTextBoxColumn36.Width = 77
-        '
-        'DataGridViewTextBoxColumn29
-        '
-        Me.DataGridViewTextBoxColumn29.DataPropertyName = "CódigoCuentaMaestra"
-        Me.DataGridViewTextBoxColumn29.HeaderText = "CódigoCuentaMaestra"
-        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
-        Me.DataGridViewTextBoxColumn29.Visible = False
-        '
-        'DataGridViewTextBoxColumn32
-        '
-        Me.DataGridViewTextBoxColumn32.DataPropertyName = "idBalanceResultados"
-        Me.DataGridViewTextBoxColumn32.HeaderText = "idBalanceResultados"
-        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
-        Me.DataGridViewTextBoxColumn32.Visible = False
-        '
-        'DataGridViewTextBoxColumn31
-        '
-        Me.DataGridViewTextBoxColumn31.DataPropertyName = "idPerdidasyGanancias"
-        Me.DataGridViewTextBoxColumn31.HeaderText = "idPerdidasyGanancias"
-        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
-        Me.DataGridViewTextBoxColumn31.Visible = False
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "Código"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "Código"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.Width = 50
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "Nombre"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        Me.DataGridViewTextBoxColumn23.Width = 300
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "SumasDebe"
-        DataGridViewCellStyle7.Format = "N2"
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewTextBoxColumn24.HeaderText = "Sumas Debe"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        Me.DataGridViewTextBoxColumn24.ReadOnly = True
-        Me.DataGridViewTextBoxColumn24.Width = 77
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.DataPropertyName = "SumasHaber"
-        DataGridViewCellStyle8.Format = "N2"
-        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridViewTextBoxColumn25.HeaderText = "Sumas Haber"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        Me.DataGridViewTextBoxColumn25.ReadOnly = True
-        Me.DataGridViewTextBoxColumn25.Width = 77
-        '
-        'DataGridViewTextBoxColumn26
-        '
-        Me.DataGridViewTextBoxColumn26.DataPropertyName = "SaldoDebe"
-        DataGridViewCellStyle9.Format = "N2"
-        Me.DataGridViewTextBoxColumn26.DefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridViewTextBoxColumn26.HeaderText = "Saldo Debe"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-        Me.DataGridViewTextBoxColumn26.ReadOnly = True
-        Me.DataGridViewTextBoxColumn26.Width = 77
-        '
-        'DataGridViewTextBoxColumn27
-        '
-        Me.DataGridViewTextBoxColumn27.DataPropertyName = "SaldoHaber"
-        DataGridViewCellStyle10.Format = "N2"
-        Me.DataGridViewTextBoxColumn27.DefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridViewTextBoxColumn27.HeaderText = "Saldo Haber"
-        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
-        Me.DataGridViewTextBoxColumn27.ReadOnly = True
-        Me.DataGridViewTextBoxColumn27.Width = 77
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "idSubGrupo"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "idSubGrupo"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        Me.DataGridViewTextBoxColumn22.Visible = False
-        '
         'DataGridViewTextBoxColumn8
         '
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "Código"
@@ -902,10 +856,10 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn10
         '
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "SumasDebe"
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle11.Format = "N2"
-        DataGridViewCellStyle11.NullValue = "0"
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle29.Format = "N2"
+        DataGridViewCellStyle29.NullValue = "0"
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle29
         Me.DataGridViewTextBoxColumn10.HeaderText = "Sumas Debe"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
@@ -914,9 +868,9 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "SumasHaber"
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle12.Format = "N2"
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle30.Format = "N2"
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle30
         Me.DataGridViewTextBoxColumn11.HeaderText = "Sumas Haber"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
         Me.DataGridViewTextBoxColumn11.ReadOnly = True
@@ -925,9 +879,9 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "SaldoDebe"
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.Format = "N2"
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle31.Format = "N2"
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle31
         Me.DataGridViewTextBoxColumn12.HeaderText = "Saldo Debe"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
@@ -936,13 +890,30 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn13
         '
         Me.DataGridViewTextBoxColumn13.DataPropertyName = "SaldoHaber"
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle14.Format = "N2"
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle32.Format = "N2"
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle32
         Me.DataGridViewTextBoxColumn13.HeaderText = "Saldo Haber"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
         Me.DataGridViewTextBoxColumn13.Width = 77
+        '
+        'Cta2DataGridView
+        '
+        Me.Cta2DataGridView.AllowUserToAddRows = False
+        Me.Cta2DataGridView.AllowUserToDeleteRows = False
+        Me.Cta2DataGridView.AutoGenerateColumns = False
+        Me.Cta2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Cta2DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn15})
+        Me.Cta2DataGridView.DataSource = Me.Cta2BindingSource
+        Me.Cta2DataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cta2DataGridView.Location = New System.Drawing.Point(697, 41)
+        Me.Cta2DataGridView.Margin = New System.Windows.Forms.Padding(2)
+        Me.Cta2DataGridView.Name = "Cta2DataGridView"
+        Me.Cta2DataGridView.ReadOnly = True
+        Me.Cta2DataGridView.RowTemplate.Height = 24
+        Me.Cta2DataGridView.Size = New System.Drawing.Size(692, 344)
+        Me.Cta2DataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn14
         '
@@ -963,9 +934,9 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn17
         '
         Me.DataGridViewTextBoxColumn17.DataPropertyName = "SumasDebe"
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle15.Format = "N2"
-        Me.DataGridViewTextBoxColumn17.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle33.Format = "N2"
+        Me.DataGridViewTextBoxColumn17.DefaultCellStyle = DataGridViewCellStyle33
         Me.DataGridViewTextBoxColumn17.HeaderText = "Sumas Debe"
         Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
         Me.DataGridViewTextBoxColumn17.ReadOnly = True
@@ -974,9 +945,9 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "SumasHaber"
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle16.Format = "N2"
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle34.Format = "N2"
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle34
         Me.DataGridViewTextBoxColumn18.HeaderText = "Sumas Haber"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.ReadOnly = True
@@ -985,9 +956,9 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn19
         '
         Me.DataGridViewTextBoxColumn19.DataPropertyName = "SaldoDebe"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle17.Format = "N2"
-        Me.DataGridViewTextBoxColumn19.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle35.Format = "N2"
+        Me.DataGridViewTextBoxColumn19.DefaultCellStyle = DataGridViewCellStyle35
         Me.DataGridViewTextBoxColumn19.HeaderText = "Saldo Debe"
         Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
         Me.DataGridViewTextBoxColumn19.ReadOnly = True
@@ -996,9 +967,9 @@ Partial Class FrmCuentas
         'DataGridViewTextBoxColumn20
         '
         Me.DataGridViewTextBoxColumn20.DataPropertyName = "SaldoHaber"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle18.Format = "N2"
-        Me.DataGridViewTextBoxColumn20.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle36.Format = "N2"
+        Me.DataGridViewTextBoxColumn20.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewTextBoxColumn20.HeaderText = "Saldo Haber"
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
         Me.DataGridViewTextBoxColumn20.ReadOnly = True
@@ -1029,21 +1000,50 @@ Partial Class FrmCuentas
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
         Me.TableAdapterManager.CargosTableAdapter = Nothing
+        Me.TableAdapterManager.CentrosTrabajoTableAdapter = Nothing
         Me.TableAdapterManager.ClientesTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.CNO11TableAdapter = Nothing
+        Me.TableAdapterManager.CNO94TableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioGruposTableAdapter = Nothing
+        Me.TableAdapterManager.Convenios_ColectivosJulio2014TableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosEmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosTableAdapter = Nothing
         Me.TableAdapterManager.Cta1TableAdapter = Me.Cta1TableAdapter
         Me.TableAdapterManager.Cta2TableAdapter = Me.Cta2TableAdapter
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Me.CuentasMaestrasTableAdapter
         Me.TableAdapterManager.CuentasTableAdapter = Me.CuentasTableAdapter
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidas1TableAdapter = Nothing
         Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Nothing
         Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
         Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Nothing
         Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
+        Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
+        Me.TableAdapterManager.NominasDeEmpresaTableAdapter = Nothing
         Me.TableAdapterManager.NóminasTableAdapter = Nothing
+        Me.TableAdapterManager.PaisesTableAdapter = Nothing
         Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
         Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
+        Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosLargoPlazoTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
+        Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.SexosTableAdapter = Nothing
+        Me.TableAdapterManager.TiposComplementoSalarialTableAdapter = Nothing
         Me.TableAdapterManager.TiposDocumentoIdentidadTableAdapter = Nothing
+        Me.TableAdapterManager.TiposNóminaTableAdapter = Nothing
+        Me.TableAdapterManager.TiposVíaTableAdapter = Nothing
+        Me.TableAdapterManager.UnidadesTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Cta2TableAdapter
@@ -1107,7 +1107,12 @@ Partial Class FrmCuentas
         '
         Me.BalanceSituaciónTableAdapter.ClearBeforeFill = True
         '
-        'frmCuentas
+        'CuentasMaestrasCuentasBindingSource
+        '
+        Me.CuentasMaestrasCuentasBindingSource.DataMember = "CuentasMaestras_Cuentas"
+        Me.CuentasMaestrasCuentasBindingSource.DataSource = Me.CuentasMaestrasBindingSource
+        '
+        'FrmCuentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1115,17 +1120,19 @@ Partial Class FrmCuentas
         Me.Controls.Add(Me.CuentasPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "frmCuentas"
+        Me.Name = "FrmCuentas"
         Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Cta2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Cta1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CuentasPanel.ResumeLayout(False)
         Me.CuentasPanel.PerformLayout()
         CType(Me.BindingNavigator3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator3.ResumeLayout(False)
         Me.BindingNavigator3.PerformLayout()
-        CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Cta2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator2.ResumeLayout(False)
         Me.BindingNavigator2.PerformLayout()
@@ -1139,13 +1146,12 @@ Partial Class FrmCuentas
         Me.Cuentas2BindingNavigator.PerformLayout()
         CType(Me.Cta1DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Cta2DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Cta1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PérdidasyGananciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PerdidasyGananciasSeccionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasMaestrasCuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1226,13 +1232,11 @@ Partial Class FrmCuentas
     Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewComboBoxColumn
     Friend WithEvents CuentasDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn33 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn34 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn32 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn31 As DataGridViewTextBoxColumn
     Friend WithEvents CuentasMaestrasDataGridView As DataGridView
@@ -1242,7 +1246,6 @@ Partial Class FrmCuentas
     Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
     Friend WithEvents BindingNavigator3 As BindingNavigator
     Friend WithEvents ToolStripLabel3 As ToolStripLabel
     Friend WithEvents ToolStripButton23 As ToolStripButton
@@ -1274,4 +1277,5 @@ Partial Class FrmCuentas
     Friend WithEvents ToolStripButton6 As ToolStripButton
     Friend WithEvents ToolStripButton7 As ToolStripButton
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents CuentasMaestrasCuentasBindingSource As BindingSource
 End Class

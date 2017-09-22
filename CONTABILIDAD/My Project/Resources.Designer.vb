@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -257,6 +257,15 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("Mcdo_Design_Book_Closed_Note_Alt", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a BDContabilidadGMELO.
+        '''</summary>
+        Friend ReadOnly Property NombreBaseDatos() As String
+            Get
+                Return ResourceManager.GetString("NombreBaseDatos", resourceCulture)
             End Get
         End Property
         

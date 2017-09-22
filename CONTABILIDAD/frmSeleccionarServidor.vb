@@ -1,5 +1,6 @@
-﻿Imports System.Windows.Forms
-Imports Biblioteca
+﻿Imports System
+Imports System.Windows.Forms
+Imports CBiblioteca
 
 Public Class frmSeleccionarServidor
 
@@ -11,7 +12,7 @@ Public Class frmSeleccionarServidor
         End Get
     End Property
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
-        CMódulo.MsgInformativo(Me.cnx)
+        MDLMensajes.MsgInformativo(Me.cnx)
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
@@ -22,17 +23,17 @@ Public Class frmSeleccionarServidor
         Me.Close()
     End Sub
 
-    Private Sub frmSeleccionarServidor_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSeleccionarServidor_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.ejercicioComboBox.Items.Add("2017")
         Me.ejercicioComboBox.Items.Add("2016")
         Me.ejercicioComboBox.Items.Add("2015")
 
         Me.Text = My.Resources.Título
         Dim Servidores As Array
-        Servidores = System.Enum.GetValues(GetType(eServidores))
-        Dim idServidor As eServidores
+        Servidores = System.Enum.GetValues(GetType(EServidores))
+        Dim idServidor As EServidores
         For Each idServidor In Servidores
-            Dim NombreServidor As String = System.Enum.GetName(GetType(eServidores), idServidor)
+            Dim NombreServidor As String = System.Enum.GetName(GetType(EServidores), idServidor)
             Dim Servidor As New CServidor(idServidor, NombreServidor)
             Me.ServidoresComboBox.DisplayMember = "Nombre"
             Me.ServidoresComboBox.ValueMember = "Índice"
@@ -43,7 +44,7 @@ Public Class frmSeleccionarServidor
     End Sub
 
 
-    Private Sub ejercicioComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ejercicioComboBox.SelectedIndexChanged
+    Private Sub EjercicioComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ejercicioComboBox.SelectedIndexChanged
         If Me.ejercicioComboBox.SelectedIndex < 0 Then
             Me.cnx = "----------------"
             Exit Sub

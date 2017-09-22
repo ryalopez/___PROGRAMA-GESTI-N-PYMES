@@ -1,41 +1,35 @@
-﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports Biblioteca
+﻿Imports System
+Imports System.Data
+
+Imports Microsoft.VisualBasic
+Imports Excel = Microsoft.Office.Interop.Excel
+
+Imports CBiblioteca
 
 
 Public Class frmPrincipal
 
     Private Sub frmPrincipal_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
         '
         Me.Text = My.Resources.Título
         '
         ' Solicitar servidor
         '
-        frmSeleccionarServidor.ShowDialog(Me)
-        If frmSeleccionarServidor.DialogResult = System.Windows.Forms.DialogResult.OK Then
+        'frmSeleccionarServidor.ShowDialog(Me)
+        'If frmSeleccionarServidor.DialogResult = System.Windows.Forms.DialogResult.OK Then
 
-            My.Settings.Item("BDContabilidadConnectionString") = frmSeleccionarServidor.CadenaConexión
-            Dim p As Integer = My.Settings.BDContabilidadConnectionString.IndexOf("BDContabilidadGMELO")
-            My.Settings.Item("NombreBaseDatos") = My.Settings.BDContabilidadConnectionString.Substring(p, 24)
-            '' MsgBox(My.Settings.NombreBaseDatos)
-            ''KIKE
-            'My.Settings.Item("BDContabilidadConnectionString") =
-            '    "Data Source=PORTATIL\SQLEXPRESS;Initial Catalog=BDContabilidadGMELO 2015 ;Integrated Security=True"
-        End If
-        Try
-
-            Dim myConn As New System.Data.SqlClient.SqlConnection(My.Settings.BDContabilidadConnectionString)
-            myConn.Open()
-            myConn.Close()
-
-        Catch ex As Exception
-
-            CMódulo.MsgErrorCrítico(ex.Message)
-            Me.Close()
-
-        End Try
+        '    My.Settings.Item("BDContabilidadConnectionString") = frmSeleccionarServidor.CadenaConexión
+        '    Dim p As Integer = My.Settings.BDContabilidadConnectionString.IndexOf("BDContabilidadGMELO")
+        '    My.Settings.Item("NombreBaseDatos") = My.Settings.BDContabilidadConnectionString.Substring(p, 24)
+        '    'MsgBox(My.Settings.NombreBaseDatos)
+        '    'KIKE
+        '    'My.Settings.Item("BDContabilidadConnectionString") =
+        '    '        "Data Source=PCRLM;Initial Catalog=BDContabilidadGMELO;Integrated Security=True"
+        'End If
+        My.Settings.Item("BDContabilidadConnectionString") = "Data Source=PORTATIL;Initial Catalog='BDContabilidadGMELO 2017';Integrated Security=True"
 
         Me.mnuPrincipal.Cursor = Cursors.Hand
+
 
     End Sub
 
@@ -91,7 +85,7 @@ Public Class frmPrincipal
 
     Private Sub mnuFacturasClientes_Click(sender As Object, e As EventArgs) Handles mnuFacturasClientes.Click
 
-        frmFacturasEmitidas.Show(Me)
+        FrmFacturasEmitidas.Show(Me)
 
     End Sub
     Private Sub mnuProveedores_Click(sender As Object, e As EventArgs) Handles mnuProveedores.Click
@@ -142,7 +136,7 @@ Public Class frmPrincipal
     '
     Private Sub mnuCopiarBaseDeDatos_Click(sender As Object, e As EventArgs) Handles mnuCopiarBaseDeDatos.Click
 
-        Dim FicheroCopia As String = Application.StartupPath & "\BKs\Copia_" + My.Settings.NombreBaseDatos + "_" +
+        Dim FicheroCopia As String = "K:\Grupo MELO\Datos\BKs\Copia_BDContabilidadGMELO 2017_" +
                 DateTime.Now.Day.ToString + "_" +
                 DateTime.Now.Month.ToString + "_" +
                 DateTime.Now.Year.ToString + "_" +
@@ -151,11 +145,10 @@ Public Class frmPrincipal
 
         Dim Descripción As String = "Copia de la Base de Contabilidad de fecha " +
             DateTime.Now.ToShortDateString + " a las " + DateTime.Now.ToShortTimeString
-        Dim Nombre As String = My.Settings.NombreBaseDatos
-
-        Dim s As String = "BACKUP DATABASE """ + My.Settings.NombreBaseDatos +
-            """ TO DISK = @FicheroCopia " +
-            "WITH NAME = @Nombre, DESCRIPTION = @Descripción;"
+        'Dim Nombre As String = My.Settings.NombreBaseDatos
+        Dim Nombre As String = "BDContabilidadGMELO 2017"
+        'Dim s As String = "BACKUP DATABASE """ + My.Settings.NombreBaseDatos +
+        Dim s As String = "BACKUP DATABASE ""BDContabilidadGMELO 2017"" TO DISK = @FicheroCopia WITH NAME = @Nombre, DESCRIPTION = @Descripción;"
 
         Dim cnx As SqlClient.SqlConnection = New SqlClient.SqlConnection(My.Settings.BDContabilidadConnectionString)
         Dim com As SqlClient.SqlCommand = New SqlClient.SqlCommand(s, cnx)
@@ -171,13 +164,13 @@ Public Class frmPrincipal
             com.Connection.Open()
             If com.ExecuteNonQuery() = -1 Then
 
-                CMódulo.MsgInformativo("Se ha terminado la copia de la Base de Datos. Puede recogerla en " + FicheroCopia)
+                MDLMensajes.MsgInformativo("Se ha terminado la copia de la Base de Datos. Puede recogerla en " + FicheroCopia)
 
             End If
 
         Catch ex As Exception
 
-            CMódulo.MsgErrorCrítico("Se ha producido la excepción " + ex.Message + vbCrLf + "No se ha podido Copiar la Base de Datos.")
+            MDLMensajes.MsgErrorCrítico("Se ha producido la excepción " + ex.Message + vbCrLf + "No se ha podido Copiar la Base de Datos.")
 
         End Try
 
@@ -189,7 +182,7 @@ Public Class frmPrincipal
     "para obtener por separado en dos hojas los cargos y los abonos. " & vbCrLf &
     "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -217,7 +210,7 @@ Public Class frmPrincipal
 
                 Catch ficheroEnUso As System.IO.IOException
 
-                    CMódulo.MsgErrorCrítico(ficheroEnUso.Message + ". Por favor cierre el fichero.")
+                    MDLMensajes.MsgErrorCrítico(ficheroEnUso.Message + ". Por favor cierre el fichero.")
 
                 Catch ex As Exception
 
@@ -303,7 +296,7 @@ Public Class frmPrincipal
 
         Me.Cursor = Cursors.Default
 
-        CMódulo.MsgInformativo("Se ha terminado la separación de movimientos del BBVA. " +
+        MDLMensajes.MsgInformativo("Se ha terminado la separación de movimientos del BBVA. " +
                               "Puede ver las Hojas de Cálculo en " +
                               Application.StartupPath + "\BBVA\")
 
@@ -315,7 +308,7 @@ Public Class frmPrincipal
     "empleados vs. clientes. " & vbCrLf &
     "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -377,7 +370,7 @@ Public Class frmPrincipal
 
         Me.Cursor = Cursors.Default
 
-        CMódulo.MsgInformativo("Se ha terminado la generación del cuadrante de servicios. " +
+        MDLMensajes.MsgInformativo("Se ha terminado la generación del cuadrante de servicios. " +
                               "Puede ver la Hoja de Cálculo en " +
                               Application.StartupPath + "\CUADRANTE_HORAS\")
 
@@ -389,7 +382,7 @@ Public Class frmPrincipal
     "para obtener por separado en dos hojas los cargos y los abonos. " & vbCrLf &
     "¿Quiere continuar?"
 
-        If CMódulo.MsgPregunta(msg) <> MsgBoxResult.Yes Then
+        If MDLMensajes.MsgPregunta(msg) <> MsgBoxResult.Yes Then
 
             Exit Sub
 
@@ -417,7 +410,7 @@ Public Class frmPrincipal
 
                 Catch ficheroEnUso As System.IO.IOException
 
-                    CMódulo.MsgErrorCrítico(ficheroEnUso.Message + ". Por favor cierre el fichero.")
+                    MDLMensajes.MsgErrorCrítico(ficheroEnUso.Message + ". Por favor cierre el fichero.")
 
                 Catch ex As Exception
 
@@ -504,7 +497,7 @@ Public Class frmPrincipal
 
         Me.Cursor = Cursors.Default
 
-        CMódulo.MsgInformativo("Se ha terminado la separación de movimientos del BBVA. " +
+        MDLMensajes.MsgInformativo("Se ha terminado la separación de movimientos del BBVA. " +
                               "Puede ver las Hojas de Cálculo en " +
                               Application.StartupPath + "\BBVA\")
 
@@ -524,7 +517,7 @@ Public Class frmPrincipal
 
         For Each asto As BDContabilidadGMELO.AsientosRow In Me.BDContabilidadGMELO.Asientos
 
-            Dim Clave As String = CMódulo.Clave(asto.Fecha.ToString + asto.Operación + asto.Justificante)
+            Dim Clave As String = MDLMensajes.Clave(asto.Fecha.ToString + asto.Operación + asto.Justificante)
             Dim p As Integer = Me.FacturasRecibidasBindingSource.Find("clave", Clave)
             If p > -1 Then
                 Me.AsientosTableAdapter.Update(asto.Fecha, asto.Justificante, asto.Operación, Clave, asto.Número, asto.Fecha, asto.Debe, asto.Haber)

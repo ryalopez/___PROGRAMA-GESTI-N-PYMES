@@ -1,4 +1,7 @@
-﻿Public Class frmEmpresas
+﻿Imports System
+Imports Microsoft.VisualBasic
+
+Public Class frmEmpresas
     Private VoyACerrar As Boolean = False
 
     Private Sub EmpresasBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles EmpresasBindingNavigatorSaveItem.Click
@@ -15,7 +18,7 @@
 
         If Me.BDContabilidadGMELO.HasChanges = False Then
 
-            MsgBox("Los cambios pendientes se han guardado correctamente en la Base de Datos", MsgBoxStyle.OkOnly, My.Resources.Título)
+            MsgBox("Los cambios pendientes se han guardado correctamente en la Base de Datos", Microsoft.VisualBasic.MsgBoxStyle.OkOnly, My.Resources.Título)
 
         End If
 
