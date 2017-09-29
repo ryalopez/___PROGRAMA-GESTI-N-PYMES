@@ -1,7 +1,7 @@
 ﻿Imports System
 Imports System.IO
 Imports Microsoft.VisualBasic
-Imports Microsoft.Reporting.WinForms
+Imports CrystalDecisions.Shared
 Imports Microsoft.SqlServer.Types
 Imports System.Data
 
@@ -10,9 +10,9 @@ Imports System.Drawing
 
 Public Class FrmCuentas
 
-    Private Const PathInformes As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\"
-    Private Const BalanceSumasSaldos As String = "BSS.rdlc"
-    Private Const BalanceSumasSaldos3 As String = "K:/Grupo MELO/___PROGRAMA GESTIÓN PYMES/CONTABILIDAD/informes/BSS3.rdlc"
+
+    Private Const BalanceSumasSaldos As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance.rpt"
+    Private Const LibroMayor As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\rptLibroMayor.rpt"
     Friend WithEvents FrmA As FrmAltaCuenta
     Private VoyACerrar As Boolean = False
 
@@ -68,10 +68,6 @@ Public Class FrmCuentas
 
         Me.CargosTableAdapter.Fill(Me.BDContabilidadGMELO.Cargos)
 
-        Me.CargosTableAdapter.Fill(Me.BDContabilidadGMELO.Cargos)
-
-        Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
-
         Me.CuentasMaestrasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasMaestras)
 
         Me.Cta2TableAdapter.Fill(Me.BDContabilidadGMELO.Cta2)
@@ -79,8 +75,6 @@ Public Class FrmCuentas
         Me.Cta1TableAdapter.Fill(Me.BDContabilidadGMELO.Cta1)
 
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
-
-        Me.CuentasMaestrasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasMaestras)
 
         Me.Text = My.Resources.Título + " - CUENTAS DE LA EMPRESA"
 
@@ -130,156 +124,7 @@ Public Class FrmCuentas
         Dim selecEjercicio As New frmSelecFechas With {
             .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
         }
-        Dim Visor As New FrmVisorInformes
 
-        'selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
-        'selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
-
-        'selecEjercicio.ShowDialog(Me)
-
-        'If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
-
-        '    Dim Visor As New FrmVisorInformes
-
-        '    If Not File.Exists(PathInformes + BalanceSumasSaldos) Then
-
-        '        CBiblioteca.MsgErrorCrítico("No existe la definición del informe CONTABILIDAD.Balance Sumas y Saldos.rdlc")
-        '        Return
-
-        '    Else
-
-        '        Try
-        '            ' Create an instance of StreamReader to read from a file.
-        '            Using sr As New StreamReader(PathInformes + BalanceSumasSaldos)
-
-        '                Dim line As String
-        '                ' Read and display the lines from the file until the end 
-        '                ' of the file is reached.
-        '                Do
-        '                    line = sr.ReadLine()
-        '                    Console.WriteLine(line)
-        '                Loop Until line Is Nothing
-        '                sr.Close()
-
-        '                Visor.ReportViewer1.LocalReport.ReportPath = PathInformes
-        '                Visor.ReportViewer1.LocalReport.ReportEmbeddedResource = BalanceSumasSaldos
-        '                Visor.ReportViewer1.LocalReport.LoadReportDefinition(sr)
-
-        '            End Using
-
-        '        Catch Ex As Exception
-
-        '            ' Let the user know what went wrong.
-        '            'CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance Sumas y Saldos.rdlc. " + Ex.Message)
-        '            'Return
-
-        '        End Try
-
-        '    End If
-        '    '
-        '    ' Datasource
-        '    '
-        '    Dim tabla As New ReportDataSource With {
-        '            .Name = "DataSet1",
-        '            .Value = Me.BDContabilidadGMELO.Cuentas
-        '        }
-        '    '
-        '    ' Parámetros
-        '    '
-        '    Dim Parámetros As ReportParameterCollection
-        '    Parámetros = New ReportParameterCollection()
-
-        '    Dim prmEjercicio As ReportParameter
-        '    prmEjercicio = New ReportParameter("PrmEjercicio", selecEjercicio.resul)
-
-        '    Parámetros.Add(prmEjercicio)
-
-        '    Visor.ReportViewer1.LocalReport.DataSources.Add(tabla)
-        '    ' Visor.ReportViewer1.LocalReport.SetParameters(Parámetros)
-
-        Visor.ShowDialog()
-
-        'End If
-
-    End Sub
-    Private Sub SumasYSaldos3ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos3ToolStripMenuItem.Click
-        Dim selecEjercicio As New frmSelecFechas With {
-            .Text = "BALANCE SUMAS Y SALDOS 3 - Selección de Fechas"
-        }
-        selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
-        selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
-
-        selecEjercicio.ShowDialog(Me)
-
-        'If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
-
-        '    Dim Visor As New FrmVisorInformes
-
-        '    If Not File.Exists(BalanceSumasSaldos3) Then
-
-        '        CBiblioteca.MsgErrorCrítico("No existe la definición del informe CONTABILIDAD.Balance Sumas y Saldos 3.rdlc")
-        '        Return
-
-        '    Else
-
-        '        Try
-        '            ' Create an instance of StreamReader to read from a file.
-        '            Using sr As New StreamReader(BalanceSumasSaldos3)
-
-        '                Dim line As String
-        '                ' Read and display the lines from the file until the end 
-        '                ' of the file is reached.
-        '                Do
-        '                    line = sr.ReadLine()
-        '                    Console.WriteLine(line)
-        '                Loop Until line Is Nothing
-        '                sr.Close()
-
-        '                Visor.ReportViewer1.LocalReport.LoadReportDefinition(sr)
-
-        '            End Using
-
-        '        Catch Ex As Exception
-
-        '            ' Let the user know what went wrong.
-        '            'CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance Sumas y Saldos.rdlc. " + Ex.Message)
-        '            'Return
-
-        '        End Try
-
-        '    End If
-        '    '
-        '    ' Datasource
-        '    '
-        '    Dim tabla As New ReportDataSource With {
-        '            .Name = "DataSet1",
-        '            .Value = Me.BDContabilidadGMELO.CuentasMaestras
-        '        }
-        '    '
-        '    ' Parámetros
-        '    '
-        '    Dim Parámetros As ReportParameterCollection
-        '    Parámetros = New ReportParameterCollection()
-
-        '    Dim prmEjercicio As ReportParameter
-        '    prmEjercicio = New ReportParameter("PrmEjercicio", selecEjercicio.resul)
-
-        '    Parámetros.Add(prmEjercicio)
-
-        '    Visor.ReportViewer1.LocalReport.DataSources.Add(tabla)
-
-        '    Visor.ReportViewer1.LocalReport.SetParameters(Parámetros)
-
-        '    Visor.ShowDialog()
-
-        'End If
-
-    End Sub
-
-    Private Sub SumasYSaldos2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SumasYSaldos2ToolStripMenuItem.Click
-        Dim selecEjercicio As New frmSelecFechas With {
-            .Text = "BALANCE SUMAS Y SALDOS - Selección de Fechas"
-        }
         selecEjercicio.Label1.Text = "Seleccione cualquier fecha dentro del trimestre."
         selecEjercicio.tipoListado = CType(ETipoListadoContable.BalanceSumasSaldos, Contabilidad.TipoListado)
 
@@ -287,22 +132,57 @@ Public Class FrmCuentas
 
         If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
 
-            'FILTRAR APUNTES DEL EJERCICIO
-            Dim txtEjercicio As String = selecEjercicio.resul
+            If Not File.Exists(BalanceSumasSaldos) Then
 
-            'Dim Listado As New frmVisorInformes
+                CBiblioteca.MsgErrorCrítico("No existe la definición del informe Balance Sumas y Saldos.rpt")
+                Return
 
-            'With Listado
+            Else
 
-            '    .NombreEmpresa = My.Resources.NombreEmpresa
-            '    .NombreInforme = "Balance2d.rpt"
-            '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
-            '    .ADODataSet = Me.BDContabilidadGMELO
-            '    .Filtro = txtEjercicio
+                Try
 
-            '    Listado.ShowDialog()
+                    Dim Visor As New FrmVisorInformes
+                    With Visor
+                        '
+                        ' Creo el parametro y asigno el nombre
+                        '
+                        Dim Parámetro As ParameterField = New ParameterField()
+                        Parámetro.ParameterFieldName = "Título Página"
 
-            'End With
+                        '
+                        ' creo el valor que se asignara al parametro
+                        '
+                        Dim ValorParámetro As ParameterDiscreteValue = New ParameterDiscreteValue()
+                        ValorParámetro.Value = "BALANCE DE SUMAS Y SALDOS DEL " + selecEjercicio.resul
+                        Parámetro.CurrentValues.Add(ValorParámetro)
+
+                        '
+                        ' Asigno el paramametro a la coleccion
+                        '
+                        Dim Parámetros As ParameterFields = New ParameterFields
+                        Parámetros.Add(Parámetro)
+
+                        '
+                        ' Asigno la coleccion de parametros al Crystal Viewer
+                        '
+                        .ReportViewer1.ParameterFieldInfo = Parámetros
+
+
+                        .ReportViewer1.ReportSource = BalanceSumasSaldos
+                        .ShowDialog()
+
+                    End With
+
+
+                Catch Ex As Exception
+
+                    ' Let the user know what went wrong.
+                    CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance Sumas y Saldos.rdlc. " + Ex.Message)
+                    Return
+
+                End Try
+
+            End If
 
         End If
 
@@ -412,21 +292,58 @@ Public Class FrmCuentas
 
             End With
 
+            If Not File.Exists(LibroMayor) Then
 
-            'Dim listado As New frmVisorInformes
+                CBiblioteca.MsgErrorCrítico("No existe la definición del informe rptLibroMayor.rpt")
+                Return
 
-            'With listado
+            Else
 
-            '    .NombreEmpresa = My.Resources.NombreEmpresa
-            '    .NombreInforme = "rptLibroMayor.rpt"
-            '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
-            '    .ADODataSet = Me.BDContabilidadGMELO
-            '    .Filtro = ""
-            '    '.Tipo = eTipoListado.Todos
+                Try
 
-            '    listado.ShowDialog()
+                    Dim Visor As New FrmVisorInformes
+                    With Visor
+                        '
+                        ' Creo el parametro y asigno el nombre
+                        '
+                        Dim Parámetro As ParameterField = New ParameterField()
+                        Parámetro.ParameterFieldName = "Título Página"
 
-            'End With
+                        '
+                        ' creo el valor que se asignara al parametro
+                        '
+                        Dim ValorParámetro As ParameterDiscreteValue = New ParameterDiscreteValue()
+                        ValorParámetro.Value = "LIBRO MAYOR"
+                        Parámetro.CurrentValues.Add(ValorParámetro)
+
+                        '
+                        ' Asigno el paramametro a la coleccion
+                        '
+                        Dim Parámetros As ParameterFields = New ParameterFields
+                        Parámetros.Add(Parámetro)
+
+                        '
+                        ' Asigno la coleccion de parametros al Crystal Viewer
+                        '
+                        .ReportViewer1.ParameterFieldInfo = Parámetros
+
+                        .ReportViewer1.ReportSource = LibroMayor
+
+                        .ReportViewer1.Refresh()
+
+                        .ShowDialog()
+
+                    End With
+
+                Catch Ex As Exception
+
+                    ' Let the user know what went wrong.
+                    CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\rptLibroMayor.rpt " + Ex.Message)
+                    Return
+
+                End Try
+
+            End If
 
         End If
 

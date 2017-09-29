@@ -3,6 +3,89 @@ Imports CBiblioteca.MDLMensajes
 
 Public Module MDLProcedimientosAlmacenados
 
+    Public Function InsertarCuentaProveedor(ByVal prmConnectionString As String, Cta As Integer, CtaMaestra As Integer,
+                                            Nombre As String, idPerdidasyGanancias As Integer, idBalanceResultados As Integer) As Boolean
+
+        InsertarCuentaProveedor = False
+
+        Try
+
+            Dim myConn As New SqlConnection(prmConnectionString)
+
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("InsertarCuentaProveedor", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
+
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@Código",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = Cta
+            }
+
+            MiSqlCMD.Parameters.Add(prm1)
+
+            Dim prm2 As New SqlParameter With {
+                .ParameterName = "@CódigoCuentaMaestra",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = CtaMaestra
+            }
+
+            MiSqlCMD.Parameters.Add(prm2)
+
+            Dim prm3 As New SqlParameter With {
+                .ParameterName = "@Nombre",
+                .DbType = SqlDbType.NVarChar,
+                .Direction = ParameterDirection.Input,
+                .Value = Nombre
+            }
+
+            MiSqlCMD.Parameters.Add(prm3)
+
+            Dim prm4 As New SqlParameter With {
+                .ParameterName = "@idPérdidasyGanancias",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = idPerdidasyGanancias
+            }
+
+            MiSqlCMD.Parameters.Add(prm4)
+
+            Dim prm5 As New SqlParameter With {
+                .ParameterName = "@idBalanceResultados",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = idBalanceResultados
+            }
+
+            MiSqlCMD.Parameters.Add(prm5)
+
+            Dim prm6 As New SqlParameter With {
+                .ParameterName = "@OK",
+                .DbType = SqlDbType.Bit,
+                .Direction = ParameterDirection.Output
+            }
+
+            MiSqlCMD.Parameters.Add(prm6)
+
+            myConn.Open()
+            MiSqlCMD.ExecuteNonQuery()
+            myConn.Close()
+
+            InsertarCuentaProveedor = MiSqlCMD.Parameters("@OK").Value
+
+        Catch ex As Exception
+
+            MsgErrorCrítico("Error al crear la cuenta de proveedor" + ex.Message)
+
+        End Try
+
+        Return InsertarCuentaProveedor
+
+
+    End Function
+
     Public Function ExisteCuenta(ByVal prmConnectionString As String, Cta As Integer) As Boolean
 
         ExisteCuenta = False

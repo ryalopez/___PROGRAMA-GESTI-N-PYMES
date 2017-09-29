@@ -399,7 +399,7 @@ Partial Class frmPréstamos
         'ToolStripButton8
         '
         Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton8.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        '      Me.ToolStripButton8.Image = Contabilidad.Resources.HomeHS
         Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton8.Name = "ToolStripButton8"
         Me.ToolStripButton8.Size = New System.Drawing.Size(24, 24)

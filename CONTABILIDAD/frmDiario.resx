@@ -120,9 +120,6 @@
   <metadata name="AsientosBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>464, 60</value>
   </metadata>
-  <metadata name="AsientosBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>464, 60</value>
-  </metadata>
   <metadata name="AsientosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>821, 17</value>
   </metadata>
@@ -292,8 +289,8 @@
         A4Pg5vumwVX/vTIn/o+vX/6/cCLIgFNAjZf/T9x4E4w7V17+Xz3nxP+Mzm3/fXNn/1d2zIEYAAKCxqH8
         Cs5ly3T96//bJU79H1yx7n9a98H/FXMv/W9fde9/x+r7/6vmXf6f0Xv4f0jVhv/2ydP/q7nmIQyAAQmL
         9DiLmI6PYTWb/mf1Hflft/Da/4mbn/2ftP3Ff+/M7v8OCW3/LSKb/+sFVPy3jytDBCIy4FPxUNbxKTuR
-        2Ln7f/nsC/9blt/+37rm3n8eORPiExIDgz2LuFFgi0l155/Caaf/F845/59HyYoUAyCAQ8bCXi+i6mH0
-        hAP/+dScSDcADPh1BXUDMydr+md5QUWoCRgYAP+KGwMfIiojAAAAAElFTkSuQmCC
+        2Ln7f/nsC/9blt/+37rm3n8eORPiExIDgz2LuFFgi3F1x5/Caaf/F845/59HyYoUAyCAQ8bCXi+i6mH0
+        hAP/+dScSDcADPh1BXUDMydr+md5QUWoCRgYAP2+GwFsZXJFAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="SiguienteImporteToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -333,8 +330,8 @@
         A4Pg5vumwVX/vTIn/o+vX/6/cCLIgFNAjZf/T9x4E4w7V17+Xz3nxP+Mzm3/fXNn/1d2zIEYAAKCxqH8
         Cs5ly3T96//bJU79H1yx7n9a98H/FXMv/W9fde9/x+r7/6vmXf6f0Xv4f0jVhv/2ydP/q7nmIQyAAQmL
         9DiLmI6PYTWb/mf1Hflft/Da/4mbn/2ftP3Ff+/M7v8OCW3/LSKb/+sFVPy3jytDBCIy4FPxUNbxKTuR
-        2Ln7f/nsC/9blt/+37rm3n8eORPiExIDgz2LuFFgi0l155/Caaf/F845/59HyYoUAyCAQ8bCXi+i6mH0
-        hAP/+dScSDcADPh1BXUDMydr+md5QUWoCRgYAP+KGwMfIiojAAAAAElFTkSuQmCC
+        2Ln7f/nsC/9blt/+37rm3n8eORPiExIDgz2LuFFgi3F1x5/Caaf/F845/59HyYoUAyCAQ8bCXi+i6mH0
+        hAP/+dScSDcADPh1BXUDMydr+md5QUWoCRgYAP2+GwFsZXJFAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="SiguienteToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -388,17 +385,11 @@
         +Y19A/qD+CrxGvHmM8IbxPeJ5wnjL7JM6I+iHD0rUNz05X8D50ttiHRx93AAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="BDContabilidadMelo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="ContextMenuOPERACIONES.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 60</value>
   </metadata>
   <metadata name="CargosPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="CargosBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>441, 103</value>
   </metadata>
   <metadata name="CargosBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>441, 103</value>
@@ -473,14 +464,11 @@
   <metadata name="CuentasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>615, 17</value>
   </metadata>
-  <metadata name="CuentasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>615, 17</value>
+  <metadata name="FKCargosAsientosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>281, 146</value>
   </metadata>
   <metadata name="AbonosPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="AbonosBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 103</value>
   </metadata>
   <metadata name="AbonosBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 103</value>
@@ -552,14 +540,11 @@
         rkJggg==
 </value>
   </data>
-  <metadata name="OpcionesAsientosContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>897, 60</value>
-  </metadata>
   <metadata name="FKAbonosAsientosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>558, 146</value>
   </metadata>
-  <metadata name="FKCargosAsientosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>281, 146</value>
+  <metadata name="OpcionesAsientosContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>897, 60</value>
   </metadata>
   <metadata name="AsientosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>262, 60</value>

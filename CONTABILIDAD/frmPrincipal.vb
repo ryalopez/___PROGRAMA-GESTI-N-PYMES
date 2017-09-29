@@ -26,7 +26,7 @@ Public Class frmPrincipal
         '    'My.Settings.Item("BDContabilidadConnectionString") =
         '    '        "Data Source=PCRLM;Initial Catalog=BDContabilidadGMELO;Integrated Security=True"
         'End If
-        My.Settings.Item("BDContabilidadConnectionString") = "Data Source=PORTATIL;Initial Catalog='BDContabilidadGMELO 2017';Integrated Security=True"
+        'My.Settings.Item("BDContabilidadConnectionString") = "Data Source=PORTATIL;Initial Catalog='BDContabilidadGMELO 2017';Integrated Security=True"
 
         Me.mnuPrincipal.Cursor = Cursors.Hand
 
@@ -35,7 +35,7 @@ Public Class frmPrincipal
 
     Private Sub mnuSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuSalir.Click
 
-        Me.Close()
+        Application.Exit()
 
     End Sub
     '

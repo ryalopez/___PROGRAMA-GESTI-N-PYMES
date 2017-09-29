@@ -41,6 +41,8 @@ Partial Class frmAsientos
         Dim Label8 As System.Windows.Forms.Label
         Dim Label9 As System.Windows.Forms.Label
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.NúmeroTextBox = New System.Windows.Forms.TextBox()
         Me.FechaDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.TipoAsientoGroupBox = New System.Windows.Forms.GroupBox()
@@ -109,8 +111,6 @@ Partial Class frmAsientos
         Me.PréstamosLargoPlazoTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.PréstamosLargoPlazoTableAdapter()
         Me.PréstamosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PréstamosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.PréstamosTableAdapter()
-        Me.Cancel_Button = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         NúmeroLabel = New System.Windows.Forms.Label()
         FechaLabel = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
@@ -318,6 +318,30 @@ Partial Class frmAsientos
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(186, 36)
         Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'Cancel_Button
+        '
+        Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Abort
+        Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cancel_Button.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Cancel_Button.Location = New System.Drawing.Point(99, 4)
+        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4)
+        Me.Cancel_Button.Name = "Cancel_Button"
+        Me.Cancel_Button.Size = New System.Drawing.Size(83, 28)
+        Me.Cancel_Button.TabIndex = 3
+        Me.Cancel_Button.Text = "Terminar"
+        '
+        'Button1
+        '
+        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button1.Location = New System.Drawing.Point(3, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(89, 32)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Aceptar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'NúmeroTextBox
         '
@@ -750,7 +774,9 @@ Partial Class frmAsientos
         '
         Me.ProveedoresComboBox.DataSource = Me.ProveedoresBindingSource
         Me.ProveedoresComboBox.DisplayMember = "Nombre"
+        Me.ProveedoresComboBox.DropDownHeight = 500
         Me.ProveedoresComboBox.FormattingEnabled = True
+        Me.ProveedoresComboBox.IntegralHeight = False
         Me.ProveedoresComboBox.Location = New System.Drawing.Point(97, 22)
         Me.ProveedoresComboBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ProveedoresComboBox.Name = "ProveedoresComboBox"
@@ -1026,30 +1052,6 @@ Partial Class frmAsientos
         'PréstamosTableAdapter
         '
         Me.PréstamosTableAdapter.ClearBeforeFill = True
-        '
-        'Cancel_Button
-        '
-        Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Abort
-        Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cancel_Button.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Cancel_Button.Location = New System.Drawing.Point(99, 4)
-        Me.Cancel_Button.Margin = New System.Windows.Forms.Padding(4)
-        Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(83, 28)
-        Me.Cancel_Button.TabIndex = 3
-        Me.Cancel_Button.Text = "Terminar"
-        '
-        'Button1
-        '
-        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(3, 2)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 32)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Aceptar"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmAsientos
         '

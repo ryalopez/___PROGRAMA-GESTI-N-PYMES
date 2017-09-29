@@ -147,7 +147,7 @@ Partial Class FrmNóminas
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        '       Me.btnSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(24, 24)
@@ -230,7 +230,7 @@ Partial Class FrmNóminas
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarNóminas})
-        Me.ToolStripDropDownButton1.Image = Global.Contabilidad.My.Resources.Resources.Listar
+        '     Me.ToolStripDropDownButton1.Image = Global.contabilidad.Resources.Resources.Listar
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
         Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(33, 24)

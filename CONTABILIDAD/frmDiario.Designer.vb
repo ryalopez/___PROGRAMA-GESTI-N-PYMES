@@ -24,17 +24,17 @@ Partial Class FrmDiario
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDiario))
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AsientosPanel = New System.Windows.Forms.Panel()
         Me.AsientosDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.AsientosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
@@ -109,11 +109,7 @@ Partial Class FrmDiario
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.AgregarCargo = New System.Windows.Forms.ToolStripButton()
         Me.CargosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AbonosPanel = New System.Windows.Forms.Panel()
         Me.AbonosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.AbonosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -129,10 +125,6 @@ Partial Class FrmDiario
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.AgregarAbono = New System.Windows.Forms.ToolStripButton()
         Me.AbonosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OpcionesAsientosContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DuplicarAsientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FKAbonosAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -145,6 +137,14 @@ Partial Class FrmDiario
         Me.CuentasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter()
         Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AsientosPanel.SuspendLayout()
         CType(Me.AsientosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AsientosBindingNavigator.SuspendLayout()
@@ -186,7 +186,7 @@ Partial Class FrmDiario
         Me.AsientosDateTimePicker.CalendarMonthBackground = System.Drawing.Color.LightGray
         Me.AsientosDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.AsientosDateTimePicker.Location = New System.Drawing.Point(1169, 4)
-        Me.AsientosDateTimePicker.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.AsientosDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
         Me.AsientosDateTimePicker.Name = "AsientosDateTimePicker"
         Me.AsientosDateTimePicker.Size = New System.Drawing.Size(133, 22)
         Me.AsientosDateTimePicker.TabIndex = 2
@@ -233,7 +233,7 @@ Partial Class FrmDiario
         'btnCerrar
         '
         Me.btnCerrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnCerrar.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        '   Me.btnCerrar.Image = Global.contabilidad.Resources.Resources.HomeHS
         Me.btnCerrar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(24, 24)
@@ -333,7 +333,7 @@ Partial Class FrmDiario
         '
         Me.Listados.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Listados.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarDiario, Me.AsientosDescuadradosToolStripMenuItem})
-        Me.Listados.Image = Global.Contabilidad.My.Resources.Resources.Listar
+        '      Me.Listados.Image = Global.contabilidad.Resources.Resources.Listar
         Me.Listados.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Listados.Name = "Listados"
         Me.Listados.Size = New System.Drawing.Size(34, 24)
@@ -495,14 +495,14 @@ Partial Class FrmDiario
         Me.AsientosDataGridView.AllowUserToAddRows = False
         Me.AsientosDataGridView.AutoGenerateColumns = False
         Me.AsientosDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AsientosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AsientosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.AsientosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.AsientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
         Me.AsientosDataGridView.DataSource = Me.AsientosBindingSource
@@ -519,8 +519,8 @@ Partial Class FrmDiario
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "Fecha"
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Garamond", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Garamond", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn2.HeaderText = "Fecha"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ToolTipText = "Fecha del asiento"
@@ -529,8 +529,8 @@ Partial Class FrmDiario
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "Número"
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Garamond", 12.0!)
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Garamond", 12.0!)
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn1.HeaderText = "Número"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ToolTipText = "Número de asiento"
@@ -539,8 +539,8 @@ Partial Class FrmDiario
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "Justificante"
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Garamond", 12.0!)
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Garamond", 12.0!)
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn3.HeaderText = "Justificante"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ToolTipText = "Documento justificativo de la operación"
@@ -550,8 +550,8 @@ Partial Class FrmDiario
         '
         Me.DataGridViewTextBoxColumn4.ContextMenuStrip = Me.ContextMenuOPERACIONES
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "Operación"
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Garamond", 12.0!)
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Garamond", 12.0!)
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn4.HeaderText = "Operación"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ToolTipText = "Operación que refleja el acto contable"
@@ -638,9 +638,9 @@ Partial Class FrmDiario
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "Debe"
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Garamond", 12.0!)
-        DataGridViewCellStyle5.Format = "N2"
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Garamond", 12.0!)
+        DataGridViewCellStyle6.Format = "N2"
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn5.HeaderText = "Debe"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
@@ -648,9 +648,9 @@ Partial Class FrmDiario
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "Haber"
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Garamond", 12.0!)
-        DataGridViewCellStyle17.Format = "N2"
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Garamond", 12.0!)
+        DataGridViewCellStyle7.Format = "N2"
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewTextBoxColumn6.HeaderText = "Haber"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
@@ -778,17 +778,17 @@ Partial Class FrmDiario
         '
         Me.CargosDataGridView.AllowUserToAddRows = False
         Me.CargosDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CargosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CargosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.CargosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CargosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn10})
-        Me.CargosDataGridView.DataSource = Me.CargosBindingSource
+        Me.CargosDataGridView.DataSource = Me.FKCargosAsientosBindingSource
         Me.CargosDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.CargosDataGridView.Location = New System.Drawing.Point(0, 30)
         Me.CargosDataGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -798,46 +798,11 @@ Partial Class FrmDiario
         Me.CargosDataGridView.Size = New System.Drawing.Size(867, 190)
         Me.CargosDataGridView.TabIndex = 2
         '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "NúmeroApunte"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "#Apunte"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 57
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CódigoCuenta"
-        Me.DataGridViewTextBoxColumn8.DataSource = Me.CuentasBindingSource
-        Me.DataGridViewTextBoxColumn8.DisplayMember = "Nombre"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Cuenta Cargo"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewTextBoxColumn8.ValueMember = "Código"
-        Me.DataGridViewTextBoxColumn8.Width = 377
-        '
         'CuentasBindingSource
         '
         Me.CuentasBindingSource.DataMember = "Cuentas"
         Me.CuentasBindingSource.DataSource = Me.BDContabilidadMelo
         Me.CuentasBindingSource.Sort = "Nombre"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Importe"
-        DataGridViewCellStyle19.Format = "N2"
-        DataGridViewCellStyle19.NullValue = "0,00"
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle19
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         '
         'AbonosPanel
         '
@@ -962,17 +927,17 @@ Partial Class FrmDiario
         '
         Me.AbonosDataGridView.AllowUserToAddRows = False
         Me.AbonosDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AbonosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AbonosDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.AbonosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.AbonosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn14})
-        Me.AbonosDataGridView.DataSource = Me.AbonosBindingSource
+        Me.AbonosDataGridView.DataSource = Me.FKAbonosAsientosBindingSource
         Me.AbonosDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.AbonosDataGridView.Location = New System.Drawing.Point(0, 30)
         Me.AbonosDataGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -981,42 +946,6 @@ Partial Class FrmDiario
         Me.AbonosDataGridView.RowTemplate.Height = 24
         Me.AbonosDataGridView.Size = New System.Drawing.Size(867, 190)
         Me.AbonosDataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.Visible = False
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "NúmeroApunte"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "#Apunte"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.Width = 57
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "CódigoCuenta"
-        Me.DataGridViewTextBoxColumn12.DataSource = Me.CuentasBindingSource
-        Me.DataGridViewTextBoxColumn12.DisplayMember = "Nombre"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Cuenta Abono"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewTextBoxColumn12.ValueMember = "Código"
-        Me.DataGridViewTextBoxColumn12.Width = 477
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Importe"
-        DataGridViewCellStyle21.Format = "N2"
-        DataGridViewCellStyle21.NullValue = "0,00"
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle21
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'OpcionesAsientosContextMenuStrip
         '
@@ -1123,7 +1052,78 @@ Partial Class FrmDiario
         '
         Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
         '
-        'frmDiario
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "NúmeroApunte"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "#Apunte"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 57
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CódigoCuenta"
+        Me.DataGridViewTextBoxColumn8.DataSource = Me.CuentasBindingSource
+        Me.DataGridViewTextBoxColumn8.DisplayMember = "Nombre"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Cuenta Cargo"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DataGridViewTextBoxColumn8.ValueMember = "Codigo"
+        Me.DataGridViewTextBoxColumn8.Width = 377
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Importe"
+        DataGridViewCellStyle9.Format = "N2"
+        DataGridViewCellStyle9.NullValue = "0,00"
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.Visible = False
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "NúmeroApunte"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "#Apunte"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.Width = 57
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "CódigoCuenta"
+        Me.DataGridViewTextBoxColumn12.DataSource = Me.CuentasBindingSource
+        Me.DataGridViewTextBoxColumn12.DisplayMember = "Nombre"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Cuenta Abono"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DataGridViewTextBoxColumn12.ValueMember = "Codigo"
+        Me.DataGridViewTextBoxColumn12.Width = 477
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Importe"
+        DataGridViewCellStyle11.Format = "N2"
+        DataGridViewCellStyle11.NullValue = "0,00"
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle11
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'FrmDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1134,7 +1134,7 @@ Partial Class FrmDiario
         Me.Controls.Add(Me.AbonosPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "frmDiario"
+        Me.Name = "FrmDiario"
         Me.Text = "frmDiario"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.AsientosPanel.ResumeLayout(False)
@@ -1258,14 +1258,6 @@ Partial Class FrmDiario
     Friend WithEvents SiguienteImporteToolStripButton As System.Windows.Forms.ToolStripButton
     Friend WithEvents OpcionesAsientosContextMenuStrip As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents DuplicarAsientoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FKAbonosAsientosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents FKCargosAsientosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents AgregarAsiento As System.Windows.Forms.ToolStripLabel
@@ -1279,4 +1271,12 @@ Partial Class FrmDiario
     Friend WithEvents CuentasTableAdapter As Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter
     Friend WithEvents FacturasRecibidasBindingSource As BindingSource
     Friend WithEvents FacturasRecibidasTableAdapter As BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
 End Class

@@ -10,7 +10,7 @@ Public Class frmSelecCuenta
 
         If Me.tipoListado = Contabilidad.TipoListado.Mayor Then
 
-            Cuenta = CInt(Me.CuentasComboBox.SelectedValue)
+            Cuenta = CInt(Me.CuentasComboBox1.SelectedValue)
 
         End If
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -22,16 +22,10 @@ Public Class frmSelecCuenta
         Me.Close()
     End Sub
 
-    Private Sub CuentasBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
-        Me.Validate()
-        Me.CuentasBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.BDContabilidadGMELO)
-
-    End Sub
-
     Private Sub frmSelecCuenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
 
     End Sub
+
 End Class

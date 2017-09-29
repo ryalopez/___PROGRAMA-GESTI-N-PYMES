@@ -81,7 +81,7 @@ Partial Class frmPrincipal
         'mnuSalir
         '
         Me.mnuSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.mnuSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        '   Me.mnuSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
         Me.mnuSalir.Name = "mnuSalir"
         Me.mnuSalir.Size = New System.Drawing.Size(32, 24)
         Me.mnuSalir.Text = "Salir"

@@ -1095,4 +1095,5 @@ Public Class frmAsientos
         Me.DialogResult = System.Windows.Forms.DialogResult.Abort
         Me.Close()
     End Sub
+
 End Class

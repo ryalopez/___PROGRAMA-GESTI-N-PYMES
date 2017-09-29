@@ -140,7 +140,7 @@ Partial Class frmEmpleados
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        '    Me.btnSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(23, 22)
@@ -222,7 +222,7 @@ Partial Class frmEmpleados
         'btnListarEmpleados
         '
         Me.btnListarEmpleados.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnListarEmpleados.Image = Global.Contabilidad.My.Resources.Resources.Listar
+        '      Me.btnListarEmpleados.Image = Global.contabilidad.Resources.Resources.Listar
         Me.btnListarEmpleados.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnListarEmpleados.Name = "btnListarEmpleados"
         Me.btnListarEmpleados.Size = New System.Drawing.Size(23, 22)

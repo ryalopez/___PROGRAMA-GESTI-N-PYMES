@@ -22,14 +22,28 @@ Partial Class FrmVisorInformes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.ReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Balance1 = New Contabilidad.Balance()
         Me.SuspendLayout()
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.ActiveViewIndex = -1
+        Me.ReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(605, 321)
+        Me.ReportViewer1.TabIndex = 0
         '
         'FrmVisorInformes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(605, 321)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Controls.Add(Me.ReportViewer1)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmVisorInformes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Visor de Informes"
@@ -37,4 +51,7 @@ Partial Class FrmVisorInformes
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents ReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents Balance1 As Balance
 End Class

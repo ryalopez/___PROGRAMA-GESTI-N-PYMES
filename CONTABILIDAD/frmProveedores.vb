@@ -325,6 +325,8 @@ Public Class frmProveedores
 
             Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
             Me.Código4ComboBox.Select()
+            'CBiblioteca.InsertarCuentaProveedor(My.Settings.BDContabilidadConnectionString, CInt(F.CódigoCuentaTextBox.Text), CInt(F.CódigoCuentaMaestra), F.Nombre, F.idCuentaPerdidasyGanancias, F.idCuentaBalanceResultados)
+            'Me.Código4ComboBox.Select()
 
         End If
 
@@ -396,4 +398,7 @@ BindingNavigatorMovePreviousItem.Click, BindingNavigatorMoveLastItem.Click, Bind
 
     End Sub
 
+    Private Sub BindingNavigatorAddNewItem_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem.Click
+
+    End Sub
 End Class

@@ -52,8 +52,10 @@ Partial Class frmProveedores
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btnBorrarProveedor = New System.Windows.Forms.ToolStripButton()
         Me.ProveedoresBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.btnListarProveedores = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.TiposDocumentoIdentidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TiposDocumentoIdentidadTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.TiposDocumentoIdentidadTableAdapter()
         Me.DocumentoIdentidadTextBox = New System.Windows.Forms.TextBox()
@@ -86,8 +88,6 @@ Partial Class frmProveedores
         Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
         Me.CuentasBancariasComboBox = New System.Windows.Forms.ComboBox()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.btnBorrarProveedor = New System.Windows.Forms.ToolStripButton()
         DocumentoIdentidadLabel = New System.Windows.Forms.Label()
         NombreLabel = New System.Windows.Forms.Label()
         TipoDocumentoIdentidadLabel = New System.Windows.Forms.Label()
@@ -280,7 +280,7 @@ Partial Class frmProveedores
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        '        Me.btnSalir.Image = Global.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(24, 24)
@@ -351,6 +351,15 @@ Partial Class frmProveedores
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
         '
+        'btnBorrarProveedor
+        '
+        Me.btnBorrarProveedor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnBorrarProveedor.Image = CType(resources.GetObject("btnBorrarProveedor.Image"), System.Drawing.Image)
+        Me.btnBorrarProveedor.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnBorrarProveedor.Name = "btnBorrarProveedor"
+        Me.btnBorrarProveedor.Size = New System.Drawing.Size(24, 24)
+        Me.btnBorrarProveedor.Text = "ToolStripButton8"
+        '
         'ProveedoresBindingNavigatorSaveItem
         '
         Me.ProveedoresBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -362,12 +371,21 @@ Partial Class frmProveedores
         'btnListarProveedores
         '
         Me.btnListarProveedores.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnListarProveedores.Image = Global.Contabilidad.My.Resources.Resources.Listar
+        '  Me.btnListarProveedores.Image = Global.contabilidad.Resources.Resources.Listar
         Me.btnListarProveedores.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnListarProveedores.Name = "btnListarProveedores"
         Me.btnListarProveedores.Size = New System.Drawing.Size(24, 24)
         Me.btnListarProveedores.Text = "ToolStripButton8"
         Me.btnListarProveedores.ToolTipText = "Listado alfabético de clientes"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(24, 24)
+        Me.ToolStripButton1.Text = "ToolStripButton1"
         '
         'TiposDocumentoIdentidadBindingSource
         '
@@ -687,24 +705,6 @@ Partial Class frmProveedores
         'ErrorProvider1
         '
         Me.ErrorProvider1.ContainerControl = Me
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(24, 24)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
-        '
-        'btnBorrarProveedor
-        '
-        Me.btnBorrarProveedor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnBorrarProveedor.Image = CType(resources.GetObject("btnBorrarProveedor.Image"), System.Drawing.Image)
-        Me.btnBorrarProveedor.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnBorrarProveedor.Name = "btnBorrarProveedor"
-        Me.btnBorrarProveedor.Size = New System.Drawing.Size(24, 24)
-        Me.btnBorrarProveedor.Text = "ToolStripButton8"
         '
         'frmProveedores
         '

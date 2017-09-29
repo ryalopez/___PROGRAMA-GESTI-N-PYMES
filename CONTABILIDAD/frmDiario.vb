@@ -6,6 +6,8 @@ Imports Microsoft.VisualBasic
 
 Public Class FrmDiario
 
+    Private Const Diario As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Diario.rpt"
+
     Private VoyACerrar As Boolean = False
     'Private Modificado As Boolean = False
 
@@ -88,7 +90,7 @@ Public Class FrmDiario
 
     Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCerrar.Click
 
-        Close()
+        Hide()
 
     End Sub
 
@@ -585,7 +587,8 @@ Public Class FrmDiario
 
         Me.Cursor = Cursors.WaitCursor
 
-        'Dim Listado As New frmVisorInformes With {
+        Dim Listado As New FrmVisorInformes
+        'With {
         '    .NombreEmpresa = My.Resources.NombreEmpresa
         '}
 
@@ -642,8 +645,8 @@ Public Class FrmDiario
         '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
         '    .ADODataSet = Me.BDContabilidadMelo
         '    .Filtro = ""
-
-        '    Listado.ShowDialog()
+        Listado.ReportViewer1.ReportSource = Diario
+        Listado.ShowDialog()
 
         'End With
 

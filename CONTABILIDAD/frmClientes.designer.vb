@@ -267,7 +267,7 @@ Partial Class FrmClientes
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
+        ' Me.btnSalir.Image = Global.Contabilidad.MySettings.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(23, 22)
@@ -350,7 +350,7 @@ Partial Class FrmClientes
         '
         Me.btnListarClientes1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.btnListarClientes1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarClientes, Me.btnListarClientesAlta, Me.btnListarClientesBaja, Me.btnListarClientesActivosFactura, Me.btnListarClientesActivosRecibo})
-        Me.btnListarClientes1.Image = Global.Contabilidad.My.Resources.Resources.Listar
+        '  Me.btnListarClientes1.Image = Global.contabilidad.Resources.Resources.Listar
         Me.btnListarClientes1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnListarClientes1.Name = "btnListarClientes1"
         Me.btnListarClientes1.Size = New System.Drawing.Size(29, 22)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ReferencePath>C:\Windows\assembly\GAC_64\Microsoft.SqlServer.BatchParser\11.0.0.0__89845dcd8080cc91\</ReferencePath>
+    <ReferencePath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\;C:\Windows\assembly\GAC_64\Microsoft.SqlServer.BatchParser\11.0.0.0__89845dcd8080cc91\</ReferencePath>
     <PublishUrlHistory>publicar\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
@@ -10,5 +10,6 @@
     <ErrorReportUrlHistory />
     <FallbackCulture>es-ES</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>
