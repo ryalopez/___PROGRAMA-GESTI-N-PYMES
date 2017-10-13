@@ -1,18 +1,15 @@
-﻿Imports System
+﻿
+Imports System
 Imports System.IO
 Imports Microsoft.VisualBasic
-Imports CrystalDecisions.Shared
 Imports Microsoft.SqlServer.Types
 Imports System.Data
-
+Imports Microsoft.Reporting.WinForms
 Imports CBiblioteca
 Imports System.Drawing
 
 Public Class FrmCuentas
 
-
-    Private Const BalanceSumasSaldos As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance.rpt"
-    Private Const LibroMayor As String = "K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\rptLibroMayor.rpt"
     Friend WithEvents FrmA As FrmAltaCuenta
     Private VoyACerrar As Boolean = False
 
@@ -132,57 +129,17 @@ Public Class FrmCuentas
 
         If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
 
-            If Not File.Exists(BalanceSumasSaldos) Then
+            Dim Datos As New ReportDataSource()
+            Datos.Name = "Datos"
+            Datos.Value = Me.BDContabilidadGMELO.Tables("cuentas")
 
-                CBiblioteca.MsgErrorCrítico("No existe la definición del informe Balance Sumas y Saldos.rpt")
-                Return
+            Dim Parámetros As ReportParameterCollection = New ReportParameterCollection
+            Dim Cabecera As String = "BALANCE DE SUMAS Y SALDOS DEL " + selecEjercicio.resul
+            Parámetros.Add(New ReportParameter("Encabezado", Cabecera))
 
-            Else
+            Dim Listado As New FrmVisorInformes("BSS", Datos, Parámetros)
 
-                Try
-
-                    Dim Visor As New FrmVisorInformes
-                    With Visor
-                        '
-                        ' Creo el parametro y asigno el nombre
-                        '
-                        Dim Parámetro As ParameterField = New ParameterField()
-                        Parámetro.ParameterFieldName = "Título Página"
-
-                        '
-                        ' creo el valor que se asignara al parametro
-                        '
-                        Dim ValorParámetro As ParameterDiscreteValue = New ParameterDiscreteValue()
-                        ValorParámetro.Value = "BALANCE DE SUMAS Y SALDOS DEL " + selecEjercicio.resul
-                        Parámetro.CurrentValues.Add(ValorParámetro)
-
-                        '
-                        ' Asigno el paramametro a la coleccion
-                        '
-                        Dim Parámetros As ParameterFields = New ParameterFields
-                        Parámetros.Add(Parámetro)
-
-                        '
-                        ' Asigno la coleccion de parametros al Crystal Viewer
-                        '
-                        .ReportViewer1.ParameterFieldInfo = Parámetros
-
-
-                        .ReportViewer1.ReportSource = BalanceSumasSaldos
-                        .ShowDialog()
-
-                    End With
-
-
-                Catch Ex As Exception
-
-                    ' Let the user know what went wrong.
-                    CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\Balance Sumas y Saldos.rdlc. " + Ex.Message)
-                    Return
-
-                End Try
-
-            End If
+            Listado.ShowDialog()
 
         End If
 
@@ -206,19 +163,7 @@ Public Class FrmCuentas
             'FILTRAR APUNTES DEL EJERCICIO
             Dim txtEjercicio As String = selecEjercicio.resul
 
-            Dim Listado As New FrmVisorInformes
 
-            'With Listado
-
-            '    .NombreEmpresa = My.Resources.NombreEmpresa
-            '    .NombreInforme = "rptBalanceSituación.rpt"
-            '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
-            '    .ADODataSet = Me.BDContabilidadGMELO
-            '    .Filtro = txtEjercicio
-
-            Listado.ShowDialog()
-
-            'End With
 
         End If
 
@@ -236,116 +181,37 @@ Public Class FrmCuentas
 
         If selecCuentas.DialogResult = System.Windows.Forms.DialogResult.OK Then
 
-            'FILTRAR APUNTES DEL EJERCICIO
-            Dim CodCta As Integer = selecCuentas.Cuenta
-            Dim filtro As String = "CódigoCuenta = " + CodCta.ToString
+            Me.Cursor = Cursors.WaitCursor
 
+            '
+            ' Actualiza tabla de la base de datos
+            '
+            CBiblioteca.MDLProcedimientosAlmacenados.PrepararDatosLibroMayor(My.Settings.BDContabilidadConnectionString, selecCuentas.Cuenta)
 
-            With Me.BDContabilidadGMELO
+            Me.LíneasMayorTableAdapter.Fill(Me.BDContabilidadGMELO.LíneasMayor)
 
-                Dim cargosCta As BDContabilidadGMELO.CargosRow() =
-                    CType(Me.BDContabilidadGMELO.Cargos.Select(filtro, "NúmeroAsiento"), BDContabilidadGMELO.CargosRow())
+            If Me.LíneasMaestrasBindingSource.Count > 0 Then
 
-                .LíneasMayor.Clear()
+                Dim Datos As New ReportDataSource()
+                Datos.Name = "Datos"
+                Datos.Value = Me.BDContabilidadGMELO.Tables("LíneasMayor")
 
-                For Each cargo As BDContabilidadGMELO.CargosRow In cargosCta
+                Dim Parámetros As ReportParameterCollection = New ReportParameterCollection
+                Dim Cabecera As String = "MOVIMIENTOS DE LA CUENTA " + selecCuentas.Cuenta.ToString
+                Parámetros.Add(New ReportParameter("Encabezado", Cabecera))
 
-                    Dim asiento As BDContabilidadGMELO.AsientosRow = Me.BDContabilidadGMELO.Asientos.FindByNúmero(cargo.NúmeroAsiento)
-                    Dim Línea As BDContabilidadGMELO.LíneasMayorRow = Me.BDContabilidadGMELO.LíneasMayor.NewLíneasMayorRow
+                Dim Listado As New FrmVisorInformes("LM", Datos, Parámetros)
 
-                    Línea.CodCta = CodCta
-                    Línea.NúmeroAsiento = cargo.NúmeroAsiento
-                    Línea.Fecha = asiento.Fecha
-                    Línea.NúmeroApunte = cargo.NúmeroApunte
-                    Línea.Literal = asiento.Operación.TrimEnd + ". " + asiento.Justificante
-                    Línea.ImpDebe = cargo.Importe
-                    Línea.ImpHaber = 0
-
-                    Me.BDContabilidadGMELO.LíneasMayor.AddLíneasMayorRow(Línea)
-                    Me.BDContabilidadGMELO.LíneasMayor.AcceptChanges()
-
-                Next
-
-                Dim abonosCta As BDContabilidadGMELO.AbonosRow() =
-                  CType(Me.BDContabilidadGMELO.Abonos.Select(filtro, "NúmeroAsiento"), BDContabilidadGMELO.AbonosRow())
-
-                For Each abono As BDContabilidadGMELO.AbonosRow In abonosCta
-
-                    Dim asiento As BDContabilidadGMELO.AsientosRow = Me.BDContabilidadGMELO.Asientos.FindByNúmero(abono.NúmeroAsiento)
-                    Dim Línea As BDContabilidadGMELO.LíneasMayorRow = Me.BDContabilidadGMELO.LíneasMayor.NewLíneasMayorRow
-
-                    Línea.CodCta = CodCta
-                    Línea.NúmeroAsiento = abono.NúmeroAsiento
-                    Línea.Fecha = asiento.Fecha
-                    Línea.NúmeroApunte = abono.NúmeroApunte
-                    Línea.Literal = asiento.Operación.TrimEnd + ". " + asiento.Justificante
-                    Línea.ImpDebe = 0
-                    Línea.ImpHaber = abono.Importe
-
-                    Me.BDContabilidadGMELO.LíneasMayor.AddLíneasMayorRow(Línea)
-                    Me.BDContabilidadGMELO.LíneasMayor.AcceptChanges()
-
-                Next
-
-                .LíneasMayor.Select("", "CodCta, NúmeroAsiento, NúmeroApunte")
-                .LíneasMayor.AcceptChanges()
-
-            End With
-
-            If Not File.Exists(LibroMayor) Then
-
-                CBiblioteca.MsgErrorCrítico("No existe la definición del informe rptLibroMayor.rpt")
-                Return
-
+                Listado.ShowDialog()
             Else
 
-                Try
-
-                    Dim Visor As New FrmVisorInformes
-                    With Visor
-                        '
-                        ' Creo el parametro y asigno el nombre
-                        '
-                        Dim Parámetro As ParameterField = New ParameterField()
-                        Parámetro.ParameterFieldName = "Título Página"
-
-                        '
-                        ' creo el valor que se asignara al parametro
-                        '
-                        Dim ValorParámetro As ParameterDiscreteValue = New ParameterDiscreteValue()
-                        ValorParámetro.Value = "LIBRO MAYOR"
-                        Parámetro.CurrentValues.Add(ValorParámetro)
-
-                        '
-                        ' Asigno el paramametro a la coleccion
-                        '
-                        Dim Parámetros As ParameterFields = New ParameterFields
-                        Parámetros.Add(Parámetro)
-
-                        '
-                        ' Asigno la coleccion de parametros al Crystal Viewer
-                        '
-                        .ReportViewer1.ParameterFieldInfo = Parámetros
-
-                        .ReportViewer1.ReportSource = LibroMayor
-
-                        .ReportViewer1.Refresh()
-
-                        .ShowDialog()
-
-                    End With
-
-                Catch Ex As Exception
-
-                    ' Let the user know what went wrong.
-                    CBiblioteca.MsgErrorCrítico("No se puede leer el fichero K:\Grupo MELO\___PROGRAMA GESTIÓN PYMES\CONTABILIDAD\informes\rptLibroMayor.rpt " + Ex.Message)
-                    Return
-
-                End Try
+                CBiblioteca.MsgAdvertencia("No existen movimientos de la cuenta " + selecCuentas.Cuenta.ToString)
 
             End If
 
         End If
+
+        Me.Cursor = DefaultCursor
 
     End Sub
 
@@ -447,7 +313,7 @@ Public Class FrmCuentas
     Private Sub CuentasDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles CuentasDataGridView.RowHeaderMouseDoubleClick
 
         Dim resp As MsgBoxResult = MDLMensajes.MsgPregunta("¿Está seguro que quiere borrar la cuenta " +
-                                                       CType(Me.CuentasBindingSource.Current, DataRowView).Item("Código").ToString + " - " +
+                                                       CType(Me.CuentasBindingSource.Current, DataRowView).Item("Codigo").ToString + " - " +
                                                        CType(Me.CuentasBindingSource.Current, DataRowView).Item("Nombre").ToString +
                                                        ". ¿Quiere continuar?")
 

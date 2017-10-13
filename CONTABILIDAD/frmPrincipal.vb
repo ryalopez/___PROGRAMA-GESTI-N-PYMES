@@ -9,6 +9,14 @@ Imports CBiblioteca
 
 Public Class frmPrincipal
 
+    Sub New()
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
     Private Sub frmPrincipal_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         '
         Me.Text = My.Resources.Título

@@ -1,4 +1,6 @@
-﻿Public Class frmGeografía
+﻿Imports System
+
+Public Class frmGeografía
 
 
     Private Sub frmGeografía_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -7,7 +9,7 @@
 
     End Sub
 
-   
+
     Private Sub mnuSalir_Click(sender As Object, e As EventArgs)
 
         Me.Close()

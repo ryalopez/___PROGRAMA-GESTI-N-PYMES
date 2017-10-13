@@ -73,15 +73,15 @@ Partial Class frmPrincipal
         Me.mnuPrincipal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuSalir, Me.mnuCopia, Me.CONTABILIDADToolStripMenuItem, Me.FinanciaciónToolStripMenuItem, Me.mnuClientes1, Me.mnuEmpleados1, Me.mnuAcercaDe})
         Me.mnuPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.mnuPrincipal.Name = "mnuPrincipal"
-        Me.mnuPrincipal.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.mnuPrincipal.Size = New System.Drawing.Size(1077, 28)
+        Me.mnuPrincipal.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
+        Me.mnuPrincipal.Size = New System.Drawing.Size(1436, 28)
         Me.mnuPrincipal.TabIndex = 0
         Me.mnuPrincipal.Text = "mnuPrincipal"
         '
         'mnuSalir
         '
         Me.mnuSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '   Me.mnuSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
+        Me.mnuSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
         Me.mnuSalir.Name = "mnuSalir"
         Me.mnuSalir.Size = New System.Drawing.Size(32, 24)
         Me.mnuSalir.Text = "Salir"
@@ -90,163 +90,163 @@ Partial Class frmPrincipal
         '
         Me.mnuCopia.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuCopiarBaseDeDatos, Me.SepararExcelDelBBVAToolStripMenuItem, Me.CuadranteHorasToolStripMenuItem, Me.EvaluarAmortizacionesToolStripMenuItem, Me.KkkkToolStripMenuItem})
         Me.mnuCopia.Name = "mnuCopia"
-        Me.mnuCopia.Size = New System.Drawing.Size(71, 24)
+        Me.mnuCopia.Size = New System.Drawing.Size(88, 24)
         Me.mnuCopia.Text = "Utilidades"
         '
         'mnuCopiarBaseDeDatos
         '
         Me.mnuCopiarBaseDeDatos.Name = "mnuCopiarBaseDeDatos"
-        Me.mnuCopiarBaseDeDatos.Size = New System.Drawing.Size(195, 22)
+        Me.mnuCopiarBaseDeDatos.Size = New System.Drawing.Size(238, 26)
         Me.mnuCopiarBaseDeDatos.Text = "Copiar Base de Datos"
         '
         'SepararExcelDelBBVAToolStripMenuItem
         '
         Me.SepararExcelDelBBVAToolStripMenuItem.Name = "SepararExcelDelBBVAToolStripMenuItem"
-        Me.SepararExcelDelBBVAToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.SepararExcelDelBBVAToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
         Me.SepararExcelDelBBVAToolStripMenuItem.Text = "Separar Excel del BBVA"
         '
         'CuadranteHorasToolStripMenuItem
         '
         Me.CuadranteHorasToolStripMenuItem.Name = "CuadranteHorasToolStripMenuItem"
-        Me.CuadranteHorasToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.CuadranteHorasToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
         Me.CuadranteHorasToolStripMenuItem.Text = "Cuadrante Horas"
         Me.CuadranteHorasToolStripMenuItem.ToolTipText = "Prepara una hoja Excel con Empreados vs Clientes"
         '
         'EvaluarAmortizacionesToolStripMenuItem
         '
         Me.EvaluarAmortizacionesToolStripMenuItem.Name = "EvaluarAmortizacionesToolStripMenuItem"
-        Me.EvaluarAmortizacionesToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.EvaluarAmortizacionesToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
         Me.EvaluarAmortizacionesToolStripMenuItem.Text = "Evaluar amortizaciones"
         Me.EvaluarAmortizacionesToolStripMenuItem.ToolTipText = "Realiza el cálculo de los gastos anuales de amortización"
         '
         'KkkkToolStripMenuItem
         '
         Me.KkkkToolStripMenuItem.Name = "KkkkToolStripMenuItem"
-        Me.KkkkToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.KkkkToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
         Me.KkkkToolStripMenuItem.Text = "kkkk"
         '
         'CONTABILIDADToolStripMenuItem
         '
         Me.CONTABILIDADToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEntradaAsientos, Me.mnuAsientos, Me.mnuCuentas, Me.mnuAnalítica})
         Me.CONTABILIDADToolStripMenuItem.Name = "CONTABILIDADToolStripMenuItem"
-        Me.CONTABILIDADToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
+        Me.CONTABILIDADToolStripMenuItem.Size = New System.Drawing.Size(125, 24)
         Me.CONTABILIDADToolStripMenuItem.Text = "CONTABILIDAD"
         '
         'mnuEntradaAsientos
         '
         Me.mnuEntradaAsientos.Name = "mnuEntradaAsientos"
-        Me.mnuEntradaAsientos.Size = New System.Drawing.Size(162, 22)
+        Me.mnuEntradaAsientos.Size = New System.Drawing.Size(195, 26)
         Me.mnuEntradaAsientos.Text = "Entrada Asientos"
         '
         'mnuAsientos
         '
         Me.mnuAsientos.Name = "mnuAsientos"
-        Me.mnuAsientos.Size = New System.Drawing.Size(162, 22)
+        Me.mnuAsientos.Size = New System.Drawing.Size(195, 26)
         Me.mnuAsientos.Text = "Diario"
         '
         'mnuCuentas
         '
         Me.mnuCuentas.Name = "mnuCuentas"
-        Me.mnuCuentas.Size = New System.Drawing.Size(162, 22)
+        Me.mnuCuentas.Size = New System.Drawing.Size(195, 26)
         Me.mnuCuentas.Text = "Cuentas"
         '
         'mnuAnalítica
         '
         Me.mnuAnalítica.Name = "mnuAnalítica"
-        Me.mnuAnalítica.Size = New System.Drawing.Size(162, 22)
+        Me.mnuAnalítica.Size = New System.Drawing.Size(195, 26)
         Me.mnuAnalítica.Text = "Analítica"
         '
         'FinanciaciónToolStripMenuItem
         '
         Me.FinanciaciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PréstamosToolStripMenuItem})
         Me.FinanciaciónToolStripMenuItem.Name = "FinanciaciónToolStripMenuItem"
-        Me.FinanciaciónToolStripMenuItem.Size = New System.Drawing.Size(102, 24)
+        Me.FinanciaciónToolStripMenuItem.Size = New System.Drawing.Size(122, 24)
         Me.FinanciaciónToolStripMenuItem.Text = "FINANCIACIÓN"
         '
         'PréstamosToolStripMenuItem
         '
         Me.PréstamosToolStripMenuItem.Name = "PréstamosToolStripMenuItem"
-        Me.PréstamosToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.PréstamosToolStripMenuItem.Size = New System.Drawing.Size(152, 26)
         Me.PréstamosToolStripMenuItem.Text = "Préstamos"
         '
         'mnuClientes1
         '
         Me.mnuClientes1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuClientes, Me.mnuFacturasClientes, Me.mnuProveedores, Me.mnuFacturasProveedores})
         Me.mnuClientes1.Name = "mnuClientes1"
-        Me.mnuClientes1.Size = New System.Drawing.Size(99, 24)
+        Me.mnuClientes1.Size = New System.Drawing.Size(118, 24)
         Me.mnuClientes1.Text = "FACTURACIÓN"
         '
         'mnuClientes
         '
         Me.mnuClientes.Name = "mnuClientes"
-        Me.mnuClientes.Size = New System.Drawing.Size(186, 22)
+        Me.mnuClientes.Size = New System.Drawing.Size(223, 26)
         Me.mnuClientes.Text = "Clientes"
         '
         'mnuFacturasClientes
         '
         Me.mnuFacturasClientes.Name = "mnuFacturasClientes"
-        Me.mnuFacturasClientes.Size = New System.Drawing.Size(186, 22)
+        Me.mnuFacturasClientes.Size = New System.Drawing.Size(223, 26)
         Me.mnuFacturasClientes.Text = "Facturas Clientes"
         '
         'mnuProveedores
         '
         Me.mnuProveedores.Name = "mnuProveedores"
-        Me.mnuProveedores.Size = New System.Drawing.Size(186, 22)
+        Me.mnuProveedores.Size = New System.Drawing.Size(223, 26)
         Me.mnuProveedores.Text = "Proveedores"
         Me.mnuProveedores.ToolTipText = "Datos de proveedores"
         '
         'mnuFacturasProveedores
         '
         Me.mnuFacturasProveedores.Name = "mnuFacturasProveedores"
-        Me.mnuFacturasProveedores.Size = New System.Drawing.Size(186, 22)
+        Me.mnuFacturasProveedores.Size = New System.Drawing.Size(223, 26)
         Me.mnuFacturasProveedores.Text = "Facturas Proveedores"
         '
         'mnuEmpleados1
         '
         Me.mnuEmpleados1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuEmpleados, Me.mnuNóminas, Me.ToolStripMenuItem1, Me.mnuEmpresasYCentros, Me.ToolStripMenuItem2, Me.mnuConvenios})
         Me.mnuEmpleados1.Name = "mnuEmpleados1"
-        Me.mnuEmpleados1.Size = New System.Drawing.Size(121, 24)
+        Me.mnuEmpleados1.Size = New System.Drawing.Size(148, 24)
         Me.mnuEmpleados1.Text = "RR HH y NÓMINAS"
         Me.mnuEmpleados1.ToolTipText = "Gestión de Empleados de la Empresa"
         '
         'mnuEmpleados
         '
         Me.mnuEmpleados.Name = "mnuEmpleados"
-        Me.mnuEmpleados.Size = New System.Drawing.Size(177, 22)
+        Me.mnuEmpleados.Size = New System.Drawing.Size(212, 26)
         Me.mnuEmpleados.Text = "Empleados"
         '
         'mnuNóminas
         '
         Me.mnuNóminas.Name = "mnuNóminas"
-        Me.mnuNóminas.Size = New System.Drawing.Size(177, 22)
+        Me.mnuNóminas.Size = New System.Drawing.Size(212, 26)
         Me.mnuNóminas.Text = "Nóminas"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(174, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(209, 6)
         '
         'mnuEmpresasYCentros
         '
         Me.mnuEmpresasYCentros.Name = "mnuEmpresasYCentros"
-        Me.mnuEmpresasYCentros.Size = New System.Drawing.Size(177, 22)
+        Me.mnuEmpresasYCentros.Size = New System.Drawing.Size(212, 26)
         Me.mnuEmpresasYCentros.Text = "Empresas y Centros"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(174, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(209, 6)
         '
         'mnuConvenios
         '
         Me.mnuConvenios.Name = "mnuConvenios"
-        Me.mnuConvenios.Size = New System.Drawing.Size(177, 22)
+        Me.mnuConvenios.Size = New System.Drawing.Size(212, 26)
         Me.mnuConvenios.Text = "Convenios"
         '
         'mnuAcercaDe
         '
         Me.mnuAcercaDe.Name = "mnuAcercaDe"
-        Me.mnuAcercaDe.Size = New System.Drawing.Size(71, 24)
+        Me.mnuAcercaDe.Size = New System.Drawing.Size(87, 24)
         Me.mnuAcercaDe.Text = "&Acerca de"
         '
         'OpenFileDialog1
@@ -289,6 +289,7 @@ Partial Class frmPrincipal
         Me.TableAdapterManager.Cta2TableAdapter = Nothing
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.CuentasTableAdapter = Nothing
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
@@ -340,12 +341,12 @@ Partial Class frmPrincipal
         '
         'frmPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1077, 709)
+        Me.ClientSize = New System.Drawing.Size(1436, 873)
         Me.Controls.Add(Me.mnuPrincipal)
         Me.MainMenuStrip = Me.mnuPrincipal
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "frmPrincipal"
         Me.Text = "Inversiones Madrileñas en Bienes Inmuebles Urbanos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

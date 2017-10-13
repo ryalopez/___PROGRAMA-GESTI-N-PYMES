@@ -95,7 +95,12 @@ Public Class frmAsientos
 
         Me.CuentasBancariasTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasBancarias)
 
-        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+        Try
+            Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+        Catch ex As Exception
+
+        End Try
+
 
         Me.CuentasProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.CuentasProveedores)
 

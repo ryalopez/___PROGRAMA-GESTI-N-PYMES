@@ -1,4 +1,5 @@
-﻿Public Class CServidor
+﻿Imports System
+Public Class CServidor
 
 
 

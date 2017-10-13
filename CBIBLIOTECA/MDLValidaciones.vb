@@ -1,4 +1,8 @@
-﻿Public Module MDLValidaciones
+﻿Imports System
+Imports Microsoft.VisualBasic
+
+
+Public Module MDLValidaciones
     ''' <summary>
     ''' Separa un numero de documento en número y letra e indica si la letra está al principio o al final
     ''' </summary>

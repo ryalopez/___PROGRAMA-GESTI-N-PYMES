@@ -4,7 +4,7 @@ Imports Microsoft.Office.Interop.Word
 Imports System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder
 
 Imports CBiblioteca
-Imports System.Data.Common.CommandTrees.ExpressionBuilder
+'Imports System.Data.Common.CommandTrees.ExpressionBuilder
 
 Public Class frmPedirFecha
 

@@ -22,36 +22,42 @@ Partial Class FrmVisorInformes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.ReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.Balance1 = New Contabilidad.Balance()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.Listado = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.miDataset = New Contabilidad.BDContabilidadGMELO()
+        CType(Me.miDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ReportViewer1
+        'Listado
         '
-        Me.ReportViewer1.ActiveViewIndex = -1
-        Me.ReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(605, 321)
-        Me.ReportViewer1.TabIndex = 0
+        Me.Listado.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "Cuentas"
+        ReportDataSource1.Value = Nothing
+        Me.Listado.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.Listado.LocalReport.ReportEmbeddedResource = "Contabilidad.Balance de Sumas y Saldos.rdlc"
+        Me.Listado.Location = New System.Drawing.Point(0, 0)
+        Me.Listado.Name = "Listado"
+        Me.Listado.ServerReport.BearerToken = Nothing
+        Me.Listado.Size = New System.Drawing.Size(649, 253)
+        Me.Listado.TabIndex = 0
+        '
+        'miDataset
+        '
+        Me.miDataset.DataSetName = "BDContabilidadGMELO"
+        Me.miDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FrmVisorInformes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(605, 321)
-        Me.Controls.Add(Me.ReportViewer1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.ClientSize = New System.Drawing.Size(649, 253)
+        Me.Controls.Add(Me.Listado)
         Me.Name = "FrmVisorInformes"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Visor de Informes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.miDataset, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents ReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents Balance1 As Balance
+    Friend WithEvents Listado As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents miDataset As BDContabilidadGMELO
 End Class

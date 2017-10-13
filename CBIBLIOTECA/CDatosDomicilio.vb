@@ -1,4 +1,5 @@
-﻿Imports System.ComponentModel
+﻿Imports Microsoft.VisualBasic
+Imports System.ComponentModel
 
 ''' <summary>
 ''' Enumeración de los tipos de propietario para el Control Domicilio

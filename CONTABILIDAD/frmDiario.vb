@@ -3,6 +3,7 @@ Imports System.Data
 Imports System.Data.SqlClient
 Imports CBiblioteca
 Imports Microsoft.VisualBasic
+Imports Microsoft.Reporting.WinForms
 
 Public Class FrmDiario
 
@@ -587,57 +588,68 @@ Public Class FrmDiario
 
         Me.Cursor = Cursors.WaitCursor
 
-        Dim Listado As New FrmVisorInformes
+        '  Dim Listado As New FrmVisorInformes
         'With {
         '    .NombreEmpresa = My.Resources.NombreEmpresa
         '}
+        Dim Datos As New ReportDataSource()
+        Datos.Name = "Datos"
+        Datos.Value = Me.BDContabilidadMelo.Tables("Asientos")
 
-        With Me.BDContabilidadMelo
+        Dim Parámetros As ReportParameterCollection = New ReportParameterCollection
+        Dim Cabecera As String = "LIBRO DIARIO"
+        Parámetros.Add(New ReportParameter("Encabezado", Cabecera))
 
-            .LíneasDiario.Clear()
-            For Each asiento As Contabilidad.BDContabilidadGMELO.AsientosRow In Me.BDContabilidadMelo.Asientos
+        Dim Listado As New FrmVisorInformes("DIA", Datos, Parámetros)
 
-                For Each cargo As Contabilidad.BDContabilidadGMELO.CargosRow In asiento.GetCargosRows
+        Listado.ShowDialog()
 
-                    Dim Línea As Contabilidad.BDContabilidadGMELO.LíneasDiarioRow = Me.BDContabilidadMelo.LíneasDiario.NewLíneasDiarioRow
+        'With Me.BDContabilidadMelo
 
-                    Línea.Número = asiento.Número
-                    Línea.Fecha = asiento.Fecha
-                    Línea.Justificante = asiento.Justificante
-                    Línea.Operación = asiento.Operación
+        '    .LíneasDiario.Clear()
+        '    For Each asiento As Contabilidad.BDContabilidadGMELO.AsientosRow In Me.BDContabilidadMelo.Asientos
 
-                    Línea.ApunteCargo = cargo.NúmeroApunte
-                    Línea.CuentaCargo = cargo.CódigoCuenta
-                    ' Línea.CódigoCuentaMaestraCargo = Me.CuentasTableAdapter.CódigoCuentaMaestra(cargo.CódigoCuenta)
-                    ' Línea.NombreCuentaMaestraCargo = Me.CuentasMaestrasTableAdapter.NombreCuentaMaestra(Línea.CódigoCuentaMaestraCargo)
-                    Línea.NombreCuentaCargo = Me.CuentasTableAdapter.NombreCuenta(cargo.CódigoCuenta)
-                    Línea.ImporteCargo = cargo.Importe
+        '        For Each cargo As Contabilidad.BDContabilidadGMELO.CargosRow In asiento.GetCargosRows
 
-                    Me.BDContabilidadMelo.LíneasDiario.AddLíneasDiarioRow(Línea)
+        '            Dim Línea As Contabilidad.BDContabilidadGMELO.LíneasDiarioRow = Me.BDContabilidadMelo.LíneasDiario.NewLíneasDiarioRow
 
-                Next
+        '            Línea.Número = asiento.Número
+        '            Línea.Fecha = asiento.Fecha
+        '            Línea.Justificante = asiento.Justificante
+        '            Línea.Operación = asiento.Operación
 
-                For Each abono As Contabilidad.BDContabilidadGMELO.AbonosRow In asiento.GetAbonosRows
+        '            Línea.ApunteCargo = cargo.NúmeroApunte
+        '            Línea.CuentaCargo = cargo.CódigoCuenta
+        '            ' Línea.CódigoCuentaMaestraCargo = Me.CuentasTableAdapter.CódigoCuentaMaestra(cargo.CódigoCuenta)
+        '            ' Línea.NombreCuentaMaestraCargo = Me.CuentasMaestrasTableAdapter.NombreCuentaMaestra(Línea.CódigoCuentaMaestraCargo)
+        '            Línea.NombreCuentaCargo = Me.CuentasTableAdapter.NombreCuenta(cargo.CódigoCuenta)
+        '            Línea.ImporteCargo = cargo.Importe
 
-                    Dim Línea As Contabilidad.BDContabilidadGMELO.LíneasDiarioRow = Me.BDContabilidadMelo.LíneasDiario.NewLíneasDiarioRow
+        '            Me.BDContabilidadMelo.LíneasDiario.AddLíneasDiarioRow(Línea)
 
-                    Línea.Número = asiento.Número
-                    Línea.Fecha = asiento.Fecha
-                    Línea.Justificante = asiento.Justificante
-                    Línea.Operación = asiento.Operación
+        '        Next
 
-                    Línea.ApunteAbono = abono.NúmeroApunte
-                    Línea.CuentaAbono = abono.CódigoCuenta
-                    Línea.NombreCuentaAbono = CuentasTableAdapter.NombreCuenta(abono.CódigoCuenta)
-                    Línea.ImporteAbono = abono.Importe
+        '        For Each abono As Contabilidad.BDContabilidadGMELO.AbonosRow In asiento.GetAbonosRows
 
-                    Me.BDContabilidadMelo.LíneasDiario.AddLíneasDiarioRow(Línea)
+        '            Dim Línea As Contabilidad.BDContabilidadGMELO.LíneasDiarioRow = Me.BDContabilidadMelo.LíneasDiario.NewLíneasDiarioRow
 
-                Next
+        '            Línea.Número = asiento.Número
+        '            Línea.Fecha = asiento.Fecha
+        '            Línea.Justificante = asiento.Justificante
+        '            Línea.Operación = asiento.Operación
 
-            Next
+        '            Línea.ApunteAbono = abono.NúmeroApunte
+        '            Línea.CuentaAbono = abono.CódigoCuenta
+        '            Línea.NombreCuentaAbono = CuentasTableAdapter.NombreCuenta(abono.CódigoCuenta)
+        '            Línea.ImporteAbono = abono.Importe
 
-        End With
+        '            Me.BDContabilidadMelo.LíneasDiario.AddLíneasDiarioRow(Línea)
+
+        '        Next
+
+        '    Next
+
+        'End With
 
         'With Listado
 
@@ -645,8 +657,8 @@ Public Class FrmDiario
         '    .TipoOrigenDatos = ETipoOrigenDatos.ADO
         '    .ADODataSet = Me.BDContabilidadMelo
         '    .Filtro = ""
-        Listado.ReportViewer1.ReportSource = Diario
-        Listado.ShowDialog()
+        'Listado.ReportViewer1.ReportSource = Diario
+        'Listado.ShowDialog()
 
         'End With
 

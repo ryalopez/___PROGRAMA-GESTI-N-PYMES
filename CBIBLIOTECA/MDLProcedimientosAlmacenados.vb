@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System
+Imports System.Data.SqlClient
 Imports CBiblioteca.MDLMensajes
 
 Public Module MDLProcedimientosAlmacenados
@@ -724,6 +725,39 @@ Public Module MDLProcedimientosAlmacenados
         Catch ex As Exception
 
             MsgErrorCrítico("BorrarAsiento " + ex.Message)
+
+        End Try
+
+    End Sub
+
+    Public Sub PrepararDatosLibroMayor(ByVal prmConnectionString As String, cuenta As Integer)
+
+        Try
+
+            Dim myConn As New SqlConnection(prmConnectionString)
+            Dim MiSqlCMD As SqlCommand = New SqlCommand("LibroMayor", myConn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
+
+            Dim prm1 As New SqlParameter With {
+                .ParameterName = "@CodCuenta",
+                .DbType = SqlDbType.Int,
+                .Direction = ParameterDirection.Input,
+                .Value = cuenta,
+                .Size = 8
+            }
+
+            MiSqlCMD.Parameters.Add(prm1)
+
+            myConn.Open()
+            MiSqlCMD.ExecuteNonQuery()
+            myConn.Close()
+
+
+
+        Catch ex As Exception
+
+            MsgErrorCrítico("PrepararDatosLibroMayor " + ex.Message)
 
         End Try
 

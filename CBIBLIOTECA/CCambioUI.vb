@@ -1,4 +1,5 @@
-﻿Public Class CCambioUI
+﻿Imports System
+Public Class CCambioUI
     Inherits EventArgs
 
     Private mNombrePropiedad As String
@@ -25,7 +26,7 @@
 
     Public ReadOnly Property ValorViejo As String
         Get
-            Return Me.mvalorviejo
+            Return Me.mValorViejo
         End Get
     End Property
 

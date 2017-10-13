@@ -1,4 +1,6 @@
-﻿Public Enum Autorizaciones
+﻿Imports System
+
+Public Enum Autorizaciones
     ROOT = 1
     ADMIN = 2
     USUARIO = 3

@@ -1,10 +1,10 @@
-﻿Imports System.Text
+﻿Imports Microsoft.VisualBasic
+Imports System.Text
 Imports System.Xml
 Imports System.IO
 Imports System
 Imports System.Configuration
 Imports System.Collections.Specialized
-'Imports Microsoft.Office.Interop
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Formatters.Soap
 Imports System.Data.Odbc

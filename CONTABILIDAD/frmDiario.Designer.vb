@@ -32,8 +32,8 @@ Partial Class FrmDiario
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AsientosPanel = New System.Windows.Forms.Panel()
         Me.AsientosDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -109,7 +109,12 @@ Partial Class FrmDiario
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.AgregarCargo = New System.Windows.Forms.ToolStripButton()
         Me.CargosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FKCargosAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AbonosPanel = New System.Windows.Forms.Panel()
         Me.AbonosBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.AbonosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -125,10 +130,13 @@ Partial Class FrmDiario
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.AgregarAbono = New System.Windows.Forms.ToolStripButton()
         Me.AbonosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FKAbonosAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OpcionesAsientosContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DuplicarAsientoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FKAbonosAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FKCargosAsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AsientosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AsientosTableAdapter()
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
         Me.AbonosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.AbonosTableAdapter()
@@ -137,14 +145,6 @@ Partial Class FrmDiario
         Me.CuentasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasTableAdapter()
         Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AsientosPanel.SuspendLayout()
         CType(Me.AsientosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AsientosBindingNavigator.SuspendLayout()
@@ -158,14 +158,14 @@ Partial Class FrmDiario
         CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CargosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FKCargosAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AbonosPanel.SuspendLayout()
         CType(Me.AbonosBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AbonosBindingNavigator.SuspendLayout()
         CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AbonosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.OpcionesAsientosContextMenuStrip.SuspendLayout()
         CType(Me.FKAbonosAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FKCargosAsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.OpcionesAsientosContextMenuStrip.SuspendLayout()
         CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -207,7 +207,7 @@ Partial Class FrmDiario
         Me.AsientosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.AsientosBindingNavigator.Name = "AsientosBindingNavigator"
         Me.AsientosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.AsientosBindingNavigator.Size = New System.Drawing.Size(1026, 27)
+        Me.AsientosBindingNavigator.Size = New System.Drawing.Size(1045, 27)
         Me.AsientosBindingNavigator.TabIndex = 1
         Me.AsientosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -233,7 +233,7 @@ Partial Class FrmDiario
         'btnCerrar
         '
         Me.btnCerrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '   Me.btnCerrar.Image = Global.contabilidad.Resources.Resources.HomeHS
+        Me.btnCerrar.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
         Me.btnCerrar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(24, 24)
@@ -333,10 +333,9 @@ Partial Class FrmDiario
         '
         Me.Listados.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Listados.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarDiario, Me.AsientosDescuadradosToolStripMenuItem})
-        '      Me.Listados.Image = Global.contabilidad.Resources.Resources.Listar
         Me.Listados.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Listados.Name = "Listados"
-        Me.Listados.Size = New System.Drawing.Size(34, 24)
+        Me.Listados.Size = New System.Drawing.Size(14, 24)
         Me.Listados.Text = "ToolStripButton8"
         Me.Listados.ToolTipText = "Listados disponibles"
         '
@@ -798,11 +797,51 @@ Partial Class FrmDiario
         Me.CargosDataGridView.Size = New System.Drawing.Size(867, 190)
         Me.CargosDataGridView.TabIndex = 2
         '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "NúmeroApunte"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "#Apunte"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.Width = 57
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CódigoCuenta"
+        Me.DataGridViewTextBoxColumn8.DataSource = Me.CuentasBindingSource
+        Me.DataGridViewTextBoxColumn8.DisplayMember = "Nombre"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Cuenta Cargo"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DataGridViewTextBoxColumn8.ValueMember = "Codigo"
+        Me.DataGridViewTextBoxColumn8.Width = 377
+        '
         'CuentasBindingSource
         '
         Me.CuentasBindingSource.DataMember = "Cuentas"
         Me.CuentasBindingSource.DataSource = Me.BDContabilidadMelo
         Me.CuentasBindingSource.Sort = "Nombre"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Importe"
+        DataGridViewCellStyle9.Format = "N2"
+        DataGridViewCellStyle9.NullValue = "0,00"
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'FKCargosAsientosBindingSource
+        '
+        Me.FKCargosAsientosBindingSource.DataMember = "FK_Cargos_Asientos"
+        Me.FKCargosAsientosBindingSource.DataSource = Me.AsientosBindingSource
         '
         'AbonosPanel
         '
@@ -947,6 +986,47 @@ Partial Class FrmDiario
         Me.AbonosDataGridView.Size = New System.Drawing.Size(867, 190)
         Me.AbonosDataGridView.TabIndex = 0
         '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "NúmeroAsiento"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.Visible = False
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "NúmeroApunte"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "#Apunte"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.Width = 57
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "CódigoCuenta"
+        Me.DataGridViewTextBoxColumn12.DataSource = Me.CuentasBindingSource
+        Me.DataGridViewTextBoxColumn12.DisplayMember = "Nombre"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Cuenta Abono"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.DataGridViewTextBoxColumn12.ValueMember = "Codigo"
+        Me.DataGridViewTextBoxColumn12.Width = 477
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Importe"
+        DataGridViewCellStyle11.Format = "N2"
+        DataGridViewCellStyle11.NullValue = "0,00"
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle11
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Importe"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'FKAbonosAsientosBindingSource
+        '
+        Me.FKAbonosAsientosBindingSource.DataMember = "FK_Abonos_Asientos"
+        Me.FKAbonosAsientosBindingSource.DataSource = Me.AsientosBindingSource
+        '
         'OpcionesAsientosContextMenuStrip
         '
         Me.OpcionesAsientosContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -959,16 +1039,6 @@ Partial Class FrmDiario
         Me.DuplicarAsientoToolStripMenuItem.Name = "DuplicarAsientoToolStripMenuItem"
         Me.DuplicarAsientoToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
         Me.DuplicarAsientoToolStripMenuItem.Text = "Duplicar asiento seleccionado"
-        '
-        'FKAbonosAsientosBindingSource
-        '
-        Me.FKAbonosAsientosBindingSource.DataMember = "FK_Abonos_Asientos"
-        Me.FKAbonosAsientosBindingSource.DataSource = Me.AsientosBindingSource
-        '
-        'FKCargosAsientosBindingSource
-        '
-        Me.FKCargosAsientosBindingSource.DataMember = "FK_Cargos_Asientos"
-        Me.FKCargosAsientosBindingSource.DataSource = Me.AsientosBindingSource
         '
         'AsientosTableAdapter
         '
@@ -996,6 +1066,7 @@ Partial Class FrmDiario
         Me.TableAdapterManager.Cta2TableAdapter = Nothing
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.CuentasTableAdapter = Nothing
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
@@ -1052,77 +1123,6 @@ Partial Class FrmDiario
         '
         Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
         '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "NúmeroApunte"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "#Apunte"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 57
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CódigoCuenta"
-        Me.DataGridViewTextBoxColumn8.DataSource = Me.CuentasBindingSource
-        Me.DataGridViewTextBoxColumn8.DisplayMember = "Nombre"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Cuenta Cargo"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewTextBoxColumn8.ValueMember = "Codigo"
-        Me.DataGridViewTextBoxColumn8.Width = 377
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Importe"
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = "0,00"
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "NúmeroAsiento"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.Visible = False
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "NúmeroApunte"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "#Apunte"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.Width = 57
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "CódigoCuenta"
-        Me.DataGridViewTextBoxColumn12.DataSource = Me.CuentasBindingSource
-        Me.DataGridViewTextBoxColumn12.DisplayMember = "Nombre"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Cuenta Abono"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.DataGridViewTextBoxColumn12.ValueMember = "Codigo"
-        Me.DataGridViewTextBoxColumn12.Width = 477
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Importe"
-        DataGridViewCellStyle11.Format = "N2"
-        DataGridViewCellStyle11.NullValue = "0,00"
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Importe"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
         'FrmDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1154,6 +1154,7 @@ Partial Class FrmDiario
         CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CargosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FKCargosAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AbonosPanel.ResumeLayout(False)
         Me.AbonosPanel.PerformLayout()
         CType(Me.AbonosBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1161,9 +1162,8 @@ Partial Class FrmDiario
         Me.AbonosBindingNavigator.PerformLayout()
         CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AbonosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.OpcionesAsientosContextMenuStrip.ResumeLayout(False)
         CType(Me.FKAbonosAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FKCargosAsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.OpcionesAsientosContextMenuStrip.ResumeLayout(False)
         CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
