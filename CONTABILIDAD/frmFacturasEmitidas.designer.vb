@@ -179,7 +179,7 @@ Partial Class FrmFacturasEmitidas
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '       Me.btnSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
+        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(24, 24)
@@ -262,10 +262,9 @@ Partial Class FrmFacturasEmitidas
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarFacturasEmitidas, Me.btnEmitirFacturasToolStrip, Me.MorososToolStripMenuItem})
-        '       Me.ToolStripDropDownButton1.Image = Global.contabilidad.Resources.Resources.Listar
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(34, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(14, 24)
         Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
         '
         'btnListarFacturasEmitidas
@@ -595,6 +594,7 @@ Partial Class FrmFacturasEmitidas
         Me.TableAdapterManager.Cta2TableAdapter = Nothing
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.CuentasTableAdapter = Nothing
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing

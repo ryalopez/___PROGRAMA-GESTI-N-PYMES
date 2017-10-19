@@ -32,6 +32,8 @@ Partial Class FrmNóminas
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.NóminasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.NóminasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.btnSalir = New System.Windows.Forms.ToolStripButton()
@@ -51,13 +53,25 @@ Partial Class FrmNóminas
         Me.PagarStripButton = New System.Windows.Forms.ToolStripButton()
         Me.btnGenerarResumenExcel = New System.Windows.Forms.ToolStripButton()
         Me.NóminasDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CargosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AbonosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idEmpleado = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.EmpleadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
+        Me.Bruto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoIRPF = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CuotaIRPF = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SegSocEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SegSocialEmpresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Neto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idCtaBancaria = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.CuentasBancariasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.NóminasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ContabilizadaDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Pagada = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Bloqueada = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.CargosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AsientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AbonosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
@@ -71,30 +85,16 @@ Partial Class FrmNóminas
         Me.CuentasBancariasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.CuentasBancariasTableAdapter()
         Me.NóminasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.NóminasTableAdapter()
         Me.EmpleadosTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.EmpleadosTableAdapter()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idEmpleado = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.Bruto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TipoIRPF = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CuotaIRPF = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SegSocEmpleado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SegSocialEmpresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Neto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idCtaBancaria = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.ContabilizadaDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Pagada = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Bloqueada = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.NóminasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NóminasBindingNavigator.SuspendLayout()
-        CType(Me.NóminasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmpleadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NóminasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NóminasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmpleadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,7 +115,7 @@ Partial Class FrmNóminas
         Me.NóminasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.NóminasBindingNavigator.Name = "NóminasBindingNavigator"
         Me.NóminasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.NóminasBindingNavigator.Size = New System.Drawing.Size(1071, 27)
+        Me.NóminasBindingNavigator.Size = New System.Drawing.Size(1428, 27)
         Me.NóminasBindingNavigator.TabIndex = 6
         Me.NóminasBindingNavigator.Text = "FacturasEmitidasBindingNavigator"
         '
@@ -128,10 +128,21 @@ Partial Class FrmNóminas
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
         '
+        'NóminasBindingSource
+        '
+        Me.NóminasBindingSource.DataMember = "Nóminas"
+        Me.NóminasBindingSource.DataSource = Me.BDContabilidadGMELO
+        Me.NóminasBindingSource.Sort = "FechaNómina"
+        '
+        'BDContabilidadGMELO
+        '
+        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
+        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 24)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
@@ -147,7 +158,7 @@ Partial Class FrmNóminas
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '       Me.btnSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
+        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(24, 24)
@@ -186,7 +197,7 @@ Partial Class FrmNóminas
         Me.BindingNavigatorPositionItem.AccessibleName = "Posición"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 27)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
@@ -230,16 +241,15 @@ Partial Class FrmNóminas
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarNóminas})
-        '     Me.ToolStripDropDownButton1.Image = Global.contabilidad.Resources.Resources.Listar
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(33, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(14, 24)
         Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
         '
         'btnListarNóminas
         '
         Me.btnListarNóminas.Name = "btnListarNóminas"
-        Me.btnListarNóminas.Size = New System.Drawing.Size(179, 22)
+        Me.btnListarNóminas.Size = New System.Drawing.Size(216, 26)
         Me.btnListarNóminas.Text = "Listado de Nóminas"
         Me.btnListarNóminas.ToolTipText = "Lista las nóminas"
         '
@@ -282,144 +292,10 @@ Partial Class FrmNóminas
         Me.NóminasDataGridView.DataSource = Me.NóminasBindingSource
         Me.NóminasDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NóminasDataGridView.Location = New System.Drawing.Point(0, 27)
+        Me.NóminasDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NóminasDataGridView.Name = "NóminasDataGridView"
-        Me.NóminasDataGridView.Size = New System.Drawing.Size(1071, 661)
+        Me.NóminasDataGridView.Size = New System.Drawing.Size(1428, 820)
         Me.NóminasDataGridView.TabIndex = 6
-        '
-        'CargosBindingSource
-        '
-        Me.CargosBindingSource.DataMember = "FK_Cargos_Asientos"
-        Me.CargosBindingSource.DataSource = Me.AsientosBindingSource
-        '
-        'AbonosBindingSource
-        '
-        Me.AbonosBindingSource.DataMember = "FK_Abonos_Asientos"
-        Me.AbonosBindingSource.DataSource = Me.AsientosBindingSource
-        '
-        'EmpleadosBindingSource
-        '
-        Me.EmpleadosBindingSource.DataMember = "Empleados"
-        Me.EmpleadosBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'BDContabilidadGMELO
-        '
-        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
-        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CuentasBancariasBindingSource
-        '
-        Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
-        Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'NóminasBindingSource
-        '
-        Me.NóminasBindingSource.DataMember = "Nóminas"
-        Me.NóminasBindingSource.DataSource = Me.BDContabilidadGMELO
-        Me.NóminasBindingSource.Sort = "FechaNómina"
-        '
-        'AsientosBindingSource
-        '
-        Me.AsientosBindingSource.DataMember = "Asientos"
-        Me.AsientosBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'CuentasBindingSource
-        '
-        Me.CuentasBindingSource.DataMember = "Cuentas"
-        Me.CuentasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AbonosTableAdapter = Nothing
-        Me.TableAdapterManager.AsientosTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
-        Me.TableAdapterManager.CargosTableAdapter = Nothing
-        Me.TableAdapterManager.CentrosTrabajoTableAdapter = Nothing
-        Me.TableAdapterManager.ClientesTableAdapter = Nothing
-        Me.TableAdapterManager.CNAETableAdapter = Nothing
-        Me.TableAdapterManager.CNO11TableAdapter = Nothing
-        Me.TableAdapterManager.CNO94TableAdapter = Nothing
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.ConvenioCategoríasConceptosTableAdapter = Nothing
-        Me.TableAdapterManager.ConvenioCategoríasTableAdapter = Nothing
-        Me.TableAdapterManager.ConvenioGruposTableAdapter = Nothing
-        Me.TableAdapterManager.Convenios_ColectivosJulio2014TableAdapter = Nothing
-        Me.TableAdapterManager.ConveniosEmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.ConveniosTableAdapter = Nothing
-        Me.TableAdapterManager.Cta1TableAdapter = Nothing
-        Me.TableAdapterManager.Cta2TableAdapter = Nothing
-        Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
-        Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
-        Me.TableAdapterManager.CuentasTableAdapter = Nothing
-        Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
-        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
-        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
-        Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
-        Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
-        Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
-        Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
-        Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
-        Me.TableAdapterManager.NominasDeEmpresaTableAdapter = Nothing
-        Me.TableAdapterManager.NóminasTableAdapter = Nothing
-        Me.TableAdapterManager.PaisesTableAdapter = Nothing
-        Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
-        Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
-        Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
-        Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
-        Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
-        Me.TableAdapterManager.SexosTableAdapter = Nothing
-        Me.TableAdapterManager.TiposComplementoSalarialTableAdapter = Nothing
-        Me.TableAdapterManager.TiposDocumentoIdentidadTableAdapter = Nothing
-        Me.TableAdapterManager.TiposNóminaTableAdapter = Nothing
-        Me.TableAdapterManager.TiposVíaTableAdapter = Nothing
-        Me.TableAdapterManager.UnidadesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'ClientesTableAdapter
-        '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
-        '
-        'CuentasTableAdapter
-        '
-        Me.CuentasTableAdapter.ClearBeforeFill = True
-        '
-        'CuentasMaestrasBindingSource
-        '
-        Me.CuentasMaestrasBindingSource.DataMember = "CuentasMaestras"
-        Me.CuentasMaestrasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'CuentasMaestrasTableAdapter
-        '
-        Me.CuentasMaestrasTableAdapter.ClearBeforeFill = True
-        '
-        'AsientosTableAdapter
-        '
-        Me.AsientosTableAdapter.ClearBeforeFill = True
-        '
-        'CargosTableAdapter
-        '
-        Me.CargosTableAdapter.ClearBeforeFill = True
-        '
-        'AbonosTableAdapter
-        '
-        Me.AbonosTableAdapter.ClearBeforeFill = True
-        '
-        'CuentasBancariasTableAdapter
-        '
-        Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
-        '
-        'NóminasTableAdapter
-        '
-        Me.NóminasTableAdapter.ClearBeforeFill = True
-        '
-        'EmpleadosTableAdapter
-        '
-        Me.EmpleadosTableAdapter.ClearBeforeFill = True
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -447,6 +323,11 @@ Partial Class FrmNóminas
         Me.idEmpleado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.idEmpleado.ValueMember = "idEmpleado"
         Me.idEmpleado.Width = 300
+        '
+        'EmpleadosBindingSource
+        '
+        Me.EmpleadosBindingSource.DataMember = "Empleados"
+        Me.EmpleadosBindingSource.DataSource = Me.BDContabilidadGMELO
         '
         'Bruto
         '
@@ -519,6 +400,11 @@ Partial Class FrmNóminas
         Me.idCtaBancaria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.idCtaBancaria.ValueMember = "id"
         '
+        'CuentasBancariasBindingSource
+        '
+        Me.CuentasBancariasBindingSource.DataMember = "CuentasBancarias"
+        Me.CuentasBancariasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
         'ContabilizadaDataGridViewCheckBoxColumn
         '
         Me.ContabilizadaDataGridViewCheckBoxColumn.DataPropertyName = "Contabilizada"
@@ -544,28 +430,150 @@ Partial Class FrmNóminas
         Me.Bloqueada.HeaderText = "Bloqueada"
         Me.Bloqueada.Name = "Bloqueada"
         '
-        'frmNóminas
+        'CargosBindingSource
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.CargosBindingSource.DataMember = "FK_Cargos_Asientos"
+        Me.CargosBindingSource.DataSource = Me.AsientosBindingSource
+        '
+        'AsientosBindingSource
+        '
+        Me.AsientosBindingSource.DataMember = "Asientos"
+        Me.AsientosBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'AbonosBindingSource
+        '
+        Me.AbonosBindingSource.DataMember = "FK_Abonos_Asientos"
+        Me.AbonosBindingSource.DataSource = Me.AsientosBindingSource
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'CuentasBindingSource
+        '
+        Me.CuentasBindingSource.DataMember = "Cuentas"
+        Me.CuentasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AbonosTableAdapter = Nothing
+        Me.TableAdapterManager.AsientosTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BalanceSituaciónTableAdapter = Nothing
+        Me.TableAdapterManager.CargosTableAdapter = Nothing
+        Me.TableAdapterManager.CentrosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.ClientesTableAdapter = Nothing
+        Me.TableAdapterManager.CNAETableAdapter = Nothing
+        Me.TableAdapterManager.CNO11TableAdapter = Nothing
+        Me.TableAdapterManager.CNO94TableAdapter = Nothing
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioCategoríasTableAdapter = Nothing
+        Me.TableAdapterManager.ConvenioGruposTableAdapter = Nothing
+        Me.TableAdapterManager.Convenios_ColectivosJulio2014TableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosEmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.ConveniosTableAdapter = Nothing
+        Me.TableAdapterManager.Cta1TableAdapter = Nothing
+        Me.TableAdapterManager.Cta2TableAdapter = Nothing
+        Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasProveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasTableAdapter = Nothing
+        Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
+        Me.TableAdapterManager.EmpresasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidas1TableAdapter = Nothing
+        Me.TableAdapterManager.FacturasEmitidasTableAdapter = Nothing
+        Me.TableAdapterManager.FacturasRecibidasTableAdapter = Nothing
+        Me.TableAdapterManager.FormasPagoTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasDiarioTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasFacturaEmitidaTableAdapter = Nothing
+        Me.TableAdapterManager.LíneasMayorTableAdapter = Nothing
+        Me.TableAdapterManager.NóminaConceptosTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasDeEmpleadoTableAdapter = Nothing
+        Me.TableAdapterManager.NominasDeEmpresaTableAdapter = Nothing
+        Me.TableAdapterManager.NóminasTableAdapter = Nothing
+        Me.TableAdapterManager.PaisesTableAdapter = Nothing
+        Me.TableAdapterManager.PerdidasyGananciasSeccionesTableAdapter = Nothing
+        Me.TableAdapterManager.PérdidasyGananciasTableAdapter = Nothing
+        Me.TableAdapterManager.PoblacionesTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosLargoPlazoTableAdapter = Nothing
+        Me.TableAdapterManager.PréstamosTableAdapter = Nothing
+        Me.TableAdapterManager.ProveedoresTableAdapter = Nothing
+        Me.TableAdapterManager.ProvinciasTableAdapter = Nothing
+        Me.TableAdapterManager.PuestosTrabajoTableAdapter = Nothing
+        Me.TableAdapterManager.SexosTableAdapter = Nothing
+        Me.TableAdapterManager.TiposComplementoSalarialTableAdapter = Nothing
+        Me.TableAdapterManager.TiposDocumentoIdentidadTableAdapter = Nothing
+        Me.TableAdapterManager.TiposNóminaTableAdapter = Nothing
+        Me.TableAdapterManager.TiposVíaTableAdapter = Nothing
+        Me.TableAdapterManager.UnidadesTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
+        'CuentasTableAdapter
+        '
+        Me.CuentasTableAdapter.ClearBeforeFill = True
+        '
+        'CuentasMaestrasBindingSource
+        '
+        Me.CuentasMaestrasBindingSource.DataMember = "CuentasMaestras"
+        Me.CuentasMaestrasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'CuentasMaestrasTableAdapter
+        '
+        Me.CuentasMaestrasTableAdapter.ClearBeforeFill = True
+        '
+        'AsientosTableAdapter
+        '
+        Me.AsientosTableAdapter.ClearBeforeFill = True
+        '
+        'CargosTableAdapter
+        '
+        Me.CargosTableAdapter.ClearBeforeFill = True
+        '
+        'AbonosTableAdapter
+        '
+        Me.AbonosTableAdapter.ClearBeforeFill = True
+        '
+        'CuentasBancariasTableAdapter
+        '
+        Me.CuentasBancariasTableAdapter.ClearBeforeFill = True
+        '
+        'NóminasTableAdapter
+        '
+        Me.NóminasTableAdapter.ClearBeforeFill = True
+        '
+        'EmpleadosTableAdapter
+        '
+        Me.EmpleadosTableAdapter.ClearBeforeFill = True
+        '
+        'FrmNóminas
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1071, 688)
+        Me.ClientSize = New System.Drawing.Size(1428, 847)
         Me.Controls.Add(Me.NóminasDataGridView)
         Me.Controls.Add(Me.NóminasBindingNavigator)
-        Me.Name = "frmNóminas"
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Name = "FrmNóminas"
         Me.Text = "frmFacturasEmitidas"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.NóminasBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NóminasBindingNavigator.ResumeLayout(False)
         Me.NóminasBindingNavigator.PerformLayout()
-        CType(Me.NóminasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmpleadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NóminasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NóminasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmpleadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CuentasBancariasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CargosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AsientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AbonosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CuentasMaestrasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -25,8 +25,12 @@ Public Class frmProveedores
         Me.CuentasTableAdapter.Fill(Me.BDContabilidadGMELO.Cuentas)
 
         Me.TiposDocumentoIdentidadTableAdapter.Fill(Me.BDContabilidadGMELO.TiposDocumentoIdentidad)
+        Try
+            Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+        Catch ex As Exception
 
-        Me.ProveedoresTableAdapter.Fill(Me.BDContabilidadGMELO.Proveedores)
+        End Try
+
 
         Me.Text = My.Resources.Título + " - Gestión de PROVEEDORES"
 

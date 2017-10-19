@@ -129,9 +129,10 @@ Public Class FrmCuentas
 
         If selecEjercicio.DialogResult = System.Windows.Forms.DialogResult.OK Then
 
-            Dim Datos As New ReportDataSource()
-            Datos.Name = "Datos"
-            Datos.Value = Me.BDContabilidadGMELO.Tables("cuentas")
+            Dim Datos As New ReportDataSource With {
+                .Name = "Datos",
+                .Value = Me.BDContabilidadGMELO.Tables("cuentas")
+            }
 
             Dim Parámetros As ReportParameterCollection = New ReportParameterCollection
             Dim Cabecera As String = "BALANCE DE SUMAS Y SALDOS DEL " + selecEjercicio.resul
@@ -192,9 +193,10 @@ Public Class FrmCuentas
 
             If Me.LíneasMaestrasBindingSource.Count > 0 Then
 
-                Dim Datos As New ReportDataSource()
-                Datos.Name = "Datos"
-                Datos.Value = Me.BDContabilidadGMELO.Tables("LíneasMayor")
+                Dim Datos As New ReportDataSource With {
+                    .Name = "Datos",
+                    .Value = Me.BDContabilidadGMELO.Tables("LíneasMayor")
+                }
 
                 Dim Parámetros As ReportParameterCollection = New ReportParameterCollection
                 Dim Cabecera As String = "MOVIMIENTOS DE LA CUENTA " + selecCuentas.Cuenta.ToString

@@ -280,7 +280,7 @@ Partial Class frmProveedores
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '        Me.btnSalir.Image = Global.Resources.HomeHS
+        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(24, 24)
@@ -371,10 +371,9 @@ Partial Class frmProveedores
         'btnListarProveedores
         '
         Me.btnListarProveedores.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '  Me.btnListarProveedores.Image = Global.contabilidad.Resources.Resources.Listar
         Me.btnListarProveedores.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnListarProveedores.Name = "btnListarProveedores"
-        Me.btnListarProveedores.Size = New System.Drawing.Size(24, 24)
+        Me.btnListarProveedores.Size = New System.Drawing.Size(23, 24)
         Me.btnListarProveedores.Text = "ToolStripButton8"
         Me.btnListarProveedores.ToolTipText = "Listado alfabético de clientes"
         '
@@ -540,6 +539,7 @@ Partial Class frmProveedores
         Me.TableAdapterManager.Cta2TableAdapter = Nothing
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.CuentasTableAdapter = Me.CuentasTableAdapter
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing

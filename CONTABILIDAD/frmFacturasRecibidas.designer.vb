@@ -30,6 +30,8 @@ Partial Class FrmFacturasRecibidas
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FacturasRecibidasBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.btnSalir = New System.Windows.Forms.ToolStripButton()
@@ -69,15 +71,13 @@ Partial Class FrmFacturasRecibidas
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FacturasRecibidasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDContabilidadGMELO = New Contabilidad.BDContabilidadGMELO()
         Me.TableAdapterManager = New Contabilidad.BDContabilidadGMELOTableAdapters.TableAdapterManager()
         Me.FacturasRecibidasTableAdapter = New Contabilidad.BDContabilidadGMELOTableAdapters.FacturasRecibidasTableAdapter()
         CType(Me.FacturasRecibidasBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FacturasRecibidasBindingNavigator.SuspendLayout()
-        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FacturasRecibidasBindingNavigator
@@ -95,7 +95,7 @@ Partial Class FrmFacturasRecibidas
         Me.FacturasRecibidasBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.FacturasRecibidasBindingNavigator.Name = "FacturasRecibidasBindingNavigator"
         Me.FacturasRecibidasBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.FacturasRecibidasBindingNavigator.Size = New System.Drawing.Size(1324, 27)
+        Me.FacturasRecibidasBindingNavigator.Size = New System.Drawing.Size(1765, 27)
         Me.FacturasRecibidasBindingNavigator.TabIndex = 6
         Me.FacturasRecibidasBindingNavigator.Text = "FacturasRecibidasBindingNavigator"
         '
@@ -108,10 +108,20 @@ Partial Class FrmFacturasRecibidas
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorAddNewItem.Text = "Agregar nuevo"
         '
+        'FacturasRecibidasBindingSource
+        '
+        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
+        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
+        '
+        'BDContabilidadGMELO
+        '
+        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
+        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 24)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
@@ -127,7 +137,7 @@ Partial Class FrmFacturasRecibidas
         'btnSalir
         '
         Me.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        '       Me.btnSalir.Image = Global.contabilidad.Resources.Resources.HomeHS
+        Me.btnSalir.Image = Global.Contabilidad.My.Resources.Resources.HomeHS
         Me.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(24, 24)
@@ -166,7 +176,7 @@ Partial Class FrmFacturasRecibidas
         Me.BindingNavigatorPositionItem.AccessibleName = "Posición"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 27)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
@@ -209,29 +219,28 @@ Partial Class FrmFacturasRecibidas
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarFacturasRecibidas, Me.btnEmitirFacturasToolStrip, Me.MorososToolStripMenuItem})
-        '   Me.ToolStripDropDownButton1.Image = Global.contabilidad.Resources.Resources.Listar
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(33, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(14, 24)
         Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
         '
         'btnListarFacturasRecibidas
         '
         Me.btnListarFacturasRecibidas.Name = "btnListarFacturasRecibidas"
-        Me.btnListarFacturasRecibidas.Size = New System.Drawing.Size(175, 22)
+        Me.btnListarFacturasRecibidas.Size = New System.Drawing.Size(210, 26)
         Me.btnListarFacturasRecibidas.Text = "Listado de Facturas"
         '
         'btnEmitirFacturasToolStrip
         '
         Me.btnEmitirFacturasToolStrip.Name = "btnEmitirFacturasToolStrip"
-        Me.btnEmitirFacturasToolStrip.Size = New System.Drawing.Size(175, 22)
+        Me.btnEmitirFacturasToolStrip.Size = New System.Drawing.Size(210, 26)
         Me.btnEmitirFacturasToolStrip.Text = "Emitir Facturas"
         Me.btnEmitirFacturasToolStrip.ToolTipText = "Emitir las facturas de un mes"
         '
         'MorososToolStripMenuItem
         '
         Me.MorososToolStripMenuItem.Name = "MorososToolStripMenuItem"
-        Me.MorososToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.MorososToolStripMenuItem.Size = New System.Drawing.Size(210, 26)
         Me.MorososToolStripMenuItem.Text = "Morosos"
         '
         'ContabilizarStripButton
@@ -318,10 +327,11 @@ Partial Class FrmFacturasRecibidas
         Me.FacturasRecibidasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.FacturasRecibidasDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.OPERACIÓN, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn20})
         Me.FacturasRecibidasDataGridView.DataSource = Me.FacturasRecibidasBindingSource
-        Me.FacturasRecibidasDataGridView.Location = New System.Drawing.Point(0, 30)
+        Me.FacturasRecibidasDataGridView.Location = New System.Drawing.Point(0, 37)
+        Me.FacturasRecibidasDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.FacturasRecibidasDataGridView.Name = "FacturasRecibidasDataGridView"
         Me.FacturasRecibidasDataGridView.ReadOnly = True
-        Me.FacturasRecibidasDataGridView.Size = New System.Drawing.Size(1300, 675)
+        Me.FacturasRecibidasDataGridView.Size = New System.Drawing.Size(1733, 831)
         Me.FacturasRecibidasDataGridView.TabIndex = 6
         '
         'DataGridViewTextBoxColumn10
@@ -433,16 +443,6 @@ Partial Class FrmFacturasRecibidas
         Me.DataGridViewTextBoxColumn20.Visible = False
         Me.DataGridViewTextBoxColumn20.Width = 233
         '
-        'FacturasRecibidasBindingSource
-        '
-        Me.FacturasRecibidasBindingSource.DataMember = "FacturasRecibidas"
-        Me.FacturasRecibidasBindingSource.DataSource = Me.BDContabilidadGMELO
-        '
-        'BDContabilidadGMELO
-        '
-        Me.BDContabilidadGMELO.DataSetName = "BDContabilidadGMELO"
-        Me.BDContabilidadGMELO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'TableAdapterManager
         '
         Me.TableAdapterManager.AbonosTableAdapter = Nothing
@@ -466,6 +466,7 @@ Partial Class FrmFacturasRecibidas
         Me.TableAdapterManager.Cta2TableAdapter = Nothing
         Me.TableAdapterManager.CuentasBancariasTableAdapter = Nothing
         Me.TableAdapterManager.CuentasMaestrasTableAdapter = Nothing
+        Me.TableAdapterManager.CuentasProveedoresTableAdapter = Nothing
         Me.TableAdapterManager.CuentasTableAdapter = Nothing
         Me.TableAdapterManager.EmpleadosTableAdapter = Nothing
         Me.TableAdapterManager.EmpresasTableAdapter = Nothing
@@ -501,24 +502,25 @@ Partial Class FrmFacturasRecibidas
         '
         Me.FacturasRecibidasTableAdapter.ClearBeforeFill = True
         '
-        'frmFacturasRecibidas
+        'FrmFacturasRecibidas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1324, 717)
+        Me.ClientSize = New System.Drawing.Size(1765, 882)
         Me.Controls.Add(Me.FacturasRecibidasDataGridView)
         Me.Controls.Add(Me.FacturasRecibidasBindingNavigator)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "frmFacturasRecibidas"
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Name = "FrmFacturasRecibidas"
         Me.Text = "frmFacturasRecibidas"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.FacturasRecibidasBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FacturasRecibidasBindingNavigator.ResumeLayout(False)
         Me.FacturasRecibidasBindingNavigator.PerformLayout()
-        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacturasRecibidasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BDContabilidadGMELO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FacturasRecibidasDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
