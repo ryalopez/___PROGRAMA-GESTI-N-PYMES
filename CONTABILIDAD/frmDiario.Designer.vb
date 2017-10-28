@@ -175,9 +175,9 @@ Partial Class FrmDiario
         Me.AsientosPanel.Controls.Add(Me.AsientosBindingNavigator)
         Me.AsientosPanel.Controls.Add(Me.AsientosDataGridView)
         Me.AsientosPanel.Location = New System.Drawing.Point(0, 0)
-        Me.AsientosPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AsientosPanel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AsientosPanel.Name = "AsientosPanel"
-        Me.AsientosPanel.Size = New System.Drawing.Size(1761, 548)
+        Me.AsientosPanel.Size = New System.Drawing.Size(1321, 445)
         Me.AsientosPanel.TabIndex = 0
         '
         'AsientosDateTimePicker
@@ -185,10 +185,9 @@ Partial Class FrmDiario
         Me.AsientosDateTimePicker.AccessibleName = ""
         Me.AsientosDateTimePicker.CalendarMonthBackground = System.Drawing.Color.LightGray
         Me.AsientosDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.AsientosDateTimePicker.Location = New System.Drawing.Point(1169, 4)
-        Me.AsientosDateTimePicker.Margin = New System.Windows.Forms.Padding(4)
+        Me.AsientosDateTimePicker.Location = New System.Drawing.Point(877, 3)
         Me.AsientosDateTimePicker.Name = "AsientosDateTimePicker"
-        Me.AsientosDateTimePicker.Size = New System.Drawing.Size(133, 22)
+        Me.AsientosDateTimePicker.Size = New System.Drawing.Size(101, 20)
         Me.AsientosDateTimePicker.TabIndex = 2
         '
         'AsientosBindingNavigator
@@ -207,7 +206,7 @@ Partial Class FrmDiario
         Me.AsientosBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.AsientosBindingNavigator.Name = "AsientosBindingNavigator"
         Me.AsientosBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.AsientosBindingNavigator.Size = New System.Drawing.Size(1045, 27)
+        Me.AsientosBindingNavigator.Size = New System.Drawing.Size(939, 27)
         Me.AsientosBindingNavigator.TabIndex = 1
         Me.AsientosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -226,7 +225,7 @@ Partial Class FrmDiario
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(48, 24)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 24)
         Me.BindingNavigatorCountItem.Text = "de {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Número total de elementos"
         '
@@ -273,7 +272,7 @@ Partial Class FrmDiario
         Me.BindingNavigatorPositionItem.AccessibleName = "Posición"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(49, 27)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(38, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posición actual"
         '
@@ -333,22 +332,23 @@ Partial Class FrmDiario
         '
         Me.Listados.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.Listados.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnListarDiario, Me.AsientosDescuadradosToolStripMenuItem})
+        Me.Listados.Image = Global.Contabilidad.My.Resources.Resources.Listar
         Me.Listados.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Listados.Name = "Listados"
-        Me.Listados.Size = New System.Drawing.Size(14, 24)
+        Me.Listados.Size = New System.Drawing.Size(33, 24)
         Me.Listados.Text = "ToolStripButton8"
         Me.Listados.ToolTipText = "Listados disponibles"
         '
         'btnListarDiario
         '
         Me.btnListarDiario.Name = "btnListarDiario"
-        Me.btnListarDiario.Size = New System.Drawing.Size(238, 26)
+        Me.btnListarDiario.Size = New System.Drawing.Size(196, 22)
         Me.btnListarDiario.Text = "Libro Diario"
         '
         'AsientosDescuadradosToolStripMenuItem
         '
         Me.AsientosDescuadradosToolStripMenuItem.Name = "AsientosDescuadradosToolStripMenuItem"
-        Me.AsientosDescuadradosToolStripMenuItem.Size = New System.Drawing.Size(238, 26)
+        Me.AsientosDescuadradosToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.AsientosDescuadradosToolStripMenuItem.Text = "Asientos Descuadrados"
         '
         'btnRenum
@@ -395,7 +395,7 @@ Partial Class FrmDiario
         '
         Me.BuscarNúmeroAsientoTextBox.BackColor = System.Drawing.Color.LightGray
         Me.BuscarNúmeroAsientoTextBox.Name = "BuscarNúmeroAsientoTextBox"
-        Me.BuscarNúmeroAsientoTextBox.Size = New System.Drawing.Size(65, 27)
+        Me.BuscarNúmeroAsientoTextBox.Size = New System.Drawing.Size(50, 27)
         '
         'ToolStripSeparator11
         '
@@ -425,7 +425,7 @@ Partial Class FrmDiario
         '
         Me.BuscarImporteAsientoTextBox.BackColor = System.Drawing.Color.LightGray
         Me.BuscarImporteAsientoTextBox.Name = "BuscarImporteAsientoTextBox"
-        Me.BuscarImporteAsientoTextBox.Size = New System.Drawing.Size(65, 27)
+        Me.BuscarImporteAsientoTextBox.Size = New System.Drawing.Size(50, 27)
         '
         'SiguienteImporteToolStripButton
         '
@@ -465,7 +465,7 @@ Partial Class FrmDiario
         '
         Me.BuscarTextoTextBox.BackColor = System.Drawing.Color.LightGray
         Me.BuscarTextoTextBox.Name = "BuscarTextoTextBox"
-        Me.BuscarTextoTextBox.Size = New System.Drawing.Size(265, 27)
+        Me.BuscarTextoTextBox.Size = New System.Drawing.Size(200, 27)
         '
         'SiguienteToolStripButton
         '
@@ -506,13 +506,13 @@ Partial Class FrmDiario
         Me.AsientosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
         Me.AsientosDataGridView.DataSource = Me.AsientosBindingSource
         Me.AsientosDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.AsientosDataGridView.Location = New System.Drawing.Point(0, 34)
-        Me.AsientosDataGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AsientosDataGridView.Location = New System.Drawing.Point(0, 27)
+        Me.AsientosDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AsientosDataGridView.Name = "AsientosDataGridView"
         Me.AsientosDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.AsientosDataGridView.RowTemplate.Height = 24
         Me.AsientosDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AsientosDataGridView.Size = New System.Drawing.Size(1761, 514)
+        Me.AsientosDataGridView.Size = New System.Drawing.Size(1321, 418)
         Me.AsientosDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn2
@@ -561,77 +561,77 @@ Partial Class FrmDiario
         Me.ContextMenuOPERACIONES.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuOPERACIONES.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem4, Me.ToolStripMenuItem3, Me.ToolStripMenuItem2, Me.ToolStripMenuItem10, Me.ToolStripMenuItem8, Me.ToolStripMenuItem11, Me.ToolStripMenuItem1, Me.ToolStripMenuItem7, Me.ToolStripMenuItem9, Me.ToolStripMenuItem6, Me.ToolStripMenuItem5})
         Me.ContextMenuOPERACIONES.Name = "ContextMenuOPERACIONES"
-        Me.ContextMenuOPERACIONES.Size = New System.Drawing.Size(221, 268)
+        Me.ContextMenuOPERACIONES.Size = New System.Drawing.Size(188, 246)
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.CheckOnClick = True
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem4.Text = "Atención clientes"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.CheckOnClick = True
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem3.Text = "Compra"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.CheckOnClick = True
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem2.Text = "Envío Postal"
         '
         'ToolStripMenuItem10
         '
         Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem10.Text = "Gastos Aparcamiento"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem8.Text = "Gastos Bancarios"
         '
         'ToolStripMenuItem11
         '
         Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem11.Text = "Gastos Combustible"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.CheckOnClick = True
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem1.Text = "Disposición Tarjeta"
         '
         'ToolStripMenuItem7
         '
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem7.Text = "Mantenimiento"
         '
         'ToolStripMenuItem9
         '
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem9.Text = "Pago talón"
         '
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem6.Text = "Préstamo ICO"
         '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.CheckOnClick = True
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(220, 24)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(187, 22)
         Me.ToolStripMenuItem5.Text = "Reparaciones"
         '
         'DataGridViewTextBoxColumn5
@@ -658,10 +658,10 @@ Partial Class FrmDiario
         '
         Me.CargosPanel.Controls.Add(Me.CargosBindingNavigator)
         Me.CargosPanel.Controls.Add(Me.CargosDataGridView)
-        Me.CargosPanel.Location = New System.Drawing.Point(0, 554)
-        Me.CargosPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CargosPanel.Location = New System.Drawing.Point(0, 450)
+        Me.CargosPanel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CargosPanel.Name = "CargosPanel"
-        Me.CargosPanel.Size = New System.Drawing.Size(867, 220)
+        Me.CargosPanel.Size = New System.Drawing.Size(650, 179)
         Me.CargosPanel.TabIndex = 1
         '
         'CargosBindingNavigator
@@ -679,7 +679,7 @@ Partial Class FrmDiario
         Me.CargosBindingNavigator.MovePreviousItem = Me.ToolStripButton5
         Me.CargosBindingNavigator.Name = "CargosBindingNavigator"
         Me.CargosBindingNavigator.PositionItem = Me.ToolStripTextBox1
-        Me.CargosBindingNavigator.Size = New System.Drawing.Size(867, 27)
+        Me.CargosBindingNavigator.Size = New System.Drawing.Size(650, 27)
         Me.CargosBindingNavigator.TabIndex = 3
         Me.CargosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -691,7 +691,7 @@ Partial Class FrmDiario
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(48, 24)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(37, 24)
         Me.ToolStripLabel1.Text = "de {0}"
         Me.ToolStripLabel1.ToolTipText = "Número total de elementos"
         '
@@ -732,7 +732,7 @@ Partial Class FrmDiario
         Me.ToolStripTextBox1.AccessibleName = "Posición"
         Me.ToolStripTextBox1.AutoSize = False
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(49, 27)
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(38, 23)
         Me.ToolStripTextBox1.Text = "0"
         Me.ToolStripTextBox1.ToolTipText = "Posición actual"
         '
@@ -789,12 +789,12 @@ Partial Class FrmDiario
         Me.CargosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn10})
         Me.CargosDataGridView.DataSource = Me.FKCargosAsientosBindingSource
         Me.CargosDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.CargosDataGridView.Location = New System.Drawing.Point(0, 30)
-        Me.CargosDataGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CargosDataGridView.Location = New System.Drawing.Point(0, 25)
+        Me.CargosDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.CargosDataGridView.Name = "CargosDataGridView"
         Me.CargosDataGridView.RowHeadersVisible = False
         Me.CargosDataGridView.RowTemplate.Height = 24
-        Me.CargosDataGridView.Size = New System.Drawing.Size(867, 190)
+        Me.CargosDataGridView.Size = New System.Drawing.Size(650, 154)
         Me.CargosDataGridView.TabIndex = 2
         '
         'DataGridViewTextBoxColumn7
@@ -847,10 +847,10 @@ Partial Class FrmDiario
         '
         Me.AbonosPanel.Controls.Add(Me.AbonosBindingNavigator)
         Me.AbonosPanel.Controls.Add(Me.AbonosDataGridView)
-        Me.AbonosPanel.Location = New System.Drawing.Point(872, 554)
-        Me.AbonosPanel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AbonosPanel.Location = New System.Drawing.Point(654, 450)
+        Me.AbonosPanel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AbonosPanel.Name = "AbonosPanel"
-        Me.AbonosPanel.Size = New System.Drawing.Size(867, 220)
+        Me.AbonosPanel.Size = New System.Drawing.Size(650, 179)
         Me.AbonosPanel.TabIndex = 2
         '
         'AbonosBindingNavigator
@@ -868,7 +868,7 @@ Partial Class FrmDiario
         Me.AbonosBindingNavigator.MovePreviousItem = Me.ToolStripButton11
         Me.AbonosBindingNavigator.Name = "AbonosBindingNavigator"
         Me.AbonosBindingNavigator.PositionItem = Me.ToolStripTextBox2
-        Me.AbonosBindingNavigator.Size = New System.Drawing.Size(867, 27)
+        Me.AbonosBindingNavigator.Size = New System.Drawing.Size(650, 27)
         Me.AbonosBindingNavigator.TabIndex = 4
         Me.AbonosBindingNavigator.Text = "BindingNavigator1"
         '
@@ -880,7 +880,7 @@ Partial Class FrmDiario
         'ToolStripLabel2
         '
         Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(48, 24)
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(37, 24)
         Me.ToolStripLabel2.Text = "de {0}"
         Me.ToolStripLabel2.ToolTipText = "Número total de elementos"
         '
@@ -921,7 +921,7 @@ Partial Class FrmDiario
         Me.ToolStripTextBox2.AccessibleName = "Posición"
         Me.ToolStripTextBox2.AutoSize = False
         Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
-        Me.ToolStripTextBox2.Size = New System.Drawing.Size(49, 27)
+        Me.ToolStripTextBox2.Size = New System.Drawing.Size(38, 23)
         Me.ToolStripTextBox2.Text = "0"
         Me.ToolStripTextBox2.ToolTipText = "Posición actual"
         '
@@ -978,12 +978,12 @@ Partial Class FrmDiario
         Me.AbonosDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn14})
         Me.AbonosDataGridView.DataSource = Me.FKAbonosAsientosBindingSource
         Me.AbonosDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.AbonosDataGridView.Location = New System.Drawing.Point(0, 30)
-        Me.AbonosDataGridView.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AbonosDataGridView.Location = New System.Drawing.Point(0, 25)
+        Me.AbonosDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AbonosDataGridView.Name = "AbonosDataGridView"
         Me.AbonosDataGridView.RowHeadersVisible = False
         Me.AbonosDataGridView.RowTemplate.Height = 24
-        Me.AbonosDataGridView.Size = New System.Drawing.Size(867, 190)
+        Me.AbonosDataGridView.Size = New System.Drawing.Size(650, 154)
         Me.AbonosDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn11
@@ -1032,12 +1032,12 @@ Partial Class FrmDiario
         Me.OpcionesAsientosContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.OpcionesAsientosContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DuplicarAsientoToolStripMenuItem})
         Me.OpcionesAsientosContextMenuStrip.Name = "OpcionesAsientosContextMenuStrip"
-        Me.OpcionesAsientosContextMenuStrip.Size = New System.Drawing.Size(278, 28)
+        Me.OpcionesAsientosContextMenuStrip.Size = New System.Drawing.Size(232, 26)
         '
         'DuplicarAsientoToolStripMenuItem
         '
         Me.DuplicarAsientoToolStripMenuItem.Name = "DuplicarAsientoToolStripMenuItem"
-        Me.DuplicarAsientoToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
+        Me.DuplicarAsientoToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.DuplicarAsientoToolStripMenuItem.Text = "Duplicar asiento seleccionado"
         '
         'AsientosTableAdapter
@@ -1125,15 +1125,15 @@ Partial Class FrmDiario
         '
         'FrmDiario
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1788, 1045)
+        Me.ClientSize = New System.Drawing.Size(1341, 849)
         Me.Controls.Add(Me.AsientosPanel)
         Me.Controls.Add(Me.CargosPanel)
         Me.Controls.Add(Me.AbonosPanel)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "FrmDiario"
         Me.Text = "frmDiario"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

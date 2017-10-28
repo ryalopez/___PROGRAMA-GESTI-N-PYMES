@@ -592,9 +592,10 @@ Public Class FrmDiario
         'With {
         '    .NombreEmpresa = My.Resources.NombreEmpresa
         '}
-        Dim Datos As New ReportDataSource()
-        Datos.Name = "Datos"
-        Datos.Value = Me.BDContabilidadMelo.Tables("Asientos")
+        Dim Datos As New ReportDataSource With {
+            .Name = "Datos",
+            .Value = Me.BDContabilidadMelo.Tables("Asientos")
+        }
 
         Dim Parámetros As ReportParameterCollection = New ReportParameterCollection
         Dim Cabecera As String = "LIBRO DIARIO"

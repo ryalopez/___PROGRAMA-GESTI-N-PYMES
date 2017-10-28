@@ -100,6 +100,8 @@
   <ItemGroup>
     <Import Include="Microsoft.SqlServer.Types" />
     <Import Include="System.Data" />
+    <Import Include="System.Data.Objects" />
+    <Import Include="System.Data.Objects.DataClasses" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
@@ -248,6 +250,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\DependencyValidation\DependencyValidation1.layerdiagram">
+      <Link>DependencyValidation1.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
+    <AdditionalFiles Include="..\DependencyValidation\DependencyValidation2.layerdiagram">
+      <Link>DependencyValidation2.layerdiagram</Link>
+      <Visible>False</Visible>
+    </AdditionalFiles>
     <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
